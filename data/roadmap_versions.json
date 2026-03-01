@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Xác định ý chính và fact cần giữ",
+          "description": "Phân tích văn bản tiếng Việt để xác định các ý chính quan trọng, sau đó tách ra thành chunks.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách chunks đã nhóm từ văn bản"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Sử dụng LLM để tóm tắt mỗi chunk dựa trên phong cách news_brief.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách bản nháp tóm tắt của từng chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Kiểm chứng các mệnh đề quan trọng bằng văn bản gốc",
+          "description": "Sử dụng verify_claim để kiểm tra xem mỗi claim trong summary có nguồn từ văn bản gốc hay không.",
+          "tool": "verify_claim",
+          "expected_output": "Báo cáo Verification với thông tin về pass/fail, evidence và confidence"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Hiệu chỉnh mạch lạc và ngắn gọn theo phong cách",
+          "description": "Sử dụng Editor để hiệu chỉnh tóm tắt trên cơ sở báo cáo Verification.",
+          "tool": "editor",
+          "expected_output": "Bản nháp cuối cùng của summary sau khi được hiệu chỉnh"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Agent này sẽ tiếp tục làm việc cho đến khi tất cả các bước đều hoàn thành và báo cáo Verification đạt yêu cầu."
+    }
+  }
+}
