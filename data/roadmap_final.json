@@ -11,26 +11,40 @@
       {
         "step_id": "step_2",
         "name": "Tóm tắt từng chunk bằng LLM",
-        "description": "Sử dụng LLM để tóm tắt mỗi chunk dựa trên phong cách news_brief.",
+        "description": "Sử dụng LLM để tóm tắt mỗi chunk dựa trên yêu cầu độ dài và phong cách.",
         "tool": "summarize_chunk",
-        "expected_output": "Danh sách bản nháp tóm tắt của từng chunk"
+        "expected_output": "Bản nháp tóm tắt của tất cả chunks"
       },
       {
         "step_id": "step_3",
-        "name": "Kiểm chứng các mệnh đề quan trọng bằng văn bản gốc",
-        "description": "Sử dụng verify_claim để kiểm tra xem mỗi claim trong summary có nguồn từ văn bản gốc hay không.",
-        "tool": "verify_claim",
-        "expected_output": "Báo cáo Verification với thông tin về pass/fail, evidence và confidence"
+        "name": "Gộp các bản tóm tắt lại thành một summary final",
+        "description": "Tổng hợp tất cả bản tóm tắt từ bước 2 để tạo ra phiên bản cuối cùng.",
+        "tool": "merge_summaries",
+        "expected_output": "Bản nháp tổng thể của văn bản"
       },
       {
         "step_id": "step_4",
-        "name": "Hiệu chỉnh mạch lạc và ngắn gọn theo phong cách",
-        "description": "Sử dụng Editor để hiệu chỉnh tóm tắt trên cơ sở báo cáo Verification.",
-        "tool": "editor",
-        "expected_output": "Bản nháp cuối cùng của summary sau khi được hiệu chỉnh"
+        "name": "Refine summary final bằng cách tinh chỉnh câu từ và mạch lạc",
+        "description": "Tối ưu hóa phiên bản cuối cùng để đảm bảo ngắn gọn, chuẩn phong cách.",
+        "tool": "refine_summary",
+        "expected_output": "Bản nháp tổng thể sau khi refinement"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng summary final bằng cách đối chiếu với văn bản gốc và xác nhận các mệnh đề quan trọng",
+        "description": "Sử dụng verify_claim để kiểm tra xem tất cả claim trong summary có nguồn từ văn bản gốc hay không.",
+        "tool": "verify_claim",
+        "expected_output": "Bản nháp tổng thể sau khi verification"
+      },
+      {
+        "step_id": "step_6",
+        "name": "Hiệu chỉnh phong cách và chuẩn hóa bằng cách sử dụng Editor Agent",
+        "description": "Sử dụng editor để đảm bảo summary final ngắn gọn, mạch lạc và có phong cách phù hợp.",
+        "tool": "editor_agent",
+        "expected_output": "Bản tóm tắt cuối cùng"
       }
     ],
-    "total_steps": 4,
-    "notes": "Agent này sẽ tiếp tục làm việc cho đến khi tất cả các bước đều hoàn thành và báo cáo Verification đạt yêu cầu."
+    "total_steps": 6,
+    "notes": "Trước khi thực hiện các bước refinement và verification cần đảm bảo văn bản gốc đã được phân tích để tránh hallucination."
   }
 }

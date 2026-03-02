@@ -55,6 +55,8 @@ Xây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt 
 - sent_tokenize: tách câu tiếng Việt
 - chunk_text: nhóm câu thành chunks
 - summarize_chunk: tóm tắt một chunk bằng LLM
+- merge_summaries: gộp nhiều bản tóm tắt lại thành một
+- refine_summary: tinh chỉnh câu từ cho bản tóm tắt gộp
 - verify_claim: kiểm chứng mệnh đề vs văn bản gốc
 {revision_block}
 

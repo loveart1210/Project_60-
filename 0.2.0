@@ -1,0 +1,44 @@
+Collecting llama-cpp-python
+  Downloading llama_cpp_python-0.3.16.tar.gz (50.7 MB)
+     ---------------------------------------- 50.7/50.7 MB 42.5 MB/s  0:00:01
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting typing-extensions>=4.5.0 (from llama-cpp-python)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting numpy>=1.20.0 (from llama-cpp-python)
+  Downloading numpy-2.2.6-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting diskcache>=5.6.1 (from llama-cpp-python)
+  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+Collecting jinja2>=2.11.3 (from llama-cpp-python)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting MarkupSafe>=2.0 (from jinja2>=2.11.3->llama-cpp-python)
+  Downloading markupsafe-3.0.3-cp310-cp310-win_amd64.whl.metadata (2.8 kB)
+Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp310-cp310-win_amd64.whl (15 kB)
+Downloading numpy-2.2.6-cp310-cp310-win_amd64.whl (12.9 MB)
+   ---------------------------------------- 12.9/12.9 MB 73.9 MB/s  0:00:00
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Building wheels for collected packages: llama-cpp-python
+  Building wheel for llama-cpp-python (pyproject.toml): started
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): still running...
+  Building wheel for llama-cpp-python (pyproject.toml): finished with status 'done'
+  Created wheel for llama-cpp-python: filename=llama_cpp_python-0.3.16-cp310-cp310-win_amd64.whl size=35764659 sha256=d51837902f9f3cd5d144e5014c4e288267982717d9aff1e3dc1bc547aa7b4a0c
+  Stored in directory: C:\Users\NguyenKien\AppData\Local\Temp\pip-ephem-wheel-cache-q2neslxi\wheels\15\ef\cc\62bb839b7bcfb604f2592a9009ef99ad878cfe39617cde3fd2
+Successfully built llama-cpp-python
+Installing collected packages: typing-extensions, numpy, MarkupSafe, diskcache, jinja2, llama-cpp-python
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.15.0
+    Uninstalling typing_extensions-4.15.0:
+      Successfully uninstalled typing_extensions-4.15.0
+
+Successfully installed MarkupSafe-3.0.3 diskcache-5.6.3 jinja2-3.1.6 llama-cpp-python-0.3.16 numpy-2.2.6 typing-extensions-4.15.0

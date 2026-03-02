@@ -3,6 +3,10 @@ Centralized configuration for the Multi-Agent Vietnamese Summarization System.
 Update MODEL paths to match your local GGUF file locations.
 """
 import os
+from dotenv import load_dotenv
+
+# Tải cấu hình từ file .env một cách an toàn
+load_dotenv()
 
 # ---------------------------------------------------------------------------
 # Project root (this file's directory)
@@ -25,8 +29,8 @@ SUMMARIZER_MODEL_FILE = "qwen2.5-3b-instruct-q8_0.gguf"
 # LLM generation parameters
 # ---------------------------------------------------------------------------
 AGENT_LLM_PARAMS = {
-    "n_ctx": 8192,           # context window
-    "n_gpu_layers": -1,      # Khôi phục về -1
+    "n_ctx": int(os.getenv("AGENT_CTX_SIZE", 8192)),           
+    "n_gpu_layers": int(os.getenv("AGENT_GPU_LAYERS", -1)),      
     "verbose": False,
     "temperature": 0.3,
     "max_tokens": 2048,
@@ -35,9 +39,9 @@ AGENT_LLM_PARAMS = {
 }
 
 SUMMARIZER_LLM_PARAMS = {
-    "n_ctx": 4096,
-    "n_gpu_layers": -1,      # Switch to e.g. 15 if you get out-of-memory errors
-    "verbose": False,
+    "n_ctx": int(os.getenv("SUMMARIZER_CTX_SIZE", 4096)),
+    "n_gpu_layers": int(os.getenv("SUMMARIZER_GPU_LAYERS", -1)),      
+    "verbose": True,
     "temperature": 0.4,
     "max_tokens": 1024,
     "top_p": 0.9,

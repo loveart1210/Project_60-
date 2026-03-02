@@ -1,5 +1,5 @@
 {
-  "session_id": "c49584da",
+  "session_id": "c1a319f6",
   "current_phase": "manager (final)",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,53 +7,17 @@
   "confidence_score": 0.0,
   "style": "news_brief",
   "input_word_count": 1562,
-  "created_at": "2026-03-02T01:25:55.627337",
+  "created_at": "2026-03-02T05:59:53.215095",
   "history": [],
   "data_store": {
     "key_points": [
       {
         "point_id": 1,
-        "content": "Xây dựng một chương trình hệ thống multi-agent cho tóm tắt tiếng Việt (lập dàn ý, sinh tóm tắt, kiểm chứng, và hiệu đính theo phong cách)",
+        "content": "Xây dựng một chương trình hệ thống multi-agent cho tóm tắt tiếng Việt (lập dàn ý, sinh tóm tắt, kiểm chứng, và hiệu đính theo phong cách) đáng tin cậy.",
         "source_sentence_ids": [
           1
         ],
         "entities": [],
-        "importance": "high"
-      },
-      {
-        "point_id": 2,
-        "content": "(A) Tiêu chuẩn độ tin cậy (Reliability Specification):",
-        "source_sentence_ids": [
-          2,
-          3,
-          4,
-          5
-        ],
-        "entities": [
-          "claim"
-        ],
-        "importance": "high"
-      },
-      {
-        "point_id": 3,
-        "content": "(B) Định nghĩa Compression Policy:",
-        "source_sentence_ids": [
-          6,
-          7
-        ],
-        "entities": [],
-        "importance": "medium"
-      },
-      {
-        "point_id": 4,
-        "content": "(C) Định nghĩa Summary Mode:",
-        "source_sentence_ids": [
-          8,
-          9
-        ],
-        "entities": [
-          "summary mode"
-        ],
         "importance": "high"
       }
     ],
@@ -83,8 +47,8 @@
           20,
           21
         ],
-        "summary": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
-        "word_count": 1
+        "summary": "{\n  \"summary\": \"Xây dựng chương trình hệ thống multi-agent tóm tắt tiếng Việt, tuân thủ tiêu chuẩn độ tin cậy và compression policy. Chu trình bao gồm xác định ý chính, sinh tóm tắt abstractive ngắn gọn, kiểm chứng các mệnh đề quan trọng bằng văn bản gốc, và hiệu chỉnh mạch lạc.\"\n}",
+        "word_count": 32
       },
       {
         "chunk_id": 2,
@@ -111,8 +75,8 @@
           41,
           42
         ],
-        "summary": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
-        "word_count": 1
+        "summary": "Agent Planner-Reflection đánh giá Coverage Score, Specificity Score và Risk of hallucination của phân tích từ Agent Planner-Observation. Sau đó đưa ra quyết định về việc sửa roadmap, bổ sung thêm vào hoặc chốt roadmap cuối cùng dựa trên kết quả này. Execution-Agent tiếp nhận văn bản gốc và thực hiện nhiệm vụ tóm tắt theo các công đoạn đã xây dựng trong roadmap.",
+        "word_count": 46
       },
       {
         "chunk_id": 3,
@@ -141,8 +105,8 @@
           64,
           65
         ],
-        "summary": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
-        "word_count": 1
+        "summary": "Planner-Observation Agent phân tích roadmap từ Planner Agent, Manager ra lệnh cho Planner-Reflection Agent đánh giá và quyết định tiếp theo. Execution Agent tóm tắt văn bản gốc sau khi được chunks, tiến trình này liên tục đến khi Planner-Reflection Agents \"chốt roadmap cuối cùng\", lúc đó Executor thực hiện công việc, Observation Agent phân tích output, Reflection Agent đưa ra quyết định tiếp theo.",
+        "word_count": 45
       },
       {
         "chunk_id": 4,
@@ -187,8 +151,8 @@
           103,
           104
         ],
-        "summary": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
-        "word_count": 1
+        "summary": "Manager nhận tín hiệu từ Execution-Reflection, triển khai vòng lặp Execution-Observation-Execution-Reflection cho đến khi Reflection quyết định dừng hoặc tiếp tục. Execution Agent thực hiện bước kế tiếp trong roadmap và vòng lặp 9-14 được tái lập cho tới khi hoàn thành toàn bộ nhiệm vụ.",
+        "word_count": 33
       },
       {
         "chunk_id": 5,
@@ -198,20 +162,23 @@
           107,
           108
         ],
-        "summary": "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
-        "word_count": 1
+        "summary": "Nên lưu History: List[Dict] để Manager nhìn lại dấu vết của agent, còn roadmap_versions.json lưu dưới dạng Key-Value cho Ablation Study.",
+        "word_count": 19
       }
-    ]
+    ],
+    "merged_summary": "Xây dựng hệ thống multi-agent tóm tắt tiếng Việt, xác định ý chính, sinh tóm tắt abstractive ngắn gọn. Agent Planner-Reflection đánh giá Coverage Score và Specificity Score, đưa ra quyết định sửa roadmap hoặc chốt cuối cùng dựa trên kết quả. Execution-Agent thực hiện nhiệm vụ theo roadmap liên tục cho đến khi Reflection Agents \"chốt roadmap\". Manager giám sát tiến trình, triển khai vòng lặp 9-14 cho tới hoàn thành.",
+    "refined_summary": "{\n  \"summary\": \"Hệ thống multi-agent được xây dựng để tóm tắt văn bản tiếng Việt. Agent Planner-Reflection đánh giá Coverage Score và Specificity Score, đưa ra quyết định sửa roadmap hoặc chốt cuối cùng dựa trên kết quả. Execution-Agent thực hiện nhiệm vụ theo roadmap liên tục cho đến khi Reflection Agents 'chốt roadmap'. Manager giám sát tiến trình, triển khai vòng lặp 9-14 cho tới hoàn thành.\"\n}",
+    "edited_summary": "{\n  \"summary\": \"Agent Execution thực hiện nhiệm vụ tóm tắt văn bản tiếng Việt dựa trên roadmap. Planner-Reflection đánh giá Coverage và Specificity Score, quyết định sửa đổi hoặc chốt roadmap. Agent này liên tục thực thi cho đến khi Reflection Agents 'chốt'. Manager giám sát tiến trình và triển khai vòng lặp 9-14.\"\n}"
   },
   "stats": {
     "planner_loop": 1,
     "planner_observation_loop": 0,
     "planner_reflection_loop": 0,
-    "execution_loop": 4,
-    "execution_observation_loop": 4,
-    "execution_reflection_loop": 4,
+    "execution_loop": 6,
+    "execution_observation_loop": 6,
+    "execution_reflection_loop": 6,
     "chunks": 0
   },
   "input_text": "### NHIỆM VỤ CƠ BẢN:\nXây dựng 1 chương trình hệ thống multi-agent cho tóm tắt tiếng Việt (lập dàn ý, sinh tóm tắt, kiểm chứng, và hiệu đính theo phong cách) đáng tin cậy.\n\n(A) Tiêu chuẩn độ tin cậy (Reliability Specification):\n(i) Không được tạo fact không xuất hiện trong source.\n(ii) Tất cả claim có trong summary phải có source span.\n(iii) Mỗi claim quan trọng phải được link tới sentence ID gốc.\n\n(B) Định nghĩa Compression Policy:\n(i) Input 600-1500từ → output 150–250 từ.\n(ii) Không quá 20% độ dài input.\n\n(C) Định nghĩa Summary Mode:\n(i) Mode = abstractive but fact-grounded.\n(ii) Cho phép paraphrase nhưng không thay đổi entity.\n\n(D) Chu trình phối hợp cơ bản của các agent:\n(i) Planner xác định ý chính và các fact cần giữ;\n(ii) Summarizer sinh tóm tắt dạng abstractive theo ràng buộc độ dài và phong cách;\n(iii) Verifier kiểm chứng các mệnh đề quan trọng bằng cách đối chiếu với văn bản gốc;\n(iv) Editor chỉnh mạch lạc, ngắn gọn và chuẩn hóa phong cách.\n\n### DEMO INPUT/OUTPUT:\nInput: một văn bản tiếng Việt (600 - 1,500 từ) + lựa chọn phong cách cho bản tóm tắt (news brief / academic abstract).\nOutput trung gian (JSON):\n(1) dàn ý các ý chính;\n(2) bản nháp tóm tắt;\n(3) báo cáo kiểm chứng (Verification): pass/fail + bằng chứng/câu nguồn;\n(4) bản tóm tắt sau hiệu chỉnh.\nOutput cuối (JSON): bản tóm tắt ngắn gọn + trace ngắn cho biết agent nào quyết định và dựa trên bằng chứng nào. Trace structure là JSON.\n\nVí dụ Verification JSON schema:\n{\n  \"claim_id\": 1,\n  \"summary\": \"...\",\n  \"status\": \"pass/fail\",\n  \"evidence\": [\n    {\n    \"sentence_id\": 12,\n    \"source_text\": \"nội dung câu thuộc sentence_id\"\n    },\n  ],\n  \"confidence\": 0.94\n}\n\n### CÁC AGENT CÓ TRONG WORKFLOW:\n1. Planner Agent: Agent đảm nhận vai trò xây dựng roadmap bao gồm chiến lược thực hiện các công việc và các bước cần làm để thực thi nhiệm vụ tóm tắt văn bản sau khi nhận văn bản tiếng Việt từ Input.\n2. Planner-Observation Agent: Agent này sẽ nhận roadmap từ Planner Agent và phân tích xem nội dung roadmap đã có gì. Để phân tích được nội dung, bắt buộc Planner-Observation Agent phải nhìn vào văn bản tiếng Việt từ Input để tránh hallucination.\n3. Planner-Reflection Agent: Agent này sẽ nhìn vào các phân tích của Planner-Observation Agent để đưa ra nhận xét về roadmap, và đưa ra quyết định xem sẽ làm gì tiếp theo (sửa roadmap / bổ sung thêm vào roadmap / làm lại roadmap / chốt roadmap cuối cùng). Planner-Reflection phải đánh giá được:\n- Coverage Score (0-1)\n- Specificity Score\n- Risk of hallucination\n- Tool utilization adequacy\n4. Execution Agent: Agent nhận văn bản gốc và đảm nhận nhiệm vụ thực thi tiến trình nhiệm vụ tóm tắt văn bản theo các công việc / nhiệm vụ đã được xây dựng trong roadmap.\n5. Execution-Observation Agent: Agent này sẽ nhận output từ Execution Agent và phân tích xem output đó đã có gì. Để phân tích được nội dung, bắt buộc Execution-Observation Agent phải nhìn vào văn bản tiếng Việt từ Input để tránh hallucination.\n6. Execution-Reflection Agent: Agent này sẽ nhìn vào các phân tích của Execution-Observation Agent để đưa ra nhận xét về output đó, và đưa ra quyết định xem sẽ làm gì tiếp theo (thực hiện lại / đi đến bước tiếp theo trong roadmap / kết thúc nhiệm vụ). Execution-Reflection phải đánh giá được:\n- Factual consistency\n- Coverage completeness\n- Redundancy score\n- Length compliance\n7. Manager Agent: Agent này sẽ quản lý tiến trình của các Agent trên. Manager Agent quản lý Trạng thái và Luồng, nó điều hướng dựa trên \"state\" được lưu trong sessions (sessions lưu lại tiến trình của chương trình kể từ lúc người dùng nhập input cho đến khi có output là một văn bản tóm tắt hoàn chỉnh).\n\n### WORKFLOW CHI TIẾT:\n1. Input: Người dùng nhập một văn bản tiếng Việt (600 - 1,500 từ) + lựa chọn phong cách cho bản tóm tắt (news brief / academic abstract). Phong cách cho bản tóm tắt sẽ do người dùng lựa chọn.\n2. Manager: Nhận tín hiệu người dùng đã nhập input, ra lệnh cho Planner làm việc. \n3. Planner: Planner Agent nhận biết input có độ dài như nào, phong cách cần tóm tắt là gì, chương trình hiện tại có tool gì, và bắt đầu xây dựng roadmap để thực thi nhiệm vụ tóm tắt văn bản.\n4. Manager: Nhận tín hiệu Planner Agent đã hoàn thành roadmap, ra lệnh cho Planner-Observation Agent làm việc.\n5. Planner-Observation: Planner-Observation Agent nhận roadmap từ Planner Agent trong roadmap_initial.json và phân tích xem nội dung roadmap đã có gì.\n6. Manager: Nhận tín hiệu Planner-Observation Agent đã hoàn thành nhiệm vụ, ra lệnh cho Planner-Reflection Agent làm việc.\n7. Planner-Reflection: Planner-Reflection Agent sẽ nhìn vào các phân tích của Planner-Observation Agent để đưa ra nhận xét về roadmap, và đưa ra quyết định xem sẽ làm gì tiếp theo (sửa roadmap / bổ sung thêm vào roadmap / làm lại roadmap / chốt roadmap cuối cùng).\n8. Manager: Nhận tín hiệu từ Planner-Reflection, triển khai vòng lặp Planner -> Planner-Observation -> Planner-Reflection nếu Planner-Reflection quyết định sửa roadmap / bổ sung thêm vào roadmap / làm lại roadmap cho tới khi nào Planner-Reflection quyết định “chốt roadmap cuối cùng” thì dừng vòng lặp. Sau khi dừng vòng lặp, Manager ra lệnh cho Execution Agent làm việc.\n9. Execution: Execution Agent nhận văn bản gốc + phong cách cho bản tóm tắt (news brief / academic abstract) được lựa chọn từ người dùng và thực thi tiến trình nhiệm vụ tóm tắt văn bản theo các công việc / nhiệm vụ đã được xây dựng trong roadmap. Execution sẽ gọi tới các tool nếu cần thiết, trong đó có công đoạn chunking (sử dụng thư viện underthesea). Sau khi đã có các chunks, Execution sẽ thực hiện tóm tắt các chunks đó (Hierarchical summarization): Chunk summary → Merge → Global refinement. Mỗi khi thực hiện xong một task trong task list của roadmap, Execution sẽ tạm nghỉ để Execution-Observation Agent phân tích xem output của task đó đã có gì.\n10. Manager: Nhận tín hiệu từ Execution Agent rằng task đó (dựa theo roadmap) đã hoàn thành, ra lệnh cho Execution-Observation Agent làm việc.\n11. Execution-Observation: Execution-Observation Agent nhận output của task đó và phân tích xem output đó đã có gì.\n12. Manager: Nhận tín hiệu Execution-Observation Agent đã hoàn thành nhiệm vụ, ra lệnh cho Execution-Reflection Agent làm việc.\n13. Execution-Reflection: Execution-Reflection Agent này sẽ nhìn vào các phân tích của Execution-Observation Agent để đưa ra nhận xét về output đó, và đưa ra quyết định xem sẽ làm gì tiếp theo (đi đến bước tiếp theo trong kế hoạch / sửa đổi kế hoạch / kết thúc nhiệm vụ).\n14. Manager: Nhận tín hiệu từ Execution -Reflection và triển khai vòng lặp Execution -> Execution-Observation -> Execution-Reflection nếu Execution-Reflection quyết định “thực hiện lại” cho tới khi nào Execution-Reflection quyết định “đi đến bước tiếp theo trong roadmap” thì dừng vòng lặp, sau đó thì Manager ra lệnh cho Execution Agent tiếp tục thực hiện bước tiếp theo trong roadmap.\n15. Execution: Execution Agent thực hiện bước tiếp theo trong roadmap, và vòng lặp từ bước 9 đến bước 14 được thực thi cho tới khi Execution đã thực hiện tới bước cuối cùng trong roadmap và Execution-Reflection Agent quyết định kết thúc nhiệm vụ.\n\n### YÊU CẦU HỆ THỐNG\nChương trình cần có bộ nhớ ngắn hạn để lưu lại các tiến trình của chương trình từ bước input cho tới bước xuất ra một bản tóm tắt hoàn chỉnh.\nChương trình cần có tối thiểu:\n- 1 file JSON để lưu tiến trình workflow sessions.\n- 1 file JSON lưu lại các phiên bản roadmap và 1 file JSON lưu final roadmap.\n- 1 file JSON lưu lại các bước đã thử để Execution không lặp lại lỗi cũ.\n- 1 file lưu output.\nĐịnh nghĩa session.json như sau:\n{\n  \"session_id\": \"...\",\n  \"current_phase\": \"planning/execution\",\n  \"iteration_count\": 2,\n  \"roadmap_version\": \"v3\",\n  \"last_decision\": \"...\",\n  \"confidence_score\": 0.87\n}\n\n### CÁC MÔ HÌNH NGÔN NGỮ LỚN (LLM) ĐƯỢC SỬ DỤNG\n1. Mô hình tóm tắt văn bản tiếng Việt: Qwen/Qwen2.5-3B-Instruct-GGUF (8-bit – Q8_0 | 3.62 GB). Link mô hình: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF. Mô hình này có 1 file .gguf (qwen2.5-3b-instruct-q8_0.gguf), phải tải file này mới có thể load được model.\n2. Mô hình sử dụng cho Manager, Planner, Observation, Reflection: Qwen/Qwen2.5-7B-Instruct-GGUF (4-bit – Q4_K_M | 4.68 GB). Link mô hình: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF. Tên file: qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf và qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf (bắt buộc phải tải đầy đủ 2 file này mới thành model hoàn chỉnh).\n\n### CÁC TOOL/THƯ VIỆN HỖ TRỢ BẮT BUỘC CHO WORKFLOW\n1. Underthesea: Cực kỳ tốt cho việc word_tokenize và chunking văn bản tiếng Việt từ 600-1500 từ.\n\n### LỜI KHUYÊN CHO \"YÊU CẦU HỆ THỐNG\" (FILE JSON):\n1. File session.json: Nên lưu theo cấu trúc History: List[Dict] để Manager có thể nhìn lại toàn bộ dấu vết (trace) của các agent trước.\n2. File roadmap_versions.json: Lưu dưới dạng Key-Value với Key là v1, v2 để bạn có thể làm phần Ablation Study (so sánh độ hiệu quả của Roadmap sau khi được Reflection sửa đổi).",
-  "last_updated": "2026-03-02T01:28:01.293787"
+  "last_updated": "2026-03-02T06:05:21.695589"
 }
