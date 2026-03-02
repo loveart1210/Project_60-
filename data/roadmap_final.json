@@ -3,48 +3,34 @@
     "tasks": [
       {
         "step_id": "step_1",
-        "name": "Xác định ý chính và fact cần giữ",
-        "description": "Phân tích văn bản tiếng Việt để xác định các ý chính quan trọng, sau đó tách ra thành chunks.",
-        "tool": "chunk_text",
-        "expected_output": "Danh sách chunks đã nhóm từ văn bản"
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua chunk_text.",
+        "tool": "word_tokenize, chunk_text",
+        "expected_output": "Danh sách các chunks tóm tắt"
       },
       {
         "step_id": "step_2",
-        "name": "Tóm tắt từng chunk bằng LLM",
-        "description": "Sử dụng LLM để tóm tắt mỗi chunk dựa trên yêu cầu độ dài và phong cách.",
+        "name": "Tạo bản tóm tắt cho từng chunk bằng LLM",
+        "description": "Đưa mỗi chunk đã được nhóm vào bước trước qua summarize_chunk để tạo ra một bản tóm tắt abstractive.",
         "tool": "summarize_chunk",
-        "expected_output": "Bản nháp tóm tắt của tất cả chunks"
+        "expected_output": "Bản tóm tắt của mỗi chunk"
       },
       {
         "step_id": "step_3",
-        "name": "Gộp các bản tóm tắt lại thành một summary final",
-        "description": "Tổng hợp tất cả bản tóm tắt từ bước 2 để tạo ra phiên bản cuối cùng.",
+        "name": "Gộp các bản tóm tắt thành một bản tổng thể",
+        "description": "Dùng merge_summaries để gộp tất cả những bản tóm tắt đã được tạo ra từ bước 2 lại với nhau.",
         "tool": "merge_summaries",
-        "expected_output": "Bản nháp tổng thể của văn bản"
+        "expected_output": "Bản tóm tắt toàn bộ văn bản"
       },
       {
         "step_id": "step_4",
-        "name": "Refine summary final bằng cách tinh chỉnh câu từ và mạch lạc",
-        "description": "Tối ưu hóa phiên bản cuối cùng để đảm bảo ngắn gọn, chuẩn phong cách.",
+        "name": "Tinh chỉnh phong cách cho tổng thể bản tóm tắt",
+        "description": "Dùng refine_summary để tinh chỉnh các câu từ trong bản tổng thể, đảm bảo phù hợp với phong cách news_brief.",
         "tool": "refine_summary",
-        "expected_output": "Bản nháp tổng thể sau khi refinement"
-      },
-      {
-        "step_id": "step_5",
-        "name": "Kiểm chứng summary final bằng cách đối chiếu với văn bản gốc và xác nhận các mệnh đề quan trọng",
-        "description": "Sử dụng verify_claim để kiểm tra xem tất cả claim trong summary có nguồn từ văn bản gốc hay không.",
-        "tool": "verify_claim",
-        "expected_output": "Bản nháp tổng thể sau khi verification"
-      },
-      {
-        "step_id": "step_6",
-        "name": "Hiệu chỉnh phong cách và chuẩn hóa bằng cách sử dụng Editor Agent",
-        "description": "Sử dụng editor để đảm bảo summary final ngắn gọn, mạch lạc và có phong cách phù hợp.",
-        "tool": "editor_agent",
-        "expected_output": "Bản tóm tắt cuối cùng"
+        "expected_output": "Bản tóm tắt final"
       }
     ],
-    "total_steps": 6,
-    "notes": "Trước khi thực hiện các bước refinement và verification cần đảm bảo văn bản gốc đã được phân tích để tránh hallucination."
+    "total_steps": 4,
+    "notes": "Đảm bảo độ dài output nằm trong khoảng từ 150 đến 250 từ, không vượt quá 20% độ dài input."
   }
 }

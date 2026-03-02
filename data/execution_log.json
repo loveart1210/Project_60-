@@ -2,37 +2,7 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "Agent: Execution Agent | Action: identify_key_points",
-    "timestamp": "2026-03-02T06:01:05.501981"
-  },
-  {
-    "step_id": "step_2",
-    "status": "completed",
-    "output_summary": "Agent: Execution Agent | Action: chunk_summarize",
-    "timestamp": "2026-03-02T06:02:13.310974"
-  },
-  {
-    "step_id": "step_3",
-    "status": "completed",
-    "output_summary": "Agent: Execution Agent | Action: merge",
-    "timestamp": "2026-03-02T06:02:51.551840"
-  },
-  {
-    "step_id": "step_4",
-    "status": "completed",
-    "output_summary": "Agent: Execution Agent | Action: refine",
-    "timestamp": "2026-03-02T06:03:38.581052"
-  },
-  {
-    "step_id": "step_5",
-    "status": "completed",
-    "output_summary": "Agent: Execution Agent | Action: chunk_summarize",
-    "timestamp": "2026-03-02T06:04:44.087028"
-  },
-  {
-    "step_id": "step_6",
-    "status": "completed",
-    "output_summary": "Agent: Execution Agent | Action: edit",
-    "timestamp": "2026-03-02T06:05:21.697589"
+    "output_summary": "chunking",
+    "timestamp": "2026-03-03T00:49:09.315989"
   }
 ]

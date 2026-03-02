@@ -41,7 +41,7 @@ AGENT_LLM_PARAMS = {
 SUMMARIZER_LLM_PARAMS = {
     "n_ctx": int(os.getenv("SUMMARIZER_CTX_SIZE", 4096)),
     "n_gpu_layers": int(os.getenv("SUMMARIZER_GPU_LAYERS", -1)),      
-    "verbose": True,
+    "verbose": False,
     "temperature": 0.4,
     "max_tokens": 1024,
     "top_p": 0.9,
