@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm những câu liên quan vào một chunk.",
+          "tool": "word_tokenize, chunk_text",
+          "expected_output": "Danh sách chuỗi của từng chunk"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt mỗi chunk bằng LLM",
+          "description": "Đưa ra tám chunks đã được nhóm và sử dụng summarization để tạo ra bản tóm tắt cho mỗi chunk.",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của từng chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một summary lớn",
+          "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary tổng thể.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt cuối cùng"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách của bản tóm tắt lớn",
+          "description": "Sử dụng refine_summary để cải thiện và làm cho văn phong phù hợp hơn với tiêu chuẩn news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng đã được refinement"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng bản summary cuối cùng vs văn bản gốc",
+          "description": "Sử dụng verify_claim để kiểm tra xem thông tin trong summary có chính xác và phù hợp với văn bản gốc hay không.",
+          "tool": "verify_claim",
+          "expected_output": "Kết quả kiểm chứng"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Bản tóm tắt cuối cùng sẽ được lưu trữ dưới dạng JSON, tối đa 20% độ dài input và trong khoảng từ 150 đến 250 từ."
+    }
+  }
+}

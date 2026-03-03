@@ -1,0 +1,41 @@
+[
+  {
+    "step_id": "step_1",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-03T02:01:23.896271"
+  },
+  {
+    "step_id": "step_2",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-03T02:02:03.952348"
+  },
+  {
+    "step_id": "step_3",
+    "status": "completed",
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-03T02:03:11.097074"
+  },
+  {
+    "step_id": "step_4",
+    "status": "failed",
+    "output_summary": "No summary available for verification.",
+    "timestamp": "2026-03-03T02:03:45.504166",
+    "error": "No summary available for verification."
+  },
+  {
+    "step_id": "step_4",
+    "status": "failed",
+    "output_summary": "No summary available for verification.",
+    "timestamp": "2026-03-03T02:03:45.505734",
+    "error": "No summary available for verification."
+  },
+  {
+    "step_id": "step_4",
+    "status": "failed",
+    "output_summary": "No summary available for verification.",
+    "timestamp": "2026-03-03T02:03:45.507242",
+    "error": "No summary available for verification."
+  }
+]

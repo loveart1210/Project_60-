@@ -1,0 +1,64 @@
+{
+  "summary": "Taste Studio của Regent Hotels & Resorts tổ chức với chủ đề 'Dáng hình của biển', giới hạn 20 khách mời mỗi tối. Sự kiện quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, từ Mr. Dripping (drip art) đến Francesco (Milan), Huân Trần (Regent Phú Quốc) và Andy Huỳnh (Oku). Regent Phú Quốc mong muốn tiếp tục kiến tạo trải nghiệm đưa nét bản địa đặc sắc lên bản đồ thế giới cho khách hàng hạng sang.",
+  "style": "news_brief",
+  "word_count": 53,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk thông qua LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng thể bản tóm tắt",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng các mệnh đề trong tổng thể bản tóm tắt so sánh với văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Taste Studio của Regent Hotels & Resorts tổ chức nhằm mang đến trải nghiệm đa giác quan qua ẩm thực và nghệ thuật, quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng. Năm nay với chủ đề 'Dáng hình của biển', giới hạn 20 khách mời mỗi tối, gồm các chương khám phá vẻ đẹp của biển thông qua drip art của Mr. Dripping và ẩm thực độc đáo từ Francesco (Milan), Huân Trần (Regent Phú Quốc) và Andy Huỳnh (Oku). Regent Phú Quốc mong muốn tiếp tục kiến tạo trải nghiệm đưa nét bản địa đặc sắc lên bản đồ thế giới cho khách hàng hạng sang.",
+    "verification": null,
+    "edited_summary": null
+  }
+}

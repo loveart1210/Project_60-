@@ -1,0 +1,38 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm thành chunks",
+        "description": "Tách văn bản gốc bằng word_tokenize để tạo ra một danh sách các câu. Sau đó, sử dụng chunk_text để nhóm các câu này thành nhiều chunks phù hợp.",
+        "tool": "word_tokenize, chunk_text"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Dùng summarize_chunk trên mỗi chunk đã được tạo ra để tóm tắt nội dung. Mỗi bản tóm tắt cần đảm bảo độ dài từ 150 đến 250 từ.",
+        "tool": "summarize_chunk"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp các bản tóm tắt lại thành một văn bản tổng thể",
+        "description": "Dùng merge_summaries để gộp tất cả những bản tóm tắt đã được tạo ra, kết hợp chúng vào một đoạn văn duy nhất.",
+        "tool": "merge_summaries"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách cho tổng thể",
+        "description": "Dùng refine_summary để tinh chỉnh các câu trong bản tổng thể, đảm bảo rằng văn phong vẫn abstractive nhưng fact-grounded.",
+        "tool": "refine_summary"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc (nếu cần)",
+        "description": "Dùng verify_claim để kiểm tra xem các đoạn tóm tắt có giữ đúng thông tin từ văn bản gốc hay không. Nếu phát hiện ra bất kỳ lỗi nào, chỉnh sửa lại.",
+        "tool": "verify_claim"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Các bước trên cần được thực hiện theo thứ tự để đảm bảo tính chính xác và độ dài của văn bản tóm tắt."
+  }
+}

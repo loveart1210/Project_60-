@@ -1,0 +1,128 @@
+{
+  "summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 (TP HCM), với ưu đãi và tour Hokkaido dịp Tết Nguyên đán. Công ty đặt mục tiêu trở thành công ty lữ hành hàng đầu toàn cầu vào năm 2030, cam kết chất lượng dịch vụ an toàn cho khách.",
+  "style": "news_brief",
+  "word_count": 34,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tách văn bản thành các chunk",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_3",
+      "evidence": "Step 3: Tóm tắt từng chunk bằng LLM (summarize_chunk)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_4",
+      "evidence": "Step 4: Gộp nhiều bản tóm tắt lại thành một (merge_summaries)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_5",
+      "evidence": "Step 5: Tinh chỉnh câu từ cho bản tóm tắt gộp (refine_summary)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_6",
+      "evidence": "Step 6: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 (TP HCM)",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 21
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "công ty đặt mục tiêu trở thành công ty lữ hành hàng đầu toàn cầu vào năm 2030",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 17
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "cam kết chất lượng dịch vụ an toàn cho khách",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 24
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 (TP HCM), với ưu đãi và tour Hokkaido dịp Tết Nguyên đán. Công ty đặt mục tiêu trở thành công ty lữ hành hàng đầu toàn cầu vào năm 2030, cam kết chất lượng dịch vụ an toàn cho khách.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 (TP HCM)",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 21
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "công ty đặt mục tiêu trở thành công ty lữ hành hàng đầu toàn cầu vào năm 2030",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 17
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "cam kết chất lượng dịch vụ an toàn cho khách",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 24
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": null
+  }
+}

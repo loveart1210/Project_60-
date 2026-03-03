@@ -1,0 +1,64 @@
+{
+  "summary": "Du khách nữ đến Camp Château, lâu đài cổ ở Quercy, Tây Nam Pháp với các hoạt động như làm nến, yoga hoặc thư giãn bên hồ bơi. Mục tiêu trại hè là mang lại trải nghiệm vui vẻ và chăm sóc sức khỏe tinh thần thể chất cho phụ nữ tự quyết định mọi thứ trong sự tôn trọng lẫn nhau. Camp Château đón khách đa dạng từ Mỹ đến Andorra với 11.000 người đăng ký mùa hè năm nay, nhưng nhiều du khách phải đợi hai thập kỷ mới được phục vụ. Philippa Girling tăng giá không vì muốn tiếp cận rộng rãi hơn mà nhằm tập trung vào tệp khách giàu có; tuy nhiên, cô cũng nhận ra rằng cần mở rộng dịch vụ để giúp phụ nữ sử dụng nó dễ dàng hơn. Camp Château tạo điều kiện cho các phụ nữ thư giãn và hồi phục sau khi quay về cuộc sống thường ngày, nhấn mạnh quyền tự quyết định của họ trong sự tôn trọng lẫn nhau.",
+  "style": "news_brief",
+  "word_count": 129,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt mỗi chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách của bản tóm tắt lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng bản summary cuối cùng vs văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Camp Château, lâu đài cổ ở vùng Quercy, Tây Nam Pháp thu hút hơn 11.000 du khách nữ mùa hè tới với các hoạt động như làm nến, yoga hoặc thư giãn bên hồ bơi. Mục tiêu trại hè là mang lại trải nghiệm vui vẻ và chăm sóc sức khỏe tinh thần thể chất cho phụ nữ tự quyết định mọi thứ trong sự tôn trọng lẫn nhau. Giá 2.178 euro bao gồm mọi chi phí. Camp Château đón khách đa dạng từ Mỹ đến Andorra, độ tuổi từ 19-70. Philippa Girling tăng giá không vì muốn tiếp cận rộng rãi hơn thay vì tập trung vào tệp khách giàu có; tuy nhiên nhiều du khách phải đợi 20 năm mới được phục vụ.",
+    "verification": null,
+    "edited_summary": null
+  }
+}

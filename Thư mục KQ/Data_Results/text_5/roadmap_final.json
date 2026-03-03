@@ -1,0 +1,26 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản gốc thành các đoạn ngắn hơn bằng sent_tokenize, sau đó nhóm chúng lại với nhau để tạo chunks phù hợp cho tóm tắt.",
+        "tool": "sent_tokenize; chunk_text"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tạo và gộp bản tóm tắt của từng chunk",
+        "description": "Dùng LLM để tóm tắt mỗi chunk, sau đó sử dụng merge_summaries để kết hợp các bản tóm tắt này thành một.",
+        "tool": "summarize_chunk; merge_summaries"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Tinh chỉnh và kiểm chứng bản tóm tắt tổng thể",
+        "description": "Refine refine_summary để tối ưu câu từ của bản tóm tắt gộp, sau đó sử dụng verify_claim để đảm bảo rằng thông tin chính đã được giữ lại.",
+        "tool": "refine_summaries; verify_claims"
+      }
+    ],
+    "total_steps": 3,
+    "notes": "Bước kiểm chứng cần thực hiện thêm nếu có yêu cầu cụ thể về độ chính xác của tóm tắt."
+  }
+}

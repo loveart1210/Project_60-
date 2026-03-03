@@ -1,0 +1,40 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm chunk",
+          "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng thành chunks thông qua chunk_text.",
+          "tool": "word_tokenize, chunk_text"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded.",
+          "tool": "summarize_chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp nhiều bản tóm tắt lại thành một",
+          "description": "Dùng merge_summaries để gộp các bản tóm tắt từ bước 2 thành một bản tổng hợp.",
+          "tool": "merge_summaries"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
+          "description": "Dùng refine_summary để tinh chỉnh các đoạn văn đã được merge thành một, đảm bảo phong cách phù hợp với news_brief.",
+          "tool": "refine_summary"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem các đoạn tóm tắt gộp có giữ đúng thông tin chính từ văn bản gốc hay không.",
+          "tool": "verify_claim"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Bước cuối cùng là xác nhận lại tổng hợp bằng cách so sánh với input original, nếu cần thì điều chỉnh phong cách và độ dài."
+    }
+  }
+}

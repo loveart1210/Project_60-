@@ -1,0 +1,54 @@
+{
+  "summary": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh, đài quan sát và bức tranh điêu khắc dài 24 m. Du khách đến TP HCM qua quốc lộ 30 hoặc phà Tấn Long thăm đảo này với giá vé 80.000 đồng, nơi người dân đã biến hàng nghìn thân gỗ lũa thành điểm tham quan yên bình.",
+  "style": "news_brief",
+  "word_count": 52,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách của summary tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh, đài quan sát và bức tranh điêu khắc dài 24 m. Du khách đến TP HCM qua quốc lộ 30 hoặc phà Tấn Long thăm đảo này với giá vé 80. 000 đồng, nơi người dân đã biến hàng nghìn thân gỗ lũa thành điểm tham quan yên bình.",
+    "verification": null,
+    "edited_summary": null
+  }
+}

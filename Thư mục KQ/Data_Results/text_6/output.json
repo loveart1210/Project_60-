@@ -1,0 +1,308 @@
+{
+  "summary": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm. Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice. Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo. Epicurious Garden giới thiệu ẩm thực Queensland đa dạng. Mount Coot-tha Botanic Gardens nằm trên núi Coot-tha, là vườn thực vật lớn của Brisbane. Vietjet cung cấp đường bay thẳng TP HCM - Brisbane với nhiều dịch vụ tiện ích và chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu.",
+  "style": "news_brief",
+  "word_count": 86,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3
+        },
+        {
+          "sentence_id": 5,
+          "source_text": "South Bank Parklands Nằm bên bờ sông Brisbane, South Bank Parklands được ví như 'ốc đảo xanh' giữa lòng thành phố sôi động, nổi bật với rừng mưa nhiệt đới và loạt hoạt động giải trí cho mọi lứa tuổi."
+        },
+        {
+          "sentence_id": 7,
+          "source_text": "Ngay cửa ngõ công viên là thảm cỏ, hàng cây rợp bóng và vườn hoa."
+        },
+        {
+          "sentence_id": 8
+        },
+        {
+          "sentence_id": 9,
+          "source_text": "Roma Street Parkland Nằm cạnh ga xe lửa Roma Street, công viên cùng tên cũng được người dân lẫn du khách gọi là 'ốc đảo xanh mát' giữa Brisbane, ghi dấu với những khu vườn và bãi cỏ rộng lớn."
+        },
+        {
+          "sentence_id": 10,
+          "source_text": "Tại đây, du khách hòa mình vào khu vườn Spectacle - nơi trồng hàng nghìn gốc violets, cẩm chướng, delphiniums và foxgloves."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 14,
+          "source_text": "Trong đó, chợ Riverside Sunday Market hút hàng nghìn du khách nhờ gian hàng thủ công, trái cây tươi và ẩm thực độc đáo."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Epicurious Garden giới thiệu ẩm thực Queensland đa dạng.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 17,
+          "source_text": "At Epicurious, du khách có thể khám phá ẩm thực bang Queensland đa dạng, nhất là rau, củ, quả, thảo mộc hữu cơ theo mùa."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Mount Coot-tha Botanic Gardens nằm trên trục đường Alice, là vườn thực vật lớn của Brisbane.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 21,
+          "source_text": "Mount Coot-tha Botanic Gardens Mở cửa đón khách từ năm 1976, Mount Coot-tha Botanic Gardens tọa lạc chân núi Coot-tha, là vườn thực vật nhiệt đới hàng đầu Brisbane, diện tích đến 56 ha."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Vietjet cung cấp đường bay thẳng TP HCM - Brisbane với nhiều dịch vụ tiện ích và chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 15,
+          "source_text": "Để khám phá thành thủ phủ bang Queensland, bạn có thể chọn đường bay thẳng từ TP HCM đến Brisbane của Vietjet, với 9 giờ trên máy bay thân rộng, thoải mái cùng loạt dịch vụ tiện ích, ưu đãi như: bảo hiểm Sky Care miễn phí, chương trình tích điểm SkyJoy, đổi quà từ hơn 250 thương hiệu lớn toàn cầu."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Hãng hàng không Việt còn áp dụng nhiều chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 18,
+          "source_text": "Hàng không Vietjet còn áp dụng nhiều chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Đông Vệ",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.85
+    }
+  ],
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm. Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice. Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo. Epicurious Garden giới thiệu ẩm thực Queensland đa dạng. Mount Coot-tha Botanic Gardens nằm trên núi Coot-tha, là vườn thực vật lớn của Brisbane. Vietjet cung cấp đường bay thẳng TP HCM - Brisbane với nhiều dịch vụ tiện ích và chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3
+          },
+          {
+            "sentence_id": 5,
+            "source_text": "South Bank Parklands Nằm bên bờ sông Brisbane, South Bank Parklands được ví như 'ốc đảo xanh' giữa lòng thành phố sôi động, nổi bật với rừng mưa nhiệt đới và loạt hoạt động giải trí cho mọi lứa tuổi."
+          },
+          {
+            "sentence_id": 7,
+            "source_text": "Ngay cửa ngõ công viên là thảm cỏ, hàng cây rợp bóng và vườn hoa."
+          },
+          {
+            "sentence_id": 8
+          },
+          {
+            "sentence_id": 9,
+            "source_text": "Roma Street Parkland Nằm cạnh ga xe lửa Roma Street, công viên cùng tên cũng được người dân lẫn du khách gọi là 'ốc đảo xanh mát' giữa Brisbane, ghi dấu với những khu vườn và bãi cỏ rộng lớn."
+          },
+          {
+            "sentence_id": 10,
+            "source_text": "Tại đây, du khách hòa mình vào khu vườn Spectacle - nơi trồng hàng nghìn gốc violets, cẩm chướng, delphiniums và foxgloves."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "Trong đó, chợ Riverside Sunday Market hút hàng nghìn du khách nhờ gian hàng thủ công, trái cây tươi và ẩm thực độc đáo."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Epicurious Garden giới thiệu ẩm thực Queensland đa dạng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 17,
+            "source_text": "At Epicurious, du khách có thể khám phá ẩm thực bang Queensland đa dạng, nhất là rau, củ, quả, thảo mộc hữu cơ theo mùa."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Mount Coot-tha Botanic Gardens nằm trên trục đường Alice, là vườn thực vật lớn của Brisbane.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 21,
+            "source_text": "Mount Coot-tha Botanic Gardens Mở cửa đón khách từ năm 1976, Mount Coot-tha Botanic Gardens tọa lạc chân núi Coot-tha, là vườn thực vật nhiệt đới hàng đầu Brisbane, diện tích đến 56 ha."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Vietjet cung cấp đường bay thẳng TP HCM - Brisbane với nhiều dịch vụ tiện ích và chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 15,
+            "source_text": "Để khám phá thành thủ phủ bang Queensland, bạn có thể chọn đường bay thẳng từ TP HCM đến Brisbane của Vietjet, với 9 giờ trên máy bay thân rộng, thoải mái cùng loạt dịch vụ tiện ích, ưu đãi như: bảo hiểm Sky Care miễn phí, chương trình tích điểm SkyJoy, đổi quà từ hơn 250 thương hiệu lớn toàn cầu."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Hãng hàng không Việt còn áp dụng nhiều chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 18,
+            "source_text": "Hàng không Vietjet còn áp dụng nhiều chương trình ưu đãi nhân dịp đón hành khách thứ 200 triệu."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Đông Vệ",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.85
+      }
+    ],
+    "edited_summary": null
+  }
+}

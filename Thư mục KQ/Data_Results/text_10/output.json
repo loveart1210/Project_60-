@@ -1,0 +1,44 @@
+{
+  "summary": "Diễn đàn năm nay là sự kiện trọng điểm do UBND tỉnh Kiên Giang phối hợp với Bộ Nông nghiệp và Phát triển nông thôn tổ chức. Công ty Cổ phần Truyền Thông Vương Hậu (TP HCM) phụ trách việc tổ chức. Chủ đề của diễn đàn là 'Liên kết cùng phát triển - Kiên Giang 2024', hướng đến tăng cường hợp tác giữa các tỉnh, thành phố trong vùng Đồng bằng sông Cửu Long với Bộ ngành Trung ương và địa phương khác trên cả nước. Diễn đàn đã thu hút hơn 35 tỉnh/thành phố đăng ký tham gia cùng gần 300 nhà đầu tư tìm hiểu cơ hội xúc tiến hợp tác kinh doanh, dự kiến sẽ có khoảng 50-100 nghìn khách tham quan và trưng bày hơn 320 gian hàng từ các tỉnh ĐBSCL và cả nước. Ngoài chương trình chính như triển lãm sản phẩm OCOP, hội thi 'Sản phẩm OCOP tiêu biểu ĐBSCL 2024', diễn đàn còn có chuỗi hoạt động khác gồm: ký kết biên bản hợp tác, ca nhạc với sự góp mặt của các nghệ sĩ nổi tiếng. Đây là sự kiện thường niên do Bộ Nông nghiệp và Phát triển nông thôn phối hợp UBND các tỉnh/thành phố vùng Đồng bằng sông Cửu Long tổ chức, vừa giúp giao lưu kinh doanh vừa tạo cơ hội cho sản phẩm OCOP vươn ra thế giới.",
+  "style": "news_brief",
+  "word_count": 155,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "split_sentences",
+      "step_id": "step_1",
+      "evidence": "Step 1: Grouping sentences into chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "generic",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refining and adjusting phrasing for clarity",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Verifying claims against original text",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": null,
+    "verification": null,
+    "edited_summary": null
+  }
+}

@@ -3,18 +3,30 @@
     "step_id": "step_1",
     "status": "completed",
     "output_summary": "chunking",
-    "timestamp": "2026-03-03T00:46:47.169006"
+    "timestamp": "2026-03-03T01:13:26.280028"
   },
   {
     "step_id": "step_2",
     "status": "completed",
     "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-03T00:47:16.142402"
+    "timestamp": "2026-03-03T01:14:22.073691"
   },
   {
     "step_id": "step_3",
     "status": "completed",
     "output_summary": "merge",
-    "timestamp": "2026-03-03T00:47:51.786761"
+    "timestamp": "2026-03-03T01:15:17.039390"
+  },
+  {
+    "step_id": "step_4",
+    "status": "completed",
+    "output_summary": "refine",
+    "timestamp": "2026-03-03T01:16:15.392874"
+  },
+  {
+    "step_id": "step_5",
+    "status": "completed",
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-03T01:17:12.163160"
   }
 ]

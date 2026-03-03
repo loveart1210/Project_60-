@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc ngữ nghĩa của từng chunk, phân chia chúng thành nhiều chunks.",
+          "tool": null,
+          "expected_output": "Một danh sách các chunks được tạo ra từ văn bản gốc"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt mỗi chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn tóm tắt nên ngắn gọn, tập trung vào ý chính của chunk.",
+          "tool": "summarize_chunk",
+          "expected_output": "Một danh sách các bản tóm tắt được tạo ra từ mỗi chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp tất cả các bản tóm tắt lại thành một bản tổng hợp",
+          "description": "Dùng merge_summaries để gộp các bản tóm tắt đã tạo. Kết quả là một bản tóm tắt toàn bộ văn bản gốc.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản tóm tắt ngắn gọn và súc tích từ văn bản nguyên"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho bản tổng hợp",
+          "description": "Dùng refine_summary để tinh chỉnh câu từ của bản tóm tắt gộp. Phải đảm bảo rằng thông tin chính vẫn được giữ nguyên và không thay đổi entity.",
+          "tool": "refine_summary",
+          "expected_output": "Một bản tóm tắt ngắn gọn, súc tích và phù hợp với phong cách news_brief"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng thông tin trong bản tổng hợp so với văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem các thông tin chính được giữ nguyên và không thay đổi entity sau khi tóm tắt.",
+          "tool": "verify_claim",
+          "expected_output": "Thông báo về việc liệu thông tin đã được giữ đúng trong quá trình tóm tắt hay chưa"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Ghi chú thêm nếu cần thiết"
+    }
+  }
+}
