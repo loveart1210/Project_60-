@@ -18,6 +18,7 @@ import json
 from typing import Any, Dict, List, Optional
 
 from agents.base_agent import BaseAgent
+from debug_logger import DebugLogger
 import vn_tools
 
 
@@ -50,33 +51,43 @@ class ExecutionAgent(BaseAgent):
         step = context["current_step"]
         step_name = step.get("name", "").lower()
         step_id = step.get("step_id", "unknown")
+        debug = DebugLogger()
 
         # 🏆 Robust Keyword Matching (Checking for primary objective first)
         summarize_keywords = ["tóm tắt", "summar", "tóm lược"]
         if any(k in step_name for k in summarize_keywords):
             if any(k in step_name for k in ["chunk", "từng đoạn", "từng phần"]):
-                return self._step_chunk_summarize(context)
+                result = self._step_chunk_summarize(context)
             elif any(k in step_name for k in ["merge", "gộp", "kết hợp", "sáp nhập"]):
-                return self._step_merge(context)
+                result = self._step_merge(context)
             elif any(k in step_name for k in ["refine", "tinh chỉnh", "hoàn thiện", "cải thiện", "refinement"]):
-                return self._step_refine(context)
+                result = self._step_refine(context)
             else:
                 # Fallback to general summarize if unsure
-                return self._step_chunk_summarize(context)
-
-        if any(k in step_name for k in ["tách câu", "sentence", "split", "phân tách"]):
-            return self._step_split_sentences(context)
+                result = self._step_chunk_summarize(context)
+        elif any(k in step_name for k in ["tách câu", "sentence", "split", "phân tách"]):
+            result = self._step_split_sentences(context)
         elif any(k in step_name for k in ["chunk", "chia đoạn", "nhóm câu", "phân đoạn"]):
-            return self._step_chunking(context)
+            result = self._step_chunking(context)
         elif any(k in step_name for k in ["verif", "kiểm chứng", "xác minh", "đối chiếu", "kiểm tra", "verification"]):
-            return self._step_verify(context)
+            result = self._step_verify(context)
         elif any(k in step_name for k in ["edit", "hiệu chỉnh", "phong cách", "chỉnh sửa", "biên tập"]):
-            return self._step_edit(context)
+            result = self._step_edit(context)
         elif any(k in step_name for k in ["xác định", "identify", "ý chính", "key point", "phân tích", "dàn ý", "outline"]):
-            return self._step_identify_key_points(context)
+            result = self._step_identify_key_points(context)
         else:
             # Generic step – ask LLM to handle it
-            return self._step_generic(context)
+            result = self._step_generic(context)
+
+        # --- Debug Logging ---
+        debug.log_step(
+            step_name=f"execution_agent.run.{step_id}",
+            agent_name=self.name,
+            phase="execution",
+            input_summary=f"step_id={step_id}, step_name='{step.get('name', '')}'",
+            output_data=result,
+        )
+        return result
 
     # ------------------------------------------------------------------
     # Step implementations

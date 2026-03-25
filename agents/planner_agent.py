@@ -86,4 +86,15 @@ Trả về JSON với cấu trúc:
 Hãy chỉ trả về JSON, không giải thích thêm."""
 
         result = self._call_llm_json(prompt)
+
+        # --- Debug Logging ---
+        from debug_logger import DebugLogger
+        debug = DebugLogger()
+        debug.log_step(
+            step_name="planner_agent.run",
+            agent_name=self.name,
+            phase="planning",
+            input_summary=f"word_count={context.get('word_count')}, style={context.get('style')}",
+            output_data=result,
+        )
         return result

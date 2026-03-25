@@ -71,4 +71,15 @@ Trả về JSON:
 Hãy chỉ trả về JSON, không giải thích thêm."""
 
         result = self._call_llm_json(prompt)
+
+        # --- Debug Logging ---
+        from debug_logger import DebugLogger
+        debug = DebugLogger()
+        debug.log_step(
+            step_name="planner_observation_agent.run",
+            agent_name=self.name,
+            phase="planning",
+            input_summary=f"roadmap_type={type(context.get('roadmap')).__name__}",
+            output_data=result,
+        )
         return result

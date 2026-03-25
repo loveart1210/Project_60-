@@ -1,7 +1,7 @@
 {
-  "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng quốc tế: 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', nổi bật với kiến trúc tự nhiên kết hợp công nghệ, bãi biển riêng tư xanh mát, hồ bơi và vườn bảo vệ môi trường.",
+  "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
   "style": "news_brief",
-  "word_count": 41,
+  "word_count": 60,
   "trace": [
     {
       "agent": "execution",
@@ -9,8 +9,8 @@
       "step_id": "step_1",
       "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
       "reflection_scores": {
-        "factual_consistency": 1.0,
-        "coverage_completeness": 1.0
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
@@ -27,382 +27,28 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành summary tổng thể",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
+      "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho đoạn tóm tắt gộp lại",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho đoạn tóm tắt gộp lại",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho đoạn tóm tắt gộp lại",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
-      "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho summary tổng thể",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     }
   ],
-  "verification_report": [
-    {
-      "claim_id": 1,
-      "claim_text": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng quốc tế: 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 1,
-          "source_text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 2,
-      "claim_text": "'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 3,
-          "source_text": "'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 3,
-      "claim_text": "'Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 4,
-          "source_text": "Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 4,
-      "claim_text": "'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 5,
-          "source_text": "Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 5,
-      "claim_text": "'Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa...'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 6,
-          "source_text": "Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa..."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 6,
-      "claim_text": "'Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 7,
-          "source_text": "Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 7,
-      "claim_text": "'Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 8,
-          "source_text": "Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 8,
-      "claim_text": "'Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 10,
-          "source_text": "Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 9,
-      "claim_text": "'Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 12,
-          "source_text": "Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đ热带, đảm bảo yếu tố riêng tư cho khách hàng."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 10,
-      "claim_text": "'Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 13,
-          "source_text": "Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 11,
-      "claim_text": "'Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 9,
-          "source_text": "Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 12,
-      "claim_text": "'Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa'",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 14,
-          "source_text": "'Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa.'"
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 13,
-      "status": "pass",
-      "evidence": [],
-      "overall_pass_rate": 1.0,
-      "hallucination_detected": false
-    }
-  ],
+  "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng quốc tế: 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', nổi bật với kiến trúc tự nhiên kết hợp công nghệ, bãi biển riêng tư xanh mát, hồ bơi và vườn bảo vệ môi trường.",
-    "verification": [
-      {
-        "claim_id": 1,
-        "claim_text": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng quốc tế: 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 1,
-            "source_text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 2,
-        "claim_text": "'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 3,
-            "source_text": "'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 3,
-        "claim_text": "'Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 4,
-            "source_text": "Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 4,
-        "claim_text": "'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 5,
-            "source_text": "Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 5,
-        "claim_text": "'Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa...'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 6,
-            "source_text": "Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa..."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 6,
-        "claim_text": "'Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 7,
-            "source_text": "Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 7,
-        "claim_text": "'Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 8,
-            "source_text": "Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 8,
-        "claim_text": "'Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 10,
-            "source_text": "Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 9,
-        "claim_text": "'Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 12,
-            "source_text": "Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đ热带, đảm bảo yếu tố riêng tư cho khách hàng."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 10,
-        "claim_text": "'Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 13,
-            "source_text": "Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 11,
-        "claim_text": "'Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 9,
-            "source_text": "Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 12,
-        "claim_text": "'Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa'",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 14,
-            "source_text": "'Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa.'"
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 13,
-        "status": "pass",
-        "evidence": [],
-        "overall_pass_rate": 1.0,
-        "hallucination_detected": false
-      }
-    ],
+    "draft_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
+    "verification": null,
     "edited_summary": null
   }
 }

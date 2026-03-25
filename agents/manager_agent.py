@@ -26,6 +26,7 @@ from agents.execution_observation_agent import ExecutionObservationAgent
 from agents.execution_reflection_agent import ExecutionReflectionAgent
 from session_manager import SessionManager
 from llm_loader import LLMManager
+from debug_logger import DebugLogger
 import vn_tools
 import config
 
@@ -62,6 +63,10 @@ class ManagerAgent(BaseAgent):
         """Run the full summarization workflow. 
         If resume=True, attempts to load state from sessions.json.
         """
+        # --- Initialize Debug Logger ---
+        debug = DebugLogger()
+        debug.reset()  # Clean slate for each run
+
         if resume and self.session.load_existing():
             sid = self.session.session["session_id"]
             print(f"\n{'='*60}")
@@ -91,38 +96,49 @@ class ManagerAgent(BaseAgent):
             "compression": compression,
         }
 
-        # Determine start phase
-        current_phase = self.session.session.get("current_phase", "planning")
+        try:
+            # Determine start phase
+            current_phase = self.session.session.get("current_phase", "planning")
 
-        # Phase 1 – Planning
-        roadmap = self.session.get_latest_roadmap()
-        if not roadmap or current_phase == "planning":
+            # Phase 1 – Planning
+            roadmap = self.session.get_latest_roadmap()
+            if not roadmap or current_phase == "planning":
+                print("\n" + "="*60)
+                print("  PHASE 1: PLANNING")
+                print("="*60)
+                # Ensure agent model is loaded for planning
+                self.llm.load_agent_model()
+                roadmap = self._run_planning_loop(base_context)
+                self.session.update_phase("execution")
+            else:
+                print(f"\n✅ Roadmap already finalized (Iteration {self.session.session.get('iteration_count')}). Skipping Planning.")
+
+            # Phase 2 – Execution
             print("\n" + "="*60)
-            print("  PHASE 1: PLANNING")
+            print("  PHASE 2: EXECUTION")
             print("="*60)
-            # Ensure agent model is loaded for planning
-            self.llm.load_agent_model()
-            roadmap = self._run_planning_loop(base_context)
-            self.session.update_phase("execution")
-        else:
-            print(f"\n✅ Roadmap already finalized (Iteration {self.session.session.get('iteration_count')}). Skipping Planning.")
 
-        # Phase 2 – Execution
-        print("\n" + "="*60)
-        print("  PHASE 2: EXECUTION")
-        print("="*60)
+            final_output = self._run_execution_loop(base_context, roadmap)
 
-        final_output = self._run_execution_loop(base_context, roadmap)
+            # Save output
+            self.session.save_output(final_output)
+            self.session.add_history("manager", "workflow_complete", "Hoàn thành toàn bộ workflow")
 
-        # Save output
-        self.session.save_output(final_output)
-        self.session.add_history("manager", "workflow_complete", "Hoàn thành toàn bộ workflow")
+            debug.log_step(
+                step_name="workflow_complete",
+                agent_name="Manager Agent",
+                phase="workflow",
+                output_data=final_output,
+            )
 
-        print("\n" + "="*60)
-        print("  WORKFLOW COMPLETE")
-        print("="*60)
+            print("\n" + "="*60)
+            print("  WORKFLOW COMPLETE")
+            print("="*60)
 
-        return final_output
+            return final_output
+        finally:
+            # Always save debug log, even on error
+            debug.save()
 
     # ==================================================================
     # Phase 1 – Planning Loop
@@ -131,6 +147,7 @@ class ManagerAgent(BaseAgent):
     def _run_planning_loop(self, base_context: Dict[str, Any]) -> Dict[str, Any]:
         revision_instructions = ""
         roadmap = None
+        debug = DebugLogger()
 
         for iteration in range(1, config.MAX_PLANNING_ITERATIONS + 1):
             version_key = f"v{iteration}"
@@ -144,6 +161,13 @@ class ManagerAgent(BaseAgent):
                 "revision_instructions": revision_instructions,
             }
             roadmap = self.planner.run(planner_ctx)
+            debug.log_step(
+                step_name=f"planning_iter{iteration}_planner",
+                agent_name="Planner Agent",
+                phase="planning",
+                input_summary=f"iteration={iteration}, revision='{revision_instructions[:100]}'",
+                output_data=roadmap,
+            )
             self.session.save_roadmap_version(version_key, roadmap)
             self.session.add_history(
                 "planner", "create_roadmap",
@@ -156,6 +180,13 @@ class ManagerAgent(BaseAgent):
             print(f"  [Planner-Observation] Analyzing roadmap ...")
             obs_ctx = {"roadmap": roadmap, "input_text": base_context["input_text"]}
             observation = self.planner_obs.run(obs_ctx)
+            debug.log_step(
+                step_name=f"planning_iter{iteration}_observation",
+                agent_name="Planner-Observation Agent",
+                phase="planning",
+                input_summary=f"roadmap_keys={list(roadmap.keys()) if isinstance(roadmap, dict) else 'not_dict'}",
+                output_data=observation,
+            )
             self.session.add_history(
                 "planner_observation", "analyze_roadmap",
                 f"Observation for {version_key} complete",
@@ -165,6 +196,13 @@ class ManagerAgent(BaseAgent):
             # Step 3: Planner-Reflection evaluates
             print(f"  [Planner-Reflection] Evaluating ...")
             ref_result = self.planner_ref.run({"observation": observation})
+            debug.log_step(
+                step_name=f"planning_iter{iteration}_reflection",
+                agent_name="Planner-Reflection Agent",
+                phase="planning",
+                input_summary=f"observation_keys={list(observation.keys()) if isinstance(observation, dict) else 'not_dict'}",
+                output_data=ref_result,
+            )
             reflection = ref_result.get("reflection", ref_result)
             decision = reflection.get("decision", "finalize")
             confidence = reflection.get("coverage_score", 0.8)
@@ -202,6 +240,7 @@ class ManagerAgent(BaseAgent):
         self, base_context: Dict[str, Any], roadmap: Dict[str, Any]
     ) -> Dict[str, Any]:
         """Execute each step in the roadmap with observation/reflection."""
+        debug = DebugLogger()
 
         tasks = self._extract_tasks(roadmap)
         total_steps = len(tasks)
@@ -247,6 +286,15 @@ class ManagerAgent(BaseAgent):
                 }
                 step_output = self.executor.run(exec_ctx)
 
+                # --- Debug Log: Execution step output ---
+                debug.log_step(
+                    step_name=f"exec_step{step_idx}_{task.get('name', 'unknown')}",
+                    agent_name="Execution Agent",
+                    phase="execution",
+                    input_summary=f"step_id={step_id}, attempt={retries+1}",
+                    output_data=step_output,
+                )
+
                 # Update accumulated state
                 self._update_state(state, step_output)
 
@@ -284,6 +332,13 @@ class ManagerAgent(BaseAgent):
                     "input_text": base_context["input_text"],
                     "style": base_context["style"],
                 })
+                debug.log_step(
+                    step_name=f"exec_step{step_idx}_observation",
+                    agent_name="Execution-Observation Agent",
+                    phase="execution",
+                    input_summary=f"step_id={step_id}, action={step_output.get('action')}",
+                    output_data=obs,
+                )
                 self.session.add_history(
                     "execution_observation", "analyze_step",
                     f"Observation for step {step_idx} complete",
@@ -297,6 +352,13 @@ class ManagerAgent(BaseAgent):
                     "current_step_idx": step_idx,
                     "total_steps": total_steps,
                 })
+                debug.log_step(
+                    step_name=f"exec_step{step_idx}_reflection",
+                    agent_name="Execution-Reflection Agent",
+                    phase="execution",
+                    input_summary=f"step_id={step_id}, step={step_idx}/{total_steps}",
+                    output_data=ref_result,
+                )
                 reflection = ref_result.get("execution_reflection", ref_result)
                 decision = reflection.get("decision", "next_step")
 

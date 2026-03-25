@@ -5,32 +5,39 @@
         "step_id": "step_1",
         "name": "Tách văn bản thành câu và nhóm thành chunks",
         "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung các câu, tạo ra 3-5 chunks phù hợp.",
-        "tool": "word_tokenize(sent_tokenize)",
-        "expected_output": "Một list chứa nhiều đoạn văn (chunks)"
+        "tool": null,
+        "expected_output": "Một danh sách gồm 3-5 chunks"
       },
       {
         "step_id": "step_2",
         "name": "Tóm tắt từng chunk bằng LLM",
-        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk vừa tạo được. Mỗi bản summary dài từ 50-100 từ.",
+        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi bản tóm tắt cần có độ dài khoảng từ 40 đến 60 từ.",
         "tool": "summarize_chunk",
-        "expected_output": "Một list chứa nhiều đoạn văn (summary)"
+        "expected_output": "Một danh sách gồm các bản tóm tắt, mỗi bản từ 40-60 từ"
       },
       {
         "step_id": "step_3",
-        "name": "Gộp các bản tóm tắt lại thành một summary tổng thể",
-        "description": "Dùng merge_summaries để gộp tất cả các bản summary vừa tạo được. Tổng số từ của summary cuối cùng nằm trong khoảng 150-250.",
+        "name": "Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
+        "description": "Dùng merge_summaries để gộp các bản tóm tắt đã tạo. Kết quả nên có độ dài khoảng 150-250 từ.",
         "tool": "merge_summaries",
-        "expected_output": "Một đoạn văn (summary tổng thể)"
+        "expected_output": "Một bản tóm tắt tổng hợp, từ 150 đến 250 từ"
       },
       {
         "step_id": "step_4",
-        "name": "Tinh chỉnh phong cách của summary tổng thể",
-        "description": "Dùng refine_summary để tinh chỉnh các từ ngữ và cấu trúc cho summary cuối cùng, đảm bảo phù hợp với style news_brief.",
+        "name": "Tinh chỉnh câu từ cho bản tổng hợp",
+        "description": "Dùng refine_summary để tinh chỉnh các đoạn văn đã tạo. Đảm bảo rằng thông tin chính không thay đổi.",
         "tool": "refine_summary",
-        "expected_output": "Một đoạn văn (summary final)"
+        "expected_output": "Một bản tóm tắt cuối cùng, khoảng 150-250 từ"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc (không cần thực hiện)",
+        "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong bản tổng hợp có đúng với văn bản gốc không. Nếu không, chỉnh sửa lại.",
+        "tool": null,
+        "expected_output": "Thông báo về việc đã hoặc chưa chỉnh sửa"
       }
     ],
-    "total_steps": 4,
-    "notes": "Hãy kiểm tra lại mệnh đề của summary final bằng verify_claim để đảm bảo không thay đổi entity và fact-grounded"
+    "total_steps": 5,
+    "notes": "Ghi chú thêm: Đảm bảo rằng mỗi bước đều được thực hiện một cách rõ ràng và chính xác."
   }
 }

@@ -1,0 +1,241 @@
+{
+  "generated_at": "2026-03-24T19:09:25.159444",
+  "total_entries": 6,
+  "none_count": 0,
+  "logs": [
+    {
+      "timestamp": "2026-03-24T19:08:39.368323",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 345 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.\",\n        \"tool\": null,\n        \"expected_output\": \"Một danh sách gồm nhiều chunks\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Một bản tóm tắt cho mỗi chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt thành một văn bản tổng thể\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Một bản tóm tắt tổng quan\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho văn bản tổng thể\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Một bản tóm tắt với phong cách news_brief\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề trong văn bản tổng thể\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-24T19:08:39.368323",
+      "step_name": "Planner Agent._call_llm",
+      "agent_name": "Planner Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 345 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.\",\n        \"tool\": null,\n        \"expected_output\": \"Một danh sách gồm nhiều chunks\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Một bản tóm tắt cho mỗi chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt thành một văn bản tổng thể\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Một bản tóm tắt tổng quan\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho văn bản tổng thể\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Một bản tóm tắt với phong cách news_brief\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề trong văn bản tổng thể\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-24T19:08:39.368323",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng ",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.",
+              "tool": null,
+              "expected_output": "Một danh sách gồm nhiều chunks"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một bản tóm tắt cho mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt thành một văn bản tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt tổng quan"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho văn bản tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.",
+              "tool": "refine_summary",
+              "expected_output": "Một bản tóm tắt với phong cách news_brief"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề trong văn bản tổng thể",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-24T19:08:39.368323",
+      "step_name": "Planner Agent._call_llm_json",
+      "agent_name": "Planner Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1761",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.",
+              "tool": null,
+              "expected_output": "Một danh sách gồm nhiều chunks"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một bản tóm tắt cho mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt thành một văn bản tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt tổng quan"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho văn bản tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.",
+              "tool": "refine_summary",
+              "expected_output": "Một bản tóm tắt với phong cách news_brief"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề trong văn bản tổng thể",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-24T19:08:39.368323",
+      "step_name": "planner_agent.run",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "word_count=345, style=news_brief",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.",
+              "tool": null,
+              "expected_output": "Một danh sách gồm nhiều chunks"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một bản tóm tắt cho mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt thành một văn bản tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt tổng quan"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho văn bản tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.",
+              "tool": "refine_summary",
+              "expected_output": "Một bản tóm tắt với phong cách news_brief"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề trong văn bản tổng thể",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-24T19:08:39.369326",
+      "step_name": "planning_iter1_planner",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "iteration=1, revision=''",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.",
+              "tool": null,
+              "expected_output": "Một danh sách gồm nhiều chunks"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một bản tóm tắt cho mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt thành một văn bản tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt tổng quan"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho văn bản tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.",
+              "tool": "refine_summary",
+              "expected_output": "Một bản tóm tắt với phong cách news_brief"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề trong văn bản tổng thể",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    }
+  ]
+}

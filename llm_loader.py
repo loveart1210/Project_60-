@@ -17,6 +17,7 @@ from llama_cpp import Llama
 from huggingface_hub import hf_hub_download
 
 import config
+from debug_logger import DebugLogger
 
 
 class LLMManager:
@@ -125,7 +126,44 @@ class LLMManager:
             stop=stop,
         )
 
-        return response["choices"][0]["message"]["content"].strip()
+        # --- Debug Logging ---
+        debug = DebugLogger()
+        raw_content = None
+        try:
+            raw_content = response["choices"][0]["message"]["content"]
+        except (KeyError, IndexError, TypeError) as e:
+            debug.log_step(
+                step_name="llm_generate_extract_content",
+                agent_name="LLMManager",
+                phase="llm_call",
+                input_summary=prompt[:200],
+                output_data=None,
+                error=f"Failed to extract content from response: {e}",
+                extra={"raw_response": str(response)[:1000]},
+            )
+            return ""
+
+        if raw_content is None:
+            debug.log_step(
+                step_name="llm_generate",
+                agent_name="LLMManager",
+                phase="llm_call",
+                input_summary=prompt[:200],
+                output_data=None,
+                error="LLM returned None content",
+                extra={"raw_response": str(response)[:1000]},
+            )
+            return ""
+
+        result = raw_content.strip()
+        debug.log_step(
+            step_name="llm_generate",
+            agent_name="LLMManager",
+            phase="llm_call",
+            input_summary=prompt[:200],
+            output_data=result,
+        )
+        return result
 
     def unload(self) -> None:
         """Public method to explicitly unload model and rest GPU."""
@@ -194,4 +232,13 @@ def parse_json_from_text(text: str) -> dict:
                     break
         candidate = text[start : end + 1]
 
-    return json.loads(candidate)
+    parsed = json.loads(candidate)
+    debug = DebugLogger()
+    debug.log_step(
+        step_name="parse_json_from_text",
+        agent_name="LLMManager",
+        phase="json_parse",
+        input_summary=text[:200],
+        output_data=parsed,
+    )
+    return parsed

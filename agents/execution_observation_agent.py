@@ -72,4 +72,15 @@ Trả về JSON:
 Hãy chỉ trả về JSON."""
 
         result = self._call_llm_json(prompt)
+
+        # --- Debug Logging ---
+        from debug_logger import DebugLogger
+        debug = DebugLogger()
+        debug.log_step(
+            step_name="execution_observation_agent.run",
+            agent_name=self.name,
+            phase="execution",
+            input_summary=f"step_id={step_output.get('step_id')}, action={step_output.get('action')}",
+            output_data=result,
+        )
         return result

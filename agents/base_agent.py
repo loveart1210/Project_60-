@@ -16,6 +16,7 @@ from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
 
 from llm_loader import LLMManager, parse_json_from_text
+from debug_logger import DebugLogger
 
 
 class BaseAgent(ABC):
@@ -49,12 +50,22 @@ class BaseAgent(ABC):
     ) -> str:
         """Send a prompt to the currently loaded LLM and return raw text."""
         sys = system_prompt or self._default_system_prompt()
-        return self.llm.generate(
+        result = self.llm.generate(
             user_prompt, 
             system_prompt=sys, 
             max_tokens=max_tokens,
             stop=stop
         )
+        # --- Debug Logging ---
+        debug = DebugLogger()
+        debug.log_step(
+            step_name=f"{self.name}._call_llm",
+            agent_name=self.name,
+            phase="agent_llm_call",
+            input_summary=user_prompt[:300],
+            output_data=result,
+        )
+        return result
 
     def _call_llm_json(
         self,
@@ -64,11 +75,28 @@ class BaseAgent(ABC):
         max_tokens: int = None,
     ) -> Dict[str, Any]:
         """Call LLM and parse the response as JSON."""
+        debug = DebugLogger()
         # Add stop sequence to prevent trailing garbage after JSON
         raw = self._call_llm(user_prompt, system_prompt=system_prompt, max_tokens=max_tokens)
         try:
-            return parse_json_from_text(raw)
-        except (json.JSONDecodeError, ValueError):
+            parsed = parse_json_from_text(raw)
+            debug.log_step(
+                step_name=f"{self.name}._call_llm_json",
+                agent_name=self.name,
+                phase="agent_json_parse",
+                input_summary=f"raw_len={len(raw) if raw else 0}",
+                output_data=parsed,
+            )
+            return parsed
+        except (json.JSONDecodeError, ValueError) as e:
+            debug.log_step(
+                step_name=f"{self.name}._call_llm_json",
+                agent_name=self.name,
+                phase="agent_json_parse",
+                input_summary=f"raw_len={len(raw) if raw else 0}",
+                output_data={"raw_response": raw, "_parse_error": True},
+                error=f"JSON parse failed: {e}",
+            )
             # Return raw text wrapped in a dict so callers can still proceed
             return {"raw_response": raw, "_parse_error": True}
 

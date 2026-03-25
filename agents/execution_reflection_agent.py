@@ -80,4 +80,15 @@ Trả về đúng định dạng JSON bên dưới (không bao gồm markdown ``
 Hãy chỉ trả về JSON."""
 
         result = self._call_llm_json(prompt)
+
+        # --- Debug Logging ---
+        from debug_logger import DebugLogger
+        debug = DebugLogger()
+        debug.log_step(
+            step_name="execution_reflection_agent.run",
+            agent_name=self.name,
+            phase="execution",
+            input_summary=f"step={context.get('current_step_idx')}/{context.get('total_steps')}",
+            output_data=result,
+        )
         return result
