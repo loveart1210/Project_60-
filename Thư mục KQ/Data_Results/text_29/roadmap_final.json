@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại với sent_tokenize để tạo chunks.",
+        "tool": null,
+        "expected_output": "Danh sách các chunks đã được tách"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Đưa mỗi chunk vào summarize_chunk để tạo ra bản tóm tắt abstractive.",
+        "tool": "summarize_chunk",
+        "expected_output": "Mỗi chunk đã được tóm tắt"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp các bản tóm tắt lại thành một văn bản tổng thể",
+        "description": "Dùng merge_summaries để gộp tất cả những bản tóm tắt từ bước 2 vào với nhau.",
+        "tool": "merge_summaries",
+        "expected_output": "Một bản tóm tắt tổng thể đã được tạo"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách cho văn bản tổng thể",
+        "description": "Dùng refine_summary để cải thiện ngữ cảnh và phong cách của bản tóm tắt.",
+        "tool": "refine_summary",
+        "expected_output": "Một bản tóm tắt đã được tinh chỉnh"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng các mệnh đề trong văn bản tổng thể với văn bản gốc",
+        "description": "Dùng verify_claim để kiểm tra xem tất cả thông tin và ý chính có đúng không so với văn bản gốc.",
+        "tool": "verify_claim",
+        "expected_output": "Kết quả xác thực của mỗi chunk đã được kiểm chứng"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Bước cuối cùng là đảm bảo rằng tất cả thông tin và ý chính đều không thay đổi khi tóm tắt, đồng thời giữ phong cách phù hợp với news_brief."
+  }
+}

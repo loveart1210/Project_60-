@@ -1,5 +1,5 @@
 {
-  "session_id": "a0f4bc97",
+  "session_id": "bf6890c8",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 427,
-  "created_at": "2026-03-24T18:19:46.992379",
+  "created_at": "2026-03-27T16:54:47.041530",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-24T18:21:04.693911",
+      "timestamp": "2026-03-27T16:55:57.901265",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-24T18:21:55.489543",
+      "timestamp": "2026-03-27T16:56:57.636850",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-24T18:22:20.569574",
+      "timestamp": "2026-03-27T16:57:25.619189",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -43,20 +43,107 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
-      "timestamp": "2026-03-24T18:22:20.589108",
+      "action": "split_sentences",
+      "timestamp": "2026-03-27T16:57:25.623927",
       "result_summary": "Step 1 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:23:06.759699",
+      "timestamp": "2026-03-27T16:58:17.627163",
       "result_summary": "Observation for step 1 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:23:27.221666",
+      "timestamp": "2026-03-27T16:58:42.130562",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Đoạn kết thúc bị thiếu và không đầy đủ nội dung, cần bổ sung.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về mặt factual consistency (9) và coverage completeness (85), nhưng độ dài compliance chưa đúng yêu cầu do đoạn cuối văn bản gốc bị cắt bớt. Do đó, bước này cần được thử lại để đảm bảo đầy đủ nội dung."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "split_sentences",
+      "timestamp": "2026-03-27T16:58:42.134563",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T16:59:31.243195",
+      "result_summary": "Observation for step 1 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T16:59:55.668958",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Đoạn kết thúc bị thiếu và không đầy đủ nội dung, cần bổ sung.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về mặt factual consistency (9) và coverage completeness (85), nhưng độ dài compliance chưa đúng yêu cầu do đoạn cuối văn bản gốc bị cắt bớt. Do đó, bước này cần được thử lại để đảm bảo đầy đủ nội dung."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "split_sentences",
+      "timestamp": "2026-03-27T16:59:55.671474",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T17:00:44.896289",
+      "result_summary": "Observation for step 1 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T17:01:09.093376",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Đoạn kết thúc bị thiếu và không đầy đủ nội dung, cần bổ sung.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về mặt factual consistency (9) và coverage completeness (85), nhưng độ dài compliance chưa đúng yêu cầu do đoạn cuối văn bản gốc bị cắt bớt. Do đó, bước này cần được thử lại để đảm bảo đầy đủ nội dung."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "timestamp": "2026-03-27T17:01:09.111933",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T17:01:53.807931",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T17:02:14.631880",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -66,113 +153,26 @@
           "length_compliance": true,
           "decision": "next_step",
           "feedback": "",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt, factual consistency và coverage completeness đều đạt tiêu chuẩn tối thiểu. Không có vấn đề cần sửa."
+          "reasoning": "Bước thực thi tách chunk đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát nội dung chính, nhưng đây không phải là bước cuối cùng nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
-      "timestamp": "2026-03-24T18:24:05.153846",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-24T18:24:50.676803",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:25:14.579452",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Chi tiết về tên bếp trưởng Francesco bị lược bỏ. Cần thêm chi tiết này vào summary.",
-          "reasoning": "Bước hiện tại cần bao quát đầy đủ hơn và giữ được tất cả các chi tiết chính, đặc biệt là tên bếp trưởng Francesco."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-24T18:25:52.693836",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-24T18:26:38.191011",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:27:01.905699",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Chi tiết về tên bếp trưởng Francesco bị lược bỏ. Cần thêm chi tiết này vào summary.",
-          "reasoning": "Bước hiện tại cần bao quát đầy đủ hơn và giữ được tất cả các chi tiết chính, đặc biệt là tên bếp trưởng Francesco."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-24T18:27:39.903726",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-24T18:28:25.432241",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:28:49.357134",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Chi tiết về tên bếp trưởng Francesco bị lược bỏ. Cần thêm chi tiết này vào summary.",
-          "reasoning": "Bước hiện tại cần bao quát đầy đủ hơn và giữ được tất cả các chi tiết chính, đặc biệt là tên bếp trưởng Francesco."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-24T18:29:11.826211",
+      "timestamp": "2026-03-27T17:02:52.058177",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:29:47.371756",
+      "timestamp": "2026-03-27T17:03:36.581505",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:30:11.526530",
+      "timestamp": "2026-03-27T17:04:00.879610",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -181,27 +181,27 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thêm chi tiết từ văn bản gốc.",
-          "reasoning": "Bước hiện tại đã hoàn thành với chất lượng tốt về độ nhất quán (factual consistency) và bao quát (coverage completeness), tuy nhiên vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau."
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát gần đầy đủ nhưng có một số thông tin cụ thể bị lược bỏ. Đây là bước cuối cùng nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-24T18:30:34.073852",
+      "timestamp": "2026-03-27T17:04:22.501158",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:31:11.853224",
+      "timestamp": "2026-03-27T17:04:59.721035",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:31:34.151482",
+      "timestamp": "2026-03-27T17:05:21.323193",
       "result_summary": "Decision: retry",
       "details": {
         "reflection": {
@@ -218,19 +218,19 @@
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-24T18:31:56.605251",
+      "timestamp": "2026-03-27T17:05:42.976953",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:32:34.521387",
+      "timestamp": "2026-03-27T17:06:20.272674",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:32:57.034208",
+      "timestamp": "2026-03-27T17:06:42.003366",
       "result_summary": "Decision: retry",
       "details": {
         "reflection": {
@@ -247,19 +247,19 @@
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-24T18:33:19.588258",
+      "timestamp": "2026-03-27T17:07:03.640692",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:33:57.541551",
+      "timestamp": "2026-03-27T17:07:40.831508",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:34:19.939963",
+      "timestamp": "2026-03-27T17:08:02.539900",
       "result_summary": "Decision: retry",
       "details": {
         "reflection": {
@@ -275,99 +275,140 @@
     },
     {
       "agent": "execution",
-      "action": "verify",
-      "timestamp": "2026-03-24T18:36:05.255025",
+      "action": "merge",
+      "timestamp": "2026-03-27T17:08:24.183033",
       "result_summary": "Step 5 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:37:05.953877",
+      "timestamp": "2026-03-27T17:09:01.088986",
       "result_summary": "Observation for step 5 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:37:31.407987",
-      "result_summary": "Decision: retry",
+      "timestamp": "2026-03-27T17:09:24.961016",
+      "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
           "length_compliance": true,
-          "decision": "retry",
-          "feedback": "'Sự kiện này hướng đến phân khúc khách hàng sang trọng.' cần được kiểm chứng thêm.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng có một số fact không đúng và sự khẳng định chưa đầy đủ. Cần thử lại để đảm bảo độ chính xác."
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì về thông tin nghệ sĩ khác.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt (factual consistency ≥ 0.8 và coverage completeness ≥ 0.7), nhưng vẫn có vấn đề nhỏ liên quan đến bao quát nội dung."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "verify",
-      "timestamp": "2026-03-24T18:39:17.711199",
-      "result_summary": "Step 5 completed"
+      "action": "edit",
+      "timestamp": "2026-03-27T17:09:44.371698",
+      "result_summary": "Step 6 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-24T18:40:18.530557",
-      "result_summary": "Observation for step 5 complete"
+      "timestamp": "2026-03-27T17:10:17.248239",
+      "result_summary": "Observation for step 6 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:40:44.016030",
-      "result_summary": "Decision: retry",
+      "timestamp": "2026-03-27T17:10:38.358967",
+      "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
           "length_compliance": true,
-          "decision": "retry",
-          "feedback": "'Sự kiện này hướng đến phân khúc khách hàng sang trọng.' cần được kiểm chứng thêm.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng có một số fact không đúng và sự khẳng định chưa đầy đủ. Cần thử lại để đảm bảo độ chính xác."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
-      "timestamp": "2026-03-24T18:42:29.438415",
-      "result_summary": "Step 5 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-24T18:43:29.862567",
-      "result_summary": "Observation for step 5 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-24T18:43:55.263073",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "'Sự kiện này hướng đến phân khúc khách hàng sang trọng.' cần được kiểm chứng thêm.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng có một số fact không đúng và sự khẳng định chưa đầy đủ. Cần thử lại để đảm bảo độ chính xác."
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đạt chất lượng tốt với độ chính xác cao và ngắn gọn, không có vấn đề nào nghiêm trọng cần sửa chữa. Đây là bước cuối cùng nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-24T18:43:55.267073",
+      "timestamp": "2026-03-27T17:10:38.364949",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
+    "sentences": [
+      {
+        "sentence_id": 1,
+        "text": "Taste Studio do thương hiệu Regent Hotels & Resorts tổ chức nhằm mang đến trải nghiệm đa giác quan qua ẩm thực và nghệ thuật."
+      },
+      {
+        "sentence_id": 2,
+        "text": "Sự kiện này quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, từ nhà thiết kế thời trang đến nhạc sĩ, kết hợp cùng các thương hiệu hàng đầu như Vietnam Airlines."
+      },
+      {
+        "sentence_id": 3,
+        "text": "Sự kiện hướng đến phân khúc khách hàng sang trọng."
+      },
+      {
+        "sentence_id": 4,
+        "text": "Mùa một và hai diễn ra lần được vào tháng 4, tháng 11 năm ngoái."
+      },
+      {
+        "sentence_id": 5,
+        "text": "Taste Studio năm nay với chủ đề 'Dáng hình của biển', giới hạn 20 khách mời mỗi tối."
+      },
+      {
+        "sentence_id": 6,
+        "text": "Các khách mời được tham gia vào chuỗi khám phá gồm 7 chương đặc sắc về vẻ đẹp của biển, qua lăng kính nghệ sĩ tài hoa Mr. Dripping - nghệ sĩ vẽ tranh bằng phương pháp nhỏ giọt (drip art)."
+      },
+      {
+        "sentence_id": 7,
+        "text": "Không gian nhà hàng, nơi diễn ra sự kiện với nội thất dùng tre, mây và tầm vông do kiến trúc sư Nguyễn Trung Nghĩa thiết kế."
+      },
+      {
+        "sentence_id": 8,
+        "text": "Ngoài hai nghệ sĩ này, Taste Studio còn có sự tham gia của bếp trưởng Francesco đến từ Milan, với 20 năm kinh nghiệm làm việc tại các khách sạn danh tiếng thế giới, đang bắt đầu hành trình mới tại Việt Nam."
+      },
+      {
+        "sentence_id": 9,
+        "text": "Ông đảm nhận vai trò cố vấn ẩm thực tại Regent Phú Quốc, mang đến trải nghiệm độc đáo cho thực khách."
+      },
+      {
+        "sentence_id": 10,
+        "text": "Bên cạnh đó, phó bếp trưởng điều hành Huân Trần tại chương trình mong muốn chinh phục các hương vị vùng miền khác nhau."
+      },
+      {
+        "sentence_id": 11,
+        "text": "Được nếm nhiều nguyên liệu địa phương và các loại gia vị đặc biệt, vị đầu bếp để lại điểm nhấn riêng trong cách giữ gìn, nâng tầm phong vị của quê hương tại Regent Phú Quốc."
+      },
+      {
+        "sentence_id": 12,
+        "text": "Chương trình có sự góp mặt của bếp trưởng nhà hàng Oku - Andy Huỳnh."
+      },
+      {
+        "sentence_id": 13,
+        "text": "Trước khi gia nhập Regent Phú Quốc, anh phát triển kỹ thuật nấu ăn Nhật Bản tại Nobu, San Diego và Nassau."
+      },
+      {
+        "sentence_id": 14,
+        "text": "Các món ăn của Andy luôn mang ý nghĩa hướng về cội nguồn."
+      },
+      {
+        "sentence_id": 15,
+        "text": "Bếp trưởng nhà hàng Ocean Club Daniel và bếp trưởng Duyến Nguyễn của khu nghỉ dưỡng này cũng tham gia, sáng tạo một số hương vị độc đáo từ nguyên liệu địa phương."
+      },
+      {
+        "sentence_id": 16,
+        "text": "Đại diện Regent Phú Quốc cho biết, thông qua Taste Studio, đơn vị mong muốn tiếp tục kiến tạo trải nghiệm đưa nét bản địa đặc sắc của Việt Nam lên bản đồ thế giới, từ đó chinh phục khách hàng hạng sang và giới chuyên gia."
+      },
+      {
+        "sentence_id": 17,
+        "text": "Thanh Thư"
+      }
+    ],
     "chunks": [
       {
         "chunk_id": 1,
@@ -420,7 +461,8 @@
         "word_count": 78
       }
     ],
-    "merged_summary": "Regent Hotels & Resorts tổ chức Taste Studio với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, giới hạn 20 khách mời mỗi tối."
+    "merged_summary": "Regent Hotels & Resorts tổ chức Taste Studio với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, giới hạn 20 khách mời mỗi tối.",
+    "edited_summary": "Regent Hotels & Resorts tổ chức Taste Studio với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, chỉ có 20 khách mời mỗi tối."
   },
   "stats": {
     "planner_loop": 0,
@@ -432,5 +474,5 @@
     "chunks": 0
   },
   "input_text": "Taste Studio do thương hiệu Regent Hotels & Resorts tổ chức nhằm mang đến trải nghiệm đa giác quan qua ẩm thực và nghệ thuật. Sự kiện này quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, từ nhà thiết kế thời trang đến nhạc sĩ, kết hợp cùng các thương hiệu hàng đầu như Vietnam Airlines. Sự kiện hướng đến phân khúc khách hàng sang trọng. Mùa một và hai diễn ra lần được vào tháng 4, tháng 11 năm ngoái. Taste Studio năm nay với chủ đề 'Dáng hình của biển', giới hạn 20 khách mời mỗi tối. Các khách mời được tham gia vào chuỗi khám phá gồm 7 chương đặc sắc về vẻ đẹp của biển, qua lăng kính nghệ sĩ tài hoa Mr. Dripping - nghệ sĩ vẽ tranh bằng phương pháp nhỏ giọt (drip art). Không gian nhà hàng, nơi diễn ra sự kiện với nội thất dùng tre, mây và tầm vông do kiến trúc sư Nguyễn Trung Nghĩa thiết kế. Ngoài hai nghệ sĩ này, Taste Studio còn có sự tham gia của bếp trưởng Francesco đến từ Milan, với 20 năm kinh nghiệm làm việc tại các khách sạn danh tiếng thế giới, đang bắt đầu hành trình mới tại Việt Nam. Ông đảm nhận vai trò cố vấn ẩm thực tại Regent Phú Quốc, mang đến trải nghiệm độc đáo cho thực khách. Bên cạnh đó, phó bếp trưởng điều hành Huân Trần tại chương trình mong muốn chinh phục các hương vị vùng miền khác nhau. Được nếm nhiều nguyên liệu địa phương và các loại gia vị đặc biệt, vị đầu bếp để lại điểm nhấn riêng trong cách giữ gìn, nâng tầm phong vị của quê hương tại Regent Phú Quốc. Chương trình có sự góp mặt của bếp trưởng nhà hàng Oku - Andy Huỳnh. Trước khi gia nhập Regent Phú Quốc, anh phát triển kỹ thuật nấu ăn Nhật Bản tại Nobu, San Diego và Nassau. Các món ăn của Andy luôn mang ý nghĩa hướng về cội nguồn. Bếp trưởng nhà hàng Ocean Club Daniel và bếp trưởng Duyến Nguyễn của khu nghỉ dưỡng này cũng tham gia, sáng tạo một số hương vị độc đáo từ nguyên liệu địa phương. Đại diện Regent Phú Quốc cho biết, thông qua Taste Studio, đơn vị mong muốn tiếp tục kiến tạo trải nghiệm đưa nét bản địa đặc sắc của Việt Nam lên bản đồ thế giới, từ đó chinh phục khách hàng hạng sang và giới chuyên gia. Thanh Thư",
-  "last_updated": "2026-03-24T18:33:19.584748"
+  "last_updated": "2026-03-27T17:09:44.369192"
 }

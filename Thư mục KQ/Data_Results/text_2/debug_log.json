@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-03-24T18:52:20.454477",
-  "total_entries": 81,
+  "generated_at": "2026-03-27T17:22:56.024203",
+  "total_entries": 111,
   "none_count": 0,
   "logs": [
     {
-      "timestamp": "2026-03-24T18:44:53.036853",
+      "timestamp": "2026-03-27T17:11:37.072157",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
@@ -15,7 +15,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:44:53.036853",
+      "timestamp": "2026-03-27T17:11:37.072157",
       "step_name": "Planner Agent._call_llm",
       "agent_name": "Planner Agent",
       "phase": "agent_llm_call",
@@ -26,7 +26,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:44:53.036853",
+      "timestamp": "2026-03-27T17:11:37.072157",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -72,7 +72,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:44:53.036853",
+      "timestamp": "2026-03-27T17:11:37.072157",
       "step_name": "Planner Agent._call_llm_json",
       "agent_name": "Planner Agent",
       "phase": "agent_json_parse",
@@ -118,7 +118,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:44:53.036853",
+      "timestamp": "2026-03-27T17:11:37.072157",
       "step_name": "planner_agent.run",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -164,7 +164,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:44:53.036853",
+      "timestamp": "2026-03-27T17:11:37.073159",
       "step_name": "planning_iter1_planner",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -210,7 +210,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:45:45.130876",
+      "timestamp": "2026-03-27T17:12:27.625591",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
@@ -221,7 +221,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:45:45.130876",
+      "timestamp": "2026-03-27T17:12:27.625591",
       "step_name": "Planner-Observation Agent._call_llm",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_llm_call",
@@ -232,7 +232,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:45:45.130876",
+      "timestamp": "2026-03-27T17:12:27.625591",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -261,7 +261,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:45:45.130876",
+      "timestamp": "2026-03-27T17:12:27.625591",
       "step_name": "Planner-Observation Agent._call_llm_json",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_json_parse",
@@ -290,7 +290,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:45:45.130876",
+      "timestamp": "2026-03-27T17:12:27.625591",
       "step_name": "planner_observation_agent.run",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
@@ -319,7 +319,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:45:45.130876",
+      "timestamp": "2026-03-27T17:12:27.625591",
       "step_name": "planning_iter1_observation",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
@@ -348,7 +348,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.209082",
+      "timestamp": "2026-03-27T17:12:51.893298",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
@@ -359,7 +359,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.209082",
+      "timestamp": "2026-03-27T17:12:51.894306",
       "step_name": "Planner-Reflection Agent._call_llm",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_llm_call",
@@ -370,7 +370,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.209082",
+      "timestamp": "2026-03-27T17:12:51.894306",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -391,7 +391,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.209082",
+      "timestamp": "2026-03-27T17:12:51.894306",
       "step_name": "Planner-Reflection Agent._call_llm_json",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_json_parse",
@@ -412,7 +412,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.209082",
+      "timestamp": "2026-03-27T17:12:51.894306",
       "step_name": "planner_reflection_agent.run",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -433,7 +433,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.209082",
+      "timestamp": "2026-03-27T17:12:51.894306",
       "step_name": "planning_iter1_reflection",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -454,39 +454,77 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.226699",
+      "timestamp": "2026-03-27T17:12:51.896816",
       "step_name": "execution_agent.run.step_1",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm chunk'",
       "output_data": {
         "step_id": "step_1",
-        "action": "chunking",
-        "chunks": [
+        "action": "split_sentences",
+        "sentences": [
           {
-            "chunk_id": 1,
-            "sentence_ids": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ],
-            "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác. 'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ. Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình. Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái. Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa... Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất. Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại. Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên. Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh. Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng. Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững. Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng. Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa. Á Hiên",
-            "word_count": 283
+            "sentence_id": 1,
+            "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác."
+          },
+          {
+            "sentence_id": 3,
+            "text": "'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái."
+          },
+          {
+            "sentence_id": 6,
+            "text": "Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa..."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên."
+          },
+          {
+            "sentence_id": 10,
+            "text": "Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững."
+          },
+          {
+            "sentence_id": 13,
+            "text": "Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa."
+          },
+          {
+            "sentence_id": 15,
+            "text": "Á Hiên"
           }
         ],
-        "chunk_count": 1,
+        "sentence_count": 15,
         "status": "completed"
       },
       "output_type": "dict",
@@ -494,39 +532,77 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:10.226699",
+      "timestamp": "2026-03-27T17:12:51.896816",
       "step_name": "exec_step1_Tách văn bản thành câu và nhóm chunk",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_1, attempt=1",
       "output_data": {
         "step_id": "step_1",
-        "action": "chunking",
-        "chunks": [
+        "action": "split_sentences",
+        "sentences": [
           {
-            "chunk_id": 1,
-            "sentence_ids": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ],
-            "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác. 'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ. Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình. Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái. Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa... Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất. Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại. Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên. Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh. Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng. Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững. Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng. Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa. Á Hiên",
-            "word_count": 283
+            "sentence_id": 1,
+            "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác."
+          },
+          {
+            "sentence_id": 3,
+            "text": "'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái."
+          },
+          {
+            "sentence_id": 6,
+            "text": "Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa..."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên."
+          },
+          {
+            "sentence_id": 10,
+            "text": "Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững."
+          },
+          {
+            "sentence_id": 13,
+            "text": "Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa."
+          },
+          {
+            "sentence_id": 15,
+            "text": "Á Hiên"
           }
         ],
-        "chunk_count": 1,
+        "sentence_count": 15,
         "status": "completed"
       },
       "output_type": "dict",
@@ -534,135 +610,93 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:56.863624",
+      "timestamp": "2026-03-27T17:13:52.647490",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n     ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, tóm tắt rõ ràng và chính xác theo yêu cầu news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi chunking hoàn thành đúng cách. Tóm tắt giữ nguyên nội dung gốc với sự sắp xếp hợp lý.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" có trong văn bản gốc. Khả năng tóm tắt bỏ qua hoặc lược đi phần này.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" được tóm tắt chính xác. Tuy nhiên, một số chi tiết về thiết kế và tiện ích của Amiana Resort Nha Trang không thể hiện rõ trong đoạn văn bản ngắn.\",\n    \"issues_found\": [\"Chi tiết về việc bảo vệ môi trường chưa hiển thị\"],\n    \"summary\": \"Bước thực thi tách câu đã hoàn thành đầy đủ. Tóm tắt chính xác các thông tin cơ bản nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:56.864623",
+      "timestamp": "2026-03-27T17:13:52.647490",
       "step_name": "Execution-Observation Agent._call_llm",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,\n        7,\n    ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, tóm tắt rõ ràng và chính xác theo yêu cầu news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi chunking hoàn thành đúng cách. Tóm tắt giữ nguyên nội dung gốc với sự sắp xếp hợp lý.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" có trong văn bản gốc. Khả năng tóm tắt bỏ qua hoặc lược đi phần này.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" được tóm tắt chính xác. Tuy nhiên, một số chi tiết về thiết kế và tiện ích của Amiana Resort Nha Trang không thể hiện rõ trong đoạn văn bản ngắn.\",\n    \"issues_found\": [\"Chi tiết về việc bảo vệ môi trường chưa hiển thị\"],\n    \"summary\": \"Bước thực thi tách câu đã hoàn thành đầy đủ. Tóm tắt chính xác các thông tin cơ bản nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:56.864623",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.\",",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt rõ ràng và chính xác theo yêu cầu news_brief.",
-          "issues_found": [],
-          "summary": "Bước thực thi chunking hoàn thành đúng cách. Tóm tắt giữ nguyên nội dung gốc với sự sắp xếp hợp lý."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:46:56.864623",
+      "timestamp": "2026-03-27T17:13:52.647490",
       "step_name": "Execution-Observation Agent._call_llm_json",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=498",
+      "input_summary": "raw_len=1159",
       "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt rõ ràng và chính xác theo yêu cầu news_brief.",
-          "issues_found": [],
-          "summary": "Bước thực thi chunking hoàn thành đúng cách. Tóm tắt giữ nguyên nội dung gốc với sự sắp xếp hợp lý."
-        }
+        "raw_response": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" có trong văn bản gốc. Khả năng tóm tắt bỏ qua hoặc lược đi phần này.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" được tóm tắt chính xác. Tuy nhiên, một số chi tiết về thiết kế và tiện ích của Amiana Resort Nha Trang không thể hiện rõ trong đoạn văn bản ngắn.\",\n    \"issues_found\": [\"Chi tiết về việc bảo vệ môi trường chưa hiển thị\"],\n    \"summary\": \"Bước thực thi tách câu đã hoàn thành đầy đủ. Tóm tắt chính xác các thông tin cơ bản nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày.\"\n  }\n}\n```",
+        "_parse_error": true
       },
       "output_type": "dict",
       "is_none": false,
-      "error": null
+      "error": "JSON parse failed: Expecting ',' delimiter: line 5 column 259 (char 347)"
     },
     {
-      "timestamp": "2026-03-24T18:46:56.864623",
+      "timestamp": "2026-03-27T17:13:52.647490",
       "step_name": "execution_observation_agent.run",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=chunking",
+      "input_summary": "step_id=step_1, action=split_sentences",
       "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt rõ ràng và chính xác theo yêu cầu news_brief.",
-          "issues_found": [],
-          "summary": "Bước thực thi chunking hoàn thành đúng cách. Tóm tắt giữ nguyên nội dung gốc với sự sắp xếp hợp lý."
-        }
+        "raw_response": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" có trong văn bản gốc. Khả năng tóm tắt bỏ qua hoặc lược đi phần này.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" được tóm tắt chính xác. Tuy nhiên, một số chi tiết về thiết kế và tiện ích của Amiana Resort Nha Trang không thể hiện rõ trong đoạn văn bản ngắn.\",\n    \"issues_found\": [\"Chi tiết về việc bảo vệ môi trường chưa hiển thị\"],\n    \"summary\": \"Bước thực thi tách câu đã hoàn thành đầy đủ. Tóm tắt chính xác các thông tin cơ bản nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày.\"\n  }\n}\n```",
+        "_parse_error": true
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:46:56.864623",
+      "timestamp": "2026-03-27T17:13:52.647490",
       "step_name": "exec_step1_observation",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=chunking",
+      "input_summary": "step_id=step_1, action=split_sentences",
       "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung của đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt rõ ràng và chính xác theo yêu cầu news_brief.",
-          "issues_found": [],
-          "summary": "Bước thực thi chunking hoàn thành đúng cách. Tóm tắt giữ nguyên nội dung gốc với sự sắp xếp hợp lý."
-        }
+        "raw_response": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" có trong văn bản gốc. Khả năng tóm tắt bỏ qua hoặc lược đi phần này.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ.\" được tóm tắt chính xác. Tuy nhiên, một số chi tiết về thiết kế và tiện ích của Amiana Resort Nha Trang không thể hiện rõ trong đoạn văn bản ngắn.\",\n    \"issues_found\": [\"Chi tiết về việc bảo vệ môi trường chưa hiển thị\"],\n    \"summary\": \"Bước thực thi tách câu đã hoàn thành đầy đủ. Tóm tắt chính xác các thông tin cơ bản nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày.\"\n  }\n}\n```",
+        "_parse_error": true
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:18.175454",
+      "timestamp": "2026-03-27T17:14:19.937208",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi chunking đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong tổng số 4 bước.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"execution_observation\\",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"'Chi tiết về việc bảo vệ môi trường chưa hiển thị'\",\n    \"reasoning\": \"Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:18.175454",
+      "timestamp": "2026-03-27T17:14:19.937208",
       "step_name": "Execution-Reflection Agent._call_llm",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt c",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi chunking đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong tổng số 4 bước.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"execution_observation\\\": {\\n    \\\"step_id\\\": \\\"step_1\\\",\\n    \\\"action\\\": \\\"split_sentences\\\",\\n    \\\"factual_accuracy\\\": ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"'Chi tiết về việc bảo vệ môi trường chưa hiển thị'\",\n    \"reasoning\": \"Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:18.175454",
+      "timestamp": "2026-03-27T17:14:19.937208",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -674,8 +708,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi chunking đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong tổng số 4 bước."
+          "feedback": "'Chi tiết về việc bảo vệ môi trường chưa hiển thị'",
+          "reasoning": "Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau."
         }
       },
       "output_type": "dict",
@@ -683,11 +717,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:18.175454",
+      "timestamp": "2026-03-27T17:14:19.937208",
       "step_name": "Execution-Reflection Agent._call_llm_json",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=395",
+      "input_summary": "raw_len=515",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -695,8 +729,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi chunking đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong tổng số 4 bước."
+          "feedback": "'Chi tiết về việc bảo vệ môi trường chưa hiển thị'",
+          "reasoning": "Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau."
         }
       },
       "output_type": "dict",
@@ -704,11 +738,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:18.175454",
+      "timestamp": "2026-03-27T17:14:19.937208",
       "step_name": "execution_reflection_agent.run",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step=1/4",
+      "input_summary": "step=1/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -716,8 +750,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi chunking đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong tổng số 4 bước."
+          "feedback": "'Chi tiết về việc bảo vệ môi trường chưa hiển thị'",
+          "reasoning": "Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau."
         }
       },
       "output_type": "dict",
@@ -725,11 +759,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:18.175454",
+      "timestamp": "2026-03-27T17:14:19.937208",
       "step_name": "exec_step1_reflection",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, step=1/4",
+      "input_summary": "step_id=step_1, step=1/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -737,8 +771,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi chunking đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong tổng số 4 bước."
+          "feedback": "'Chi tiết về việc bảo vệ môi trường chưa hiển thị'",
+          "reasoning": "Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau."
         }
       },
       "output_type": "dict",
@@ -746,7 +780,307 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:55.365713",
+      "timestamp": "2026-03-27T17:14:19.966852",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunking",
+        "chunks": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác. 'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ. Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình. Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái. Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa... Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất. Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại. Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên. Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh. Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng. Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững. Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng. Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa. Á Hiên",
+            "word_count": 283
+          }
+        ],
+        "chunk_count": 1,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:14:19.966852",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunking",
+        "chunks": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác. 'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ. Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình. Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái. Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa... Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất. Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại. Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên. Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh. Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng. Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững. Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng. Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa. Á Hiên",
+            "word_count": 283
+          }
+        ],
+        "chunk_count": 1,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:09.000358",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n     ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có trong đoạn văn.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, tách từng câu thành chunk và tổng hợp lại một cách logic nhưng thiếu chi tiết về số liệu cụ thể như 'hàng nghìn du khách' hoặc 'năm thứ tư liên tiếp'. Tóm tắt ngắn gọn phù hợp với yêu cầu.\",\n    \"issues_found\": [\"Thiếu thông tin số liệu cụ thể\"],\n    \"summary\": \"Output tách từng câu thành chunk và tổng hợp lại một cách logic, đạt chất lượng tốt nhưng thiếu chi tiết về số liệu cụ thể.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:09.000358",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,\n        7,\n    ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có trong đoạn văn.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, tách từng câu thành chunk và tổng hợp lại một cách logic nhưng thiếu chi tiết về số liệu cụ thể như 'hàng nghìn du khách' hoặc 'năm thứ tư liên tiếp'. Tóm tắt ngắn gọn phù hợp với yêu cầu.\",\n    \"issues_found\": [\"Thiếu thông tin số liệu cụ thể\"],\n    \"summary\": \"Output tách từng câu thành chunk và tổng hợp lại một cách logic, đạt chất lượng tốt nhưng thiếu chi tiết về số liệu cụ thể.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:09.000358",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có tron",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có trong đoạn văn.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, tách từng câu thành chunk và tổng hợp lại một cách logic nhưng thiếu chi tiết về số liệu cụ thể như 'hàng nghìn du khách' hoặc 'năm thứ tư liên tiếp'. Tóm tắt ngắn gọn phù hợp với yêu cầu.",
+          "issues_found": [
+            "Thiếu thông tin số liệu cụ thể"
+          ],
+          "summary": "Output tách từng câu thành chunk và tổng hợp lại một cách logic, đạt chất lượng tốt nhưng thiếu chi tiết về số liệu cụ thể."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:09.000358",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=702",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có trong đoạn văn.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, tách từng câu thành chunk và tổng hợp lại một cách logic nhưng thiếu chi tiết về số liệu cụ thể như 'hàng nghìn du khách' hoặc 'năm thứ tư liên tiếp'. Tóm tắt ngắn gọn phù hợp với yêu cầu.",
+          "issues_found": [
+            "Thiếu thông tin số liệu cụ thể"
+          ],
+          "summary": "Output tách từng câu thành chunk và tổng hợp lại một cách logic, đạt chất lượng tốt nhưng thiếu chi tiết về số liệu cụ thể."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:09.000358",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, action=chunking",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có trong đoạn văn.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, tách từng câu thành chunk và tổng hợp lại một cách logic nhưng thiếu chi tiết về số liệu cụ thể như 'hàng nghìn du khách' hoặc 'năm thứ tư liên tiếp'. Tóm tắt ngắn gọn phù hợp với yêu cầu.",
+          "issues_found": [
+            "Thiếu thông tin số liệu cụ thể"
+          ],
+          "summary": "Output tách từng câu thành chunk và tổng hợp lại một cách logic, đạt chất lượng tốt nhưng thiếu chi tiết về số liệu cụ thể."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:09.000358",
+      "step_name": "exec_step2_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, action=chunking",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác các thông tin đã có trong đoạn văn.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, tách từng câu thành chunk và tổng hợp lại một cách logic nhưng thiếu chi tiết về số liệu cụ thể như 'hàng nghìn du khách' hoặc 'năm thứ tư liên tiếp'. Tóm tắt ngắn gọn phù hợp với yêu cầu.",
+          "issues_found": [
+            "Thiếu thông tin số liệu cụ thể"
+          ],
+          "summary": "Output tách từng câu thành chunk và tổng hợp lại một cách logic, đạt chất lượng tốt nhưng thiếu chi tiết về số liệu cụ thể."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:30.929230",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:30.929230",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt c",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:30.929230",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:30.929230",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=401",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:30.929230",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=2/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:15:30.929230",
+      "step_name": "exec_step2_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step=2/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:16:06.887829",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
@@ -757,7 +1091,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:55.365713",
+      "timestamp": "2026-03-27T17:16:06.887829",
       "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
       "phase": "agent_llm_call",
@@ -768,330 +1102,39 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:47:55.371724",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "chunk_summaries": [
-          {
-            "chunk_id": 1,
-            "sentence_ids": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ],
-            "summary": "Amiana Resort Nha Trang tiếp tục giành giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Resort nổi bật với phong cách hòa hợp giữa truyền thống và hiện đại, tạo không gian thư giãn và sang trọng nhưng gần gũi thiên nhiên. Biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Amiana cũng chú trọng bảo vệ môi trường bằng các giải pháp bền vững như bố trí hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng.",
-            "word_count": 76
-          }
-        ],
-        "total_chunks": 1,
-        "status": "completed"
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:47:55.371724",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=1",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "chunk_summaries": [
-          {
-            "chunk_id": 1,
-            "sentence_ids": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ],
-            "summary": "Amiana Resort Nha Trang tiếp tục giành giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Resort nổi bật với phong cách hòa hợp giữa truyền thống và hiện đại, tạo không gian thư giãn và sang trọng nhưng gần gũi thiên nhiên. Biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Amiana cũng chú trọng bảo vệ môi trường bằng các giải pháp bền vững như bố trí hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng.",
-            "word_count": 76
-          }
-        ],
-        "total_chunks": 1,
-        "status": "completed"
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:35.603133",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.\",\n    \"issues_found\": [],\n    \"summary\": \"Chunk Summarize hoàn thành tóm tắt một phần của đoạn văn, tập trung vào giải thưởng và đặc điểm nổi bật của Amiana Resort Nha Trang.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:35.603133",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.\",\n    \"issues_found\": [],\n    \"summary\": \"Chunk Summarize hoàn thành tóm tắt một phần của đoạn văn, tập trung vào giải thưởng và đặc điểm nổi bật của Amiana Resort Nha Trang.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:35.603133",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
-          "issues_found": [],
-          "summary": "Chunk Summarize hoàn thành tóm tắt một phần của đoạn văn, tập trung vào giải thưởng và đặc điểm nổi bật của Amiana Resort Nha Trang."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:35.603133",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=607",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
-          "issues_found": [],
-          "summary": "Chunk Summarize hoàn thành tóm tắt một phần của đoạn văn, tập trung vào giải thưởng và đặc điểm nổi bật của Amiana Resort Nha Trang."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:35.603133",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, action=chunk_summarize",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
-          "issues_found": [],
-          "summary": "Chunk Summarize hoàn thành tóm tắt một phần của đoạn văn, tập trung vào giải thưởng và đặc điểm nổi bật của Amiana Resort Nha Trang."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:35.603133",
-      "step_name": "exec_step2_observation",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, action=chunk_summarize",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
-          "issues_found": [],
-          "summary": "Chunk Summarize hoàn thành tóm tắt một phần của đoạn văn, tập trung vào giải thưởng và đặc điểm nổi bật của Amiana Resort Nha Trang."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:56.969669",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Giải thích ngắn gọn. Nếu retry, cần đảm bảo rằng summary chứa tất cả các fact quan trọng từ văn bản gốc và không có sự trùng lặp.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:56.969669",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong vă",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Giải thích ngắn gọn. Nếu retry, cần đảm bảo rằng summary chứa tất cả các fact quan trọng từ văn bản gốc và không có sự trùng lặp.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:56.969669",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Giải thích ngắn gọn. Nếu retry, cần đảm bảo rằng summary chứa tất cả các fact quan trọng từ văn bản gốc và không có sự trùng lặp."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:56.969669",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=372",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Giải thích ngắn gọn. Nếu retry, cần đảm bảo rằng summary chứa tất cả các fact quan trọng từ văn bản gốc và không có sự trùng lặp."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:56.969669",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step=2/4",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Giải thích ngắn gọn. Nếu retry, cần đảm bảo rằng summary chứa tất cả các fact quan trọng từ văn bản gốc và không có sự trùng lặp."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:48:56.969669",
-      "step_name": "exec_step2_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step=2/4",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Giải thích ngắn gọn. Nếu retry, cần đảm bảo rằng summary chứa tất cả các fact quan trọng từ văn bản gốc và không có sự trùng lặp."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:49:24.970257",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
-      "output_data": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:49:24.970257",
-      "step_name": "Execution Agent._call_llm",
-      "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 56–56 từ\n        - Giữ",
-      "output_data": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-24T18:49:24.976270",
+      "timestamp": "2026-03-27T17:16:06.894471",
       "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành summary tổng thể'",
       "output_data": {
         "step_id": "step_3",
-        "action": "merge",
-        "merged_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
-        "word_count": 60,
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "summary": "Amiana Resort Nha Trang tiếp tục giành giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Resort nổi bật với phong cách hòa hợp giữa truyền thống và hiện đại, tạo không gian thư giãn và sang trọng nhưng gần gũi thiên nhiên. Biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Amiana cũng chú trọng bảo vệ môi trường bằng các giải pháp bền vững như bố trí hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng.",
+            "word_count": 76
+          }
+        ],
+        "total_chunks": 1,
         "status": "completed"
       },
       "output_type": "dict",
@@ -1099,16 +1142,39 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:49:24.976270",
+      "timestamp": "2026-03-27T17:16:06.894471",
       "step_name": "exec_step3_Gộp các bản tóm tắt lại thành summary tổng thể",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, attempt=1",
       "output_data": {
         "step_id": "step_3",
-        "action": "merge",
-        "merged_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
-        "word_count": 60,
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "summary": "Amiana Resort Nha Trang tiếp tục giành giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Resort nổi bật với phong cách hòa hợp giữa truyền thống và hiện đại, tạo không gian thư giãn và sang trọng nhưng gần gũi thiên nhiên. Biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Amiana cũng chú trọng bảo vệ môi trường bằng các giải pháp bền vững như bố trí hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng.",
+            "word_count": 76
+          }
+        ],
+        "total_chunks": 1,
         "status": "completed"
       },
       "output_type": "dict",
@@ -1116,44 +1182,42 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:05.178625",
+      "timestamp": "2026-03-27T17:16:45.917869",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Amiana Resort Nha Trang tiếp",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí của khu nghỉ dưỡng và các chi tiết cụ thể như bãi biển riêng tư với hàng dừa rợp bóng.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được bản chất chính xác của văn bản gốc, tuy nhiên thiếu một số thông tin chi tiết và cụ thể hơn.\",\n    \"issues_found\": [\"Thông tin về vị trí khu nghỉ dưỡng không có trong output\"],\n    \"summary\": \"Bước thực thi tóm tắt đã hoàn thành đầy đủ. Tuy nhiên, output chỉ giữ được sự chính xác tổng quan của văn bản gốc mà thiếu một số chi tiết cụ thể.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.\",\n    \"issues_found\": [],\n    \"summary\": \"Chunk Summarize hoàn thành tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang, không chứa bất kỳ fact nào có trong văn bản gốc.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:05.179629",
+      "timestamp": "2026-03-27T17:16:45.917869",
       "step_name": "Execution-Observation Agent._call_llm",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡn",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí của khu nghỉ dưỡng và các chi tiết cụ thể như bãi biển riêng tư với hàng dừa rợp bóng.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được bản chất chính xác của văn bản gốc, tuy nhiên thiếu một số thông tin chi tiết và cụ thể hơn.\",\n    \"issues_found\": [\"Thông tin về vị trí khu nghỉ dưỡng không có trong output\"],\n    \"summary\": \"Bước thực thi tóm tắt đã hoàn thành đầy đủ. Tuy nhiên, output chỉ giữ được sự chính xác tổng quan của văn bản gốc mà thiếu một số chi tiết cụ thể.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.\",\n    \"issues_found\": [],\n    \"summary\": \"Chunk Summarize hoàn thành tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang, không chứa bất kỳ fact nào có trong văn bản gốc.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:05.179629",
+      "timestamp": "2026-03-27T17:16:45.917869",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí ",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt",
       "output_data": {
         "execution_observation": {
           "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí của khu nghỉ dưỡng và các chi tiết cụ thể như bãi biển riêng tư với hàng dừa rợp bóng.",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được bản chất chính xác của văn bản gốc, tuy nhiên thiếu một số thông tin chi tiết và cụ thể hơn.",
-          "issues_found": [
-            "Thông tin về vị trí khu nghỉ dưỡng không có trong output"
-          ],
-          "summary": "Bước thực thi tóm tắt đã hoàn thành đầy đủ. Tuy nhiên, output chỉ giữ được sự chính xác tổng quan của văn bản gốc mà thiếu một số chi tiết cụ thể."
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
+          "issues_found": [],
+          "summary": "Chunk Summarize hoàn thành tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang, không chứa bất kỳ fact nào có trong văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -1161,22 +1225,20 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:05.179629",
+      "timestamp": "2026-03-27T17:16:45.917869",
       "step_name": "Execution-Observation Agent._call_llm_json",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=766",
+      "input_summary": "raw_len=614",
       "output_data": {
         "execution_observation": {
           "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí của khu nghỉ dưỡng và các chi tiết cụ thể như bãi biển riêng tư với hàng dừa rợp bóng.",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được bản chất chính xác của văn bản gốc, tuy nhiên thiếu một số thông tin chi tiết và cụ thể hơn.",
-          "issues_found": [
-            "Thông tin về vị trí khu nghỉ dưỡng không có trong output"
-          ],
-          "summary": "Bước thực thi tóm tắt đã hoàn thành đầy đủ. Tuy nhiên, output chỉ giữ được sự chính xác tổng quan của văn bản gốc mà thiếu một số chi tiết cụ thể."
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
+          "issues_found": [],
+          "summary": "Chunk Summarize hoàn thành tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang, không chứa bất kỳ fact nào có trong văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -1184,22 +1246,20 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:05.179629",
+      "timestamp": "2026-03-27T17:16:45.917869",
       "step_name": "execution_observation_agent.run",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, action=merge",
+      "input_summary": "step_id=step_3, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
           "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí của khu nghỉ dưỡng và các chi tiết cụ thể như bãi biển riêng tư với hàng dừa rợp bóng.",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được bản chất chính xác của văn bản gốc, tuy nhiên thiếu một số thông tin chi tiết và cụ thể hơn.",
-          "issues_found": [
-            "Thông tin về vị trí khu nghỉ dưỡng không có trong output"
-          ],
-          "summary": "Bước thực thi tóm tắt đã hoàn thành đầy đủ. Tuy nhiên, output chỉ giữ được sự chính xác tổng quan của văn bản gốc mà thiếu một số chi tiết cụ thể."
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
+          "issues_found": [],
+          "summary": "Chunk Summarize hoàn thành tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang, không chứa bất kỳ fact nào có trong văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -1207,22 +1267,20 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:05.179629",
+      "timestamp": "2026-03-27T17:16:45.918870",
       "step_name": "exec_step3_observation",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, action=merge",
+      "input_summary": "step_id=step_3, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
           "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, đặc biệt là thông tin về vị trí của khu nghỉ dưỡng và các chi tiết cụ thể như bãi biển riêng tư với hàng dừa rợp bóng.",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc, vì summary chỉ tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được bản chất chính xác của văn bản gốc, tuy nhiên thiếu một số thông tin chi tiết và cụ thể hơn.",
-          "issues_found": [
-            "Thông tin về vị trí khu nghỉ dưỡng không có trong output"
-          ],
-          "summary": "Bước thực thi tóm tắt đã hoàn thành đầy đủ. Tuy nhiên, output chỉ giữ được sự chính xác tổng quan của văn bản gốc mà thiếu một số chi tiết cụ thể."
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được ý chính từ đoạn văn bản nguyên bản.",
+          "issues_found": [],
+          "summary": "Chunk Summarize hoàn thành tóm tắt về giải thưởng và đặc điểm của Amiana Resort Nha Trang, không chứa bất kỳ fact nào có trong văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -1230,29 +1288,29 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:29.377720",
+      "timestamp": "2026-03-27T17:17:07.511671",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin vị trí khu nghỉ dưỡng.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn thiếu một số chi tiết cụ thể về vị trí của khu nghỉ dưỡng.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:29.377720",
+      "timestamp": "2026-03-27T17:17:07.511671",
       "step_name": "Execution-Reflection Agent._call_llm",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc,",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin vị trí khu nghỉ dưỡng.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn thiếu một số chi tiết cụ thể về vị trí của khu nghỉ dưỡng.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong vă",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:29.377720",
+      "timestamp": "2026-03-27T17:17:07.512657",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -1264,8 +1322,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin vị trí khu nghỉ dưỡng.",
-          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn thiếu một số chi tiết cụ thể về vị trí của khu nghỉ dưỡng."
+          "feedback": "",
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình."
         }
       },
       "output_type": "dict",
@@ -1273,11 +1331,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:29.377720",
+      "timestamp": "2026-03-27T17:17:07.512657",
       "step_name": "Execution-Reflection Agent._call_llm_json",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=463",
+      "input_summary": "raw_len=437",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -1285,8 +1343,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin vị trí khu nghỉ dưỡng.",
-          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn thiếu một số chi tiết cụ thể về vị trí của khu nghỉ dưỡng."
+          "feedback": "",
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình."
         }
       },
       "output_type": "dict",
@@ -1294,11 +1352,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:29.377720",
+      "timestamp": "2026-03-27T17:17:07.512657",
       "step_name": "execution_reflection_agent.run",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step=3/4",
+      "input_summary": "step=3/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -1306,8 +1364,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin vị trí khu nghỉ dưỡng.",
-          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn thiếu một số chi tiết cụ thể về vị trí của khu nghỉ dưỡng."
+          "feedback": "",
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình."
         }
       },
       "output_type": "dict",
@@ -1315,11 +1373,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:50:29.377720",
+      "timestamp": "2026-03-27T17:17:07.512657",
       "step_name": "exec_step3_reflection",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step=3/4",
+      "input_summary": "step_id=step_3, step=3/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -1327,8 +1385,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin vị trí khu nghỉ dưỡng.",
-          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn thiếu một số chi tiết cụ thể về vị trí của khu nghỉ dưỡng."
+          "feedback": "",
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình."
         }
       },
       "output_type": "dict",
@@ -1336,7 +1394,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:08.609328",
+      "timestamp": "2026-03-27T17:17:34.973374",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
@@ -1347,7 +1405,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:08.609328",
+      "timestamp": "2026-03-27T17:17:34.973374",
       "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
       "phase": "agent_llm_call",
@@ -1358,15 +1416,15 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:08.614833",
+      "timestamp": "2026-03-27T17:17:34.979045",
       "step_name": "execution_agent.run.step_4",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho summary tổng thể'",
       "output_data": {
         "step_id": "step_4",
-        "action": "refine",
-        "refined_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
+        "action": "merge",
+        "merged_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
         "word_count": 60,
         "status": "completed"
       },
@@ -1375,15 +1433,15 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:08.614833",
+      "timestamp": "2026-03-27T17:17:34.979045",
       "step_name": "exec_step4_Tinh chỉnh phong cách cho summary tổng thể",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_4, attempt=1",
       "output_data": {
         "step_id": "step_4",
-        "action": "refine",
-        "refined_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
+        "action": "merge",
+        "merged_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
         "word_count": 60,
         "status": "completed"
       },
@@ -1392,44 +1450,44 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:53.370829",
+      "timestamp": "2026-03-27T17:18:12.051005",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Amiana Resort Nha Trang ti",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và thông tin chi tiết.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết được lược bỏ hoặc thay thế để tạo ra summary ngắn gọn hơn mà không làm mất đi ý nghĩa chính của văn bản gốc.\",\n    \"issues_found\": [\"Chi tiết về vị trí bãi biển riêng tư và các công trình tiện ích như hồ bơi, nhà hàng, phòng hội nghị, spa...\"],\n    \"summary\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Amiana Resort Nha Trang tiếp",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt chính xác và đầy đủ, nhưng có thể cần thêm chi tiết về vị trí của biệt thự trên bãi biển và cách thức bảo vệ môi trường.\",\n    \"issues_found\": [\"Chưa đề cập đến vị trí cụ thể của biệt thự trên bãi biển\"],\n    \"summary\": \"Bước thực thi đã hoàn thành với chất lượng tốt. Tóm tắt chính xác thông tin từ văn bản gốc nhưng cần thêm chi tiết về vị trí và cách bảo vệ môi trường.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:53.370829",
+      "timestamp": "2026-03-27T17:18:12.051005",
       "step_name": "Execution-Observation Agent._call_llm",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dư",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và thông tin chi tiết.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết được lược bỏ hoặc thay thế để tạo ra summary ngắn gọn hơn mà không làm mất đi ý nghĩa chính của văn bản gốc.\",\n    \"issues_found\": [\"Chi tiết về vị trí bãi biển riêng tư và các công trình tiện ích như hồ bơi, nhà hàng, phòng hội nghị, spa...\"],\n    \"summary\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡn",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt chính xác và đầy đủ, nhưng có thể cần thêm chi tiết về vị trí của biệt thự trên bãi biển và cách thức bảo vệ môi trường.\",\n    \"issues_found\": [\"Chưa đề cập đến vị trí cụ thể của biệt thự trên bãi biển\"],\n    \"summary\": \"Bước thực thi đã hoàn thành với chất lượng tốt. Tóm tắt chính xác thông tin từ văn bản gốc nhưng cần thêm chi tiết về vị trí và cách bảo vệ môi trường.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:53.370829",
+      "timestamp": "2026-03-27T17:18:12.051005",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.\",\n    \"completio",
       "output_data": {
         "execution_observation": {
           "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và thông tin chi tiết.",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết được lược bỏ hoặc thay thế để tạo ra summary ngắn gọn hơn mà không làm mất đi ý nghĩa chính của văn bản gốc.",
+          "quality_assessment": "Output tóm tắt chính xác và đầy đủ, nhưng có thể cần thêm chi tiết về vị trí của biệt thự trên bãi biển và cách thức bảo vệ môi trường.",
           "issues_found": [
-            "Chi tiết về vị trí bãi biển riêng tư và các công trình tiện ích như hồ bơi, nhà hàng, phòng hội nghị, spa..."
+            "Chưa đề cập đến vị trí cụ thể của biệt thự trên bãi biển"
           ],
-          "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững."
+          "summary": "Bước thực thi đã hoàn thành với chất lượng tốt. Tóm tắt chính xác thông tin từ văn bản gốc nhưng cần thêm chi tiết về vị trí và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1437,22 +1495,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:53.370829",
+      "timestamp": "2026-03-27T17:18:12.051005",
       "step_name": "Execution-Observation Agent._call_llm_json",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=984",
+      "input_summary": "raw_len=648",
       "output_data": {
         "execution_observation": {
           "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và thông tin chi tiết.",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết được lược bỏ hoặc thay thế để tạo ra summary ngắn gọn hơn mà không làm mất đi ý nghĩa chính của văn bản gốc.",
+          "quality_assessment": "Output tóm tắt chính xác và đầy đủ, nhưng có thể cần thêm chi tiết về vị trí của biệt thự trên bãi biển và cách thức bảo vệ môi trường.",
           "issues_found": [
-            "Chi tiết về vị trí bãi biển riêng tư và các công trình tiện ích như hồ bơi, nhà hàng, phòng hội nghị, spa..."
+            "Chưa đề cập đến vị trí cụ thể của biệt thự trên bãi biển"
           ],
-          "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững."
+          "summary": "Bước thực thi đã hoàn thành với chất lượng tốt. Tóm tắt chính xác thông tin từ văn bản gốc nhưng cần thêm chi tiết về vị trí và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1460,22 +1518,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:53.370829",
+      "timestamp": "2026-03-27T17:18:12.051005",
       "step_name": "execution_observation_agent.run",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, action=refine",
+      "input_summary": "step_id=step_4, action=merge",
       "output_data": {
         "execution_observation": {
           "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và thông tin chi tiết.",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết được lược bỏ hoặc thay thế để tạo ra summary ngắn gọn hơn mà không làm mất đi ý nghĩa chính của văn bản gốc.",
+          "quality_assessment": "Output tóm tắt chính xác và đầy đủ, nhưng có thể cần thêm chi tiết về vị trí của biệt thự trên bãi biển và cách thức bảo vệ môi trường.",
           "issues_found": [
-            "Chi tiết về vị trí bãi biển riêng tư và các công trình tiện ích như hồ bơi, nhà hàng, phòng hội nghị, spa..."
+            "Chưa đề cập đến vị trí cụ thể của biệt thự trên bãi biển"
           ],
-          "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững."
+          "summary": "Bước thực thi đã hoàn thành với chất lượng tốt. Tóm tắt chính xác thông tin từ văn bản gốc nhưng cần thêm chi tiết về vị trí và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1483,22 +1541,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:51:53.370829",
+      "timestamp": "2026-03-27T17:18:12.051005",
       "step_name": "exec_step4_observation",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, action=refine",
+      "input_summary": "step_id=step_4, action=merge",
       "output_data": {
         "execution_observation": {
           "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có sự thay đổi về ngữ cảnh và thông tin chi tiết.",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết được lược bỏ hoặc thay thế để tạo ra summary ngắn gọn hơn mà không làm mất đi ý nghĩa chính của văn bản gốc.",
+          "quality_assessment": "Output tóm tắt chính xác và đầy đủ, nhưng có thể cần thêm chi tiết về vị trí của biệt thự trên bãi biển và cách thức bảo vệ môi trường.",
           "issues_found": [
-            "Chi tiết về vị trí bãi biển riêng tư và các công trình tiện ích như hồ bơi, nhà hàng, phòng hội nghị, spa..."
+            "Chưa đề cập đến vị trí cụ thể của biệt thự trên bãi biển"
           ],
-          "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững."
+          "summary": "Bước thực thi đã hoàn thành với chất lượng tốt. Tóm tắt chính xác thông tin từ văn bản gốc nhưng cần thêm chi tiết về vị trí và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1506,29 +1564,29 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.446962",
+      "timestamp": "2026-03-27T17:18:36.038486",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết vị trí bãi biển riêng tư và các công trình tiện ích.\",\n    \"reasoning\": \"Bản summary đạt chất lượng tốt nhưng vẫn có một số chi tiết quan trọng bị lược bỏ hoặc thay thế để tạo ra bản tóm tắt ngắn gọn hơn mà không làm mất đi ý nghĩa chính. Đây là bước cuối cùng nên tiếp tục thực hiện.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.447962",
+      "timestamp": "2026-03-27T17:18:36.038486",
       "step_name": "Execution-Reflection Agent._call_llm",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản g",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết vị trí bãi biển riêng tư và các công trình tiện ích.\",\n    \"reasoning\": \"Bản summary đạt chất lượng tốt nhưng vẫn có một số chi tiết quan trọng bị lược bỏ hoặc thay thế để tạo ra bản tóm tắt ngắn gọn hơn mà không làm mất đi ý nghĩa chính. Đây là bước cuối cùng nên tiếp tục thực hiện.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ thông tin mới hoặc sai sót so ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.447962",
+      "timestamp": "2026-03-27T17:18:36.038486",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -1540,8 +1598,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết vị trí bãi biển riêng tư và các công trình tiện ích.",
-          "reasoning": "Bản summary đạt chất lượng tốt nhưng vẫn có một số chi tiết quan trọng bị lược bỏ hoặc thay thế để tạo ra bản tóm tắt ngắn gọn hơn mà không làm mất đi ý nghĩa chính. Đây là bước cuối cùng nên tiếp tục thực hiện."
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1549,11 +1607,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.447962",
+      "timestamp": "2026-03-27T17:18:36.038486",
       "step_name": "Execution-Reflection Agent._call_llm_json",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=562",
+      "input_summary": "raw_len=500",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -1561,8 +1619,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết vị trí bãi biển riêng tư và các công trình tiện ích.",
-          "reasoning": "Bản summary đạt chất lượng tốt nhưng vẫn có một số chi tiết quan trọng bị lược bỏ hoặc thay thế để tạo ra bản tóm tắt ngắn gọn hơn mà không làm mất đi ý nghĩa chính. Đây là bước cuối cùng nên tiếp tục thực hiện."
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1570,11 +1628,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.447962",
+      "timestamp": "2026-03-27T17:18:36.038486",
       "step_name": "execution_reflection_agent.run",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step=4/4",
+      "input_summary": "step=4/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -1582,8 +1640,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết vị trí bãi biển riêng tư và các công trình tiện ích.",
-          "reasoning": "Bản summary đạt chất lượng tốt nhưng vẫn có một số chi tiết quan trọng bị lược bỏ hoặc thay thế để tạo ra bản tóm tắt ngắn gọn hơn mà không làm mất đi ý nghĩa chính. Đây là bước cuối cùng nên tiếp tục thực hiện."
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1591,11 +1649,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.447962",
+      "timestamp": "2026-03-27T17:18:36.038486",
       "step_name": "exec_step4_reflection",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step=4/4",
+      "input_summary": "step_id=step_4, step=4/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -1603,8 +1661,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết vị trí bãi biển riêng tư và các công trình tiện ích.",
-          "reasoning": "Bản summary đạt chất lượng tốt nhưng vẫn có một số chi tiết quan trọng bị lược bỏ hoặc thay thế để tạo ra bản tóm tắt ngắn gọn hơn mà không làm mất đi ý nghĩa chính. Đây là bước cuối cùng nên tiếp tục thực hiện."
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường."
         }
       },
       "output_type": "dict",
@@ -1612,19 +1670,577 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-24T18:52:20.454477",
+      "timestamp": "2026-03-27T17:20:20.615159",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nAmiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡn",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"'Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"'Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12,\n          \"source_text\": \"resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 1,\n      \"status\": \"pass\",\n      \"evidence\": [\n       …",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:20:20.615159",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nAmiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất th",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"'Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"'Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12,\n          \"source_text\": \"resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 1,\n      \"status\": \"pass\",\n      \"evidence\": [\n       …",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:20:20.616120",
+      "step_name": "Execution Agent._call_llm_json",
+      "agent_name": "Execution Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=3567",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"'Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"'Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12,\n          \"source_text\": \"resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 1,\n      \"status\": \"pass\",\n      \"evidence\": [\n       …",
+        "_parse_error": true
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "timestamp": "2026-03-27T17:20:20.616120",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng (verification)'",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"'Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"'Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12,\n          \"source_text\": \"resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 1,\n      \"status\": \"pass\",\n      \"evidence\": [\n       …",
+        "_parse_error": true,
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:20:20.616120",
+      "step_name": "exec_step5_Kiểm chứng (verification)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=1",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"'Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"'Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững'\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12,\n          \"source_text\": \"resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 1,\n      \"status\": \"pass\",\n      \"evidence\": [\n       …",
+        "_parse_error": true,
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:07.665431",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"verification_report\\\": [\\n    {\\n      \\\"claim_id\\\": 1,\\n ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Đã hoàn thành đầy đủ với chất lượng tốt. Tóm tắt chính xác và rõ ràng theo yêu cầu của phong cách news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tóm tắt đã hoàn thành đúng yêu cầu, không chứa fact mới từ văn bản gốc nhưng vẫn giữ được sự chính xác về thông tin.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:07.665431",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"verification_report\\\": [\\n    {\\n      \\\"claim_id\\\": 1,\\n      \\\"claim_text\\\": \\\"Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiế",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Đã hoàn thành đầy đủ với chất lượng tốt. Tóm tắt chính xác và rõ ràng theo yêu cầu của phong cách news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tóm tắt đã hoàn thành đúng yêu cầu, không chứa fact mới từ văn bản gốc nhưng vẫn giữ được sự chính xác về thông tin.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:07.665431",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Đã hoàn thành đầy đủ với chất lượng tốt. Tóm tắt chính xác và rõ ràng theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt đã hoàn thành đúng yêu cầu, không chứa fact mới từ văn bản gốc nhưng vẫn giữ được sự chính xác về thông tin."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:07.665431",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=560",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Đã hoàn thành đầy đủ với chất lượng tốt. Tóm tắt chính xác và rõ ràng theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt đã hoàn thành đúng yêu cầu, không chứa fact mới từ văn bản gốc nhưng vẫn giữ được sự chính xác về thông tin."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:07.665431",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, action=verify",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Đã hoàn thành đầy đủ với chất lượng tốt. Tóm tắt chính xác và rõ ràng theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt đã hoàn thành đúng yêu cầu, không chứa fact mới từ văn bản gốc nhưng vẫn giữ được sự chính xác về thông tin."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:07.665431",
+      "step_name": "exec_step5_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, action=verify",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận các thông tin đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Đã hoàn thành đầy đủ với chất lượng tốt. Tóm tắt chính xác và rõ ràng theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt đã hoàn thành đúng yêu cầu, không chứa fact mới từ văn bản gốc nhưng vẫn giữ được sự chính xác về thông tin."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:27.981831",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:27.981831",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:27.981831",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:27.981831",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=369",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:27.981831",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=5/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:27.981831",
+      "step_name": "exec_step5_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step=5/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:53.219134",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:53.219134",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 56–56 từ\n        - Giữ",
+      "output_data": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:53.222641",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "edited_summary": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững.",
+        "word_count": 44,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:21:53.222641",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=1",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "edited_summary": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững.",
+        "word_count": 44,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:30.456187",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Khu nghỉ dưỡng Amiana Nha Tra",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, nhưng thêm một số chi tiết như phong cách hiện đại và bảo vệ môi trường.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt với độ chính xác về nội dung và ngữ cảnh của văn bản gốc. Tóm tắt ngắn gọn mà vẫn giữ được nhiều thông tin quan trọng.\",\n    \"issues_found\": [\"Không có lỗi cụ thể trong output\"],\n    \"summary\": \"Bước thực thi đã hoàn thành đầy đủ, tóm tắt lại thông tin từ văn bản gốc một cách chính xác và chất lượng tốt.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:30.456187",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lã",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, nhưng thêm một số chi tiết như phong cách hiện đại và bảo vệ môi trường.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt với độ chính xác về nội dung và ngữ cảnh của văn bản gốc. Tóm tắt ngắn gọn mà vẫn giữ được nhiều thông tin quan trọng.\",\n    \"issues_found\": [\"Không có lỗi cụ thể trong output\"],\n    \"summary\": \"Bước thực thi đã hoàn thành đầy đủ, tóm tắt lại thông tin từ văn bản gốc một cách chính xác và chất lượng tốt.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:30.456187",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, ",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, nhưng thêm một số chi tiết như phong cách hiện đại và bảo vệ môi trường.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về nội dung và ngữ cảnh của văn bản gốc. Tóm tắt ngắn gọn mà vẫn giữ được nhiều thông tin quan trọng.",
+          "issues_found": [
+            "Không có lỗi cụ thể trong output"
+          ],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, tóm tắt lại thông tin từ văn bản gốc một cách chính xác và chất lượng tốt."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:30.456187",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=681",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, nhưng thêm một số chi tiết như phong cách hiện đại và bảo vệ môi trường.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về nội dung và ngữ cảnh của văn bản gốc. Tóm tắt ngắn gọn mà vẫn giữ được nhiều thông tin quan trọng.",
+          "issues_found": [
+            "Không có lỗi cụ thể trong output"
+          ],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, tóm tắt lại thông tin từ văn bản gốc một cách chính xác và chất lượng tốt."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:30.456187",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, action=edit",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, nhưng thêm một số chi tiết như phong cách hiện đại và bảo vệ môi trường.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về nội dung và ngữ cảnh của văn bản gốc. Tóm tắt ngắn gọn mà vẫn giữ được nhiều thông tin quan trọng.",
+          "issues_found": [
+            "Không có lỗi cụ thể trong output"
+          ],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, tóm tắt lại thông tin từ văn bản gốc một cách chính xác và chất lượng tốt."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:30.456187",
+      "step_name": "exec_step6_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, action=edit",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lại thông tin đã có trong văn bản, nhưng thêm một số chi tiết như phong cách hiện đại và bảo vệ môi trường.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về nội dung và ngữ cảnh của văn bản gốc. Tóm tắt ngắn gọn mà vẫn giữ được nhiều thông tin quan trọng.",
+          "issues_found": [
+            "Không có lỗi cụ thể trong output"
+          ],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, tóm tắt lại thông tin từ văn bản gốc một cách chính xác và chất lượng tốt."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.013083",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.013083",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Nó tóm tắt lạ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.014082",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.014082",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=520",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.014082",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.014082",
+      "step_name": "exec_step6_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T17:22:56.023310",
       "step_name": "workflow_complete",
       "agent_name": "Manager Agent",
       "phase": "workflow",
       "input_summary": "",
       "output_data": {
-        "summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
+        "summary": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững.",
         "style": "news_brief",
-        "word_count": 60,
+        "word_count": 44,
         "trace": [
           {
             "agent": "execution",
-            "action": "chunking",
+            "action": "split_sentences",
             "step_id": "step_1",
             "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
             "reflection_scores": {
@@ -1634,7 +2250,7 @@
           },
           {
             "agent": "execution",
-            "action": "chunk_summarize",
+            "action": "chunking",
             "step_id": "step_2",
             "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
             "reflection_scores": {
@@ -1644,7 +2260,7 @@
           },
           {
             "agent": "execution",
-            "action": "merge",
+            "action": "chunk_summarize",
             "step_id": "step_3",
             "evidence": "Step 3: Gộp các bản tóm tắt lại thành summary tổng thể",
             "reflection_scores": {
@@ -1654,9 +2270,29 @@
           },
           {
             "agent": "execution",
-            "action": "refine",
+            "action": "merge",
             "step_id": "step_4",
             "evidence": "Step 4: Tinh chỉnh phong cách cho summary tổng thể",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "verify",
+            "step_id": "step_5",
+            "evidence": "Step 5: Kiểm chứng (verification)",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "edit",
+            "step_id": "step_6",
+            "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
             "reflection_scores": {
               "factual_consistency": 0.9,
               "coverage_completeness": 0.85
@@ -1668,7 +2304,7 @@
           "outline": null,
           "draft_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
           "verification": null,
-          "edited_summary": null
+          "edited_summary": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững."
         }
       },
       "output_type": "dict",

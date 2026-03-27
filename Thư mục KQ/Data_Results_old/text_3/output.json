@@ -1,0 +1,84 @@
+{
+  "summary": "Cồn Én nằm giữa sông Tiền, thuộc xã Tấn Mỹ. Nơi đây là điểm đến ngắm dòng Tiền Giang và đón gió mát dịu. Du khách còn được tham quan khu du lịch sinh thái với bộ sưu tập gỗ lũa độc đáo. Gỗ lũa lấy từ đáy sông, sau khi bị bào mòn chỉ còn phần lõi bền chắc. Khu du lịch này có tiểu cảnh và nhà nghỉ làm bằng vật liệu chính là những thân cây khủng này. Một bức tranh điêu khắc dài hơn 24m nặng 20 tấn được thực hiện trên khúc gỗ trầm thủy, tùy từng đoạn chiều cao từ 1,5 - 1,8 m. Cạnh đó còn có bộ sưu tập hàng trăm chiếc xe máy biển số độc lạ và tiểu cảnh làm từ gỗ lũa. Du khách cũng ngắm hoàng hôn trên sông tại đây. Giá vé vào cổng là 80.000 đồng.",
+  "style": "news_brief",
+  "word_count": 124,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "generic",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (không cần thực hiện)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh và bức tranh điêu khắc dài 24 m. Chị Phúc Điền sưu tập hàng nghìn thân gỗ lũa thành điểm tham quan yên bình ở miền Tây; giá vé 80. 000 đồng cho khách từ TP HCM tới qua quốc lộ 30 hoặc phà Tấn Long.",
+    "verification": null,
+    "edited_summary": null
+  }
+}

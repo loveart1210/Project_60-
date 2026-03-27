@@ -1,0 +1,114 @@
+{
+  "summary": "Regal Legend tại Đồng Hới đón du khách với lễ hội mùa hè 6-14/7, bao gồm khám phá vườn quốc gia Phong Nha - Kẻ Bàng và Moọc Suối. Đại nhạc hội EDM quốc tế diễn ra tối 12/7 do Regal Residence Luxury tổ chức.",
+  "style": "news_brief",
+  "word_count": 30,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Đồng Hới và Bố Trạch đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, Moọc Suối, Nhật Lệ và Bảo Ninh. Regal Legend tại Đồng Hới là khu nghỉ dưỡng 5 sao. Lou Hoàng, ICD, Muộii, DJ PIA & TUMIE, DJ FWIN tham dự lễ hội ẩm thực từ ngày 6-14/7 với hơn 300 gian hàng du lịch và nghệ thuật nổi tiếng.",
+    "verification": null,
+    "edited_summary": "Regal Legend tại Đồng Hới đón du khách với lễ hội mùa hè 6-14/7, bao gồm khám phá vườn quốc gia Phong Nha - Kẻ Bàng và Moọc Suối. Đại nhạc hội EDM quốc tế diễn ra tối 12/7 do Regal Residence Luxury tổ chức."
+  }
+}

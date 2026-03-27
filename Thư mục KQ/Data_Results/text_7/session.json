@@ -1,15 +1,356 @@
 {
-  "session_id": "0387bd2c",
-  "current_phase": "planning",
-  "iteration_count": 0,
-  "roadmap_version": "v0",
-  "last_decision": "",
-  "confidence_score": 0.0,
+  "session_id": "7b0ef0f1",
+  "current_phase": "execution",
+  "iteration_count": 1,
+  "roadmap_version": "v1",
+  "last_decision": "finalize",
+  "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 485,
-  "created_at": "2026-03-08T21:56:04.127384",
-  "history": [],
-  "data_store": {},
+  "created_at": "2026-03-27T18:27:01.085204",
+  "history": [
+    {
+      "agent": "planner",
+      "action": "create_roadmap",
+      "timestamp": "2026-03-27T18:28:04.046976",
+      "result_summary": "Roadmap v1 created",
+      "details": {
+        "version": "v1"
+      }
+    },
+    {
+      "agent": "planner_observation",
+      "action": "analyze_roadmap",
+      "timestamp": "2026-03-27T18:29:00.807473",
+      "result_summary": "Observation for v1 complete"
+    },
+    {
+      "agent": "planner_reflection",
+      "action": "evaluate_roadmap",
+      "timestamp": "2026-03-27T18:29:26.060165",
+      "result_summary": "Decision: finalize (confidence: 0.85)",
+      "details": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát đầy đủ nội dung của văn bản gốc với coverage score đạt 0.85 và specificity score là 0.75, đồng thời hallucination risk được đánh giá là low. Tuy nhiên, roadmap thiếu bước xác định danh sách tour cụ thể nên cần thêm thông tin này."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "timestamp": "2026-03-27T18:29:26.080317",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:30:24.167413",
+      "result_summary": "Observation for step 1 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:30:46.846877",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt về độ chính xác và độ trung thực của output (factual consistency = 0.9), tuy nhiên vẫn có vấn đề redundancy score thấp do đoạn text dài nên được chia nhỏ hơn để dễ hiểu hơn."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-27T18:31:32.382860",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:32:29.988820",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:32:53.067536",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Chất lượng tốt (factual consistency ≥ 0.8 và coverage completeness ≥ 0.7) nhưng có sự thiếu sót về chi tiết trong các đoạn tóm tắt."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T18:33:24.767610",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:34:02.564064",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:34:24.555089",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin về lịch khởi hành và giá tour Tết.",
+          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual ≥ 0.8) do thiếu một số chi tiết quan trọng từ văn bản gốc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T18:35:06.076523",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:35:43.773476",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:36:05.601042",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin về lịch khởi hành và giá tour Tết.",
+          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual ≥ 0.8) do thiếu một số chi tiết quan trọng từ văn bản gốc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T18:36:37.602886",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:37:15.799524",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:37:37.878398",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin về lịch khởi hành và giá tour Tết.",
+          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual ≥ 0.8) do thiếu một số chi tiết quan trọng từ văn bản gốc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-27T18:38:29.760394",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:39:09.605907",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:39:33.467767",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về tour mới đến Hokkaido.",
+          "reasoning": "Bước hiện tại đã đảm bảo mức độ nhất quán và bao quát tốt với 0.9 và 0.85 tương ứng, nhưng vẫn có một số chi tiết nhỏ bị lược bỏ trong quá trình tóm tắt."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-27T18:41:02.058325",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:41:53.104014",
+      "result_summary": "Observation for step 5 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:42:15.912653",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin cụ thể từ văn bản gốc.",
+          "reasoning": "Bước thực thi đã hoàn thành tốt với độ chính xác và chi tiết phù hợp. Tuy nhiên, vẫn còn thiếu một số đoạn cụ thể gây khó khăn cho việc hoàn thiện toàn bộ."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-27T18:42:46.159216",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:43:27.095321",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:43:49.783606",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm danh sách đối tác chiến lược.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng vẫn còn thiếu thông tin về danh sách đối tác chiến lược."
+        }
+      }
+    },
+    {
+      "agent": "manager",
+      "action": "workflow_complete",
+      "timestamp": "2026-03-27T18:43:49.791630",
+      "result_summary": "Hoàn thành toàn bộ workflow"
+    }
+  ],
+  "data_store": {
+    "chunks": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "text": "Công ty du lịch NhatbanAZ mở bán chùm tour Nhật Bản khởi hành dịp Tết Dương lịch và Âm lịch từ đầu tháng 10. Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato. NhatbanAZ cũng mở rộng các cung đường mới cho du khách trải nghiệm trong dịp Tết 2025. Cụ thể, tour Hokkaido gồm Asahikawa, Monbetsu và Sapporo với giá 55,9 triệu đồng mỗi khách. Du khách sẽ tham gia câu cá trên băng, đi tàu phá băng và thưởng thức bia hơi tại Sapporo, cùng dịch vụ hàng không 5 sao và lưu trú khách sạn 4 sao quốc tế. Tour thứ hai là chuyến thăm làng cổ Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm với giá 31,9 triệu đồng mỗi khách. Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995. Tour cũng gồm tham quan lâu đài Matsumoto - di tích bảo vật quốc gia của Nhật Bản và trải nghiệm trượt tuyết tại Fujiten Snow Resort - top 3 khu trượt tuyết nổi tiếng. Bà Hồ Như Thảo, Giám đốc Điều hành NhatbanAZ Văn phòng TP HCM cho biết sản phẩm mới này nhận được sự quan tâm lớn từ du khách, đặc biệt là những người từng đi Nhật và muốn trở lại với hành trình mới. Khu vực Hokkaido được biết đến với tuyết rơi dày đặc hơn Tokyo hay Osaka, nên lịch khởi hành tour Hokkaido dịp Tết Âm lịch nhận được nhiều đăng ký giữ chỗ. Trong dịp Tết Nguyên đán 2025, NhatbanAZ cung cấp các hành trình từ 5 đến 6 ngày với mức giá cơ bản đến cao cấp, khoảng 31,9 - 55,9 triệu đồng mỗi khách để đáp ứng nhu cầu đa dạng. Giá tour Tết có phần chênh lệch so với ngày thường và tăng so với cùng kỳ năm trước.",
+        "word_count": 278
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "text": "Do đó, NhatbanAZ chủ động gặp gỡ và làm việc với các đối tác cung cấp dịch vụ, từ đó xây dựng chương trình, đưa ra chính sách ưu đãi tốt nhất cho khách hàng. Với kinh nghiệm hơn 15 năm trong ngành du lịch chuyên thị trường Nhật Bản, NhatbanAZ thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản đề xuất. Đồng thời là đối tác chiến lược của các hãng hàng không, khách sạn và đối tác land tour uy tín tại Nhật Bản. Công ty cũng là nhà tư vấn và tổ chức những chuyến Famtrip kết nối các công ty du lịch Việt Nam tới tham quan xúc tiến đầu tư, hợp tác tại Nhật Bản. Thanh Thư",
+        "word_count": 83
+      }
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "summary": "Công ty du lịch NhatbanAZ mở bán tour Nhật Bản dịp Tết Dương và Âm, với Osaka, Kyoto, Tokyo được làm mới. Hokkaido có Asahikawa, Monbetsu và Sapporo với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm với giá 31,9 triệu đồng mỗi khách. NhatbanAZ nhận được sự quan tâm từ du khách muốn trải nghiệm hành trình mới tại các khu vực tuyết dày đặc như Hokkaido.",
+        "word_count": 66
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "summary": "NhatbanAZ chủ động gặp các đối tác cung cấp dịch vụ, xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; có kinh nghiệm 15 năm trong ngành du lịch Nhật Bản, thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản. Công ty là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip kết nối các công ty du lịch Việt Nam tới tham quan xúc tiến đầu tư tại Nhật Bản.",
+        "word_count": 61
+      }
+    ],
+    "merged_summary": "Osaka, Kyoto và Tokyo được làm mới trong tour Nhật Bản dịp Tết Dương lịch của NhatbanAZ với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm có giá 31,9 triệu đồng. Công ty đã nhận sự quan tâm từ du khách muốn trải nghiệm Hokkaido tuyết dày đặc. NhatbanAZ chủ động gặp đối tác để xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản, là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip.",
+    "refined_summary": "Osaka, Kyoto và Tokyo được làm mới trong tour Nhật Bản dịp Tết Dương lịch của NhatbanAZ với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm có giá 31,9 triệu đồng. Công ty đã nhận sự quan tâm từ du khách muốn trải nghiệm Hokkaido tuyết dày đặc. NhatbanAZ chủ động gặp đối tác để xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản, là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip.",
+    "edited_summary": "Osaka, Kyoto và Tokyo được làm mới trong tour Nhật Bản dịp Tết Dương lịch của NhatbanAZ với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm có giá 31,9 triệu đồng. Công ty đã nhận sự quan tâm từ du khách muốn trải nghiệm Hokkaido tuyết dày đặc; NhatbanAZ chủ động gặp đối tác để xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản, là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip."
+  },
   "stats": {
     "planner_loop": 0,
     "planner_observation_loop": 0,
@@ -19,5 +360,6 @@
     "execution_reflection_loop": 0,
     "chunks": 0
   },
-  "input_text": "Công ty du lịch NhatbanAZ mở bán chùm tour Nhật Bản khởi hành dịp Tết Dương lịch và Âm lịch từ đầu tháng 10. Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato. NhatbanAZ cũng mở rộng các cung đường mới cho du khách trải nghiệm trong dịp Tết 2025. Cụ thể, tour Hokkaido gồm Asahikawa, Monbetsu và Sapporo với giá 55,9 triệu đồng mỗi khách. Du khách sẽ tham gia câu cá trên băng, đi tàu phá băng và thưởng thức bia hơi tại Sapporo, cùng dịch vụ hàng không 5 sao và lưu trú khách sạn 4 sao quốc tế. Tour thứ hai là chuyến thăm làng cổ Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm với giá 31,9 triệu đồng mỗi khách. Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995. Tour cũng gồm tham quan lâu đài Matsumoto - di tích bảo vật quốc gia của Nhật Bản và trải nghiệm trượt tuyết tại Fujiten Snow Resort - top 3 khu trượt tuyết nổi tiếng. Bà Hồ Như Thảo, Giám đốc Điều hành NhatbanAZ Văn phòng TP HCM cho biết sản phẩm mới này nhận được sự quan tâm lớn từ du khách, đặc biệt là những người từng đi Nhật và muốn trở lại với hành trình mới. Khu vực Hokkaido được biết đến với tuyết rơi dày đặc hơn Tokyo hay Osaka, nên lịch khởi hành tour Hokkaido dịp Tết Âm lịch nhận được nhiều đăng ký giữ chỗ. Trong dịp Tết Nguyên đán 2025, NhatbanAZ cung cấp các hành trình từ 5 đến 6 ngày với mức giá cơ bản đến cao cấp, khoảng 31,9 - 55,9 triệu đồng mỗi khách để đáp ứng nhu cầu đa dạng. Giá tour Tết có phần chênh lệch so với ngày thường và tăng so với cùng kỳ năm trước. Do đó, NhatbanAZ chủ động gặp gỡ và làm việc với các đối tác cung cấp dịch vụ, từ đó xây dựng chương trình, đưa ra chính sách ưu đãi tốt nhất cho khách hàng. Với kinh nghiệm hơn 15 năm trong ngành du lịch chuyên thị trường Nhật Bản, NhatbanAZ thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản đề xuất. Đồng thời là đối tác chiến lược của các hãng hàng không, khách sạn và đối tác land tour uy tín tại Nhật Bản. Công ty cũng là nhà tư vấn và tổ chức những chuyến Famtrip kết nối các công ty du lịch Việt Nam tới tham quan xúc tiến đầu tư, hợp tác tại Nhật Bản. Thanh Thư"
+  "input_text": "Công ty du lịch NhatbanAZ mở bán chùm tour Nhật Bản khởi hành dịp Tết Dương lịch và Âm lịch từ đầu tháng 10. Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato. NhatbanAZ cũng mở rộng các cung đường mới cho du khách trải nghiệm trong dịp Tết 2025. Cụ thể, tour Hokkaido gồm Asahikawa, Monbetsu và Sapporo với giá 55,9 triệu đồng mỗi khách. Du khách sẽ tham gia câu cá trên băng, đi tàu phá băng và thưởng thức bia hơi tại Sapporo, cùng dịch vụ hàng không 5 sao và lưu trú khách sạn 4 sao quốc tế. Tour thứ hai là chuyến thăm làng cổ Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm với giá 31,9 triệu đồng mỗi khách. Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995. Tour cũng gồm tham quan lâu đài Matsumoto - di tích bảo vật quốc gia của Nhật Bản và trải nghiệm trượt tuyết tại Fujiten Snow Resort - top 3 khu trượt tuyết nổi tiếng. Bà Hồ Như Thảo, Giám đốc Điều hành NhatbanAZ Văn phòng TP HCM cho biết sản phẩm mới này nhận được sự quan tâm lớn từ du khách, đặc biệt là những người từng đi Nhật và muốn trở lại với hành trình mới. Khu vực Hokkaido được biết đến với tuyết rơi dày đặc hơn Tokyo hay Osaka, nên lịch khởi hành tour Hokkaido dịp Tết Âm lịch nhận được nhiều đăng ký giữ chỗ. Trong dịp Tết Nguyên đán 2025, NhatbanAZ cung cấp các hành trình từ 5 đến 6 ngày với mức giá cơ bản đến cao cấp, khoảng 31,9 - 55,9 triệu đồng mỗi khách để đáp ứng nhu cầu đa dạng. Giá tour Tết có phần chênh lệch so với ngày thường và tăng so với cùng kỳ năm trước. Do đó, NhatbanAZ chủ động gặp gỡ và làm việc với các đối tác cung cấp dịch vụ, từ đó xây dựng chương trình, đưa ra chính sách ưu đãi tốt nhất cho khách hàng. Với kinh nghiệm hơn 15 năm trong ngành du lịch chuyên thị trường Nhật Bản, NhatbanAZ thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản đề xuất. Đồng thời là đối tác chiến lược của các hãng hàng không, khách sạn và đối tác land tour uy tín tại Nhật Bản. Công ty cũng là nhà tư vấn và tổ chức những chuyến Famtrip kết nối các công ty du lịch Việt Nam tới tham quan xúc tiến đầu tư, hợp tác tại Nhật Bản. Thanh Thư",
+  "last_updated": "2026-03-27T18:42:46.157216"
 }

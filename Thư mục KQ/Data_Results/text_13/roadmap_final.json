@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản gốc tiếng Việt thành các đoạn ngắn (chunk) thông qua việc tách từ và tách câu. Mỗi chunk chứa một ý chính.",
+        "tool": "sent_tokenize, word_tokenize",
+        "expected_output": "Danh sách chunks được tạo ra"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Đưa mỗi chunk vào hệ thống tóm tắt để nhận về bản tóm tắt abstractive nhưng fact-grounded. Các mệnh đề trong chunks được giữ nguyên.",
+        "tool": "summarize_chunk",
+        "expected_output": "Danh sách các bản tóm tắt của từng chunk"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp nhiều bản tóm tắt lại thành một",
+        "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo ra bản summary tổng thể. Bỏ qua thông tin không liên quan và trùng lặp.",
+        "tool": "merge_summaries",
+        "expected_output": "Bản summary tổng thể"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách của bản summary tổng thể",
+        "description": "RefineSummary để tinh chỉnh lại văn phong và ngữ cảnh, đảm bảo phù hợp với yêu cầu là news_brief.",
+        "tool": "refine_summary",
+        "expected_output": "Bản summary đã được refinement"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc (nếu cần)",
+        "description": "VerifyClaim để kiểm tra xem các thông tin trong summary tổng thể có đúng với văn bản gốc hay không. Nếu phát hiện sai lệch, chỉnh sửa lại.",
+        "tool": "verify_claim",
+        "expected_output": "Bản summary đã được verify"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Đảm bảo độ dài output nằm trong khoảng từ 150 đến 250 từ."
+  }
+}

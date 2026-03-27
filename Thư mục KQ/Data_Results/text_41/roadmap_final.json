@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Grouping chunks",
+        "description": "Nhóm các câu thành chunk dựa trên nội dung và cấu trúc của văn bản.",
+        "tool": "chunk_text",
+        "expected_output": "Danh sách các chunk được tạo ra"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Summarizing chunks (news_brief)",
+        "description": "Tóm tắt từng chunk bằng cách sử dụng LLM với phong cách news brief.",
+        "tool": "summarize_chunk",
+        "expected_output": "Mỗi bản tóm tắt của các chunk"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gathering summaries (merge_summaries)",
+        "description": "Tổng hợp tất cả bản tóm tắt từ bước 2 thành một bản tổng kết.",
+        "tool": "merge_summaries",
+        "expected_output": "Bản tổng kết cuối cùng"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Refining summary (refine_summary)",
+        "description": "Tinh chỉnh câu từ cho bản tóm tắt tổng hợp để phù hợp với phong cách và độ dài yêu cầu.",
+        "tool": "refine_summary",
+        "expected_output": "Bản tóm tắt cuối cùng được refine"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Verification (verify_claim)",
+        "description": "Kiểm chứng các mệnh đề trong bản tổng kết với văn bản gốc để đảm bảo sự chính xác.",
+        "tool": "verify_claim",
+        "expected_output": "Danh sách các mệnh đề đã được kiểm chứng và không cần chỉnh sửa"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Bước này có thể yêu cầu thêm bước tùy thuộc vào độ dài của văn bản gốc."
+  }
+}

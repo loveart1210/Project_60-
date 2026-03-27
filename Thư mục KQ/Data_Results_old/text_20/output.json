@@ -1,0 +1,84 @@
+{
+  "summary": "781.925 đồng vé Vietravel, 2.819 triệu Thâm Quyến; 2.667 và 2.682 triệu Hàn Quốc-Nhật Bản. Khách sạn từ 794.000-1.858 triệu. Áp dụng 'mua 1 tặng 1' Sun World, The Amazing Bay, Sea Life Bangkok Ocean World. Hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt trên Traveloka. Epic Sale của Ninh Dương Lan Ngọc mong muốn lan tỏa tinh thần du lịch thông minh và áp dụng ưu đãi đến 50% cho các sản phẩm toàn thế giới nhằm tri ân khách hàng và khích lệ khám phá thế giới qua những chuyến đi tiện nghi với chi phí tiết kiệm.",
+  "style": "news_brief",
+  "word_count": 70,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk sử dụng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng kết",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng kết",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng kết",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp lại",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (nếu cần)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "781.925 đồng vé Vietravel, 2.819 triệu Thâm Quyến; 2.667 và 2.682 triệu Hàn Quốc-Nhật Bản. Khách sạn từ 794.000-1.858 triệu. Áp dụng 'mua 1 tặng 1' Sun World, The Amazing Bay, Sea Life Bangkok Ocean World. Hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt trên Traveloka. Epic Sale của Ninh Dương Lan Ngọc mong muốn lan tỏa tinh thần du lịch thông minh và áp dụng ưu đãi đến 50% cho các sản phẩm toàn thế giới nhằm tri ân khách hàng và khích lệ khám phá thế giới qua những chuyến đi tiện nghi với chi phí tiết kiệm.",
+    "verification": null,
+    "edited_summary": null
+  }
+}

@@ -1,1 +1,45 @@
-{}
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm chunk",
+          "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sau đó sử dụng sent_tokenize để tạo ra các đoạn (chunk) dựa trên dấu chấm hỏi hoặc chấm kết thúc.",
+          "tool": "word_tokenize(sent_tokenize)",
+          "expected_output": "Một danh sách chứa nhiều chuỗi văn bản được phân thành chunks"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi đoạn (chunk) dựa trên thông tin đã chia nhỏ.",
+          "tool": "summarize_chunk(chunk_text)",
+          "expected_output": "Một chuỗi văn bản ngắn gọn và chính xác từ mỗi đoạn chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các tóm tắt lại thành một bản tổng kết",
+          "description": "Dùng merge_summaries để gộp nhiều bản tóm tắt trở thành một bản tổng hợp.",
+          "tool": "merge_summaries(summarize_chunk)",
+          "expected_output": "Một văn bản ngắn gọn và chính xác bao gồm tất cả thông tin từ các chunk"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho tổng kết cuối cùng",
+          "description": "Dùng refine_summary để tinh chỉnh câu chữ của văn bản tổng hợp, đảm bảo phù hợp với style news_brief.",
+          "tool": "refine_summary(merge_summaries)",
+          "expected_output": "Một văn bản ngắn gọn và chính xác, phong cách news brief"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng thông tin của tổng kết cuối cùng với văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem các đoạn tóm tắt có đúng khớp với thông tin trong văn bản gốc hay không.",
+          "tool": "verify_claim(refine_summary)",
+          "expected_output": "Một báo cáo về độ chính xác của tổng kết cuối cùng so với văn bản gốc"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Ghi chú thêm nếu cần thiết."
+    }
+  }
+}

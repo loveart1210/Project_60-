@@ -243,6 +243,7 @@ class ManagerAgent(BaseAgent):
         debug = DebugLogger()
 
         tasks = self._extract_tasks(roadmap)
+        tasks = self._ensure_required_steps(tasks)
         total_steps = len(tasks)
         print(f"\n  Total execution steps: {total_steps}")
 
@@ -413,6 +414,62 @@ class ManagerAgent(BaseAgent):
         return self._default_task_list()
 
     @staticmethod
+    def _ensure_required_steps(tasks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Guarantee that verify_claim and edit_summary steps always exist.
+
+        The Planner LLM (7B) frequently omits these critical steps.
+        Instead of relying on prompt engineering alone, we hard-check
+        and append them if missing.  This is the Manager's responsibility.
+        """
+        # Collect all tool names already present (normalised)
+        existing_tools = set()
+        for t in tasks:
+            raw_tool = t.get("tool", "")
+            if isinstance(raw_tool, str):
+                existing_tools.add(raw_tool.lower())
+
+        # Determine the next step_id number
+        max_step_num = 0
+        for t in tasks:
+            sid = t.get("step_id", "")
+            if sid.startswith("step_"):
+                try:
+                    max_step_num = max(max_step_num, int(sid.split("_")[1]))
+                except (ValueError, IndexError):
+                    pass
+
+        added = []
+
+        # --- verify_claim ---
+        if not any("verify_claim" in tool for tool in existing_tools):
+            max_step_num += 1
+            tasks.append({
+                "step_id": f"step_{max_step_num}",
+                "name": "Kiểm chứng (verification)",
+                "description": "Đối chiếu các claims trong bản tóm tắt với văn bản gốc",
+                "tool": "verify_claim",
+                "expected_output": "Báo cáo kiểm chứng",
+            })
+            added.append("verify_claim")
+
+        # --- edit_summary ---
+        if not any("edit" in tool for tool in existing_tools):
+            max_step_num += 1
+            tasks.append({
+                "step_id": f"step_{max_step_num}",
+                "name": "Hiệu chỉnh phong cách (editing)",
+                "description": "Chỉnh sửa phong cách cuối cùng theo yêu cầu",
+                "tool": "edit_summary",
+                "expected_output": "Bản tóm tắt hoàn chỉnh",
+            })
+            added.append("edit_summary")
+
+        if added:
+            print(f"  [Manager] ⚠️ Planner thiếu bước quan trọng → Đã tự động thêm: {added}")
+
+        return tasks
+
+    @staticmethod
     def _default_task_list() -> List[Dict[str, Any]]:
         """Fallback roadmap if LLM output couldn't be parsed properly."""
         return [
@@ -423,7 +480,7 @@ class ManagerAgent(BaseAgent):
             {"step_id": "step_5", "name": "Gộp tóm tắt (merge)", "description": "Gộp các chunk summaries thành một bản nháp", "tool": "LLM", "expected_output": "Bản nháp tóm tắt"},
             {"step_id": "step_6", "name": "Tinh chỉnh toàn cục (global refinement)", "description": "Tinh chỉnh bản nháp để mạch lạc", "tool": "LLM", "expected_output": "Bản tóm tắt tinh chỉnh"},
             {"step_id": "step_7", "name": "Kiểm chứng (verification)", "description": "Đối chiếu claims với văn bản gốc", "tool": "verify_claim", "expected_output": "Báo cáo kiểm chứng"},
-            {"step_id": "step_8", "name": "Hiệu chỉnh phong cách (editing)", "description": "Chỉnh sửa phong cách cuối cùng", "tool": "LLM", "expected_output": "Bản tóm tắt hoàn chỉnh"},
+            {"step_id": "step_8", "name": "Hiệu chỉnh phong cách (editing)", "description": "Chỉnh sửa phong cách cuối cùng", "tool": "edit_summary", "expected_output": "Bản tóm tắt hoàn chỉnh"},
         ]
 
     def _update_state(self, state: Dict[str, Any], output: Dict[str, Any]) -> None:

@@ -1,0 +1,1343 @@
+{
+  "generated_at": "2026-03-28T00:19:00.648006",
+  "total_entries": 63,
+  "none_count": 0,
+  "logs": [
+    {
+      "timestamp": "2026-03-28T00:16:36.317841",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 337 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.\",\n        \"tool\": \"word_tokenize, sent_tokenize\",\n        \"expected_output\": \"Một danh sách chứa 10-20 chunk\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi chunk nên được tổng hợp dưới dạng một đoạn văn ngắn, không quá 50 từ.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Một danh sách chứa 10-20 bản summary\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một đoạn văn ngắn gọn, không quá 200 từ.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Một đoạn văn tóm tắt dài khoảng 150-250 từ\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tổng hợp\",\n        \"description\": \"Dùng refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tóm tắt. Đảm bảo rằng thông tin chính vẫn được giữ lại.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Một đoạn văn tóm tắt ngắn gọn, dễ hiểu\"\n      }\n    ],\n    \"total_steps\": 4,\n    \"notes\": \"Đảm bảo kiểm chứng mệnh đề bằng verify_claim trước khi hoàn thiện bản tổng hợp.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:16:36.317841",
+      "step_name": "Planner Agent._call_llm",
+      "agent_name": "Planner Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 337 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.\",\n        \"tool\": \"word_tokenize, sent_tokenize\",\n        \"expected_output\": \"Một danh sách chứa 10-20 chunk\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi chunk nên được tổng hợp dưới dạng một đoạn văn ngắn, không quá 50 từ.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Một danh sách chứa 10-20 bản summary\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một đoạn văn ngắn gọn, không quá 200 từ.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Một đoạn văn tóm tắt dài khoảng 150-250 từ\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tổng hợp\",\n        \"description\": \"Dùng refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tóm tắt. Đảm bảo rằng thông tin chính vẫn được giữ lại.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Một đoạn văn tóm tắt ngắn gọn, dễ hiểu\"\n      }\n    ],\n    \"total_steps\": 4,\n    \"notes\": \"Đảm bảo kiểm chứng mệnh đề bằng verify_claim trước khi hoàn thiện bản tổng hợp.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:16:36.317841",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng ",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Một danh sách chứa 10-20 chunk"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi chunk nên được tổng hợp dưới dạng một đoạn văn ngắn, không quá 50 từ.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một danh sách chứa 10-20 bản summary"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+              "description": "Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một đoạn văn ngắn gọn, không quá 200 từ.",
+              "tool": "merge_summaries",
+              "expected_output": "Một đoạn văn tóm tắt dài khoảng 150-250 từ"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng hợp",
+              "description": "Dùng refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tóm tắt. Đảm bảo rằng thông tin chính vẫn được giữ lại.",
+              "tool": "refine_summary",
+              "expected_output": "Một đoạn văn tóm tắt ngắn gọn, dễ hiểu"
+            }
+          ],
+          "total_steps": 4,
+          "notes": "Đảm bảo kiểm chứng mệnh đề bằng verify_claim trước khi hoàn thiện bản tổng hợp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:16:36.317841",
+      "step_name": "Planner Agent._call_llm_json",
+      "agent_name": "Planner Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1630",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Một danh sách chứa 10-20 chunk"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi chunk nên được tổng hợp dưới dạng một đoạn văn ngắn, không quá 50 từ.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một danh sách chứa 10-20 bản summary"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+              "description": "Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một đoạn văn ngắn gọn, không quá 200 từ.",
+              "tool": "merge_summaries",
+              "expected_output": "Một đoạn văn tóm tắt dài khoảng 150-250 từ"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng hợp",
+              "description": "Dùng refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tóm tắt. Đảm bảo rằng thông tin chính vẫn được giữ lại.",
+              "tool": "refine_summary",
+              "expected_output": "Một đoạn văn tóm tắt ngắn gọn, dễ hiểu"
+            }
+          ],
+          "total_steps": 4,
+          "notes": "Đảm bảo kiểm chứng mệnh đề bằng verify_claim trước khi hoàn thiện bản tổng hợp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:16:36.317841",
+      "step_name": "planner_agent.run",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "word_count=337, style=news_brief",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Một danh sách chứa 10-20 chunk"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi chunk nên được tổng hợp dưới dạng một đoạn văn ngắn, không quá 50 từ.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một danh sách chứa 10-20 bản summary"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+              "description": "Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một đoạn văn ngắn gọn, không quá 200 từ.",
+              "tool": "merge_summaries",
+              "expected_output": "Một đoạn văn tóm tắt dài khoảng 150-250 từ"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng hợp",
+              "description": "Dùng refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tóm tắt. Đảm bảo rằng thông tin chính vẫn được giữ lại.",
+              "tool": "refine_summary",
+              "expected_output": "Một đoạn văn tóm tắt ngắn gọn, dễ hiểu"
+            }
+          ],
+          "total_steps": 4,
+          "notes": "Đảm bảo kiểm chứng mệnh đề bằng verify_claim trước khi hoàn thiện bản tổng hợp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:16:36.317841",
+      "step_name": "planning_iter1_planner",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "iteration=1, revision=''",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Một danh sách chứa 10-20 chunk"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi chunk nên được tổng hợp dưới dạng một đoạn văn ngắn, không quá 50 từ.",
+              "tool": "summarize_chunk",
+              "expected_output": "Một danh sách chứa 10-20 bản summary"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+              "description": "Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một đoạn văn ngắn gọn, không quá 200 từ.",
+              "tool": "merge_summaries",
+              "expected_output": "Một đoạn văn tóm tắt dài khoảng 150-250 từ"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng hợp",
+              "description": "Dùng refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tóm tắt. Đảm bảo rằng thông tin chính vẫn được giữ lại.",
+              "tool": "refine_summary",
+              "expected_output": "Một đoạn văn tóm tắt ngắn gọn, dễ hiểu"
+            }
+          ],
+          "total_steps": 4,
+          "notes": "Đảm bảo kiểm chứng mệnh đề bằng verify_claim trước khi hoàn thiện bản tổng hợp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:26.602458",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi tiết về cách xử lý thông tin lan Anh.\",\n    \"specificity_analysis\": \"Các bước cụ thể như 'Tách văn bản thành câu' và 'Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp' đều có hướng dẫn rõ ràng. Tuy nhiên, roadmap thiếu chi tiết về việc xác định chunks phù hợp từ từng chunk summary.\",\n    \"hallucination_risk_analysis\": \"Không có bước nào trong roadmap hiện tại có thể tạo ra fact không tồn tại trong nguồn.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách đúng đắn. Tuy nhiên, việc sử dụng chunk_text để tách chunks từ summary chưa được đề cập rõ ràng.\",\n    \"missing_steps\": [\"Xác định cụ thể từng chunks phù hợp\"],\n    \"strengths\": [],\n    \"weaknesses\": [\n      \"Thiếu chi tiết về xác định chunks\",\n      \"Không có bước xử lý thông tin lan Anh\"\n    ]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:26.602458",
+      "step_name": "Planner-Observation Agent._call_llm",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để t",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi tiết về cách xử lý thông tin lan Anh.\",\n    \"specificity_analysis\": \"Các bước cụ thể như 'Tách văn bản thành câu' và 'Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp' đều có hướng dẫn rõ ràng. Tuy nhiên, roadmap thiếu chi tiết về việc xác định chunks phù hợp từ từng chunk summary.\",\n    \"hallucination_risk_analysis\": \"Không có bước nào trong roadmap hiện tại có thể tạo ra fact không tồn tại trong nguồn.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách đúng đắn. Tuy nhiên, việc sử dụng chunk_text để tách chunks từ summary chưa được đề cập rõ ràng.\",\n    \"missing_steps\": [\"Xác định cụ thể từng chunks phù hợp\"],\n    \"strengths\": [],\n    \"weaknesses\": [\n      \"Thiếu chi tiết về xác định chunks\",\n      \"Không có bước xử lý thông tin lan Anh\"\n    ]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:26.602458",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi ",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi tiết về cách xử lý thông tin lan Anh.",
+          "specificity_analysis": "Các bước cụ thể như 'Tách văn bản thành câu' và 'Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp' đều có hướng dẫn rõ ràng. Tuy nhiên, roadmap thiếu chi tiết về việc xác định chunks phù hợp từ từng chunk summary.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap hiện tại có thể tạo ra fact không tồn tại trong nguồn.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách đúng đắn. Tuy nhiên, việc sử dụng chunk_text để tách chunks từ summary chưa được đề cập rõ ràng.",
+          "missing_steps": [
+            "Xác định cụ thể từng chunks phù hợp"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "Thiếu chi tiết về xác định chunks",
+            "Không có bước xử lý thông tin lan Anh"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:26.602458",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1023",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi tiết về cách xử lý thông tin lan Anh.",
+          "specificity_analysis": "Các bước cụ thể như 'Tách văn bản thành câu' và 'Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp' đều có hướng dẫn rõ ràng. Tuy nhiên, roadmap thiếu chi tiết về việc xác định chunks phù hợp từ từng chunk summary.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap hiện tại có thể tạo ra fact không tồn tại trong nguồn.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách đúng đắn. Tuy nhiên, việc sử dụng chunk_text để tách chunks từ summary chưa được đề cập rõ ràng.",
+          "missing_steps": [
+            "Xác định cụ thể từng chunks phù hợp"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "Thiếu chi tiết về xác định chunks",
+            "Không có bước xử lý thông tin lan Anh"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:26.602458",
+      "step_name": "planner_observation_agent.run",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_type=dict",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi tiết về cách xử lý thông tin lan Anh.",
+          "specificity_analysis": "Các bước cụ thể như 'Tách văn bản thành câu' và 'Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp' đều có hướng dẫn rõ ràng. Tuy nhiên, roadmap thiếu chi tiết về việc xác định chunks phù hợp từ từng chunk summary.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap hiện tại có thể tạo ra fact không tồn tại trong nguồn.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách đúng đắn. Tuy nhiên, việc sử dụng chunk_text để tách chunks từ summary chưa được đề cập rõ ràng.",
+          "missing_steps": [
+            "Xác định cụ thể từng chunks phù hợp"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "Thiếu chi tiết về xác định chunks",
+            "Không có bước xử lý thông tin lan Anh"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:26.602458",
+      "step_name": "planning_iter1_observation",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_keys=['roadmap']",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy nhiên, roadmap không đề cập chi tiết về cách xử lý thông tin lan Anh.",
+          "specificity_analysis": "Các bước cụ thể như 'Tách văn bản thành câu' và 'Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp' đều có hướng dẫn rõ ràng. Tuy nhiên, roadmap thiếu chi tiết về việc xác định chunks phù hợp từ từng chunk summary.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap hiện tại có thể tạo ra fact không tồn tại trong nguồn.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách đúng đắn. Tuy nhiên, việc sử dụng chunk_text để tách chunks từ summary chưa được đề cập rõ ràng.",
+          "missing_steps": [
+            "Xác định cụ thể từng chunks phù hợp"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "Thiếu chi tiết về xác định chunks",
+            "Không có bước xử lý thông tin lan Anh"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.803269",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao qu",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.803269",
+      "step_name": "Planner-Reflection Agent._call_llm",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, từ việc tách câu và tạo chunks đến tổng hợp summary. Tuy n",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.803269",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_in",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.803269",
+      "step_name": "Planner-Reflection Agent._call_llm_json",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=528",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.803269",
+      "step_name": "planner_reflection_agent.run",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_type=dict",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.803269",
+      "step_name": "planning_iter1_reflection",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_keys=['observation']",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.806271",
+      "step_name": "execution_agent.run.step_1",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm thành chunks'",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sau 8 năm, đến tháng 12/2008 thì hoàn thành."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 6,
+            "text": "Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Hình ảnh này tượng trưng cho 'sự giác ngộ, viên mãn, may mắn và bình an'."
+          },
+          {
+            "sentence_id": 10,
+            "text": "Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng."
+          },
+          {
+            "sentence_id": 13,
+            "text": "Trước đây, để lên đỉnh núi, khách hành hương thường dọn đi xe máy quanh sườn núi."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Tuy nhiên, từ năm 2021, tỉnh An Giang đã đưa vào vận hành hệ thống cáp treo với tổng chiều dài 900m, với 37 cabin, mỗi cabin có sức chứa 8 hành khách vận hành liên tục."
+          },
+          {
+            "sentence_id": 15,
+            "text": "Khách du lịch sẽ được trải nghiệm cảm giác cưỡi mây ngắm toàn cảnh Châu Đốc và đắm mình trong không gian Phật giáo thanh bình."
+          },
+          {
+            "sentence_id": 16,
+            "text": "Đặc biệt cầu Châu Đốc vừa thông xe sáng 23/4 sẽ giúp hành khách rút ngắn thời gian di chuyển từ TP HCM đi các tỉnh miền Tây và ngược lại."
+          },
+          {
+            "sentence_id": 17,
+            "text": "Lan Anh"
+          }
+        ],
+        "sentence_count": 17,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:17:50.806271",
+      "step_name": "exec_step1_Tách văn bản thành câu và nhóm thành chunks",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, attempt=1",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sau 8 năm, đến tháng 12/2008 thì hoàn thành."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 6,
+            "text": "Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Hình ảnh này tượng trưng cho 'sự giác ngộ, viên mãn, may mắn và bình an'."
+          },
+          {
+            "sentence_id": 10,
+            "text": "Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng."
+          },
+          {
+            "sentence_id": 13,
+            "text": "Trước đây, để lên đỉnh núi, khách hành hương thường dọn đi xe máy quanh sườn núi."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Tuy nhiên, từ năm 2021, tỉnh An Giang đã đưa vào vận hành hệ thống cáp treo với tổng chiều dài 900m, với 37 cabin, mỗi cabin có sức chứa 8 hành khách vận hành liên tục."
+          },
+          {
+            "sentence_id": 15,
+            "text": "Khách du lịch sẽ được trải nghiệm cảm giác cưỡi mây ngắm toàn cảnh Châu Đốc và đắm mình trong không gian Phật giáo thanh bình."
+          },
+          {
+            "sentence_id": 16,
+            "text": "Đặc biệt cầu Châu Đốc vừa thông xe sáng 23/4 sẽ giúp hành khách rút ngắn thời gian di chuyển từ TP HCM đi các tỉnh miền Tây và ngược lại."
+          },
+          {
+            "sentence_id": 17,
+            "text": "Lan Anh"
+          }
+        ],
+        "sentence_count": 17,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:18:39.817385",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thông tin tóm tắt và không có sự thay đổi về nội dung.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Các đoạn text được phân chia thành sentence chính xác và rõ ràng.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi đã hoàn thành đầy đủ, không chứa bất kỳ lỗi nào. Output tóm tắt các câu thông tin từ văn bản gốc một cách chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:18:39.817385",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thông tin tóm tắt và không có sự thay đổi về nội dung.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Các đoạn text được phân chia thành sentence chính xác và rõ ràng.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi đã hoàn thành đầy đủ, không chứa bất kỳ lỗi nào. Output tóm tắt các câu thông tin từ văn bản gốc một cách chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:18:39.817385",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thô",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thông tin tóm tắt và không có sự thay đổi về nội dung.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Các đoạn text được phân chia thành sentence chính xác và rõ ràng.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, không chứa bất kỳ lỗi nào. Output tóm tắt các câu thông tin từ văn bản gốc một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:18:39.817385",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=594",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thông tin tóm tắt và không có sự thay đổi về nội dung.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Các đoạn text được phân chia thành sentence chính xác và rõ ràng.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, không chứa bất kỳ lỗi nào. Output tóm tắt các câu thông tin từ văn bản gốc một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:18:39.817385",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thông tin tóm tắt và không có sự thay đổi về nội dung.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Các đoạn text được phân chia thành sentence chính xác và rõ ràng.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, không chứa bất kỳ lỗi nào. Output tóm tắt các câu thông tin từ văn bản gốc một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:18:39.817385",
+      "step_name": "exec_step1_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, vì tất cả các câu đều là thông tin tóm tắt và không có sự thay đổi về nội dung.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Các đoạn text được phân chia thành sentence chính xác và rõ ràng.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã hoàn thành đầy đủ, không chứa bất kỳ lỗi nào. Output tóm tắt các câu thông tin từ văn bản gốc một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.638986",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.638986",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.638986",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.638986",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=423",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.638986",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.638986",
+      "step_name": "exec_step1_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.640490",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.640490",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.640490",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.640490",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=2",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.640490",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.640490",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=3",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.641495",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.641495",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=1",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.641495",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.641495",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=2",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.642500",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.642500",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một đoạn văn tổng hợp",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=3",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.642500",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tổng hợp'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.642500",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tổng hợp",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=1",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.643499",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tổng hợp'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.643499",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tổng hợp",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=2",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.643499",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tổng hợp'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.643499",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tổng hợp",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=3",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.644499",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng (verification)'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.644499",
+      "step_name": "exec_step5_Kiểm chứng (verification)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=1",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.645499",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng (verification)'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.645499",
+      "step_name": "exec_step5_Kiểm chứng (verification)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=2",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.646004",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng (verification)'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.646004",
+      "step_name": "exec_step5_Kiểm chứng (verification)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=3",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.646004",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.646004",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=1",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.646004",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.646004",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=2",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.647006",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.647006",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=3",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T00:19:00.648006",
+      "step_name": "workflow_complete",
+      "agent_name": "Manager Agent",
+      "phase": "workflow",
+      "input_summary": "",
+      "output_data": {
+        "summary": "",
+        "style": "news_brief",
+        "word_count": 0,
+        "trace": [
+          {
+            "agent": "execution",
+            "action": "split_sentences",
+            "step_id": "step_1",
+            "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          }
+        ],
+        "verification_report": null,
+        "intermediate_outputs": {
+          "outline": null,
+          "draft_summary": null,
+          "verification": null,
+          "edited_summary": null
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    }
+  ]
+}

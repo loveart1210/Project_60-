@@ -1,18 +1,18 @@
 {
-  "session_id": "41b3ffa2",
+  "session_id": "549e3bea",
   "current_phase": "execution",
-  "iteration_count": 1,
-  "roadmap_version": "v1",
+  "iteration_count": 2,
+  "roadmap_version": "v2",
   "last_decision": "finalize",
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 580,
-  "created_at": "2026-03-03T03:25:40.157064",
+  "created_at": "2026-03-27T20:45:05.096644",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-03T03:26:31.121120",
+      "timestamp": "2026-03-27T20:46:04.709055",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,45 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-03T03:27:07.552925",
+      "timestamp": "2026-03-27T20:47:05.961634",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-03T03:27:20.221503",
+      "timestamp": "2026-03-27T20:47:36.695342",
+      "result_summary": "Decision: revise (confidence: 0.85)",
+      "details": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.72,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "revise",
+          "revision_instructions": "Nên thêm hướng dẫn chi tiết về cách tách chunks và tạo summary, cũng như cần bổ sung bước kiểm chứng lại khuyến mại hoặc ưu đãi trong Epic Sale 2024.",
+          "reasoning": "Mặc dù roadmap bao quát hầu hết ý chính của văn bản gốc với điểm Coverage Score là 0.85 (cao), nhưng Specificity Score chỉ đạt 0.72 do thiếu hướng dẫn chi tiết về cách tách chunks và tạo summary, cùng việc không đề cập đến kiểm chứng lại khuyến mại hoặc ưu đãi trong Epic Sale 2024."
+        }
+      }
+    },
+    {
+      "agent": "planner",
+      "action": "create_roadmap",
+      "timestamp": "2026-03-27T20:48:51.007538",
+      "result_summary": "Roadmap v2 created",
+      "details": {
+        "version": "v2"
+      }
+    },
+    {
+      "agent": "planner_observation",
+      "action": "analyze_roadmap",
+      "timestamp": "2026-03-27T20:49:41.532954",
+      "result_summary": "Observation for v2 complete"
+    },
+    {
+      "agent": "planner_reflection",
+      "action": "evaluate_roadmap",
+      "timestamp": "2026-03-27T20:50:09.383876",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +69,26 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát đầy đủ nội dung của văn bản gốc và các bước đều có chi tiết cụ thể. Chỉ thiếu một bước kiểm chứng mệnh đề vs văn bản gốc (verify_claim) nhưng không ảnh hưởng đáng kể đến hiệu quả thực thi."
+          "reasoning": "Roadmap bao gồm các bước chính như tách văn bản thành chunks nhỏ hơn và tóm tắt từng chunk bằng LLM, đảm bảo giữ nguyên ý chính nhưng vẫn là abstractive. Tuy nhiên, roadmap chưa đề cập đến việc kiểm chứng thông tin khuyến mại hoặc ưu đãi trong Epic Sale 2024 như yêu cầu. Mặc dù còn thiếu một số chi tiết cụ thể về cách tạo chunks và xử lý các đoạn văn sau khi tóm tắt, nhưng tổng thể vẫn đảm bảo độ bao quát (coverage) và khả thi (specificity). Hallucination risk được xác định là low."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunking",
-      "timestamp": "2026-03-03T03:27:20.263009",
+      "timestamp": "2026-03-27T20:50:09.413001",
       "result_summary": "Step 1 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-03T03:27:46.202829",
+      "timestamp": "2026-03-27T20:50:55.714070",
       "result_summary": "Observation for step 1 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:27:59.277578",
+      "timestamp": "2026-03-27T20:51:14.944222",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,27 +97,27 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn: Cần kiểm tra và bổ sung dữ liệu bị cắt bớt ở cuối đoạn văn.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt nhưng có sự thiếu sót về độ chính xác của thông tin. Đây là bước cuối cùng nên tiếp tục."
+          "feedback": "",
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt tiêu chuẩn và không có vấn đề nào cần sửa, nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
-      "timestamp": "2026-03-03T03:28:21.481362",
+      "timestamp": "2026-03-27T20:52:01.500806",
       "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-03T03:28:40.492822",
+      "timestamp": "2026-03-27T20:52:41.564646",
       "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:28:52.641550",
+      "timestamp": "2026-03-27T20:53:02.713237",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -95,113 +127,26 @@
           "length_compliance": true,
           "decision": "next_step",
           "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát đầy đủ thông tin về Epic Sale."
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với độ tin cậy fact cao và bao quát đầy đủ nội dung văn bản gốc. Đây là bước cuối cùng nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-03T03:29:13.670813",
+      "timestamp": "2026-03-27T20:53:33.596878",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-03T03:29:39.643331",
+      "timestamp": "2026-03-27T20:54:10.850210",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:29:53.415718",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "Giải thích cần thêm thông tin về ưu đãi vé máy bay quốc nội và quốc tế, cũng như thời gian vàng Epic Hour Deal.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng thiếu một số chi tiết cụ thể. Độ dài của output không tuân theo yêu cầu."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-03T03:30:14.586393",
-      "result_summary": "Step 3 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-03T03:30:40.468939",
-      "result_summary": "Observation for step 3 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:30:54.122669",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "Giải thích cần thêm thông tin về ưu đãi vé máy bay quốc nội và quốc tế, cũng như thời gian vàng Epic Hour Deal.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng thiếu một số chi tiết cụ thể. Độ dài của output không tuân theo yêu cầu."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-03T03:31:15.236848",
-      "result_summary": "Step 3 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-03T03:31:41.119338",
-      "result_summary": "Observation for step 3 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:31:54.623152",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "Giải thích cần thêm thông tin về ưu đãi vé máy bay quốc nội và quốc tế, cũng như thời gian vàng Epic Hour Deal.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng thiếu một số chi tiết cụ thể. Độ dài của output không tuân theo yêu cầu."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-03T03:32:15.792619",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-03T03:32:41.117287",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:32:54.884349",
+      "timestamp": "2026-03-27T20:54:33.998613",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -210,27 +155,143 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin giá vé và khách sạn đầy đủ.",
-          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về nội dung nhưng còn thiếu sót trong việc cung cấp chi tiết giá vé và khách sạn, nên tiếp tục thực thi."
+          "feedback": "Thông tin chi tiết về giá vé và khách sạn không thể đọc dễ dàng.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán gần như hoàn hảo (factual ≥ 0.8). Tuy nhiên, vấn đề trong cách chia nhỏ thông tin gây khó khăn cho việc đọc hiểu tổng quan hơn so với phiên bản gốc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-27T20:55:14.374587",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T20:55:56.739501",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T20:56:19.486988",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại chưa đầy đủ tóm tắt thông tin về chương trình Epic Sale và thiếu chi tiết ưu đãi. Đây là bước cuối cùng nên tiếp tục hoàn thiện."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-27T20:56:59.785399",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T20:57:42.042085",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T20:58:04.780705",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại chưa đầy đủ tóm tắt thông tin về chương trình Epic Sale và thiếu chi tiết ưu đãi. Đây là bước cuối cùng nên tiếp tục hoàn thiện."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-27T20:58:45.114920",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T20:59:27.617656",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T20:59:50.443893",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại chưa đầy đủ tóm tắt thông tin về chương trình Epic Sale và thiếu chi tiết ưu đãi. Đây là bước cuối cùng nên tiếp tục hoàn thiện."
         }
       }
     },
     {
       "agent": "execution",
       "action": "verify",
-      "timestamp": "2026-03-03T03:36:51.119148",
+      "timestamp": "2026-03-27T21:01:09.953215",
       "result_summary": "Step 5 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-03T03:37:12.322262",
+      "timestamp": "2026-03-27T21:02:00.196187",
       "result_summary": "Observation for step 5 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-03T03:37:25.090051",
+      "timestamp": "2026-03-27T21:02:22.820806",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Chi tiết về giờ vàng Epic Hour Deal và EPIC Hotel Hour Deal cần được bổ sung.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán cao (0.9) nhưng vẫn còn thiếu một số chi tiết cụ thể, đặc biệt là các thông tin về giờ vàng deal."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-27T21:02:49.545451",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T21:03:23.531791",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T21:03:43.488977",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -240,14 +301,14 @@
           "length_compliance": true,
           "decision": "next_step",
           "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đã hoàn thành tốt với chất lượng cao và bao quát đầy đủ thông tin từ văn bản gốc mà không có sự trùng lặp đáng kể."
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt chuẩn và đây là bước cuối cùng của quá trình."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-03T03:37:25.099634",
+      "timestamp": "2026-03-27T21:03:43.493146",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
@@ -330,11 +391,13 @@
           24,
           25
         ],
-        "summary": "781.925 đồng vé Vietravel, 2.819 triệu Thâm Quyến; 2.667 và 2.682 triệu Hàn Quốc-Nhật Bản. Khách sạn từ 794.000-1.858 triệu. Áp dụng 'mua 1 tặng 1' Sun World, The Amazing Bay, Sea Life Bangkok Ocean World. Hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt trên Traveloka.",
-        "word_count": 37
+        "summary": "781.925 đồng vé Vietravel, 2.819 triệu China Southern Airlines Thâm Quyến; T'way Air Hàn Quốc và Nhật Bản từ 2.667-2.682 triệu đồng. Khách sạn 5 sao trong nước giá 794.000 đồng, Hàn Quốc 1.858 triệu, Nhật Bản 1.146 triệu đồng. Sun World, The Amazing Bay và thủy cung Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'. Traveloka hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt...",
+        "word_count": 55
       }
     ],
-    "merged_summary": "781.925 đồng vé Vietravel, 2.819 triệu Thâm Quyến; 2.667 và 2.682 triệu Hàn Quốc-Nhật Bản. Khách sạn từ 794.000-1.858 triệu. Áp dụng 'mua 1 tặng 1' Sun World, The Amazing Bay, Sea Life Bangkok Ocean World. Hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt trên Traveloka. Epic Sale của Ninh Dương Lan Ngọc mong muốn lan tỏa tinh thần du lịch thông minh và áp dụng ưu đãi đến 50% cho các sản phẩm toàn thế giới nhằm tri ân khách hàng và khích lệ khám phá thế giới qua những chuyến đi tiện nghi với chi phí tiết kiệm."
+    "merged_summary": "781.925 đồng vé Vietravel, 2.819 triệu China Southern Airlines Thâm Quyến; T'way Air Hàn Quốc và Nhật Bản từ 2.667-2.682 triệu đồng. Khách sạn 5 sao trong nước giá 794.000 đồng, Hàn Quốc 1.858 triệu, Nhật Bản 1.146 triệu đồng. Sun World, The Amazing Bay và thủy cung Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'. Traveloka hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt...",
+    "refined_summary": "2.819 triệu đồng vé China Southern Airlines Thâm Quyến; 781.925 đồng Vietravel, T'way Air Hàn Quốc và Nhật Bản từ 2.667-2.682 triệu đồng. Khách sạn 5 sao trong nước giá 794.000 đồng, Hàn Quốc 1.858 triệu, Nhật Bản 1.146 triệu đồng; Sun World, The Amazing Bay và thủy cung Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'. Traveloka hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt...",
+    "edited_summary": "794.000 đồng khách sạn 5 sao trong nước; 1.858 triệu đồng Hàn Quốc, 1.146 triệu đồng Nhật Bản; vé China Southern Airlines Thâm Quyến 2.819 triệu đồng, Vietravel từ 2.667-2.682 triệu đồng; T'way Air và Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'; Traveloka hoàn tiền 100%, linh hoạt thanh toán..."
   },
   "stats": {
     "planner_loop": 0,
@@ -346,5 +409,5 @@
     "chunks": 0
   },
   "input_text": "Chương trình lần này có sự đồng hành của diễn viên Ninh Dương Lan Ngọc. Thông qua Epic Sale, diễn viên mong muốn lan tỏa tinh thần du lịch thông minh, tiện lợi và tối ưu chi phí. Ông Iko Putera, Giám đốc Vận chuyển Traveloka, cho biết việc hợp tác cùng Lan Ngọc đánh dấu cột mốc quan trọng trên hành trình mang đến trải nghiệm du lịch tiện nghi tối ưu cho khách hàng. Tầm ảnh hưởng và đam mê du lịch của cô phù hợp với sứ mệnh nền tảng theo đuổi. Đôi bên đều muốn truyền cảm hứng khám phá thế giới qua những chuyến đi. Với Epic Sale lần này, Traveloka áp dụng ưu đãi đến 50% cho các sản phẩm du lịch, dịch vụ trên toàn thế giới. 'Đây là lời tri ân chúng tôi muốn gửi đến khách hàng đã luôn ủng hộ, gắn bó trên hành trình kiến tạo những chuyến đi đáng nhớ cùng Traveloka', ông Iko Putera cho biết. Từ khi trở thành đại sứ thương hiệu tại Việt Nam, diễn viên Ninh Dương Lan Ngọc đã có nhiều trải nghiệm du lịch chất lượng với nền tảng. Với loạt khuyến mại, ưu đãi, quà tặng trong Epic Sale 2024, cô nói sẽ tranh thủ săn vé, đặt phòng, chuẩn bị cho những chuyến đi sắp tới. Theo Lan Ngọc, chương trình mang lại cho du khách cơ hội du lịch tiện nghi với chi phí tiết kiệm, giúp khơi dậy mong muốn đi đây đi đó, khám phá thế giới. Cô đánh giá cao sự tiện lợi và các dịch vụ toàn diện của nền tảng, giúp việc lên kế hoạch cho các chuyến đi thêm dễ dàng, thú vị. Traveloka đã hợp tác cùng hàng nghìn đối tác để mang đến những deal giá ưu đãi sâu. Người dùng có thể truy cập nền tảng, theo dõi các ưu đãi hàng ngày trong các mục Vé máy bay, Khách sạn, Xperience và nhiều sản phẩm du lịch khác. 'Siêu ưu đãi Epic' (Super Epic Deal) sẽ được áp dụng cho các sản phẩm nhất định trong khung giờ giới hạn. Cụ thể, giờ vàng Epic Hour Deal ưu đãi vé máy bay mỗi thứ Bảy từ 14h-17h; đặt khách sạn giờ vàng EPIC Hotel Hour Deal diễn ra hàng ngày từ 18h-19h. Du khách có thể săn vé máy bay quốc nội và quốc tế với giá ưu đãi. Trong đó, vé nội địa Vietravel giá chỉ từ 781.925 đồng; vé China Southern Airlines đi Thâm Quyến từ 2,819 đồng; vé T'way Air đến Hàn Quốc và Nhật Bản lần lượt chỉ từ 2,667 triệu đồng và 2,682 triệu đồng. Khách hàng còn có cơ hội nghỉ dưỡng tại khách sạn 5 sao trong nước với giá từ 794.000 đồng. Hàng loạt khách sạn Hàn Quốc giá từ 1,858 triệu đồng, Nhật Bản từ 1,146 triệu đồng. Với dịch vụ giải trí, nền tảng áp dụng ưu đãi 'mua 1 tặng 1' vé tham quan Sun World, công viên nước The Amazing Bay, thủy cung Sea Life Bangkok Ocean World (Thái Lan). Để du khách có trải nghiệm du lịch trọn vẹn, Traveloka giới thiệu thêm nhiều tính năng khác như: hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt... Xem thêm thông tin chi tiết về chương trình Epic Sale trên ứng dụng, website và các tài khoản mạng xã hội của Traveloka. Á Hiên",
-  "last_updated": "2026-03-03T03:32:15.790100"
+  "last_updated": "2026-03-27T21:02:49.542949"
 }

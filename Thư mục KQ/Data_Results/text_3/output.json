@@ -1,7 +1,7 @@
 {
-  "summary": "Cồn Én nằm giữa sông Tiền, thuộc xã Tấn Mỹ. Nơi đây là điểm đến ngắm dòng Tiền Giang và đón gió mát dịu. Du khách còn được tham quan khu du lịch sinh thái với bộ sưu tập gỗ lũa độc đáo. Gỗ lũa lấy từ đáy sông, sau khi bị bào mòn chỉ còn phần lõi bền chắc. Khu du lịch này có tiểu cảnh và nhà nghỉ làm bằng vật liệu chính là những thân cây khủng này. Một bức tranh điêu khắc dài hơn 24m nặng 20 tấn được thực hiện trên khúc gỗ trầm thủy, tùy từng đoạn chiều cao từ 1,5 - 1,8 m. Cạnh đó còn có bộ sưu tập hàng trăm chiếc xe máy biển số độc lạ và tiểu cảnh làm từ gỗ lũa. Du khách cũng ngắm hoàng hôn trên sông tại đây. Giá vé vào cổng là 80.000 đồng.",
+  "summary": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh và bức tranh điêu khắc dài 24 m. Chị Phúc Điền sưu tập hàng nghìn thân gỗ lũa thành điểm tham quan yên bình ở miền Tây; giá vé 80.000 đồng cho khách từ TP HCM tới qua quốc lộ 30 hoặc phà Tấn Long.",
   "style": "news_brief",
-  "word_count": 124,
+  "word_count": 50,
   "trace": [
     {
       "agent": "execution",
@@ -55,7 +55,7 @@
     },
     {
       "agent": "execution",
-      "action": "generic",
+      "action": "refine",
       "step_id": "step_4",
       "evidence": "Step 4: Tinh chỉnh câu từ cho bản tổng hợp",
       "reflection_scores": {
@@ -72,13 +72,89 @@
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_6",
+      "evidence": "Step 6: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_7",
+      "evidence": "Step 7: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh và bức tranh điêu khắc dài 24 m.",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.8
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "Chị Phúc Điền sưu tập hàng nghìn thân gỗ lũa thành điểm tham quan yên bình ở miền Tây; giá vé 80.000 đồng cho khách từ TP HCM tới qua quốc lộ 30 hoặc phà Tấn Long.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 16,
+          "source_text": "Chị Phúc Điền, du khách ở TP HCM, cho biết khá thích với khung cảnh miền Tây yên bình ở Cồn Én."
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "Ba năm trước, ông Nghỉ dùng số gỗ lũa để xây khu du lịch ven sông Tiền rộng 6 ha."
+        },
+        {
+          "sentence_id": 19,
+          "source_text": "Giá vé vào cổng là 80.000 đồng."
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
     "draft_summary": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh và bức tranh điêu khắc dài 24 m. Chị Phúc Điền sưu tập hàng nghìn thân gỗ lũa thành điểm tham quan yên bình ở miền Tây; giá vé 80. 000 đồng cho khách từ TP HCM tới qua quốc lộ 30 hoặc phà Tấn Long.",
-    "verification": null,
-    "edited_summary": null
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh và bức tranh điêu khắc dài 24 m.",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.8
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "Chị Phúc Điền sưu tập hàng nghìn thân gỗ lũa thành điểm tham quan yên bình ở miền Tây; giá vé 80.000 đồng cho khách từ TP HCM tới qua quốc lộ 30 hoặc phà Tấn Long.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 16,
+            "source_text": "Chị Phúc Điền, du khách ở TP HCM, cho biết khá thích với khung cảnh miền Tây yên bình ở Cồn Én."
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "Ba năm trước, ông Nghỉ dùng số gỗ lũa để xây khu du lịch ven sông Tiền rộng 6 ha."
+          },
+          {
+            "sentence_id": 19,
+            "source_text": "Giá vé vào cổng là 80.000 đồng."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Gỗ lũa từ sông Tiền tạo nên khu du lịch Cồn Én, với tiểu cảnh và bức tranh điêu khắc dài 24 m. Chị Phúc Điền sưu tập hàng nghìn thân gỗ lũa thành điểm tham quan yên bình ở miền Tây; giá vé 80.000 đồng cho khách từ TP HCM tới qua quốc lộ 30 hoặc phà Tấn Long."
   }
 }

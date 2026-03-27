@@ -1,0 +1,38 @@
+[
+  {
+    "step_id": "step_1",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-27T23:57:52.748048"
+  },
+  {
+    "step_id": "step_2",
+    "status": "completed",
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-27T23:59:53.449128"
+  },
+  {
+    "step_id": "step_3",
+    "status": "completed",
+    "output_summary": "merge",
+    "timestamp": "2026-03-28T00:01:37.650178"
+  },
+  {
+    "step_id": "step_4",
+    "status": "completed",
+    "output_summary": "refine",
+    "timestamp": "2026-03-28T00:03:26.638193"
+  },
+  {
+    "step_id": "step_5",
+    "status": "completed",
+    "output_summary": "verify",
+    "timestamp": "2026-03-28T00:05:38.359300"
+  },
+  {
+    "step_id": "step_6",
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-28T00:07:19.586360"
+  }
+]

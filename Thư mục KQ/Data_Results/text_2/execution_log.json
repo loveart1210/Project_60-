@@ -2,25 +2,37 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "chunking",
-    "timestamp": "2026-03-24T18:46:10.227701"
+    "output_summary": "split_sentences",
+    "timestamp": "2026-03-27T17:12:51.898430"
   },
   {
     "step_id": "step_2",
     "status": "completed",
-    "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-24T18:47:55.373228"
+    "output_summary": "chunking",
+    "timestamp": "2026-03-27T17:14:19.966852"
   },
   {
     "step_id": "step_3",
     "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-24T18:49:24.977275"
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-27T17:16:06.895454"
   },
   {
     "step_id": "step_4",
     "status": "completed",
-    "output_summary": "refine",
-    "timestamp": "2026-03-24T18:51:08.615836"
+    "output_summary": "merge",
+    "timestamp": "2026-03-27T17:17:34.980053"
+  },
+  {
+    "step_id": "step_5",
+    "status": "completed",
+    "output_summary": "verify",
+    "timestamp": "2026-03-27T17:20:20.616120"
+  },
+  {
+    "step_id": "step_6",
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-27T17:21:53.224725"
   }
 ]

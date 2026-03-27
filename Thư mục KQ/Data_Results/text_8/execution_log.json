@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "step_id": "step_1",
+    "status": "completed",
+    "output_summary": "split_sentences",
+    "timestamp": "2026-03-27T18:46:26.682495"
+  },
+  {
+    "step_id": "step_2",
+    "status": "failed",
+    "output_summary": "No chunks available. Run chunking step first.",
+    "timestamp": "2026-03-27T18:47:35.032746",
+    "error": "No chunks available. Run chunking step first."
+  },
+  {
+    "step_id": "step_2",
+    "status": "failed",
+    "output_summary": "No chunks available. Run chunking step first.",
+    "timestamp": "2026-03-27T18:47:35.032746",
+    "error": "No chunks available. Run chunking step first."
+  },
+  {
+    "step_id": "step_2",
+    "status": "failed",
+    "output_summary": "No chunks available. Run chunking step first.",
+    "timestamp": "2026-03-27T18:47:35.033749",
+    "error": "No chunks available. Run chunking step first."
+  },
+  {
+    "step_id": "step_3",
+    "status": "failed",
+    "output_summary": "No chunk summaries available.",
+    "timestamp": "2026-03-27T18:47:35.034748",
+    "error": "No chunk summaries available."
+  },
+  {
+    "step_id": "step_3",
+    "status": "failed",
+    "output_summary": "No chunk summaries available.",
+    "timestamp": "2026-03-27T18:47:35.034748",
+    "error": "No chunk summaries available."
+  },
+  {
+    "step_id": "step_3",
+    "status": "failed",
+    "output_summary": "No chunk summaries available.",
+    "timestamp": "2026-03-27T18:47:35.036251",
+    "error": "No chunk summaries available."
+  },
+  {
+    "step_id": "step_4",
+    "status": "failed",
+    "output_summary": "No summary available for verification.",
+    "timestamp": "2026-03-27T18:47:35.036251",
+    "error": "No summary available for verification."
+  },
+  {
+    "step_id": "step_4",
+    "status": "failed",
+    "output_summary": "No summary available for verification.",
+    "timestamp": "2026-03-27T18:47:35.036251",
+    "error": "No summary available for verification."
+  },
+  {
+    "step_id": "step_4",
+    "status": "failed",
+    "output_summary": "No summary available for verification.",
+    "timestamp": "2026-03-27T18:47:35.037807",
+    "error": "No summary available for verification."
+  },
+  {
+    "step_id": "step_5",
+    "status": "failed",
+    "output_summary": "No summary available for editing.",
+    "timestamp": "2026-03-27T18:47:35.038809",
+    "error": "No summary available for editing."
+  },
+  {
+    "step_id": "step_5",
+    "status": "failed",
+    "output_summary": "No summary available for editing.",
+    "timestamp": "2026-03-27T18:47:35.038809",
+    "error": "No summary available for editing."
+  },
+  {
+    "step_id": "step_5",
+    "status": "failed",
+    "output_summary": "No summary available for editing.",
+    "timestamp": "2026-03-27T18:47:35.039809",
+    "error": "No summary available for editing."
+  }
+]

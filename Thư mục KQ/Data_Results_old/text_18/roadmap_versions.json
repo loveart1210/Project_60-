@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm những câu liên quan vào một chunk.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách chunks chứa các câu tương tự nhau"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Đưa mỗi chunk vào summarization model để tóm tắt.",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của mỗi chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một bài viết tổng thể",
+          "description": "Tổng hợp tất cả các đoạn tóm tắt để tạo ra một văn bản ngắn gọn.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt toàn bộ văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Refine và chỉnh sửa phong cách của bài viết tổng thể",
+          "description": "Tinh chỉnh các đoạn văn để phù hợp với phong cách news_brief, đồng thời đảm bảo không thay đổi entity.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt hoàn thiện"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Chú ý kiểm tra các bản tóm tắt và chỉnh sửa phong cách cuối cùng để đảm bảo độ chính xác."
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Group Sentences into Chunks",
+          "description": "Nhóm các câu thành chunks dựa trên ngữ nghĩa và nội dung.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk được tạo ra từ văn bản gốc"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Summarize Each Chunk with LLM",
+          "description": "Tóm tắt từng chunk bằng cách sử dụng LLM (Language Model). Phải đảm bảo rằng tóm tắt không thay đổi entity và giữ nguyên phong cách abstractive fact-grounded.",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của mỗi chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Merge Summaries into a Single Summary",
+          "description": "Gộp các bản tóm tắt thành một bản tổng hợp bằng cách sử dụng LLM.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt toàn bộ văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Refine the Summary to Improve Clarity and Style",
+          "description": "Tinh chỉnh câu từ cho bản tổng hợp để đảm bảo rằng nó rõ ràng và phù hợp với phong cách news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng được cải thiện"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Verify Claims Against the Original Text",
+          "description": "Kiểm chứng rằng các mệnh đề trong bản tổng hợp vẫn đúng với văn bản gốc.",
+          "tool": "verify_claim",
+          "expected_output": "Thông báo về việc kiểm chứng thành công hoặc thất bại"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Ghi chú thêm nếu cần"
+    }
+  }
+}

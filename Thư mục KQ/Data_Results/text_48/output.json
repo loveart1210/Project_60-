@@ -1,0 +1,226 @@
+{
+  "summary": "Cơm Niêu Thiên Lý nâng cao chất lượng phục vụ và hương vị, thu thập phản hồi khách hàng. Nhà hàng kiểm tra gạo tươi ngon, mở 300 cửa hàng toàn quốc năm 2028, hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu.",
+  "style": "news_brief",
+  "word_count": 29,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Grouping sentences into chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarizing each chunk using LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarizing each chunk using LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarizing each chunk using LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Combining summaries into one summary",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refining the summary to improve readability and style",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Verification of claims against the original text",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    }
+  ],
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Cơm Niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3,
+          "source_text": "Chiếc niêu đất đựng cơm cũng trở thành một phần đặc trưng trong bức tranh ẩm thực nước nhà, được nhiều du khách quốc tế yêu thích. Với mong muốn đưa hương vị cơm niêu đậm bản sắc Việt vươn tầm quốc tế, chạm đến nhiều thực khách nước ngoài trên toàn thế giới, Cơm niêu Thiên Lý không ngừng cải thiện chất lượng phục vụ và hương vị."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "Nhà hàng kiểm tra gạo tươi ngon.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 5,
+          "source_text": "Về nguyên liệu, nhà hàng kiểm tra chất lượng gạo, đảm bảo từng niêu cơm đều có độ chín vừa phải, hạt cơm mềm, nở đều và thoảng hương thơm."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "Nhà hàng mở 300 cửa hàng toàn quốc năm 2028.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 10,
+          "source_text": "Cơm niêu Thiên Lý đặt mục tiêu đạt 300 cửa hàng trên toàn quốc vào cuối năm 2028."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 4,
+      "claim_text": "Hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 12,
+          "source_text": "Nhà hàng còn là nơi hình thành nên cộng đồng yêu ẩm thực Việt Nam, thông qua mô hình nhượng quyền thương hiệu."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 5,
+      "claim_text": "",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.85
+    }
+  ],
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Cơm Niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng. Nhà hàng kiểm tra gạo tươi ngon, mở 300 cửa hàng toàn quốc năm 2028. Mục tiêu là hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu. Cơm Niêu Thiên Lý kỳ vọng cuộc thi tôn vinh phụ nữ và đưa ẩm thực ra thế giới.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Cơm Niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "source_text": "Chiếc niêu đất đựng cơm cũng trở thành một phần đặc trưng trong bức tranh ẩm thực nước nhà, được nhiều du khách quốc tế yêu thích. Với mong muốn đưa hương vị cơm niêu đậm bản sắc Việt vươn tầm quốc tế, chạm đến nhiều thực khách nước ngoài trên toàn thế giới, Cơm niêu Thiên Lý không ngừng cải thiện chất lượng phục vụ và hương vị."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "Nhà hàng kiểm tra gạo tươi ngon.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "source_text": "Về nguyên liệu, nhà hàng kiểm tra chất lượng gạo, đảm bảo từng niêu cơm đều có độ chín vừa phải, hạt cơm mềm, nở đều và thoảng hương thơm."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "Nhà hàng mở 300 cửa hàng toàn quốc năm 2028.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 10,
+            "source_text": "Cơm niêu Thiên Lý đặt mục tiêu đạt 300 cửa hàng trên toàn quốc vào cuối năm 2028."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "Hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 12,
+            "source_text": "Nhà hàng còn là nơi hình thành nên cộng đồng yêu ẩm thực Việt Nam, thông qua mô hình nhượng quyền thương hiệu."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 5,
+        "claim_text": "",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.85
+      }
+    ],
+    "edited_summary": "Cơm Niêu Thiên Lý nâng cao chất lượng phục vụ và hương vị, thu thập phản hồi khách hàng. Nhà hàng kiểm tra gạo tươi ngon, mở 300 cửa hàng toàn quốc năm 2028, hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu."
+  }
+}

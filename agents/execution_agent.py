@@ -50,34 +50,55 @@ class ExecutionAgent(BaseAgent):
         """
         step = context["current_step"]
         step_name = step.get("name", "").lower()
+        tool = step.get("tool", "")
+        if not tool or not isinstance(tool, str):
+            tool = ""
+        tool = tool.lower()
+        
         step_id = step.get("step_id", "unknown")
         debug = DebugLogger()
 
-        # 🏆 Robust Keyword Matching (Checking for primary objective first)
-        summarize_keywords = ["tóm tắt", "summar", "tóm lược"]
-        if any(k in step_name for k in summarize_keywords):
-            if any(k in step_name for k in ["chunk", "từng đoạn", "từng phần"]):
-                result = self._step_chunk_summarize(context)
-            elif any(k in step_name for k in ["merge", "gộp", "kết hợp", "sáp nhập"]):
-                result = self._step_merge(context)
-            elif any(k in step_name for k in ["refine", "tinh chỉnh", "hoàn thiện", "cải thiện", "refinement"]):
-                result = self._step_refine(context)
-            else:
-                # Fallback to general summarize if unsure
-                result = self._step_chunk_summarize(context)
-        elif any(k in step_name for k in ["tách câu", "sentence", "split", "phân tách"]):
+        # 🏆 Robust Tool-based Routing (Use Planner's specified tool first)
+        if "tách câu" in step_name or "sent_tokenize" in tool:
             result = self._step_split_sentences(context)
-        elif any(k in step_name for k in ["chunk", "chia đoạn", "nhóm câu", "phân đoạn"]):
+        elif "chunk_text" in tool:
             result = self._step_chunking(context)
-        elif any(k in step_name for k in ["verif", "kiểm chứng", "xác minh", "đối chiếu", "kiểm tra", "verification"]):
+        elif "summarize_chunk" in tool:
+            result = self._step_chunk_summarize(context)
+        elif "merge_summaries" in tool:
+            result = self._step_merge(context)
+        elif "refine_summary" in tool:
+            result = self._step_refine(context)
+        elif "verify_claim" in tool:
             result = self._step_verify(context)
-        elif any(k in step_name for k in ["edit", "hiệu chỉnh", "phong cách", "chỉnh sửa", "biên tập"]):
+        elif "edit_summary" in tool or "edit" in tool:
             result = self._step_edit(context)
-        elif any(k in step_name for k in ["xác định", "identify", "ý chính", "key point", "phân tích", "dàn ý", "outline"]):
+        elif "key_points" in tool or "outline" in tool:
             result = self._step_identify_key_points(context)
         else:
-            # Generic step – ask LLM to handle it
-            result = self._step_generic(context)
+            # Fallback to keyword matching if tool is missing or unrecognized
+            summarize_keywords = ["tóm tắt", "summar", "tóm lược"]
+            if any(k in step_name for k in summarize_keywords):
+                if any(k in step_name for k in ["chunk", "từng đoạn", "từng phần"]):
+                    result = self._step_chunk_summarize(context)
+                elif any(k in step_name for k in ["merge", "gộp", "kết hợp", "sáp nhập"]):
+                    result = self._step_merge(context)
+                elif any(k in step_name for k in ["refine", "tinh chỉnh", "hoàn thiện", "cải thiện", "refinement"]):
+                    result = self._step_refine(context)
+                else:
+                    result = self._step_chunk_summarize(context)
+            elif any(k in step_name for k in ["tách câu", "sentence", "split", "phân tách"]):
+                result = self._step_split_sentences(context)
+            elif any(k in step_name for k in ["chunk", "chia đoạn", "nhóm câu", "phân đoạn"]):
+                result = self._step_chunking(context)
+            elif any(k in step_name for k in ["verif", "kiểm chứng", "xác minh", "đối chiếu", "kiểm tra", "verification"]):
+                result = self._step_verify(context)
+            elif any(k in step_name for k in ["edit", "hiệu chỉnh", "phong cách", "chỉnh sửa", "biên tập"]):
+                result = self._step_edit(context)
+            elif any(k in step_name for k in ["xác định", "identify", "ý chính", "key point", "phân tích", "dàn ý", "outline"]):
+                result = self._step_identify_key_points(context)
+            else:
+                result = self._step_generic(context)
 
         # --- Debug Logging ---
         debug.log_step(
@@ -386,7 +407,7 @@ Hãy chỉ trả về JSON."""
                 "error": "No summary available for editing.",
             }
 
-        verification = context.get("verification_report", [])
+        verification = context.get("verification_report") or []
         failed_claims = [
             v for v in verification
             if isinstance(v, dict) and v.get("status") == "fail"

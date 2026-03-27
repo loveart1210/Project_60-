@@ -1,0 +1,114 @@
+{
+  "summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam. Công ty trao tặng quà cho khách tham dự với ưu đãi tour Bắc Á trong ba ngày đầu; tour Đông Nam Á trong ba tháng từ ngày khai trương; tour nội địa trong một năm; đặt phòng khách sạn hoặc xe du lịch trong 6 tháng và vé máy bay trong 6 tháng. MayTrip giới thiệu các chương trình tour Hokkaido dịp Tết Nguyên đán, cung cấp trải nghiệm suối nước nóng trên tuyết trắng cho năm 2030.",
+  "style": "news_brief",
+  "word_count": 76,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt thành một văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt thành một văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt thành một văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề trong văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam. Trao tặng quà tặng cho khách tham dự với nhiều ưu đãi như tour Bắc Á, Đông Nam Á, nội địa trong năm tới; đặt phòng khách sạn hoặc xe du lịch trong 6 tháng; vé máy bay trong 6 tháng. MayTrip giới thiệu các chương trình tour Hokkaido dịp Tết Nguyên đán, cung cấp trải nghiệm suối nước nóng trên tuyết trắng và nhiều hành trình khác cho năm 2030. Công ty ưu tiên trải nghiệm khách hàng, cam kết chất lượng dịch vụ an toàn cho khách.",
+    "verification": null,
+    "edited_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam. Công ty trao tặng quà cho khách tham dự với ưu đãi tour Bắc Á trong ba ngày đầu; tour Đông Nam Á trong ba tháng từ ngày khai trương; tour nội địa trong một năm; đặt phòng khách sạn hoặc xe du lịch trong 6 tháng và vé máy bay trong 6 tháng. MayTrip giới thiệu các chương trình tour Hokkaido dịp Tết Nguyên đán, cung cấp trải nghiệm suối nước nóng trên tuyết trắng cho năm 2030."
+  }
+}

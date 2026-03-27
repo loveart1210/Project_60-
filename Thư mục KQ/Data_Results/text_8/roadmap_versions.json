@@ -1,1 +1,38 @@
-{}
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.",
+          "tool": "word_tokenize(sent_tokenize('Văn bản gốc'))",
+          "expected_output": "Một danh sách chunks chứa các đoạn văn tương ứng"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.",
+          "tool": "summarize_chunk('Chunks sau khi nhóm')",
+          "expected_output": "Một danh sách bản tóm tắt mỗi chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
+          "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.",
+          "tool": "merge_summaries('Bản tóm tắt mỗi chunk')",
+          "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.",
+          "tool": "verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')",
+          "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Ghi chú thêm nếu cần thiết"
+    }
+  }
+}
