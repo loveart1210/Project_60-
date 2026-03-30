@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Grouping Sentences into Chunks",
+          "description": "Tách văn bản gốc thành các đoạn (chunks) thông qua chunk_text.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách chunks từ văn bản"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Summarizing Each Chunk with LLM",
+          "description": "Tóm tắt từng đoạn (chunk) bằng cách sử dụng summarzie_chunk.",
+          "tool": "summarize_chunk",
+          "expected_output": "Mỗi bản tóm tắt của một chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Combining Summaries into a Single Summary",
+          "description": "Gộp các bản tóm tắt lại thành một bản tổng kết bằng cách sử dụng merge_summaries.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt toàn bộ của văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Refining the Summary for Clarity and Style",
+          "description": "Tinh chỉnh câu từ cho bản tổng kết bằng cách sử dụng refine_summary.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng của văn bản"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Đảm bảo kiểm chứng mệnh đề trong quá trình refinement để đảm bảo tính chính xác."
+    }
+  }
+}

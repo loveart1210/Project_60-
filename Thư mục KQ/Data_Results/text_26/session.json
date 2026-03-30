@@ -1,5 +1,5 @@
 {
-  "session_id": "c4cd1e78",
+  "session_id": "6e04445d",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 484,
-  "created_at": "2026-03-27T22:02:36.832098",
+  "created_at": "2026-03-30T03:41:35.024295",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T22:03:40.758599",
+      "timestamp": "2026-03-30T03:41:52.401152",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T22:04:35.837843",
+      "timestamp": "2026-03-30T03:42:09.344640",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T22:04:59.796982",
+      "timestamp": "2026-03-30T03:42:16.216248",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát hầu hết ý chính của văn bản gốc và có mức độ cụ thể vừa đủ. Mặc dù thiếu một số bước xử lý chi tiết về vị trí địa lý và thông tin dịch vụ giải trí, nhưng không ảnh hưởng đáng kể đến tổng thể."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc với coverage score đạt 0.85 và specificity score cũng ở mức cao (0.75). Hallucination risk được đánh giá là low, đồng thời roadmap tận dụng các tool phù hợp như 'chunk_text' và 'summarize_chunk'. Tuy nhiên, còn một số bước cần thêm chi tiết hơn để đảm bảo khả thi."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunking",
-      "timestamp": "2026-03-27T22:04:59.824085",
+      "timestamp": "2026-03-30T03:42:16.235664",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T03:42:27.292081",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:05:47.784557",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T03:42:51.013636",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:06:09.884829",
+      "timestamp": "2026-03-30T03:42:59.899590",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,114 +71,27 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước chunking đã hoàn thành tốt với mức độ nhất quán cao và bao quát đầy đủ nội dung văn bản gốc. Tuy nhiên, một số chunks có thể tách nhỏ hơn để tăng độ rõ ràng."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T22:06:41.975352",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:07:32.149611",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:07:57.730850",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'Thông tin về vị trí khách sạn bị bỏ qua' và 'Dịch vụ Spa chưa được đề cập'. Cần thêm thông tin chi tiết.",
-          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7) do thiếu một số thông tin quan trọng từ văn bản gốc."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T22:08:30.135762",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:09:20.404727",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:09:45.893407",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'Thông tin về vị trí khách sạn bị bỏ qua' và 'Dịch vụ Spa chưa được đề cập'. Cần thêm thông tin chi tiết.",
-          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7) do thiếu một số thông tin quan trọng từ văn bản gốc."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T22:10:17.902322",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:11:07.905221",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:11:33.603669",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'Thông tin về vị trí khách sạn bị bỏ qua' và 'Dịch vụ Spa chưa được đề cập'. Cần thêm thông tin chi tiết.",
-          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7) do thiếu một số thông tin quan trọng từ văn bản gốc."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt nhưng có vấn đề nghiêm trọng về factual consistency (0.9) và redundancy score (0.1), nên tiếp tục thực thi."
         }
       }
     },
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-27T22:11:53.389302",
+      "timestamp": "2026-03-30T03:43:08.775557",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:12:27.714194",
+      "timestamp": "2026-03-30T03:43:24.454456",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:12:47.823666",
+      "timestamp": "2026-03-30T03:43:34.279720",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -181,143 +100,62 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt và đây là bước cuối cùng trong quá trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Bước thực thi đã đạt mức độ factual consistency cao (0.9) với nội dung tập trung vào dịch vụ giải trí và chất lượng phòng ốc, tuy nhiên vẫn còn thiếu một số thông tin chi tiết về hoạt động văn hóa địa phương và vị trí thuận lợi."
         }
       }
     },
     {
       "agent": "execution",
       "action": "refine",
-      "timestamp": "2026-03-27T22:13:17.493795",
+      "timestamp": "2026-03-30T03:43:44.356955",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:14:00.011819",
+      "timestamp": "2026-03-30T03:43:59.214751",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:14:24.144125",
-      "result_summary": "Decision: retry",
+      "timestamp": "2026-03-30T03:44:07.907109",
+      "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'tuyển dụng nhân viên chất lượng cho gia đình.' cần được xóa vì không có trong văn bản gốc.",
-          "reasoning": "Bước hiện tại đã đạt mức độ tốt về factual consistency và coverage completeness nhưng redundancy score cao do thêm thông tin trùng lặp. Độ dài của tóm tắt cũng vượt quá yêu cầu."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "timestamp": "2026-03-27T22:14:53.964566",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:15:36.311506",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:16:00.488105",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'tuyển dụng nhân viên chất lượng cho gia đình.' cần được xóa vì không có trong văn bản gốc.",
-          "reasoning": "Bước hiện tại đã đạt mức độ tốt về factual consistency và coverage completeness nhưng redundancy score cao do thêm thông tin trùng lặp. Độ dài của tóm tắt cũng vượt quá yêu cầu."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "timestamp": "2026-03-27T22:16:30.374803",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:17:13.147114",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:17:37.324323",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'tuyển dụng nhân viên chất lượng cho gia đình.' cần được xóa vì không có trong văn bản gốc.",
-          "reasoning": "Bước hiện tại đã đạt mức độ tốt về factual consistency và coverage completeness nhưng redundancy score cao do thêm thông tin trùng lặp. Độ dài của tóm tắt cũng vượt quá yêu cầu."
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Bước thực thi tóm tắt đạt chất lượng tốt với tiêu chí ngắn gọn nhưng đầy đủ thông tin về vị trí thuận lợi, đa dạng dịch vụ và trải nghiệm nghỉ dưỡng. Tuy nhiên cần thêm chi tiết về các hoạt động văn hóa đặc sắc tại địa phương."
         }
       }
     },
     {
       "agent": "execution",
       "action": "verify",
-      "timestamp": "2026-03-27T22:18:32.145154",
+      "timestamp": "2026-03-30T03:44:23.171384",
       "result_summary": "Step 5 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:19:12.931676",
-      "result_summary": "Observation for step 5 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:19:31.672710",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Kết quả thực thi đạt chất lượng tốt và đây là bước cuối cùng, nên tiếp tục tiến trình."
-        }
-      }
     },
     {
       "agent": "execution",
       "action": "edit",
-      "timestamp": "2026-03-27T22:19:50.194618",
+      "timestamp": "2026-03-30T03:44:31.151947",
       "result_summary": "Step 6 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:20:29.001085",
+      "timestamp": "2026-03-30T03:44:54.019382",
       "result_summary": "Observation for step 6 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:20:53.753615",
+      "timestamp": "2026-03-30T03:45:03.768372",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -326,15 +164,15 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin về La Pensée Spa.",
-          "reasoning": "Bước hiện tại đã hoàn thành đầy đủ và chất lượng tốt với mức độ nhất quán fact cao (0.9) và bao quát gần như đầy đủ (85%). Tuy nhiên, một số chi tiết cụ thể cần được bổ sung để đảm bảo không trùng lặp."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Factual consistency đạt mức cao nhưng còn thiếu thông tin chi tiết về vị trí địa lý và các điểm tham quan nổi tiếng khác trong đoạn văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin này.",
+          "reasoning": "Lý do quyết định là vì chất lượng tốt (factual consistency ≥ 0.8) nhưng còn thiếu một số chi tiết về vị trí địa lý và tiện ích, nên tiếp tục thực hiện bước kế."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T22:20:53.756614",
+      "timestamp": "2026-03-30T03:45:03.771390",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
@@ -394,7 +232,7 @@
           15,
           16
         ],
-        "summary": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi và tiện ích đa dạng đáp ứng nhu cầu nghỉ dưỡng gia đình.",
+        "summary": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn.",
         "word_count": 20
       },
       {
@@ -403,36 +241,28 @@
           17,
           18
         ],
-        "summary": "Fleur de Lys Hotel Quy Nhon tuyển dụng nhân viên chuyên nghiệp, hứa hẹn mang đến trải nghiệm nghỉ dưỡng chất lượng cho cả gia đình.",
-        "word_count": 16
+        "summary": "Fleur de Lys Hotel Quy Nhon cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
+        "word_count": 15
       }
     ],
-    "merged_summary": "Fleur de Lys Hotel Quy Nhon, 4 sao trung tâm Bình Định, phòng rộng tiện ích đa dạng; tuyển dụng nhân viên chất lượng cho gia đình.",
-    "refined_summary": "Fleur de Lys Hotel Quy Nhon, 4 sao trung tâm Bình Định, phòng rộng tiện ích đa dạng; tuyển dụng nhân viên chất lượng cho gia đình.",
+    "merged_summary": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn. Cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
+    "refined_summary": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn. Cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
     "verification_report": [
       {
         "claim_id": 1,
-        "claim_text": "Fleur de Lys Hotel Quy Nhon, 4 sao trung tâm Bình Định, phòng rộng tiện ích đa dạng",
+        "claim_text": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn.",
         "status": "pass",
         "evidence": [
           {
             "sentence_id": 3,
             "source_text": "Tọa lạc ngay tuyến đường trung tâm, gần trục đường biển Xuân Diệu, Fleur de Lys Hotel Quy Nhon là một trong những điểm đến lý tưởng cho cả gia đình."
-          },
-          {
-            "sentence_id": 4,
-            "source_text": "ngoài chất lượng phòng ốc, dịch vụ chuẩn 4 sao, khách sạn còn mang đến đa dạng dịch vụ giải trí, thư giãn, ẩm thực, đáp ứng nhu cầu nghỉ dưỡng trọn vẹn cho gia đình đa thế hệ."
-          },
-          {
-            "sentence_id": 5,
-            "source_text": "Là một trong những khách sạn chuẩn 4 sao quốc tế tại Quy Nhơn, Fleur de Lys Hotel có kiến trúc hiện đại, tối gian nhưng vẫn đảm bảo yếu tố sang trọng."
           }
         ],
-        "confidence": 0.9
+        "confidence": 0.95
       },
       {
         "claim_id": 2,
-        "claim_text": "tuyển dụng nhân viên chất lượng cho gia đình",
+        "claim_text": "Cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
         "status": "pass",
         "evidence": [
           {
@@ -443,7 +273,7 @@
         "confidence": 0.95
       }
     ],
-    "edited_summary": "Fleur de Lys Hotel, 4 sao tại Quy Nhon, Bình Định, có phòng rộng với nhiều tiện ích; tuyển dụng nhân viên chất lượng."
+    "edited_summary": "Fleur de Lys Hotel, khách sạn 4 sao tại Bình Định với phòng rộng hướng biển và dịch vụ đa dạng. Nhân viên chuyên nghiệp, nhiệt tình mang đến trải nghiệm chất lượng nghỉ dưỡng."
   },
   "stats": {
     "planner_loop": 0,
@@ -455,5 +285,5 @@
     "chunks": 0
   },
   "input_text": "Quy Nhơn, Bình Định nổi tiếng với vẻ đẹp hoang sơ, bờ biển dài trong xanh cùng đa dạng di sản văn hóa, ẩm thực. Nhiều gia đình chọn thành phố biển miền Trung làm điểm nghỉ dưỡng dịp hè vì mang lại cảm giác bình yên, ít xô bồ. Tọa lạc ngay tuyến đường trung tâm, gần trục đường biển Xuân Diệu, Fleur de Lys Hotel Quy Nhon là một trong những điểm đến lý tưởng cho cả gia đình. Ngoài chất lượng phòng ốc, dịch vụ chuẩn 4 sao, khách sạn còn mang đến đa dạng dịch vụ giải trí, thư giãn, ẩm thực, đáp ứng nhu cầu nghỉ dưỡng trọn vẹn cho gia đình đa thế hệ. Là một trong những khách sạn chuẩn 4 sao quốc tế tại Quy Nhơn, Fleur de Lys Hotel có kiến trúc hiện đại, tối gian nhưng vẫn đảm bảo yếu tố sang trọng. Khách sạn có đa dạng các loại phòng nghỉ với 100% hạng phòng hướng biển. Về dịch vụ tiện ích, La Pensée Spa được khách sạn ví như 'ốc đảo yên bình' thu nhỏ. Những du khách lớn tuổi như ông bà trong gia đình có thể thư giãn, tận hưởng những liệu pháp massage, hỗ trợ chăm sóc và hồi phục sức khỏe. Tầng 18 của khách sạn là SOL Skybar & Lounge. Nơi lý tưởng để bố mẹ cùng nhau thưởng thức những ly cocktail màu sắc, ngắm toàn cảnh thành phố về đêm trong tiếng nhạc sôi động. Bể bơi ngoài trời rộng rãi với khu vực riêng cho trẻ em là nơi các bé có thể thỏa sức vui đùa, đắm mình trong dòng nước mát lạnh và làm quen với những người bạn mới. Sau một ngày khám phá vùng đất xứ Nẫu, cả gia đình có thể quây quần bên nhau tại nhà hàng Hoa FengHuang hay SOL Lounge của khách sạn. Ngoài những món ăn đặc sản địa phương, nhà hàng còn phục vụ loạt món ngon phương Đông lẫn Âu - Mỹ, các đầu bếp dày dặn kinh nghiệm trực tiếp chế biến. Về vị trí, Fleur de Lys Hotel Quy Nhon nằm ngay trung tâm, giúp du khách dễ dàng di chuyển đến các điểm tham quan nổi tiếng như Tháp Đôi, Eo Gió, Kỳ Co... Ngoài ra, khách sạn còn tổ chức các chuyến tham quan danh lam thắng cảnh, tham gia các hoạt động văn hóa đặc sắc tại địa phương... giúp bạn có thêm những trải nghiệm thú vị, hiểu hơn về vùng đất này. 'Với đội ngũ nhân viên chuyên nghiệp, nhiệt tình, Fleur de Lys Hotel Quy Nhon cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng, hứa hẹn sẽ là nơi cả gia đình tận hưởng kỳ nghỉ trọn vẹn, tìm thấy niềm vui, thư giãn trí óc', đại diện khách sạn nói. Á Hiên",
-  "last_updated": "2026-03-27T22:19:50.192111"
+  "last_updated": "2026-03-30T03:44:31.150054"
 }

@@ -1,5 +1,5 @@
 {
-  "session_id": "7e372729",
+  "session_id": "1f7a3084",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 426,
-  "created_at": "2026-03-27T17:10:42.089505",
+  "created_at": "2026-03-30T01:04:55.847910",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T17:11:37.074659",
+      "timestamp": "2026-03-30T01:05:42.385702",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T17:12:27.625591",
+      "timestamp": "2026-03-30T01:06:39.468555",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T17:12:51.895305",
+      "timestamp": "2026-03-30T01:06:50.886354",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,55 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát tất cả ý chính của văn bản gốc và có bước cụ thể để thực hiện. Mặc dù cần thêm thông tin về cách xác định chunks trong step 2, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực thi roadmap."
+          "reasoning": "Roadmap đã bao quát đầy đủ ý chính và cụ thể, không có bước nào tiềm ẩn tạo ra fact giả. Tuy nhiên, cần bổ sung thêm bước xác định chunk chính bằng word_tokenize và sent_tokenize."
         }
       }
     },
     {
       "agent": "execution",
       "action": "split_sentences",
-      "timestamp": "2026-03-27T17:12:51.898430",
+      "timestamp": "2026-03-30T01:06:50.892770",
       "result_summary": "Step 1 completed"
     },
     {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T17:13:52.647490",
-      "result_summary": "Observation for step 1 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T17:14:19.937208",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "'Chi tiết về việc bảo vệ môi trường chưa hiển thị'",
-          "reasoning": "Bước thực thi tách câu đã hoàn thành và tóm tắt chính xác các thông tin cơ bản, nhưng một số chi tiết cụ thể như thiết kế và tiện ích của Amiana Resort Nha Trang không được trình bày đầy đủ. Cần tiếp tục đánh giá bước sau."
-        }
-      }
-    },
-    {
       "agent": "execution",
-      "action": "chunking",
-      "timestamp": "2026-03-27T17:14:19.967854",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T01:07:14.112347",
       "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T17:15:09.000358",
+      "timestamp": "2026-03-30T01:07:41.659960",
       "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T17:15:30.929230",
+      "timestamp": "2026-03-30T01:07:57.015083",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -94,56 +71,114 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số liệu cụ thể.",
-          "reasoning": "Bước hiện tại đã đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T17:16:06.896453",
-      "result_summary": "Step 3 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T17:16:45.918870",
-      "result_summary": "Observation for step 3 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T17:17:07.512657",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước hiện tại đã hoàn thành tốt với chất lượng output đạt mức cao (factual consistency và coverage completeness đều trên 0.8), tuy nhiên đây không phải là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Summary thiếu các thông tin chi tiết về hai giải thưởng và không đề cập đến kiến trúc truyền thống hiện đại của Amiana Resort Nha Trang. Execution Agent cần bổ sung thêm thông tin này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Mức độ factual consistency đạt 0.9 (đạt yêu cầu), nhưng coverage completeness chỉ đạt 0.85 và redundancy score là 0.1, cho thấy summary chưa bao quát đầy đủ thông tin từ văn bản gốc."
         }
       }
     },
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-27T17:17:34.980053",
+      "timestamp": "2026-03-30T01:08:10.575851",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:08:46.134431",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:09:03.994401",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: Mức độ nhất quán với văn bản gốc (factual consistency) chỉ đạt 0.8 và mức độ bao quát (coverage completeness) cũng chỉ đạt 0.75, cả hai đều chưa đủ tốt để đi tiếp mà cần phải bổ sung chi tiết về giải thưởng cụ thể."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T01:09:15.624950",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:09:38.037304",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:09:48.959255",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: Kết quả thực thi chưa đạt yêu cầu chất lượng tốt (factual ≥ 0.8 hoặc coverage ≥ 0.7) và độ dài đúng ràng buộc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T01:09:59.641133",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:10:23.949393",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:10:36.455595",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: Kết quả thực thi chưa đạt yêu cầu chất lượng tốt (factual ≥ 0.8 hoặc coverage ≥ 0.7) và độ dài đúng ràng buộc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T01:10:55.004894",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T17:18:12.051005",
+      "timestamp": "2026-03-30T01:11:17.007408",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T17:18:36.038486",
+      "timestamp": "2026-03-30T01:11:30.693894",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -152,56 +187,33 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc. Tuy nhiên, vẫn còn thiếu chi tiết về vị trí cụ thể của biệt thự trên bãi biển và cách bảo vệ môi trường."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng còn thiếu thông tin về cách Amiana Resort Nha Trang bảo vệ môi trường cụ thể hơn.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đã tóm tắt chính xác và đầy đủ các yếu tố quan trọng từ văn bản gốc, bao gồm cả hai giải thưởng được trích dẫn. Tuy nhiên, chất lượng tốt vẫn chưa đạt 1.0 vì còn thiếu chi tiết về cách bảo vệ môi trường của Amiana Resort Nha Trang."
         }
       }
     },
     {
       "agent": "execution",
       "action": "verify",
-      "timestamp": "2026-03-27T17:20:20.616120",
+      "timestamp": "2026-03-30T01:15:46.576028",
       "result_summary": "Step 5 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T17:21:07.665431",
-      "result_summary": "Observation for step 5 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T17:21:27.981831",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Kết quả thực thi đã hoàn thành đầy đủ với chất lượng tốt và không có vấn đề nghiêm trọng, nên bước tiếp theo là cần tiến hành."
-        }
-      }
     },
     {
       "agent": "execution",
       "action": "edit",
-      "timestamp": "2026-03-27T17:21:53.226233",
+      "timestamp": "2026-03-30T01:16:02.353117",
       "result_summary": "Step 6 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T17:22:30.456187",
+      "timestamp": "2026-03-30T01:16:24.355874",
       "result_summary": "Observation for step 6 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T17:22:56.014082",
+      "timestamp": "2026-03-30T01:16:36.917250",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -210,15 +222,15 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Kết quả thực thi đạt chất lượng tốt với mức độ nhất quán về thông tin cao (factual_consistency = 0.9), bao quát đầy đủ thông tin từ văn bản gốc (coverage_completeness = 0.85) và không có trùng lặp đáng kể (redundancy_score = 0.1). Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong phân tích, nhưng Output chỉ giữ nguyên nội dung gốc và không đưa thêm thông tin mới. Ghi rõ Execution Agent cần bổ sung thêm các điểm chính hoặc chi tiết từ văn bản gốc.",
+          "reasoning": "Lý do quyết định là vì chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7) nhưng đây chỉ là bước cuối cùng và Output không đưa thêm thông tin mới."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T17:22:56.021202",
+      "timestamp": "2026-03-30T01:16:36.930101",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
@@ -285,30 +297,6 @@
         "text": "Á Hiên"
       }
     ],
-    "chunks": [
-      {
-        "chunk_id": 1,
-        "sentence_ids": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15
-        ],
-        "text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác. 'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ. Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình. Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái. Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa... Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất. Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại. Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên. Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh. Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng. Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững. Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng. Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa. Á Hiên",
-        "word_count": 283
-      }
-    ],
     "chunk_summaries": [
       {
         "chunk_id": 1,
@@ -329,12 +317,13 @@
           14,
           15
         ],
-        "summary": "Amiana Resort Nha Trang tiếp tục giành giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Resort nổi bật với phong cách hòa hợp giữa truyền thống và hiện đại, tạo không gian thư giãn và sang trọng nhưng gần gũi thiên nhiên. Biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Amiana cũng chú trọng bảo vệ môi trường bằng các giải pháp bền vững như bố trí hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng.",
-        "word_count": 76
+        "summary": "Amiana Resort Nha Trang tiếp tục giành hai giải thưởng danh giá trong năm thứ tư liên tiếp, khẳng định vị thế là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư và gần gũi thiên nhiên. Kiến trúc hòa hợp giữa truyền thống và hiện đại tạo nên không gian thư giãn sang trọng nhưng vẫn giữ được cảm giác yên bình. Resort tận dụng địa hình tự nhiên để bố trí tiện ích công cộng, đồng thời chú trọng bảo vệ môi trường thông qua các giải pháp bền vững.",
+        "word_count": 59
       }
     ],
-    "merged_summary": "Amiana Resort Nha Trang tiếp tục nhận hai giải thưởng 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới', sau 4 năm liên tiếp. Phong cách hòa hợp giữa truyền thống và hiện đại tạo không gian thư giãn gần gũi thiên nhiên, biệt thự có cửa sổ lớn và ban công rộng, hồ bơi riêng tư và vườn nhiệt đới xanh mát. Resort chú trọng bảo vệ môi trường bằng giải pháp bền vững.",
-    "edited_summary": "Khu nghỉ dưỡng Amiana Nha Trang tiếp tục nhận hai giải thưởng 'Thiết kế kiến trúc tốt nhất thế giới' và 'Hướng biển sang trọng lãng mạn', sau 4 năm liên tiếp. Phong cách truyền thống hiện đại tạo không gian gần gũi thiên nhiên, biệt thự có cửa sổ lớn ban công rộng, hồ bơi riêng tư vườn nhiệt đới xanh mát. Resort bảo vệ môi trường bền vững."
+    "merged_summary": "Năm thứ tư liên tiếp, Amiana Resort Nha Trang giành hai giải thưởng danh giá. Kiến trúc truyền thống hiện đại tạo không gian thư giãn sang trọng nhưng yên bình. Công trình tận dụng địa hình tự nhiên và bảo vệ môi trường thông qua các biện pháp bền vững.",
+    "refined_summary": "Có kiến trúc truyền thống hiện đại, Amiana Resort Nha Trang giành hai giải thưởng danh giá trong năm thứ tư liên tiếp: 'Khu nghỉ dưỡng có thiết kế tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất'. Kiến trúc hòa hợp thiên nhiên với vật liệu tự nhiên và công nghệ hiện đại, tạo không gian thư giãn yên bình. Resort tận dụng địa hình tự nhiên để bố trí tiện ích như hồ bơi, nhà hàng, spa... bảo vệ môi trường thông qua giải pháp bền vững.",
+    "edited_summary": "Khu nghỉ dưỡng Amiana Nha Trang giành hai giải thưởng danh giá trong năm thứ tư liên tiếp: 'Thiết kế tốt nhất thế giới' và 'Hướng biển lãng mạn sang trọng'. Kiến trúc thiên nhiên với vật liệu tự nhiên, công nghệ hiện đại tạo không gian yên bình. Resort tận dụng địa hình để bố trí tiện ích như hồ bơi, nhà hàng, spa... bảo vệ môi trường bền vững."
   },
   "stats": {
     "planner_loop": 0,
@@ -346,5 +335,5 @@
     "chunks": 0
   },
   "input_text": "Hai giải thưởng gồm 'Khu nghỉ dưỡng có thiết kế kiến trúc tốt nhất thế giới' và 'Khu nghỉ dưỡng hướng biển lãng mạn sang trọng nhất thế giới'. Đây cũng là năm thứ tư liên tiếp đơn vị đạt giải thưởng này, sau quá trình thẩm định từ hội đồng chuyên môn toàn cầu và bình chọn bởi hàng nghìn du khách, khách sạn quốc tế khác. 'Giải thưởng góp phần khẳng định Amiana Resort Nha Trang là điểm đến lý tưởng cho du khách tìm kiếm không gian riêng tư, gần gũi thiên nhiên với kiến trúc cao cấp, mang lại trải nghiệm sang trọng, độc đáo', đại diện resort chia sẻ. Amiana có kiến trúc hòa hợp thiên nhiên, kết hợp yếu tố truyền thống và hiện đại, tạo nên không gian thư giãn, sang trọng nhưng vẫn giữ được cảm giác gần gũi, yên bình. Bãi biển riêng tư với hàng dừa rợp bóng xanh mát là nơi du khách có thể thư giãn, nghỉ ngơi thoải mái. Resort còn tận dụng địa hình tự nhiên để bố trí các công trình công cộng như hồ bơi, nhà hàng, phòng hội nghị, spa... Các yếu tố đậm chất nhiệt đới như dừa xanh, sóng biển, đá và gỗ được lồng ghép khéo léo trong từng chi tiết thiết kế nội ngoại thất. Biệt thự, phòng nghỉ, nhà hàng đều có sự kết hợp giữa vật liệu tự nhiên và công nghệ hiện đại. Mỗi căn biệt thự đều mang kiến trúc mở, sử dụng nội thất chủ yếu từ gỗ, đá tự nhiên. Tất cả phòng đều có cửa sổ lớn và ban công rộng, tối ưu tầm nhìn hướng biển với cảnh quan thiên nhiên vây quanh. Biệt thự còn có hồ bơi riêng, không gian vườn với các loại cây nhiệt đới, đảm bảo yếu tố riêng tư cho khách hàng. Resort không chỉ chú trọng xây dựng công trình tiện ích, mà còn đặc biệt lưu ý việc bảo vệ môi trường, sử dụng các giải pháp bền vững. Những không gian xanh, vườn cây, hồ nước đều được bố trí hợp lý, tạo nên hệ sinh thái tự nhiên trong lòng khu nghỉ dưỡng. Theo đại diện Amiana Resort Nha Trang, những chi tiết kiến trúc thông minh cùng không gian mở, vật liệu tự nhiên, sự khéo léo trong thiết kế tại đây góp phần tạo nên khu nghỉ dưỡng lý tưởng cho những ai tìm kiếm sự an yên, lãng mạn và xa hoa. Á Hiên",
-  "last_updated": "2026-03-27T17:21:53.222641"
+  "last_updated": "2026-03-30T01:16:02.350070"
 }

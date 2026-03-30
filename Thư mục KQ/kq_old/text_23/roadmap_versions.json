@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung các câu, chia chúng thành một số chunks phù hợp.",
+          "tool": "word_tokenize(sent_tokenize)",
+          "expected_output": "Một list chứa nhiều đoạn văn (chunks)"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được tạo ra từ step 1.",
+          "tool": "summarize_chunk",
+          "expected_output": "Một bản tóm tắt cho từng chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một bản tổng thể",
+          "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ step 2 vào với nhau tạo ra một bản tổng thể.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản tóm tắt toàn bộ văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách của bản tóm tắt cuối cùng",
+          "description": "Dùng refine_summary để tinh chỉnh câu từ và ngữ cảnh cho bản tổng thể.",
+          "tool": "refine_summary",
+          "expected_output": "Một bản tóm tắt toàn bộ văn bản với phong cách news_brief"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng thể có đúng khớp với văn bản gốc hay không.",
+          "tool": "verify_claim",
+          "expected_output": "Một báo cáo về độ chính xác của bản tóm tắt"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Bản roadmap này đảm bảo rằng mỗi bước đều được thực hiện một cách kỹ lưỡng để tạo ra một bản tổng thể phù hợp với yêu cầu."
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "summary": "",
+  "summary": "Ngày 8/6 (3/5 Âm lịch), công trình tâm linh nổi bật là tượng Phật cao nhất châu Á được công bố tại quảng trường dưới chân tượng Phật Bà Tây Bổ Đà Sơn và khu vực tôn tượng Bồ Tát Di Lặc, mở ra cơ hội hành hương và chiêm bái ngọn núi linh thiêng với nghi lễ truyền thống như tắm Bà vào đêm mùng 4/5 (Âm lịch), tụng kinh niệm Phật, cúng ngọ.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 50,
   "trace": [
     {
       "agent": "execution",
@@ -9,16 +9,128 @@
       "step_id": "step_1",
       "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
       "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Đại lễ vía Bà Linh Sơn Thánh Mẫu năm nay mở ra cơ hội hành hương và chiêm bái ngọn núi linh thiêng với nghi lễ truyền thống như tắm Bà vào đêm mùng 4/5 (Âm lịch), tụng kinh niệm Phật, cúng ngọ.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 1,
+          "source_text": "Năm nay, lễ vía Bà Linh Sơn Thánh Mẫu được tổ chức tại hệ thống các chùa núi Bà với các nghi lễ truyền thống, cùng chương trình cải lương tuồng cổ đặc sắc vào ngày 10/6."
+        },
+        {
+          "sentence_id": 2,
+          "source_text": "Đặc biệt, trên đỉnh núi Bà Đen, đại lễ dâng đăng với kỷ lục 55.000 ngọn đăng mừng lễ sẽ được tổ chức tại quảng trường dưới chân tượng Phật Bà Tây Bổ Đà Sơn và khu vực tôn tượng Bồ Tát Di Lặc vào tối 8/6 (tức 3/5 Âm lịch)."
+        },
+        {
+          "sentence_id": 4,
+          "source_text": "000 ngọn đèn hoa đăng này do các nhân viên của khu du lịch Sun World Ba Den Mountain chế tạo."
+        }
+      ],
+      "confidence": 1.0
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
-    "verification": null,
-    "edited_summary": null
+    "draft_summary": "Cư dân Nam Bộ tôn Linh Sơn Thánh Mẫu như vị thần bảo vệ, thờ ở các chùa Tây Ninh. Lễ vía Bà năm nay mở ra cơ hội hành hương và chiêm bái ngọn núi linh thiêng với nghi lễ truyền thống như tắm Bà vào đêm mùng 4/5 (Âm lịch), tụng kinh niệm Phật, cúng ngọ, và công trình tâm linh nổi bật như tượng Phật cao nhất châu Á.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Đại lễ vía Bà Linh Sơn Thánh Mẫu năm nay mở ra cơ hội hành hương và chiêm bái ngọn núi linh thiêng với nghi lễ truyền thống như tắm Bà vào đêm mùng 4/5 (Âm lịch), tụng kinh niệm Phật, cúng ngọ.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "Năm nay, lễ vía Bà Linh Sơn Thánh Mẫu được tổ chức tại hệ thống các chùa núi Bà với các nghi lễ truyền thống, cùng chương trình cải lương tuồng cổ đặc sắc vào ngày 10/6."
+          },
+          {
+            "sentence_id": 2,
+            "source_text": "Đặc biệt, trên đỉnh núi Bà Đen, đại lễ dâng đăng với kỷ lục 55.000 ngọn đăng mừng lễ sẽ được tổ chức tại quảng trường dưới chân tượng Phật Bà Tây Bổ Đà Sơn và khu vực tôn tượng Bồ Tát Di Lặc vào tối 8/6 (tức 3/5 Âm lịch)."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "000 ngọn đèn hoa đăng này do các nhân viên của khu du lịch Sun World Ba Den Mountain chế tạo."
+          }
+        ],
+        "confidence": 1.0
+      }
+    ],
+    "edited_summary": "Ngày 8/6 (3/5 Âm lịch), công trình tâm linh nổi bật là tượng Phật cao nhất châu Á được công bố tại quảng trường dưới chân tượng Phật Bà Tây Bổ Đà Sơn và khu vực tôn tượng Bồ Tát Di Lặc, mở ra cơ hội hành hương và chiêm bái ngọn núi linh thiêng với nghi lễ truyền thống như tắm Bà vào đêm mùng 4/5 (Âm lịch), tụng kinh niệm Phật, cúng ngọ."
   }
 }

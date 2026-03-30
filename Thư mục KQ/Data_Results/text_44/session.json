@@ -1,5 +1,5 @@
 {
-  "session_id": "68c7e73f",
+  "session_id": "629eb9fb",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 671,
-  "created_at": "2026-03-28T01:00:08.080990",
+  "created_at": "2026-03-30T05:06:05.266877",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-28T01:01:15.018995",
+      "timestamp": "2026-03-30T05:06:24.272962",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-28T01:02:04.369748",
+      "timestamp": "2026-03-30T05:06:43.246157",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-28T01:02:26.211264",
+      "timestamp": "2026-03-30T05:06:49.159528",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục."
         }
       }
     },
     {
       "agent": "execution",
       "action": "split_sentences",
-      "timestamp": "2026-03-28T01:02:26.214781",
+      "timestamp": "2026-03-30T05:06:49.161927",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T05:07:11.598559",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-28T01:03:17.382428",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T05:07:31.556573",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-28T01:03:39.479851",
+      "timestamp": "2026-03-30T05:07:39.479788",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,15 +71,137 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T05:07:56.235305",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T05:08:38.901264",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.",
+          "reasoning": "Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T05:09:16.458586",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T05:12:00.733402",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T05:12:12.668880",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-28T01:03:39.489863",
+      "timestamp": "2026-03-30T05:12:35.344012",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
@@ -223,7 +351,62 @@
         "sentence_id": 36,
         "text": "Tuấn Anh"
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Nhi Trương cho biết món đặc trưng người Hoa Phòng Thành gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị.",
+        "word_count": 80
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "summary": "Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Lá mơ rửa sạch xay với gạo rồi thêm bột năng hấp nguội cắt thành sợi đen rắc lớp khô chống dính. Chè 'phân gà' tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 99
+      }
+    ],
+    "merged_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+    "refined_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+    "edited_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá."
   },
   "stats": {
     "planner_loop": 0,
@@ -235,5 +418,5 @@
     "chunks": 0
   },
   "input_text": "Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập Việt Nam. Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng. Danh y Triệu Học Mẫn thời nhà Thanh viết trong bản thảo 'Cương mục thập di', mùi của món ăn bắt nguồn từ mùi lá mơ được ví như phân gà, nên món được gọi chè 'thối' hay 'phân'. Lá mơ thuộc loại cây thân leo dễ sống, thường mọc ở ven đường, bờ ruộng, có mùi nồng và được dùng làm vị thuốc. Nhi Trương, 27 tuổi, người gốc Hoa tại quận 5, cho biết chè 'phân gà' là món ăn đặc trưng của người Hoa Phòng Thành, gốc Quảng Đông vào tết Hàn thực. 'Chè này không phổ biến trong cộng đồng người Hoa nên không phải ai cũng biết', Nhi nói. Tuy nhiên, quán trên vỉa hè đường Trịnh Đình Thảo, quận Tân Phú, một trong số rất ít nơi bán chè 'phân gà' lại nổi tiếng và được khách biết đến ngày càng nhiều. Quánmở bán hơn 20 năm, bên cạnh chùa Phật bà Quan Âm nên có lượng khách quen đi chùa ổn định. Gần đây, địa chỉ hút khách sau khi được mạng xã hội chia sẻ nhiều nhờ tên gọi lạ. Chủ quán Nhật Bình cho biết chè 'phân gà' là món truyền thống được gia đình truyền lại. Quán chỉ bán vào ngày rằm và mồng một hằng tháng vì lượng khách đi chùa đông. Ngày thường, chị bán nguyên liệu nấu chè ở chợ Phú Bình, quận 11. Chè được chị Bình nấu trên bếp than, giữ nóng thường xuyên, khi có khách gọi chị mới thả bột vào nồi nấu rồi chan nước đường gừng. Món ăn với sợi bột đen thẫm, dai, thơm mùi lá mơ và gừng. Khách ăn có thể yêu cầu chủ quán điều chỉnh độ ngọt theo khẩu vị. Theo chủ quán, nấu chè 'phân gà' không khó. Khâu quan trọng nhất là trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu. Lá mơ được rửa sạch rồi xay với gạo, sau đó trộn thêm bột năng và đem hấp, chờ nguội thì cắt thành sợi. Sợi bột làm xong có màu đen, được rắc thêm lớp bột khô bên ngoài để chống dính. 'Lá mơ với tỷ lệ vừa đủ, đã qua xử lý nên khi ăn chè không có mùi giống như tên', chị Bình nói. Chủ quán chia sẻ lá mơ tốt cho đường ruột, giúp giảm đau bụng, đầy hơi và thải độc gan nên món không chỉ ăn chơi mà còn tốt cho sức khỏe. Chè nóng kết hợp với gừng làm ấm cơ thể, được nhiều khách chọn thưởng thức vào buổi sáng. Khách ăn chè chủ yếu là khách quen, gọi món không cần nhìn thực đơn. Khu vực bán hàng trên vỉa hè hẹp nên nhiều người chọn mua về. Chị Bình cho hay mỗi lần bán hơn 500 phần, tương đương hơn 10 kg bột. Một phần chè có giá 16.000 đồng. Ngoài chè 'phân gà', quán còn bán chè bắp, cháo bắp đồng giá. Bà Dương Lan, 80 tuổi, sống tại quận 11, cùng con gái đi chùa ghé quán thưởng thức chè và gọi thêm 4 phần mang về. 'Gia đình tôi ai cũng thích món này', bà Lan nói, cho biết đã ăn ở đây từ thời mẹ chị Bình bán. Ghé quán thưởng thức hôm rằm tháng 9, Dương Sắc Minh, 23 tuổi, cho biết anh được mẹ mua chè ở quán cho ăn từ nhỏ. Theo Minh, chè 'phân gà' ít nơi bán nên anh thường giới thiệu bạn bè đến đây thưởng thức. Quán bán từ 8h đến 17h nhưng thường hết sớm. Khách đến ăn tại chỗ phải gửi xe ở khuôn viên chùa Phật bà Quan Âm, giá 5.000 đồng một lượt. Tuấn Anh",
-  "last_updated": "2026-03-28T01:02:26.213774"
+  "last_updated": "2026-03-30T05:12:12.665878"
 }

@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm những câu liên quan vào một chunk.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk đã được tạo ra"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk thông qua LLM",
+          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt bằng cách sử dụng công nghệ AI.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp nhiều bản tóm tắt lại thành một bản tổng thể",
+          "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng thể.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt đã được gộp"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho bản tổng thể",
+          "description": "Refine_summary để đảm bảo rằng văn phong của đoạn văn mới phù hợp với yêu cầu là news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt đã được refinement"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng tính chính xác của bản tổng thể so với văn bản gốc",
+          "description": "Verify_claim để đảm bảo rằng thông tin trong đoạn văn mới không thay đổi entity và vẫn đúng với nội dung ban đầu.",
+          "tool": "verify_claim",
+          "expected_output": "Dữ liệu kiểm chứng"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Bước này có thể yêu cầu thêm các bước phụ tùy thuộc vào kết quả của từng bước trước đó."
+    }
+  }
+}

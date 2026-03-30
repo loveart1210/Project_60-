@@ -4,23 +4,35 @@
       {
         "step_id": "step_1",
         "name": "Tách văn bản thành câu và nhóm chunk",
-        "description": "Tách văn bản gốc thành các đoạn ngắn hơn bằng sent_tokenize, sau đó nhóm chúng lại với nhau để tạo chunks phù hợp cho tóm tắt.",
-        "tool": "sent_tokenize, chunk_text"
+        "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.",
+        "tool": "word_tokenize, sent_tokenize, chunk_text"
       },
       {
         "step_id": "step_2",
-        "name": "Tạo và gộp bản tóm tắt của từng chunk",
-        "description": "Dùng LLM để tóm tắt mỗi chunk bằng summarize_chunk. Sau đó dùng merge_summaries để kết hợp các bản tóm tắt thành một.",
-        "tool": "summarize_chunk, merge_summaries"
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk. Mỗi chunk nên được tóm tắt với độ dài khoảng 50-100 từ.",
+        "tool": "summarize_chunk"
       },
       {
         "step_id": "step_3",
-        "name": "Tinh chỉnh phong cách của bản tổng kết",
-        "description": "Dùng refine_summary để cải thiện ngữ cảnh và phong cách viết của bản tóm tắt cuối cùng.",
+        "name": "Gộp các bản tóm tắt lại thành một summary",
+        "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt của từng chunk trở thành một summary tổng thể. Độ dài mong muốn là 150-250 từ.",
+        "tool": "merge_summaries"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách cho summary cuối cùng",
+        "description": "Dùng refine_summary để tinh chỉnh các câu trong summary, đảm bảo thông tin chính được giữ lại và văn phong phù hợp với style news_brief.",
         "tool": "refine_summary"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc (optional)",
+        "description": "Dùng verify_claim để kiểm tra thông tin chính trong summary có đúng với văn bản gốc không. Nếu cần, điều chỉnh summary.",
+        "tool": "verify_claim"
       }
     ],
-    "total_steps": 4,
-    "notes": "Bước kiểm chứng mệnh đề (verify_claim) sẽ được thực hiện sau khi hoàn thành toàn bộ quá trình để đảm bảo thông tin chính xác."
+    "total_steps": 5,
+    "notes": "Bước cuối cùng là chọn lọc và tinh chỉnh cho phù hợp với độ dài mong muốn (150-250 từ) mà vẫn giữ được thông tin chính."
   }
 }

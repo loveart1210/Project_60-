@@ -1,5 +1,5 @@
 {
-  "session_id": "9fcbe3aa",
+  "session_id": "46627267",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 329,
-  "created_at": "2026-03-27T23:40:34.314415",
+  "created_at": "2026-03-30T04:32:36.491905",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T23:41:35.975123",
+      "timestamp": "2026-03-30T04:32:53.254003",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T23:42:28.094471",
+      "timestamp": "2026-03-30T04:33:11.607097",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T23:42:52.182604",
+      "timestamp": "2026-03-30T04:33:19.165894",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,55 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát được ý chính của văn bản gốc và có hướng dẫn chi tiết về từng bước xử lý. Tuy nhiên, roadmap thiếu việc xác định vị trí cụ thể các chunk trong toàn bộ văn bản, điều này ảnh hưởng đến khả năng thực thi hiệu quả."
+          "reasoning": "Roadmap bao gồm các bước chính phù hợp với công việc của văn bản gốc và đã đề cập đến tách chunks, tạo summary bằng LLM. Tuy nhiên, roadmap thiếu một số bước xử lý thông tin cụ thể về chương trình khuyến mại hoặc gói du lịch kích cầu, cần thêm bước Merge Summaries và Refine Summary for Clarity and Style."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunking",
-      "timestamp": "2026-03-27T23:42:52.208665",
+      "timestamp": "2026-03-30T04:33:19.182050",
       "result_summary": "Step 1 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T23:43:32.500316",
-      "result_summary": "Observation for step 1 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:43:52.388314",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi thành công với chất lượng tốt và tóm tắt chính xác đầy đủ thông tin từ văn bản gốc."
-        }
-      }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
-      "timestamp": "2026-03-27T23:44:26.726331",
+      "timestamp": "2026-03-30T04:33:30.806813",
       "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T23:45:03.108874",
+      "timestamp": "2026-03-30T04:33:48.394052",
       "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:45:23.802991",
+      "timestamp": "2026-03-30T04:33:57.767920",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -94,27 +71,85 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát đầy đủ thông tin từ văn bản gốc."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' и 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Mức độ bao quát (coverage completeness) và độ chính xác (factual consistency) đều đạt mức tốt nhưng còn thiếu thông tin về hoạt động dân gian nặn tò he, trang trí nón lá. Điều này yêu cầu tiếp tục thực hiện bước hiện tại."
         }
       }
     },
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-27T23:45:50.261969",
+      "timestamp": "2026-03-30T04:34:05.679578",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T23:46:25.521207",
+      "timestamp": "2026-03-30T04:34:19.007696",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:46:49.617734",
+      "timestamp": "2026-03-30T04:34:26.593213",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung thông tin về số đơn vị triển lãm, khách mua và khách tham quan. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Chất lượng tốt nhưng thiếu một số dữ liệu chi tiết (factual < 0.8) nên quyết định retry để hoàn thiện thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T04:34:35.056442",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:34:47.896277",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:34:54.909208",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung vị trí tổ chức gian hàng của Sở Du lịch TP HCM, sửa chữa độ dài summary không phù hợp với yêu cầu news_brief. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt nhưng vẫn còn vấn đề về độ dài và chi tiết cụ thể bị lược bỏ."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T04:35:03.341128",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:35:14.269801",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:35:20.554977",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -123,143 +158,62 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chương trình nặn tò he và giải golf.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với độ chính xác về thông tin cao (factual ≥ 0.8) và bao quát đầy đủ các yếu tố chủ chốt của hội chợ, nhưng có một số chi tiết bị thiếu từ văn bản gốc nên cần thử lại."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output giữ nguyên nội dung chính của văn bản gốc mà không thêm bất kỳ thông tin mới nào, dẫn đến redundancy score là 0.1.",
+          "reasoning": "Lý do quyết định: Bước thực thi đã đạt chất lượng tốt (factual consistency = 0.9 và coverage completeness = 0.85) nhưng đây chưa phải bước cuối cùng nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "execution",
       "action": "refine",
-      "timestamp": "2026-03-27T23:47:24.068893",
+      "timestamp": "2026-03-30T04:35:29.712076",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T23:48:00.407029",
+      "timestamp": "2026-03-30T04:35:40.954177",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:48:22.908394",
-      "result_summary": "Decision: retry",
+      "timestamp": "2026-03-30T04:35:47.406528",
+      "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
           "redundancy_score": 0.1,
           "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Số lượng khách tham quan và người mua chưa được cập nhật chính xác so với văn bản gốc.",
-          "reasoning": "Output đạt chất lượng tốt nhưng vẫn còn một số chi tiết cụ thể không nhất quán hoàn toàn với thông tin trong văn bản gốc, yêu cầu phải điều chỉnh."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "timestamp": "2026-03-27T23:48:57.470762",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T23:49:33.554895",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:49:55.913530",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Số lượng khách tham quan và người mua chưa được cập nhật chính xác so với văn bản gốc.",
-          "reasoning": "Output đạt chất lượng tốt nhưng vẫn còn một số chi tiết cụ thể không nhất quán hoàn toàn với thông tin trong văn bản gốc, yêu cầu phải điều chỉnh."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "timestamp": "2026-03-27T23:50:30.635138",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T23:51:06.838179",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:51:29.207669",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Số lượng khách tham quan và người mua chưa được cập nhật chính xác so với văn bản gốc.",
-          "reasoning": "Output đạt chất lượng tốt nhưng vẫn còn một số chi tiết cụ thể không nhất quán hoàn toàn với thông tin trong văn bản gốc, yêu cầu phải điều chỉnh."
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có trong văn bản. Tuy nhiên, output đạt chất lượng tốt với độ chính xác factual là 0.9 và completeness coverage là 0.85.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output hoàn thành đúng yêu cầu, tóm tắt ngắn gọn và chính xác so với văn bản gốc."
         }
       }
     },
     {
       "agent": "execution",
       "action": "verify",
-      "timestamp": "2026-03-27T23:52:44.394247",
+      "timestamp": "2026-03-30T04:35:58.173947",
       "result_summary": "Step 5 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T23:53:33.728580",
-      "result_summary": "Observation for step 5 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:53:57.923431",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đã đạt chất lượng tốt với độ chính xác cao và bao quát đầy đủ thông tin nhưng vẫn còn thiếu chi tiết về hoạt động dân gian tại gian hàng TP HCM và lịch sử hợp tác trước đây. Đây là bước cuối cùng nên tiếp tục."
-        }
-      }
     },
     {
       "agent": "execution",
       "action": "edit",
-      "timestamp": "2026-03-27T23:54:25.167773",
+      "timestamp": "2026-03-30T04:36:05.556813",
       "result_summary": "Step 6 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T23:55:00.912218",
+      "timestamp": "2026-03-30T04:36:16.373196",
       "result_summary": "Observation for step 6 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:55:22.376127",
+      "timestamp": "2026-03-30T04:36:22.981525",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -268,15 +222,15 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát đầy đủ thông tin cần thiết, nhưng vẫn có thể cải thiện về số lượng chữ để phù hợp hơn với ràng buộc độ dài."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt thông tin đã có từ văn bản gốc mà không thêm bất kỳ fact mới nào hoặc thiếu các thông tin cần thiết. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn chưa hoàn thiện khi chỉ tóm tắt và thiếu một số thông tin cần thiết."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T23:55:22.384633",
+      "timestamp": "2026-03-30T04:36:22.983531",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
@@ -325,58 +279,35 @@
           14,
           15
         ],
-        "summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng từ khắp thế giới, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức nhiều hoạt động thúc đẩy hình ảnh điểm đến, bao gồm khuyến mại, gói du lịch kích cầu, trang trí nón lá, chương trình visa 15 ngày cho châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm tại Việt Nam, Campuchia, Lào, cam kết chuyển đổi xanh và sản phẩm bền vững.",
-        "word_count": 65
+        "summary": "Hội chợ IMEX Frankfurt 2024 thu hút hơn 3.000 người mua từ khắp thế giới, với gian hàng của TP HCM tổ chức nhiều hoạt động thúc đẩy du lịch và giới thiệu dịch vụ hội nghị chất lượng cho khách châu Âu. Vidotour tham gia lần thứ hai cùng Sở Du Lịch TP HCM sau sự kiện IMEX Mỹ năm 2023 tại Las Vegas.",
+        "word_count": 47
       }
     ],
-    "merged_summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
-    "refined_summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
+    "merged_summary": "TP HCM thu hút hơn 3.000 người mua từ khắp thế giới tại IMEX Frankfurt, với Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm 2023.",
+    "refined_summary": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, với Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái.",
     "verification_report": [
       {
         "claim_id": 1,
-        "claim_text": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan.",
+        "claim_text": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, với Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái.",
         "status": "pass",
         "evidence": [
           {
-            "sentence_id": 4,
-            "source_text": "Hội chợ cũng là nơi quy tụ nhiều công ty chuyên về du lịch sự kiện trên khắp thế giới đến giao lưu và tìm kiếm cơ hội thúc đẩy. Theo đại diện Vidotour, Imex Frankfurt 2024 đón 2.\n900 đơn vị triển lãm từ 150 quốc gia và vùng lãnh thổ, thu hút hơn 3.\n000 người mua đến từ 84 quốc gia và gần 12.\n000 khách tham quan."
-          }
-        ],
-        "confidence": 0.9
-      },
-      {
-        "claim_id": 2,
-        "claim_text": "Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu.",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 7,
-            "source_text": "Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá..."
-          }
-        ],
-        "confidence": 0.9
-      },
-      {
-        "claim_id": 3,
-        "claim_text": "Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
-        "status": "pass",
-        "evidence": [
+            "sentence_id": 5,
+            "source_text": "Thu hút hơn 3.000 người mua đến từ 84 quốc gia và gần 12.000 khách tham quan."
+          },
           {
             "sentence_id": 9,
-            "source_text": "Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá... Vidotour tham gia cùng Sở Du Lịch TP HCM lần này cũng mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...)"
+            "source_text": "Mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...)"
+          },
+          {
+            "sentence_id": 13,
+            "source_text": "Lần thứ 2 Vidotour đồng hành cùng Sở Du Lịch TP HCM tham dự hội chợ du lịch về MICE, IMEX."
           }
         ],
-        "confidence": 0.9
-      },
-      {
-        "claim_id": 4,
-        "claim_text": "Lần đầu hai bên hợp tác là IMEX Mỹ, diễn ra tháng 10/2023 tại Las Vegas, Mỹ.",
-        "status": "fail",
-        "evidence": [],
-        "confidence": 0.8
+        "confidence": 0.95
       }
     ],
-    "edited_summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững."
+    "edited_summary": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái."
   },
   "stats": {
     "planner_loop": 0,
@@ -388,5 +319,5 @@
     "chunks": 0
   },
   "input_text": "Đây là một trong những hội chợ thương mại hàng đầu thế giới trong lĩnh vực công nghiệp hội nghị, sự kiện. Hội chợ cũng là nơi quy tụ nhiều công ty chuyên về du lịch sự kiện trên khắp thế giới đến giao lưu và tìm kiếm cơ hội thúc đẩy. Theo đại diện Vidotour, Imex Frankfurt 2024 đón 2.900 đơn vị triển lãm từ 150 quốc gia và vùng lãnh thổ, thu hút hơn 3.000 người mua đến từ 84 quốc gia và gần 12.000 khách tham quan. Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá... Gian hàng cũng giới thiệu thông tin hỗ trợ visa 15 ngày cho du khách châu Âu, nhằm kích cầu du lịch, nhất là thị trường Đức tiềm năng. Vidotour tham gia cùng Sở Du Lịch TP HCM lần này cũng mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...). Với kinh nghiệm hơn 34 năm hoạt động, Vidotour mang đến cho khách hàng châu Âu các dịch vụ chất lượng ở Việt Nam, Campuchia, Lào. Doanh nghiệp còn cam kết chuyển đổi xanh, đồng hành cùng du lich TP HCM mang đến các sản phẩm xanh và bền vững, phù hợp với mong muốn của mọi khách hàng. Đây là lần thứ 2 Vidotour đồng hành cùng Sở Du Lịch TP HCM tham dự hội chợ du lịch về MICE, IMEX. Lần đầu hai bên hợp tác là IMEX Mỹ, diễn ra tháng 10/2023 tại Las Vegas, Mỹ. Thanh Thư",
-  "last_updated": "2026-03-27T23:54:25.166271"
+  "last_updated": "2026-03-30T04:36:05.555308"
 }

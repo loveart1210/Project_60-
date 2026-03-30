@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm thành chunks",
+        "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các chunk bằng cách xác định dấu chấm hoặc dấu phẩy kết thúc.",
+        "tool": "word_tokenize(sent_tokenize)",
+        "expected_output": "Một danh sách chứa các chunks của văn bản"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk, đảm bảo không thay đổi entity và fact-grounded.",
+        "tool": "summarize_chunk(word_tokenize(sent_tokenize))",
+        "expected_output": "Một bản tóm tắt của mỗi chunk"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
+        "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2 vào một bản tổng hợp.",
+        "tool": "merge_summaries(summarize_chunk(word_tokenize(sent_tokenize)))",
+        "expected_output": "Một bản tóm tắt toàn bộ văn bản"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách của bản tổng hợp",
+        "description": "Dùng refine_summary để tinh chỉnh câu từ cho bản tổng hợp, đảm bảo phù hợp với style news_brief.",
+        "tool": "refine_summary(merge_summaries(summarize_chunk(word_tokenize(sent_tokenize))))",
+        "expected_output": "Một bản tóm tắt toàn bộ văn bản đã được refinement"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+        "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp vẫn đúng với văn bản gốc.",
+        "tool": "verify_claim(refine_summary(merge_summaries(summarize_chunk(word_tokenize(sent_tokenize)))))",
+        "expected_output": "Một báo cáo về độ chính xác của bản tóm tắt"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Ghi chú thêm: Đảm bảo tổng số từ trong kết quả cuối cùng nằm trong khoảng 150-250 từ và không quá 20% so với văn bản gốc."
+  }
+}

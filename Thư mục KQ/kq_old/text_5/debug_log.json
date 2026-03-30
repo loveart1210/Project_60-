@@ -1,0 +1,1881 @@
+{
+  "generated_at": "2026-03-27T18:06:51.374097",
+  "total_entries": 81,
+  "none_count": 0,
+  "logs": [
+    {
+      "timestamp": "2026-03-27T18:01:42.267186",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 370 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.\",\n        \"tool\": \"sent_tokenize, word_tokenize, chunk_text\",\n        \"expected_output\": \"Danh sách chunks đã được tạo ra\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt đã được tạo ra\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một\",\n        \"description\": \"Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tóm tắt gộp đã được tạo ra\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tổng quan\",\n        \"description\": \"Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tóm tắt đã được refine\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Kết quả kiểm chứng đã được tạo ra\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Ghi chú thêm nếu cần thiết.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:01:42.267186",
+      "step_name": "Planner Agent._call_llm",
+      "agent_name": "Planner Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 370 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.\",\n        \"tool\": \"sent_tokenize, word_tokenize, chunk_text\",\n        \"expected_output\": \"Danh sách chunks đã được tạo ra\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt đã được tạo ra\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một\",\n        \"description\": \"Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tóm tắt gộp đã được tạo ra\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tổng quan\",\n        \"description\": \"Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tóm tắt đã được refine\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Kết quả kiểm chứng đã được tạo ra\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Ghi chú thêm nếu cần thiết.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:01:42.267186",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc thành các đoạn ngắn (chunk",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.",
+              "tool": "sent_tokenize, word_tokenize, chunk_text",
+              "expected_output": "Danh sách chunks đã được tạo ra"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt gộp đã được tạo ra"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng quan",
+              "description": "Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được refine"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.",
+              "tool": "verify_claim",
+              "expected_output": "Kết quả kiểm chứng đã được tạo ra"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú thêm nếu cần thiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:01:42.267186",
+      "step_name": "Planner Agent._call_llm_json",
+      "agent_name": "Planner Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1764",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.",
+              "tool": "sent_tokenize, word_tokenize, chunk_text",
+              "expected_output": "Danh sách chunks đã được tạo ra"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt gộp đã được tạo ra"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng quan",
+              "description": "Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được refine"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.",
+              "tool": "verify_claim",
+              "expected_output": "Kết quả kiểm chứng đã được tạo ra"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú thêm nếu cần thiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:01:42.267186",
+      "step_name": "planner_agent.run",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "word_count=370, style=news_brief",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.",
+              "tool": "sent_tokenize, word_tokenize, chunk_text",
+              "expected_output": "Danh sách chunks đã được tạo ra"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt gộp đã được tạo ra"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng quan",
+              "description": "Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được refine"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.",
+              "tool": "verify_claim",
+              "expected_output": "Kết quả kiểm chứng đã được tạo ra"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú thêm nếu cần thiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:01:42.267186",
+      "step_name": "planning_iter1_planner",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "iteration=1, revision=''",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.",
+              "tool": "sent_tokenize, word_tokenize, chunk_text",
+              "expected_output": "Danh sách chunks đã được tạo ra"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt gộp đã được tạo ra"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng quan",
+              "description": "Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được refine"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.",
+              "tool": "verify_claim",
+              "expected_output": "Kết quả kiểm chứng đã được tạo ra"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú thêm nếu cần thiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:02:43.772000",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin cụ thể về mức giá vé cáp treo Fansipan.\",\n    \"specificity_analysis\": \"Các bước trong roadmap đều chi tiết nhưng có một số điểm cần cải thiện như: không rõ ràng cách tách chunk từ văn bản gốc; và việc sử dụng mô hình lớn (LLM) để tóm tắt chunks chưa được làm rõ thêm về phương pháp cụ thể.\",\n    \"hallucination_risk_analysis\": \"Không phát hiện rủi ro hallucination trong roadmap, nhưng cần lưu ý rằng bước merge_summaries có thể tạo ra thông tin mới không nằm trong văn bản gốc nếu dữ liệu đầu vào là sai hoặc thiếu cấu trúc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như sent_tokenize và word_tokenize một cách hợp lý để tách đoạn ngắn từ văn bản. Tuy nhiên, chunk_text chưa được sử dụng vì roadmap đã tự thực hiện việc tạo chunks bằng phương pháp khác.\",\n    \"missing_steps\": [\"Kiểm chứng thông tin về mức giá vé cáp treo Fansipan\"],\n    \"strengths\": [\n      \"Roadmap bao quát đầy đủ nội dung của văn bản gốc\",\n      \"Các bước đều chi tiết và cụ thể\"\n    ],\n    \"weaknesses\": [\n      \"Bước merge_summaries có rủi ro hallucination nếu dữ liệu đầu vào không chính xác\",\n      \"Không rõ ràng cách tạo chunks từ văn bản gốc trong roadmap\"\n    ]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:02:43.773000",
+      "step_name": "Planner-Observation Agent._call_llm",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc thành các đoạ",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin cụ thể về mức giá vé cáp treo Fansipan.\",\n    \"specificity_analysis\": \"Các bước trong roadmap đều chi tiết nhưng có một số điểm cần cải thiện như: không rõ ràng cách tách chunk từ văn bản gốc; và việc sử dụng mô hình lớn (LLM) để tóm tắt chunks chưa được làm rõ thêm về phương pháp cụ thể.\",\n    \"hallucination_risk_analysis\": \"Không phát hiện rủi ro hallucination trong roadmap, nhưng cần lưu ý rằng bước merge_summaries có thể tạo ra thông tin mới không nằm trong văn bản gốc nếu dữ liệu đầu vào là sai hoặc thiếu cấu trúc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như sent_tokenize và word_tokenize một cách hợp lý để tách đoạn ngắn từ văn bản. Tuy nhiên, chunk_text chưa được sử dụng vì roadmap đã tự thực hiện việc tạo chunks bằng phương pháp khác.\",\n    \"missing_steps\": [\"Kiểm chứng thông tin về mức giá vé cáp treo Fansipan\"],\n    \"strengths\": [\n      \"Roadmap bao quát đầy đủ nội dung của văn bản gốc\",\n      \"Các bước đều chi tiết và cụ thể\"\n    ],\n    \"weaknesses\": [\n      \"Bước merge_summaries có rủi ro hallucination nếu dữ liệu đầu vào không chính xác\",\n      \"Không rõ ràng cách tạo chunks từ văn bản gốc trong roadmap\"\n    ]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:02:43.773000",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm ch",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin cụ thể về mức giá vé cáp treo Fansipan.",
+          "specificity_analysis": "Các bước trong roadmap đều chi tiết nhưng có một số điểm cần cải thiện như: không rõ ràng cách tách chunk từ văn bản gốc; và việc sử dụng mô hình lớn (LLM) để tóm tắt chunks chưa được làm rõ thêm về phương pháp cụ thể.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, nhưng cần lưu ý rằng bước merge_summaries có thể tạo ra thông tin mới không nằm trong văn bản gốc nếu dữ liệu đầu vào là sai hoặc thiếu cấu trúc.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize và word_tokenize một cách hợp lý để tách đoạn ngắn từ văn bản. Tuy nhiên, chunk_text chưa được sử dụng vì roadmap đã tự thực hiện việc tạo chunks bằng phương pháp khác.",
+          "missing_steps": [
+            "Kiểm chứng thông tin về mức giá vé cáp treo Fansipan"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Các bước đều chi tiết và cụ thể"
+          ],
+          "weaknesses": [
+            "Bước merge_summaries có rủi ro hallucination nếu dữ liệu đầu vào không chính xác",
+            "Không rõ ràng cách tạo chunks từ văn bản gốc trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:02:43.773000",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1386",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin cụ thể về mức giá vé cáp treo Fansipan.",
+          "specificity_analysis": "Các bước trong roadmap đều chi tiết nhưng có một số điểm cần cải thiện như: không rõ ràng cách tách chunk từ văn bản gốc; và việc sử dụng mô hình lớn (LLM) để tóm tắt chunks chưa được làm rõ thêm về phương pháp cụ thể.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, nhưng cần lưu ý rằng bước merge_summaries có thể tạo ra thông tin mới không nằm trong văn bản gốc nếu dữ liệu đầu vào là sai hoặc thiếu cấu trúc.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize và word_tokenize một cách hợp lý để tách đoạn ngắn từ văn bản. Tuy nhiên, chunk_text chưa được sử dụng vì roadmap đã tự thực hiện việc tạo chunks bằng phương pháp khác.",
+          "missing_steps": [
+            "Kiểm chứng thông tin về mức giá vé cáp treo Fansipan"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Các bước đều chi tiết và cụ thể"
+          ],
+          "weaknesses": [
+            "Bước merge_summaries có rủi ro hallucination nếu dữ liệu đầu vào không chính xác",
+            "Không rõ ràng cách tạo chunks từ văn bản gốc trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:02:43.773000",
+      "step_name": "planner_observation_agent.run",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_type=dict",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin cụ thể về mức giá vé cáp treo Fansipan.",
+          "specificity_analysis": "Các bước trong roadmap đều chi tiết nhưng có một số điểm cần cải thiện như: không rõ ràng cách tách chunk từ văn bản gốc; và việc sử dụng mô hình lớn (LLM) để tóm tắt chunks chưa được làm rõ thêm về phương pháp cụ thể.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, nhưng cần lưu ý rằng bước merge_summaries có thể tạo ra thông tin mới không nằm trong văn bản gốc nếu dữ liệu đầu vào là sai hoặc thiếu cấu trúc.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize và word_tokenize một cách hợp lý để tách đoạn ngắn từ văn bản. Tuy nhiên, chunk_text chưa được sử dụng vì roadmap đã tự thực hiện việc tạo chunks bằng phương pháp khác.",
+          "missing_steps": [
+            "Kiểm chứng thông tin về mức giá vé cáp treo Fansipan"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Các bước đều chi tiết và cụ thể"
+          ],
+          "weaknesses": [
+            "Bước merge_summaries có rủi ro hallucination nếu dữ liệu đầu vào không chính xác",
+            "Không rõ ràng cách tạo chunks từ văn bản gốc trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:02:43.773000",
+      "step_name": "planning_iter1_observation",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_keys=['roadmap']",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin cụ thể về mức giá vé cáp treo Fansipan.",
+          "specificity_analysis": "Các bước trong roadmap đều chi tiết nhưng có một số điểm cần cải thiện như: không rõ ràng cách tách chunk từ văn bản gốc; và việc sử dụng mô hình lớn (LLM) để tóm tắt chunks chưa được làm rõ thêm về phương pháp cụ thể.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, nhưng cần lưu ý rằng bước merge_summaries có thể tạo ra thông tin mới không nằm trong văn bản gốc nếu dữ liệu đầu vào là sai hoặc thiếu cấu trúc.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize và word_tokenize một cách hợp lý để tách đoạn ngắn từ văn bản. Tuy nhiên, chunk_text chưa được sử dụng vì roadmap đã tự thực hiện việc tạo chunks bằng phương pháp khác.",
+          "missing_steps": [
+            "Kiểm chứng thông tin về mức giá vé cáp treo Fansipan"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Các bước đều chi tiết và cụ thể"
+          ],
+          "weaknesses": [
+            "Bước merge_summaries có rủi ro hallucination nếu dữ liệu đầu vào không chính xác",
+            "Không rõ ràng cách tạo chunks từ văn bản gốc trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:03:11.595359",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.72,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"revise\",\n    \"revision_instructions\": \"Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.\",\n    \"reasoning\": \"Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:03:11.595359",
+      "step_name": "Planner-Reflection Agent._call_llm",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách đoạn ngắn (chunk) đến tổng hợp và refine. Tuy nh",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.72,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"revise\",\n    \"revision_instructions\": \"Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.\",\n    \"reasoning\": \"Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:03:11.595359",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.72,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"revise\",\n    \"revision_inst",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.72,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "revise",
+          "revision_instructions": "Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.",
+          "reasoning": "Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:03:11.595359",
+      "step_name": "Planner-Reflection Agent._call_llm_json",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=568",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.72,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "revise",
+          "revision_instructions": "Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.",
+          "reasoning": "Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:03:11.595359",
+      "step_name": "planner_reflection_agent.run",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_type=dict",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.72,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "revise",
+          "revision_instructions": "Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.",
+          "reasoning": "Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:03:11.595359",
+      "step_name": "planning_iter1_reflection",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_keys=['observation']",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.72,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "revise",
+          "revision_instructions": "Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.",
+          "reasoning": "Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:04:08.470996",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 370 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.\",\n        \"tool\": \"sent_tokenize;chunk_text\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.\",\n        \"tool\": \"summarize_chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một đoạn văn\",\n        \"description\": \"Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.\",\n        \"tool\": \"merge_summaries\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan\",\n        \"description\": \"Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.\",\n        \"tool\": \"refine_summary\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)\",\n        \"description\": \"Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.\",\n        \"tool\": \"verify_claim\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:04:08.470996",
+      "step_name": "Planner Agent._call_llm",
+      "agent_name": "Planner Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 370 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.\",\n        \"tool\": \"sent_tokenize;chunk_text\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.\",\n        \"tool\": \"summarize_chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một đoạn văn\",\n        \"description\": \"Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.\",\n        \"tool\": \"merge_summaries\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan\",\n        \"description\": \"Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.\",\n        \"tool\": \"refine_summary\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)\",\n        \"description\": \"Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.\",\n        \"tool\": \"verify_claim\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:04:08.471996",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách đoạn văn bản gốc thành các câu, sau đó",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.",
+              "tool": "sent_tokenize;chunk_text"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.",
+              "tool": "summarize_chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn",
+              "description": "Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.",
+              "tool": "merge_summaries"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+              "description": "Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+              "description": "Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.",
+              "tool": "verify_claim"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:04:08.471996",
+      "step_name": "Planner Agent._call_llm_json",
+      "agent_name": "Planner Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1456",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.",
+              "tool": "sent_tokenize;chunk_text"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.",
+              "tool": "summarize_chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn",
+              "description": "Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.",
+              "tool": "merge_summaries"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+              "description": "Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+              "description": "Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.",
+              "tool": "verify_claim"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:04:08.471996",
+      "step_name": "planner_agent.run",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "word_count=370, style=news_brief",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.",
+              "tool": "sent_tokenize;chunk_text"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.",
+              "tool": "summarize_chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn",
+              "description": "Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.",
+              "tool": "merge_summaries"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+              "description": "Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+              "description": "Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.",
+              "tool": "verify_claim"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:04:08.471996",
+      "step_name": "planning_iter2_planner",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "iteration=2, revision='Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về m'",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm chunk",
+              "description": "Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.",
+              "tool": "sent_tokenize;chunk_text"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt từng chunk bằng LLM",
+              "description": "Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.",
+              "tool": "summarize_chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp các bản tóm tắt lại thành một đoạn văn",
+              "description": "Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.",
+              "tool": "merge_summaries"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+              "description": "Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+              "description": "Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.",
+              "tool": "verify_claim"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:13.516419",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính của văn bản gốc, nhưng thiếu bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc. Bước này cần bổ sung để roadmap hoàn chỉnh hơn.\",\n    \"specificity_analysis\": \"'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM' có chi tiết, nhưng chưa đủ cụ thể về cách tách các chunks phù hợp hoặc phương pháp sử dụng LLM cho việc tóm tắt. Bước xác định đồng giá vé cáp treo Fansipan Sa Pa cần thêm thông tin.\",\n    \"hallucination_risk_analysis\": \"Không phát hiện rủi ro hallucination trong roadmap, vì tất cả bước đều liên quan đến xử lý văn bản và không tạo ra bất kỳ fact nào không có trong nguồn gốc.\",\n    \"tool_utilization_analysis\": \"'word_tokenize', 'sent_tokenize' đã được sử dụng đúng cách để tách đoạn văn thành câu. Tuy nhiên, 'chunk_text' chưa được tận dụng một cách hợp lý vì roadmap chỉ cần tổng hợp các bản tóm tắt cuối cùng mà không yêu cầu phân chunk.\",\n    \"missing_steps\": [\"Xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc\"],\n    \"strengths\": [\n      \"'Tách văn bản thành câu và nhóm chunk' đã tạo ra một bước đầu tiên cần thiết trong quá trình tóm tắt.\",\n      \"'Gộp các bản tóm tắt lại thành một đoạn văn' giúp tổng hợp thông tin ngắn gọn, dễ hiểu.\"\n    ],\n    \"weaknesses\": [\"Bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc chưa được bổ sung\", \"'chunk_text' không được tận dụng trong roadmap\"]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:13.516419",
+      "step_name": "Planner-Observation Agent._call_llm",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách đoạn văn bản gốc thành cá",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính của văn bản gốc, nhưng thiếu bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc. Bước này cần bổ sung để roadmap hoàn chỉnh hơn.\",\n    \"specificity_analysis\": \"'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM' có chi tiết, nhưng chưa đủ cụ thể về cách tách các chunks phù hợp hoặc phương pháp sử dụng LLM cho việc tóm tắt. Bước xác định đồng giá vé cáp treo Fansipan Sa Pa cần thêm thông tin.\",\n    \"hallucination_risk_analysis\": \"Không phát hiện rủi ro hallucination trong roadmap, vì tất cả bước đều liên quan đến xử lý văn bản và không tạo ra bất kỳ fact nào không có trong nguồn gốc.\",\n    \"tool_utilization_analysis\": \"'word_tokenize', 'sent_tokenize' đã được sử dụng đúng cách để tách đoạn văn thành câu. Tuy nhiên, 'chunk_text' chưa được tận dụng một cách hợp lý vì roadmap chỉ cần tổng hợp các bản tóm tắt cuối cùng mà không yêu cầu phân chunk.\",\n    \"missing_steps\": [\"Xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc\"],\n    \"strengths\": [\n      \"'Tách văn bản thành câu và nhóm chunk' đã tạo ra một bước đầu tiên cần thiết trong quá trình tóm tắt.\",\n      \"'Gộp các bản tóm tắt lại thành một đoạn văn' giúp tổng hợp thông tin ngắn gọn, dễ hiểu.\"\n    ],\n    \"weaknesses\": [\"Bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc chưa được bổ sung\", \"'chunk_text' không được tận dụng trong roadmap\"]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:13.516419",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính ",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính của văn bản gốc, nhưng thiếu bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc. Bước này cần bổ sung để roadmap hoàn chỉnh hơn.",
+          "specificity_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM' có chi tiết, nhưng chưa đủ cụ thể về cách tách các chunks phù hợp hoặc phương pháp sử dụng LLM cho việc tóm tắt. Bước xác định đồng giá vé cáp treo Fansipan Sa Pa cần thêm thông tin.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, vì tất cả bước đều liên quan đến xử lý văn bản và không tạo ra bất kỳ fact nào không có trong nguồn gốc.",
+          "tool_utilization_analysis": "'word_tokenize', 'sent_tokenize' đã được sử dụng đúng cách để tách đoạn văn thành câu. Tuy nhiên, 'chunk_text' chưa được tận dụng một cách hợp lý vì roadmap chỉ cần tổng hợp các bản tóm tắt cuối cùng mà không yêu cầu phân chunk.",
+          "missing_steps": [
+            "Xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc"
+          ],
+          "strengths": [
+            "'Tách văn bản thành câu và nhóm chunk' đã tạo ra một bước đầu tiên cần thiết trong quá trình tóm tắt.",
+            "'Gộp các bản tóm tắt lại thành một đoạn văn' giúp tổng hợp thông tin ngắn gọn, dễ hiểu."
+          ],
+          "weaknesses": [
+            "Bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc chưa được bổ sung",
+            "'chunk_text' không được tận dụng trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:13.516419",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1575",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính của văn bản gốc, nhưng thiếu bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc. Bước này cần bổ sung để roadmap hoàn chỉnh hơn.",
+          "specificity_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM' có chi tiết, nhưng chưa đủ cụ thể về cách tách các chunks phù hợp hoặc phương pháp sử dụng LLM cho việc tóm tắt. Bước xác định đồng giá vé cáp treo Fansipan Sa Pa cần thêm thông tin.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, vì tất cả bước đều liên quan đến xử lý văn bản và không tạo ra bất kỳ fact nào không có trong nguồn gốc.",
+          "tool_utilization_analysis": "'word_tokenize', 'sent_tokenize' đã được sử dụng đúng cách để tách đoạn văn thành câu. Tuy nhiên, 'chunk_text' chưa được tận dụng một cách hợp lý vì roadmap chỉ cần tổng hợp các bản tóm tắt cuối cùng mà không yêu cầu phân chunk.",
+          "missing_steps": [
+            "Xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc"
+          ],
+          "strengths": [
+            "'Tách văn bản thành câu và nhóm chunk' đã tạo ra một bước đầu tiên cần thiết trong quá trình tóm tắt.",
+            "'Gộp các bản tóm tắt lại thành một đoạn văn' giúp tổng hợp thông tin ngắn gọn, dễ hiểu."
+          ],
+          "weaknesses": [
+            "Bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc chưa được bổ sung",
+            "'chunk_text' không được tận dụng trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:13.516419",
+      "step_name": "planner_observation_agent.run",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_type=dict",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính của văn bản gốc, nhưng thiếu bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc. Bước này cần bổ sung để roadmap hoàn chỉnh hơn.",
+          "specificity_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM' có chi tiết, nhưng chưa đủ cụ thể về cách tách các chunks phù hợp hoặc phương pháp sử dụng LLM cho việc tóm tắt. Bước xác định đồng giá vé cáp treo Fansipan Sa Pa cần thêm thông tin.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, vì tất cả bước đều liên quan đến xử lý văn bản và không tạo ra bất kỳ fact nào không có trong nguồn gốc.",
+          "tool_utilization_analysis": "'word_tokenize', 'sent_tokenize' đã được sử dụng đúng cách để tách đoạn văn thành câu. Tuy nhiên, 'chunk_text' chưa được tận dụng một cách hợp lý vì roadmap chỉ cần tổng hợp các bản tóm tắt cuối cùng mà không yêu cầu phân chunk.",
+          "missing_steps": [
+            "Xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc"
+          ],
+          "strengths": [
+            "'Tách văn bản thành câu và nhóm chunk' đã tạo ra một bước đầu tiên cần thiết trong quá trình tóm tắt.",
+            "'Gộp các bản tóm tắt lại thành một đoạn văn' giúp tổng hợp thông tin ngắn gọn, dễ hiểu."
+          ],
+          "weaknesses": [
+            "Bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc chưa được bổ sung",
+            "'chunk_text' không được tận dụng trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:13.516419",
+      "step_name": "planning_iter2_observation",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_keys=['roadmap']",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn' bao quát được nội dung chính của văn bản gốc, nhưng thiếu bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc. Bước này cần bổ sung để roadmap hoàn chỉnh hơn.",
+          "specificity_analysis": "'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM' có chi tiết, nhưng chưa đủ cụ thể về cách tách các chunks phù hợp hoặc phương pháp sử dụng LLM cho việc tóm tắt. Bước xác định đồng giá vé cáp treo Fansipan Sa Pa cần thêm thông tin.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap, vì tất cả bước đều liên quan đến xử lý văn bản và không tạo ra bất kỳ fact nào không có trong nguồn gốc.",
+          "tool_utilization_analysis": "'word_tokenize', 'sent_tokenize' đã được sử dụng đúng cách để tách đoạn văn thành câu. Tuy nhiên, 'chunk_text' chưa được tận dụng một cách hợp lý vì roadmap chỉ cần tổng hợp các bản tóm tắt cuối cùng mà không yêu cầu phân chunk.",
+          "missing_steps": [
+            "Xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc"
+          ],
+          "strengths": [
+            "'Tách văn bản thành câu và nhóm chunk' đã tạo ra một bước đầu tiên cần thiết trong quá trình tóm tắt.",
+            "'Gộp các bản tóm tắt lại thành một đoạn văn' giúp tổng hợp thông tin ngắn gọn, dễ hiểu."
+          ],
+          "weaknesses": [
+            "Bước xác định đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc chưa được bổ sung",
+            "'chunk_text' không được tận dụng trong roadmap"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.954605",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"'Tách văn bản ",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.954605",
+      "step_name": "Planner-Reflection Agent._call_llm",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"'Tách văn bản thành câu và nhóm chunk', 'Tóm tắt từng chunk bằng LLM', 'Gộp các bản tóm tắt lại thành một đoạn văn",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.954605",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_in",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.954605",
+      "step_name": "Planner-Reflection Agent._call_llm_json",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=522",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.954605",
+      "step_name": "planner_reflection_agent.run",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_type=dict",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.954605",
+      "step_name": "planning_iter2_reflection",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_keys=['observation']",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.958614",
+      "step_name": "execution_agent.run.step_1",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm chunk'",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 29/10, tại Khu du lịch Sun World Fansipan Legend, Hiệp hội Du lịch tỉnh Lào Cai công bố chương trình kích cầu du lịch lớn nhất năm với chủ đề 'Chạm Sa Pa - Chạm những tầng mây', diễn ra từ 2/11 đến 30/12."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Trong thời gian này, 130 doanh nghiệp tại Sa Pa sẽ cung cấp nhiều ưu đãi lên đến 50% và cam kết đảm bảo chất lượng dịch vụ."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Theo đó, Công ty Cáp treo Fansipan Sa Pa (Khu du lịch Sun World Fansipan Legend) áp dụng đồng giá vé cáp treo hai chiều Fansipan chỉ còn 550."
+          },
+          {
+            "sentence_id": 4,
+            "text": "000 đồng cho du khách Việt Nam."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Mức giá này giảm 30% so với giá gốc."
+          },
+          {
+            "sentence_id": 6,
+            "text": "Du khách có thể khám phá đỉnh Fansipan, chiêm ngưỡng kiến trúc tâm linh và tham gia các hoạt động văn hóa của 7 dân tộc thiểu số Tây Bắc tại Bản Mây."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Nhiều điểm du lịch khác tại Sa Pa cũng miễn phí vé tham quan và cung cấp ưu đãi hấp dẫn."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong đó, vườn đá Tả Phìn và vườn hồng Mộng Mơ miễn phí vé, Khu du lịch Cát Cát miễn phí trải nghiệm ẩm thực Tây Bắc cùng các hoạt động vẽ sáp ong, xe lanh, dệt vải..."
+          },
+          {
+            "sentence_id": 9,
+            "text": "với bà con dân bản."
+          },
+          {
+            "sentence_id": 10,
+            "text": "Các khách sạn như Chaulong Sapa, Amazing Sapa, Vườn Sa Pa, Arista Sa Pa và Le Bordeaux Sapa áp dụng giảm giá phòng trực tiếp tới 50%."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Hotel de la Coupole và Lady Hill Sapa Resort có nhiều ưu đãi về dịch vụ ăn uống, spa."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Một số nhà xe như Inter Bus Lines và Eco Sa Pa cũng giảm giá vé xe khứ hồi đến 30%, cung cấp đa dạng hình thức di chuyển từ xe limousine đến xe lớn."
+          },
+          {
+            "sentence_id": 13,
+            "text": "Ông Phạm Cao Vỹ, đại diện Hiệp hội Du lịch tỉnh Lào Cai nhấn mạnh sự cần thiết của việc kích cầu du lịch để phục hồi ngành sau ảnh hưởng nặng nề của bão lũ."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Ông kêu gọi tất cả doanh nghiệp du lịch trên địa bàn tham gia nhằm tạo sức bật cho du lịch Sa Pa phát triển mạnh mẽ vào giai đoạn cuối năm 2024."
+          },
+          {
+            "sentence_id": 15,
+            "text": "Ông Nguyễn Xuân Chiến, Phó chủ tịch Sun Group Vùng Miền Bắc, cho biết trước đây chương trình kích cầu 'Đến Sa Pa - Bay giữa mùa hoa' thành công ngoài mong đợi."
+          },
+          {
+            "sentence_id": 16,
+            "text": "'Lần này, thông qua chính sách ưu đãi sâu, chúng tôi hy vọng thu hút đông đảo du khách đến Sa Pa để khám phá vẻ đẹp độc đáo của mùa mây', ông Chiến nói."
+          },
+          {
+            "sentence_id": 17,
+            "text": "Ngoài chính sách ưu đãi sâu, tỉnh Lào Cai và thị xã Sa Pa tổ chức nhiều sự kiện văn hóa đặc sắc nhằm mang đến trải nghiệm độc đáo cho du khách."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Các hoạt động bao gồm lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí."
+          },
+          {
+            "sentence_id": 19,
+            "text": "Đặc biệt là sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên được tổ chức tại Sun World Fansipan Legend."
+          },
+          {
+            "sentence_id": 20,
+            "text": "Sa Pa đang trong mùa mây - thời điểm lý tưởng để vui chơi ngoài trời."
+          },
+          {
+            "sentence_id": 21,
+            "text": "Ban tổ chức kỳ vọng chương trình kích cầu sẽ tăng sức hút của Sa Pa và củng cố vị thế là điểm đến hàng đầu miền Bắc."
+          },
+          {
+            "sentence_id": 22,
+            "text": "Thanh Thư"
+          }
+        ],
+        "sentence_count": 22,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:05:41.958614",
+      "step_name": "exec_step1_Tách văn bản thành câu và nhóm chunk",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, attempt=1",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 29/10, tại Khu du lịch Sun World Fansipan Legend, Hiệp hội Du lịch tỉnh Lào Cai công bố chương trình kích cầu du lịch lớn nhất năm với chủ đề 'Chạm Sa Pa - Chạm những tầng mây', diễn ra từ 2/11 đến 30/12."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Trong thời gian này, 130 doanh nghiệp tại Sa Pa sẽ cung cấp nhiều ưu đãi lên đến 50% và cam kết đảm bảo chất lượng dịch vụ."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Theo đó, Công ty Cáp treo Fansipan Sa Pa (Khu du lịch Sun World Fansipan Legend) áp dụng đồng giá vé cáp treo hai chiều Fansipan chỉ còn 550."
+          },
+          {
+            "sentence_id": 4,
+            "text": "000 đồng cho du khách Việt Nam."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Mức giá này giảm 30% so với giá gốc."
+          },
+          {
+            "sentence_id": 6,
+            "text": "Du khách có thể khám phá đỉnh Fansipan, chiêm ngưỡng kiến trúc tâm linh và tham gia các hoạt động văn hóa của 7 dân tộc thiểu số Tây Bắc tại Bản Mây."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Nhiều điểm du lịch khác tại Sa Pa cũng miễn phí vé tham quan và cung cấp ưu đãi hấp dẫn."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong đó, vườn đá Tả Phìn và vườn hồng Mộng Mơ miễn phí vé, Khu du lịch Cát Cát miễn phí trải nghiệm ẩm thực Tây Bắc cùng các hoạt động vẽ sáp ong, xe lanh, dệt vải..."
+          },
+          {
+            "sentence_id": 9,
+            "text": "với bà con dân bản."
+          },
+          {
+            "sentence_id": 10,
+            "text": "Các khách sạn như Chaulong Sapa, Amazing Sapa, Vườn Sa Pa, Arista Sa Pa và Le Bordeaux Sapa áp dụng giảm giá phòng trực tiếp tới 50%."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Hotel de la Coupole và Lady Hill Sapa Resort có nhiều ưu đãi về dịch vụ ăn uống, spa."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Một số nhà xe như Inter Bus Lines và Eco Sa Pa cũng giảm giá vé xe khứ hồi đến 30%, cung cấp đa dạng hình thức di chuyển từ xe limousine đến xe lớn."
+          },
+          {
+            "sentence_id": 13,
+            "text": "Ông Phạm Cao Vỹ, đại diện Hiệp hội Du lịch tỉnh Lào Cai nhấn mạnh sự cần thiết của việc kích cầu du lịch để phục hồi ngành sau ảnh hưởng nặng nề của bão lũ."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Ông kêu gọi tất cả doanh nghiệp du lịch trên địa bàn tham gia nhằm tạo sức bật cho du lịch Sa Pa phát triển mạnh mẽ vào giai đoạn cuối năm 2024."
+          },
+          {
+            "sentence_id": 15,
+            "text": "Ông Nguyễn Xuân Chiến, Phó chủ tịch Sun Group Vùng Miền Bắc, cho biết trước đây chương trình kích cầu 'Đến Sa Pa - Bay giữa mùa hoa' thành công ngoài mong đợi."
+          },
+          {
+            "sentence_id": 16,
+            "text": "'Lần này, thông qua chính sách ưu đãi sâu, chúng tôi hy vọng thu hút đông đảo du khách đến Sa Pa để khám phá vẻ đẹp độc đáo của mùa mây', ông Chiến nói."
+          },
+          {
+            "sentence_id": 17,
+            "text": "Ngoài chính sách ưu đãi sâu, tỉnh Lào Cai và thị xã Sa Pa tổ chức nhiều sự kiện văn hóa đặc sắc nhằm mang đến trải nghiệm độc đáo cho du khách."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Các hoạt động bao gồm lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí."
+          },
+          {
+            "sentence_id": 19,
+            "text": "Đặc biệt là sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên được tổ chức tại Sun World Fansipan Legend."
+          },
+          {
+            "sentence_id": 20,
+            "text": "Sa Pa đang trong mùa mây - thời điểm lý tưởng để vui chơi ngoài trời."
+          },
+          {
+            "sentence_id": 21,
+            "text": "Ban tổ chức kỳ vọng chương trình kích cầu sẽ tăng sức hút của Sa Pa và củng cố vị thế là điểm đến hàng đầu miền Bắc."
+          },
+          {
+            "sentence_id": 22,
+            "text": "Thanh Thư"
+          }
+        ],
+        "sentence_count": 22,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:30.491634",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt phân biệt rõ từng câu và giữ được thông tin chính từ văn bản gốc.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính của văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:30.491634",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Ngày 29/10, tại Khu du lịch Sun World Fansipan Legend, Hiệp hội Du lịch tỉnh ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt phân biệt rõ từng câu và giữ được thông tin chính từ văn bản gốc.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính của văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:30.491634",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có trong văn bản gốc.\",\n    \"completio",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt phân biệt rõ từng câu và giữ được thông tin chính từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính của văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:30.491634",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=503",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt phân biệt rõ từng câu và giữ được thông tin chính từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính của văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:30.491634",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt phân biệt rõ từng câu và giữ được thông tin chính từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính của văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:30.491634",
+      "step_name": "exec_step1_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt phân biệt rõ từng câu và giữ được thông tin chính từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính của văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.364077",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.364077",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có tr",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.364077",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.364077",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=429",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.364077",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.364077",
+      "step_name": "exec_step1_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.365079",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.365079",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.366085",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.366085",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=2",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.366085",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.366085",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=3",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.366085",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một đoạn văn'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.366085",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một đoạn văn",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=1",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.367080",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một đoạn văn'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.367080",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một đoạn văn",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=2",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.367080",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một đoạn văn'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.367080",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một đoạn văn",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=3",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.368584",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.368584",
+      "step_name": "exec_step4_Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=1",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.368584",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.368584",
+      "step_name": "exec_step4_Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=2",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.368584",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.368584",
+      "step_name": "exec_step4_Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=3",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.369588",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.369588",
+      "step_name": "exec_step5_Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=1",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.369588",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.369588",
+      "step_name": "exec_step5_Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=2",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.370588",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.370588",
+      "step_name": "exec_step5_Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=3",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.370588",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.370588",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=1",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.371589",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.371589",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=2",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.371589",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.371589",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=3",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T18:06:51.374097",
+      "step_name": "workflow_complete",
+      "agent_name": "Manager Agent",
+      "phase": "workflow",
+      "input_summary": "",
+      "output_data": {
+        "summary": "",
+        "style": "news_brief",
+        "word_count": 0,
+        "trace": [
+          {
+            "agent": "execution",
+            "action": "split_sentences",
+            "step_id": "step_1",
+            "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          }
+        ],
+        "verification_report": null,
+        "intermediate_outputs": {
+          "outline": null,
+          "draft_summary": null,
+          "verification": null,
+          "edited_summary": null
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    }
+  ]
+}

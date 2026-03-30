@@ -4,80 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc tách từ tiếng Việt. Mỗi chunk nên chứa một ý chính.",
-          "tool": "sent_tokenize, word_tokenize, chunk_text",
-          "expected_output": "Danh sách chunks đã được tạo ra"
+          "name": "Chunking văn bản gốc",
+          "description": "Nhóm các câu thành chunks dựa trên ngữ nghĩa và cấu trúc.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Đưa mỗi chunk vào mô hình lớn để tóm tắt. Kết quả sẽ là bản tóm tắt ngắn gọn của ý chính trong mỗi chunk.",
+          "description": "Gọi API để tóm tắt mỗi chunk thông qua mô hình lớn.",
           "tool": "summarize_chunk",
-          "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+          "expected_output": "Mỗi bản tóm tắt của một chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một",
-          "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng quan về chương trình kích cầu du lịch.",
+          "name": "Gộp các bản tóm tắt lại thành một văn bản tổng thể",
+          "description": "Tổng hợp tất cả các bản tóm tắt đã được tạo ra.",
           "tool": "merge_summaries",
-          "expected_output": "Bản tóm tắt gộp đã được tạo ra"
+          "expected_output": "Bản tóm tắt cuối cùng"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho bản tổng quan",
-          "description": "Refine và điều chỉnh văn phong của bản tổng hợp để phù hợp với định dạng news_brief.",
+          "name": "Refine và chỉnh sửa phong cách văn bản tổng thể",
+          "description": "Tinh chỉnh các câu từ để phù hợp với phong cách news_brief.",
           "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt đã được refine"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-          "description": "Dùng verify_claim để kiểm tra xem các thông tin chính trong bản tổng hợp vẫn đúng với nội dung gốc.",
-          "tool": "verify_claim",
-          "expected_output": "Kết quả kiểm chứng đã được tạo ra"
+          "expected_output": "Bản tóm tắt cuối cùng được refine"
         }
       ],
-      "total_steps": 5,
-      "notes": "Ghi chú thêm nếu cần thiết."
-    }
-  },
-  "v2": {
-    "roadmap": {
-      "tasks": [
-        {
-          "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách đoạn văn bản gốc thành các câu, sau đó nhóm chúng thành chunks phù hợp.",
-          "tool": "sent_tokenize;chunk_text"
-        },
-        {
-          "step_id": "step_2",
-          "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng LLM tóm tắt mỗi chunk đã tạo ra từ bước trước, đảm bảo giữ nguyên thông tin fact-grounded.",
-          "tool": "summarize_chunk"
-        },
-        {
-          "step_id": "step_3",
-          "name": "Gộp các bản tóm tắt lại thành một đoạn văn",
-          "description": "Tổng hợp tất cả những bản tóm tắt đã tạo ra từ bước trước để hình thành nên một đoạn văn ngắn gọn.",
-          "tool": "merge_summaries"
-        },
-        {
-          "step_id": "step_4",
-          "name": "Tinh chỉnh thông tin về mức giá vé cáp treo Fansipan",
-          "description": "Kiểm tra và bổ sung thêm thông tin về đồng giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc.",
-          "tool": "refine_summary"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Khiêm chứng mệnh đề vs văn bản gốc (nếu cần)",
-          "description": "Kiểm tra thông tin đã tóm tắt có chính xác với đoạn văn gốc hay không.",
-          "tool": "verify_claim"
-        }
-      ],
-      "total_steps": 5,
-      "notes": "Bước kiểm chứng chỉ thực hiện nếu yêu cầu cụ thể về độ chính xác của bản tóm tắt được đưa ra."
+      "total_steps": 4,
+      "notes": "Đảm bảo kiểm chứng tất cả bản tóm tắt bằng verify_claim để đảm bảo fidelity với văn bản gốc."
     }
   }
 }

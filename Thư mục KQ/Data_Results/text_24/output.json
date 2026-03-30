@@ -1,36 +1,16 @@
 {
-  "summary": "Regal Legend tại Đồng Hới đón du khách với lễ hội mùa hè 6-14/7, bao gồm khám phá vườn quốc gia Phong Nha - Kẻ Bàng và Moọc Suối. Đại nhạc hội EDM quốc tế diễn ra tối 12/7 do Regal Residence Luxury tổ chức.",
+  "summary": "Đồng Hới đón du khách với Phong Nha - Kẻ Bàng, Moọc và Nhật Lệ-Bảo Ninh. Regal Legend tổ chức lễ hội ẩm thực từ 6-14/7 có Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham dự cùng hơn 300 gian hàng du lịch, ẩm thực ba miền và vui chơi giải trí tại phố đi bộ.",
   "style": "news_brief",
-  "word_count": 30,
+  "word_count": 39,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -47,7 +27,27 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
+      "reflection_scores": {
+        "factual_consistency": 0.85,
+        "coverage_completeness": 0.7
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
+      "reflection_scores": {
+        "factual_consistency": 0.85,
+        "coverage_completeness": 0.7
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -57,7 +57,7 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng hợp",
+      "evidence": "Step 4: Tinh chỉnh phong cách và ngữ cảnh của đoạn văn ngắn gọn",
       "reflection_scores": {
         "factual_consistency": 0.8,
         "coverage_completeness": 0.75
@@ -67,30 +67,20 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng hợp",
+      "evidence": "Step 4: Tinh chỉnh phong cách và ngữ cảnh của đoạn văn ngắn gọn",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng hợp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng (verification)",
+      "evidence": "Step 5: Kiểm chứng đoạn văn ngắn gọn và bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -104,11 +94,53 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Đồng Hới chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc và bãi biển Nhật Lệ-Bảo Ninh.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 1,
+          "source_text": "Ban ngày, Quảng Bình chào đón du khách khám phá thiên nhiên hùng vĩ, thơ mộng với điểm đến đầu tiên là vườn quốc gia Phong Nha - Kẻ Bàng."
+        },
+        {
+          "sentence_id": 4,
+          "source_text": "Nằm trong hệ thống vườn quốc gia Phong Nha - Kẻ Bàng, suối nước Moọc có thiên nhiên ngập tràn sắc xanh."
+        },
+        {
+          "sentence_id": 6,
+          "source_text": "Bãi biển Nhật Lệ và Bảo Ninh, thường xuyên tổ chức hoạt động thể thao biển, ẩm thực với nhiều món hải sản."
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Đồng Hới và Bố Trạch đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, Moọc Suối, Nhật Lệ và Bảo Ninh. Regal Legend tại Đồng Hới là khu nghỉ dưỡng 5 sao. Lou Hoàng, ICD, Muộii, DJ PIA & TUMIE, DJ FWIN tham dự lễ hội ẩm thực từ ngày 6-14/7 với hơn 300 gian hàng du lịch và nghệ thuật nổi tiếng.",
-    "verification": null,
-    "edited_summary": "Regal Legend tại Đồng Hới đón du khách với lễ hội mùa hè 6-14/7, bao gồm khám phá vườn quốc gia Phong Nha - Kẻ Bàng và Moọc Suối. Đại nhạc hội EDM quốc tế diễn ra tối 12/7 do Regal Residence Luxury tổ chức."
+    "draft_summary": "Du lịch Regal Legend tại Đồng Hới chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc và bãi biển Nhật Lệ-Bảo Ninh. Lễ hội ẩm thực từ 6-14/7 có Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham dự cùng gần 300 gian hàng du lịch, ẩm thực ba miền và vui chơi giải trí tại phố đi bộ.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Đồng Hới chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc và bãi biển Nhật Lệ-Bảo Ninh.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "Ban ngày, Quảng Bình chào đón du khách khám phá thiên nhiên hùng vĩ, thơ mộng với điểm đến đầu tiên là vườn quốc gia Phong Nha - Kẻ Bàng."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "Nằm trong hệ thống vườn quốc gia Phong Nha - Kẻ Bàng, suối nước Moọc có thiên nhiên ngập tràn sắc xanh."
+          },
+          {
+            "sentence_id": 6,
+            "source_text": "Bãi biển Nhật Lệ và Bảo Ninh, thường xuyên tổ chức hoạt động thể thao biển, ẩm thực với nhiều món hải sản."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Đồng Hới đón du khách với Phong Nha - Kẻ Bàng, Moọc và Nhật Lệ-Bảo Ninh. Regal Legend tổ chức lễ hội ẩm thực từ 6-14/7 có Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham dự cùng hơn 300 gian hàng du lịch, ẩm thực ba miền và vui chơi giải trí tại phố đi bộ."
   }
 }

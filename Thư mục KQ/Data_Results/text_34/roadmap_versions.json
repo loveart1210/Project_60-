@@ -4,49 +4,42 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Chunking văn bản gốc",
-          "description": "Nhóm các câu thành chunks dựa trên ý chính và liên kết chặt chẽ.",
+          "name": "Grouping sentences into chunks",
+          "description": "Tách văn bản gốc thành các đoạn ngắn (chunks) thông qua chunk_text.",
           "tool": "chunk_text",
-          "expected_output": "Danh sách chunks"
+          "expected_output": "Danh sách các chuỗi đã được nhóm thành chunks."
         },
         {
           "step_id": "step_2",
-          "name": "Tối thiểu hóa độ dài chunks",
-          "description": "Thu gọn các chunk bằng cách lược bỏ thông tin không cần thiết nhưng vẫn giữ nguyên ý chính.",
-          "tool": "",
-          "expected_output": "Danh sách chunks tối ưu"
+          "name": "Summarizing each chunk using LLM",
+          "description": "Tóm tắt từng đoạn ngắn (chunks) bằng cách sử dụng LLM summarize_chunk.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách các bản tóm tắt của mỗi chuỗi."
         },
         {
           "step_id": "step_3",
-          "name": "Tóm tắt từng chunk với LLM",
-          "description": "Gửi các chunk được thu gọn đến LLM để nhận về bản tóm tắt.",
-          "tool": "summarize_chunk",
-          "expected_output": "Danh sách bản tóm tắt"
+          "name": "Merging summaries into a single summary",
+          "description": "Gộp nhiều bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt cuối cùng của văn bản gốc."
         },
         {
           "step_id": "step_4",
-          "name": "Gộp nhiều bản tóm tắt lại thành một",
-          "description": "Tổng hợp các bản tóm tắt từ LLM để tạo ra bản tổng kết.",
-          "tool": "merge_summaries",
-          "expected_output": "Bản tổng kết"
+          "name": "Refining the summary to improve readability and style",
+          "description": "Tinh chỉnh câu từ cho bản tổng hợp bằng cách sử dụng refine_summary.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng được cải thiện về mặt ngữ cảnh và phong cách."
         },
         {
           "step_id": "step_5",
-          "name": "Tinh chỉnh phong cách và độ dài của bản tổng kết",
-          "description": "Chỉnh sửa lại văn phong cho phù hợp với tiêu chuẩn news_brief, đồng thời kiểm soát độ dài dưới 20% so với input.",
-          "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt final"
-        },
-        {
-          "step_id": "step_6",
-          "name": "Kiểm chứng bản tổng kết",
-          "description": "Dùng verify_claim để kiểm tra xem thông tin trong bản tổng kết vẫn đúng với văn bản gốc.",
+          "name": "Verifying the summary against original text to ensure accuracy and completeness",
+          "description": "Kiểm tra lại bản tổng hợp với văn bản gốc để đảm bảo độ chính xác và đầy đủ thông tin bằng verify_claim.",
           "tool": "verify_claim",
-          "expected_output": "Bản tóm tắt final đã được xác thực"
+          "expected_output": "Danh sách các lỗi nếu có, cùng lời khuyên về cách khắc phục."
         }
       ],
-      "total_steps": 6,
-      "notes": "Ghi chú thêm nếu cần."
+      "total_steps": 5,
+      "notes": "Ghi chú thêm: Các bước này cần được thực hiện theo thứ tự và kiểm tra kết quả sau mỗi bước để đảm bảo độ chính xác của bản tóm tắt final."
     }
   }
 }

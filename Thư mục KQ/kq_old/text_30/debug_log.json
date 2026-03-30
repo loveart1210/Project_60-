@@ -1,0 +1,2215 @@
+{
+  "generated_at": "2026-03-27T22:59:00.517703",
+  "total_entries": 91,
+  "none_count": 0,
+  "logs": [
+    {
+      "timestamp": "2026-03-27T22:54:08.796998",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 290 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung và ý nghĩa của từng chunk, phân chia chúng ra.\",\n        \"tool\": \"word_tokenize, sent_tokenize\",\n        \"expected_output\": \"Mảng chứa các chunks được nhóm thành chuỗi văn bản phù hợp\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt mỗi chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn summary nên ngắn gọn và tập trung vào ý chính.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Mảng chứa các bản tóm tắt của mỗi chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một summary tổng thể\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các đoạn summary đã được tạo ra từ từng chunk. Kết quả là một bản tóm tắt toàn bộ văn bản.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Một bản tóm tắt ngắn gọn và tổng thể của văn bản gốc\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho summary tổng thể\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh các câu từ trong đoạn summary toàn bộ. Đảm bảo rằng thông tin chính vẫn được giữ lại và văn bản có vẻ tự nhiên hơn.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Một phiên bản refined của summary tổng thể\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem thông tin chính trong đoạn summary đã được giữ lại và không thay đổi entity.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Thông báo về việc các mệnh đề của summary tổng thể vẫn đúng với văn bản gốc\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài kết q…",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:54:08.796998",
+      "step_name": "Planner Agent._call_llm",
+      "agent_name": "Planner Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 290 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung và ý nghĩa của từng chunk, phân chia chúng ra.\",\n        \"tool\": \"word_tokenize, sent_tokenize\",\n        \"expected_output\": \"Mảng chứa các chunks được nhóm thành chuỗi văn bản phù hợp\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt mỗi chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn summary nên ngắn gọn và tập trung vào ý chính.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Mảng chứa các bản tóm tắt của mỗi chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một summary tổng thể\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các đoạn summary đã được tạo ra từ từng chunk. Kết quả là một bản tóm tắt toàn bộ văn bản.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Một bản tóm tắt ngắn gọn và tổng thể của văn bản gốc\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho summary tổng thể\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh các câu từ trong đoạn summary toàn bộ. Đảm bảo rằng thông tin chính vẫn được giữ lại và văn bản có vẻ tự nhiên hơn.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Một phiên bản refined của summary tổng thể\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem thông tin chính trong đoạn summary đã được giữ lại và không thay đổi entity.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Thông báo về việc các mệnh đề của summary tổng thể vẫn đúng với văn bản gốc\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài kết q…",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:54:08.797998",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng ",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung và ý nghĩa của từng chunk, phân chia chúng ra.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Mảng chứa các chunks được nhóm thành chuỗi văn bản phù hợp"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt mỗi chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn summary nên ngắn gọn và tập trung vào ý chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Mảng chứa các bản tóm tắt của mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các đoạn summary đã được tạo ra từ từng chunk. Kết quả là một bản tóm tắt toàn bộ văn bản.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt ngắn gọn và tổng thể của văn bản gốc"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho summary tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh các câu từ trong đoạn summary toàn bộ. Đảm bảo rằng thông tin chính vẫn được giữ lại và văn bản có vẻ tự nhiên hơn.",
+              "tool": "refine_summary",
+              "expected_output": "Một phiên bản refined của summary tổng thể"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong đoạn summary đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của summary tổng thể vẫn đúng với văn bản gốc"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài kết quả trong khoảng từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:54:08.797998",
+      "step_name": "Planner Agent._call_llm_json",
+      "agent_name": "Planner Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=2073",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung và ý nghĩa của từng chunk, phân chia chúng ra.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Mảng chứa các chunks được nhóm thành chuỗi văn bản phù hợp"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt mỗi chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn summary nên ngắn gọn và tập trung vào ý chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Mảng chứa các bản tóm tắt của mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các đoạn summary đã được tạo ra từ từng chunk. Kết quả là một bản tóm tắt toàn bộ văn bản.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt ngắn gọn và tổng thể của văn bản gốc"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho summary tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh các câu từ trong đoạn summary toàn bộ. Đảm bảo rằng thông tin chính vẫn được giữ lại và văn bản có vẻ tự nhiên hơn.",
+              "tool": "refine_summary",
+              "expected_output": "Một phiên bản refined của summary tổng thể"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong đoạn summary đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của summary tổng thể vẫn đúng với văn bản gốc"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài kết quả trong khoảng từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:54:08.797998",
+      "step_name": "planner_agent.run",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "word_count=290, style=news_brief",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung và ý nghĩa của từng chunk, phân chia chúng ra.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Mảng chứa các chunks được nhóm thành chuỗi văn bản phù hợp"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt mỗi chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn summary nên ngắn gọn và tập trung vào ý chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Mảng chứa các bản tóm tắt của mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các đoạn summary đã được tạo ra từ từng chunk. Kết quả là một bản tóm tắt toàn bộ văn bản.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt ngắn gọn và tổng thể của văn bản gốc"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho summary tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh các câu từ trong đoạn summary toàn bộ. Đảm bảo rằng thông tin chính vẫn được giữ lại và văn bản có vẻ tự nhiên hơn.",
+              "tool": "refine_summary",
+              "expected_output": "Một phiên bản refined của summary tổng thể"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong đoạn summary đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của summary tổng thể vẫn đúng với văn bản gốc"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài kết quả trong khoảng từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:54:08.797998",
+      "step_name": "planning_iter1_planner",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "iteration=1, revision=''",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Tách văn bản thành câu và nhóm thành chunks",
+              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung và ý nghĩa của từng chunk, phân chia chúng ra.",
+              "tool": "word_tokenize, sent_tokenize",
+              "expected_output": "Mảng chứa các chunks được nhóm thành chuỗi văn bản phù hợp"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Tóm tắt mỗi chunk bằng LLM",
+              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã phân chia. Mỗi đoạn summary nên ngắn gọn và tập trung vào ý chính.",
+              "tool": "summarize_chunk",
+              "expected_output": "Mảng chứa các bản tóm tắt của mỗi chunk"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+              "description": "Dùng merge_summaries để gộp tất cả các đoạn summary đã được tạo ra từ từng chunk. Kết quả là một bản tóm tắt toàn bộ văn bản.",
+              "tool": "merge_summaries",
+              "expected_output": "Một bản tóm tắt ngắn gọn và tổng thể của văn bản gốc"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho summary tổng thể",
+              "description": "Dùng refine_summary để tinh chỉnh các câu từ trong đoạn summary toàn bộ. Đảm bảo rằng thông tin chính vẫn được giữ lại và văn bản có vẻ tự nhiên hơn.",
+              "tool": "refine_summary",
+              "expected_output": "Một phiên bản refined của summary tổng thể"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong đoạn summary đã được giữ lại và không thay đổi entity.",
+              "tool": "verify_claim",
+              "expected_output": "Thông báo về việc các mệnh đề của summary tổng thể vẫn đúng với văn bản gốc"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Giữ độ dài kết quả trong khoảng từ 150 đến 250 từ, không quá 20% so với input."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:00.935693",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.\",\n    \"specificity_analysis\": \"Các bước có đủ chi tiết để thực thi. Tuy nhiên, cần thêm chi tiết về cách phân chia chunks dựa trên nội dung và ý nghĩa của từng chunk.\",\n    \"hallucination_risk_analysis\": \"Không phát hiện rủi ro hallucination trong roadmap.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, cần thêm chi tiết về việc sử dụng 'merge_summaries' và 'refine_summary'.\",\n    \"missing_steps\": [\"bước thiếu 1: không xác định rõ phương pháp phân chia chunks dựa trên nội dung\"],\n    \"strengths\": [\"Roadmap bao quát hầu hết ý chính của văn bản gốc, tận dụng các tool có sẵn một cách hợp lý.\"],\n    \"weaknesses\": [\"Cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.\", \"Không xác định rõ phương pháp phân chia chunks dựa trên nội dung.\"]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:00.935693",
+      "step_name": "Planner-Observation Agent._call_llm",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để t",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.\",\n    \"specificity_analysis\": \"Các bước có đủ chi tiết để thực thi. Tuy nhiên, cần thêm chi tiết về cách phân chia chunks dựa trên nội dung và ý nghĩa của từng chunk.\",\n    \"hallucination_risk_analysis\": \"Không phát hiện rủi ro hallucination trong roadmap.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, cần thêm chi tiết về việc sử dụng 'merge_summaries' và 'refine_summary'.\",\n    \"missing_steps\": [\"bước thiếu 1: không xác định rõ phương pháp phân chia chunks dựa trên nội dung\"],\n    \"strengths\": [\"Roadmap bao quát hầu hết ý chính của văn bản gốc, tận dụng các tool có sẵn một cách hợp lý.\"],\n    \"weaknesses\": [\"Cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.\", \"Không xác định rõ phương pháp phân chia chunks dựa trên nội dung.\"]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:00.935693",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.\",\n    \"specificity_a",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi. Tuy nhiên, cần thêm chi tiết về cách phân chia chunks dựa trên nội dung và ý nghĩa của từng chunk.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, cần thêm chi tiết về việc sử dụng 'merge_summaries' và 'refine_summary'.",
+          "missing_steps": [
+            "bước thiếu 1: không xác định rõ phương pháp phân chia chunks dựa trên nội dung"
+          ],
+          "strengths": [
+            "Roadmap bao quát hầu hết ý chính của văn bản gốc, tận dụng các tool có sẵn một cách hợp lý."
+          ],
+          "weaknesses": [
+            "Cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.",
+            "Không xác định rõ phương pháp phân chia chunks dựa trên nội dung."
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:00.935693",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=985",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi. Tuy nhiên, cần thêm chi tiết về cách phân chia chunks dựa trên nội dung và ý nghĩa của từng chunk.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, cần thêm chi tiết về việc sử dụng 'merge_summaries' và 'refine_summary'.",
+          "missing_steps": [
+            "bước thiếu 1: không xác định rõ phương pháp phân chia chunks dựa trên nội dung"
+          ],
+          "strengths": [
+            "Roadmap bao quát hầu hết ý chính của văn bản gốc, tận dụng các tool có sẵn một cách hợp lý."
+          ],
+          "weaknesses": [
+            "Cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.",
+            "Không xác định rõ phương pháp phân chia chunks dựa trên nội dung."
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:00.935693",
+      "step_name": "planner_observation_agent.run",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_type=dict",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi. Tuy nhiên, cần thêm chi tiết về cách phân chia chunks dựa trên nội dung và ý nghĩa của từng chunk.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, cần thêm chi tiết về việc sử dụng 'merge_summaries' và 'refine_summary'.",
+          "missing_steps": [
+            "bước thiếu 1: không xác định rõ phương pháp phân chia chunks dựa trên nội dung"
+          ],
+          "strengths": [
+            "Roadmap bao quát hầu hết ý chính của văn bản gốc, tận dụng các tool có sẵn một cách hợp lý."
+          ],
+          "weaknesses": [
+            "Cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.",
+            "Không xác định rõ phương pháp phân chia chunks dựa trên nội dung."
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:00.936695",
+      "step_name": "planning_iter1_observation",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_keys=['roadmap']",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk từ văn bản.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi. Tuy nhiên, cần thêm chi tiết về cách phân chia chunks dựa trên nội dung và ý nghĩa của từng chunk.",
+          "hallucination_risk_analysis": "Không phát hiện rủi ro hallucination trong roadmap.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, cần thêm chi tiết về việc sử dụng 'merge_summaries' và 'refine_summary'.",
+          "missing_steps": [
+            "bước thiếu 1: không xác định rõ phương pháp phân chia chunks dựa trên nội dung"
+          ],
+          "strengths": [
+            "Roadmap bao quát hầu hết ý chính của văn bản gốc, tận dụng các tool có sẵn một cách hợp lý."
+          ],
+          "weaknesses": [
+            "Cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.",
+            "Không xác định rõ phương pháp phân chia chunks dựa trên nội dung."
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.496566",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao qu",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát hầu hết ý chính của văn bản gốc và tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, roadmap cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.496566",
+      "step_name": "Planner-Reflection Agent._call_llm",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát hầu hết ý chính của văn bản gốc, nhưng thiếu một số chi tiết cụ thể như việc tách và nhóm chunk t",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát hầu hết ý chính của văn bản gốc và tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, roadmap cần thêm chi tiết về việc tách và nhóm chunk từ văn bản.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.496566",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_in",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát hầu hết ý chính của văn bản gốc và tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, roadmap cần thêm chi tiết về việc tách và nhóm chunk từ văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.496566",
+      "step_name": "Planner-Reflection Agent._call_llm_json",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=415",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát hầu hết ý chính của văn bản gốc và tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, roadmap cần thêm chi tiết về việc tách và nhóm chunk từ văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.496566",
+      "step_name": "planner_reflection_agent.run",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_type=dict",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát hầu hết ý chính của văn bản gốc và tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, roadmap cần thêm chi tiết về việc tách và nhóm chunk từ văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.496566",
+      "step_name": "planning_iter1_reflection",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_keys=['observation']",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát hầu hết ý chính của văn bản gốc và tận dụng các tool có sẵn một cách hợp lý. Tuy nhiên, roadmap cần thêm chi tiết về việc tách và nhóm chunk từ văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.500071",
+      "step_name": "execution_agent.run.step_1",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm thành chunks'",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật và Văn hóa Malaysia cùng ông Manoharan Periasamy, Tổng giám đốc Cục Xúc tiến Du lịch Malaysia công bố khởi động chiến dịch, tại trung tâm thương mại Pavilion, Kuala Lumpur."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Chương trình với sự tham gia của các trung tâm mua sắm và nhà bán lẻ hàng đầu Malaysia, mang đến chương trình giảm giá đến 85%."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sáng kiến này được thiết kế để thu hút du khách nội địa lẫn quốc tế, tăng giá trị kèm theo khi du lịch Malaysia."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đến Malaysia Mega Sale 2024, du khách được tận hưởng trải nghiệm mua sắm trọn vẹn và xứng đáng, phù hợp với thông điệp của chiến dịch mua sắm quốc gia 'MY Priceless Experience'(tạm dịch: Trải nghiệm mua sắm vô giá tại Malaysia)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Chương trình này được kỳ vọng góp phần đáng kể vào doanh thu du lịch gần 553."
+          },
+          {
+            "sentence_id": 6,
+            "text": "000 tỷ trong năm nay."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Chiến dịch mua sắm quốc gia Malaysia năm nay được tổ chức hai kỳ: Malaysia Mega Sale (15/6 – 31/7) và Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong năm 2025 và 2026, chiến dịch sẽ được tổ chức ba lần mỗi năm: Malaysia Super Sale (1–31/3), Malaysia Mega Sale (15/6 – 31/7), Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Bà Nor Hayati Zainuddin, Giám đốc Cục Xúc tiến Du lịch Malaysia tại Việt Nam mong muốn bổ sung tác động tích cực được Mega Sale mang đến."
+          },
+          {
+            "sentence_id": 10,
+            "text": "'Mua sắm là một phần không thể thiếu trong trải nghiệm của du khách."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Với các chương trình khuyến mãi độc nhất và hấp dẫn, Malaysia chắc chắn có thể nâng cao hình ảnh của một điểm đến mua sắm hàng đầu', bà Nor khẳng định."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Với mục tiêu thu hút 470."
+          },
+          {
+            "sentence_id": 13,
+            "text": "000 du khách Việt Nam đến Malaysia trong năm 2024, Cục Xúc tiến Du lịch Malaysia tại Việt Nam kỳ vọng chiến dịch sẽ thu hút khách Việt đến mua sắm và khám phá nét văn hóa, hướng đến Năm Du lịch Malaysia 2026."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Thanh Thư Trong khuôn khổ quảng bá chiến dịch Malaysia Mega Sale 2024 tại Việt Nam, Cục Xúc tiến Du lịch Malaysia hợp tác cùng hãng hàng không quốc gia Malaysia Airlines và ba đối tác Trip."
+          },
+          {
+            "sentence_id": 15,
+            "text": "com, Agoda."
+          },
+          {
+            "sentence_id": 16,
+            "text": "com, Traveloka."
+          },
+          {
+            "sentence_id": 17,
+            "text": "com, mang đến ưu đãi giảm giá khách sạn, vé máy bay từ Việt Nam đến các thành phố của Malaysia đến 30%."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Thời gian đặt vé: 15/6 – 31/7Thời gian du lịch:15/6 – 31/3/2025"
+          }
+        ],
+        "sentence_count": 18,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:55:23.500071",
+      "step_name": "exec_step1_Tách văn bản thành câu và nhóm thành chunks",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, attempt=1",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật và Văn hóa Malaysia cùng ông Manoharan Periasamy, Tổng giám đốc Cục Xúc tiến Du lịch Malaysia công bố khởi động chiến dịch, tại trung tâm thương mại Pavilion, Kuala Lumpur."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Chương trình với sự tham gia của các trung tâm mua sắm và nhà bán lẻ hàng đầu Malaysia, mang đến chương trình giảm giá đến 85%."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sáng kiến này được thiết kế để thu hút du khách nội địa lẫn quốc tế, tăng giá trị kèm theo khi du lịch Malaysia."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đến Malaysia Mega Sale 2024, du khách được tận hưởng trải nghiệm mua sắm trọn vẹn và xứng đáng, phù hợp với thông điệp của chiến dịch mua sắm quốc gia 'MY Priceless Experience'(tạm dịch: Trải nghiệm mua sắm vô giá tại Malaysia)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Chương trình này được kỳ vọng góp phần đáng kể vào doanh thu du lịch gần 553."
+          },
+          {
+            "sentence_id": 6,
+            "text": "000 tỷ trong năm nay."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Chiến dịch mua sắm quốc gia Malaysia năm nay được tổ chức hai kỳ: Malaysia Mega Sale (15/6 – 31/7) và Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong năm 2025 và 2026, chiến dịch sẽ được tổ chức ba lần mỗi năm: Malaysia Super Sale (1–31/3), Malaysia Mega Sale (15/6 – 31/7), Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Bà Nor Hayati Zainuddin, Giám đốc Cục Xúc tiến Du lịch Malaysia tại Việt Nam mong muốn bổ sung tác động tích cực được Mega Sale mang đến."
+          },
+          {
+            "sentence_id": 10,
+            "text": "'Mua sắm là một phần không thể thiếu trong trải nghiệm của du khách."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Với các chương trình khuyến mãi độc nhất và hấp dẫn, Malaysia chắc chắn có thể nâng cao hình ảnh của một điểm đến mua sắm hàng đầu', bà Nor khẳng định."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Với mục tiêu thu hút 470."
+          },
+          {
+            "sentence_id": 13,
+            "text": "000 du khách Việt Nam đến Malaysia trong năm 2024, Cục Xúc tiến Du lịch Malaysia tại Việt Nam kỳ vọng chiến dịch sẽ thu hút khách Việt đến mua sắm và khám phá nét văn hóa, hướng đến Năm Du lịch Malaysia 2026."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Thanh Thư Trong khuôn khổ quảng bá chiến dịch Malaysia Mega Sale 2024 tại Việt Nam, Cục Xúc tiến Du lịch Malaysia hợp tác cùng hãng hàng không quốc gia Malaysia Airlines và ba đối tác Trip."
+          },
+          {
+            "sentence_id": 15,
+            "text": "com, Agoda."
+          },
+          {
+            "sentence_id": 16,
+            "text": "com, Traveloka."
+          },
+          {
+            "sentence_id": 17,
+            "text": "com, mang đến ưu đãi giảm giá khách sạn, vé máy bay từ Việt Nam đến các thành phố của Malaysia đến 30%."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Thời gian đặt vé: 15/6 – 31/7Thời gian du lịch:15/6 – 31/3/2025"
+          }
+        ],
+        "sentence_count": 18,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:13.055016",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.\",\n    \"issues_found\": [\"Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc\"],\n    \"summary\": \"Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:13.055016",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật v",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.\",\n    \"issues_found\": [\"Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc\"],\n    \"summary\": \"Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:13.055016",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_stat",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:13.055016",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=625",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:13.055016",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:13.055016",
+      "step_name": "exec_step1_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.000004",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.000004",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong vă",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.000004",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feed",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.000004",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=545",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.000004",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.000004",
+      "step_name": "exec_step1_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.002007",
+      "step_name": "execution_agent.run.step_1",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm thành chunks'",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật và Văn hóa Malaysia cùng ông Manoharan Periasamy, Tổng giám đốc Cục Xúc tiến Du lịch Malaysia công bố khởi động chiến dịch, tại trung tâm thương mại Pavilion, Kuala Lumpur."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Chương trình với sự tham gia của các trung tâm mua sắm và nhà bán lẻ hàng đầu Malaysia, mang đến chương trình giảm giá đến 85%."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sáng kiến này được thiết kế để thu hút du khách nội địa lẫn quốc tế, tăng giá trị kèm theo khi du lịch Malaysia."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đến Malaysia Mega Sale 2024, du khách được tận hưởng trải nghiệm mua sắm trọn vẹn và xứng đáng, phù hợp với thông điệp của chiến dịch mua sắm quốc gia 'MY Priceless Experience'(tạm dịch: Trải nghiệm mua sắm vô giá tại Malaysia)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Chương trình này được kỳ vọng góp phần đáng kể vào doanh thu du lịch gần 553."
+          },
+          {
+            "sentence_id": 6,
+            "text": "000 tỷ trong năm nay."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Chiến dịch mua sắm quốc gia Malaysia năm nay được tổ chức hai kỳ: Malaysia Mega Sale (15/6 – 31/7) và Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong năm 2025 và 2026, chiến dịch sẽ được tổ chức ba lần mỗi năm: Malaysia Super Sale (1–31/3), Malaysia Mega Sale (15/6 – 31/7), Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Bà Nor Hayati Zainuddin, Giám đốc Cục Xúc tiến Du lịch Malaysia tại Việt Nam mong muốn bổ sung tác động tích cực được Mega Sale mang đến."
+          },
+          {
+            "sentence_id": 10,
+            "text": "'Mua sắm là một phần không thể thiếu trong trải nghiệm của du khách."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Với các chương trình khuyến mãi độc nhất và hấp dẫn, Malaysia chắc chắn có thể nâng cao hình ảnh của một điểm đến mua sắm hàng đầu', bà Nor khẳng định."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Với mục tiêu thu hút 470."
+          },
+          {
+            "sentence_id": 13,
+            "text": "000 du khách Việt Nam đến Malaysia trong năm 2024, Cục Xúc tiến Du lịch Malaysia tại Việt Nam kỳ vọng chiến dịch sẽ thu hút khách Việt đến mua sắm và khám phá nét văn hóa, hướng đến Năm Du lịch Malaysia 2026."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Thanh Thư Trong khuôn khổ quảng bá chiến dịch Malaysia Mega Sale 2024 tại Việt Nam, Cục Xúc tiến Du lịch Malaysia hợp tác cùng hãng hàng không quốc gia Malaysia Airlines và ba đối tác Trip."
+          },
+          {
+            "sentence_id": 15,
+            "text": "com, Agoda."
+          },
+          {
+            "sentence_id": 16,
+            "text": "com, Traveloka."
+          },
+          {
+            "sentence_id": 17,
+            "text": "com, mang đến ưu đãi giảm giá khách sạn, vé máy bay từ Việt Nam đến các thành phố của Malaysia đến 30%."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Thời gian đặt vé: 15/6 – 31/7Thời gian du lịch:15/6 – 31/3/2025"
+          }
+        ],
+        "sentence_count": 18,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:56:36.002007",
+      "step_name": "exec_step1_Tách văn bản thành câu và nhóm thành chunks",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, attempt=2",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật và Văn hóa Malaysia cùng ông Manoharan Periasamy, Tổng giám đốc Cục Xúc tiến Du lịch Malaysia công bố khởi động chiến dịch, tại trung tâm thương mại Pavilion, Kuala Lumpur."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Chương trình với sự tham gia của các trung tâm mua sắm và nhà bán lẻ hàng đầu Malaysia, mang đến chương trình giảm giá đến 85%."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sáng kiến này được thiết kế để thu hút du khách nội địa lẫn quốc tế, tăng giá trị kèm theo khi du lịch Malaysia."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đến Malaysia Mega Sale 2024, du khách được tận hưởng trải nghiệm mua sắm trọn vẹn và xứng đáng, phù hợp với thông điệp của chiến dịch mua sắm quốc gia 'MY Priceless Experience'(tạm dịch: Trải nghiệm mua sắm vô giá tại Malaysia)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Chương trình này được kỳ vọng góp phần đáng kể vào doanh thu du lịch gần 553."
+          },
+          {
+            "sentence_id": 6,
+            "text": "000 tỷ trong năm nay."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Chiến dịch mua sắm quốc gia Malaysia năm nay được tổ chức hai kỳ: Malaysia Mega Sale (15/6 – 31/7) và Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong năm 2025 và 2026, chiến dịch sẽ được tổ chức ba lần mỗi năm: Malaysia Super Sale (1–31/3), Malaysia Mega Sale (15/6 – 31/7), Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Bà Nor Hayati Zainuddin, Giám đốc Cục Xúc tiến Du lịch Malaysia tại Việt Nam mong muốn bổ sung tác động tích cực được Mega Sale mang đến."
+          },
+          {
+            "sentence_id": 10,
+            "text": "'Mua sắm là một phần không thể thiếu trong trải nghiệm của du khách."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Với các chương trình khuyến mãi độc nhất và hấp dẫn, Malaysia chắc chắn có thể nâng cao hình ảnh của một điểm đến mua sắm hàng đầu', bà Nor khẳng định."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Với mục tiêu thu hút 470."
+          },
+          {
+            "sentence_id": 13,
+            "text": "000 du khách Việt Nam đến Malaysia trong năm 2024, Cục Xúc tiến Du lịch Malaysia tại Việt Nam kỳ vọng chiến dịch sẽ thu hút khách Việt đến mua sắm và khám phá nét văn hóa, hướng đến Năm Du lịch Malaysia 2026."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Thanh Thư Trong khuôn khổ quảng bá chiến dịch Malaysia Mega Sale 2024 tại Việt Nam, Cục Xúc tiến Du lịch Malaysia hợp tác cùng hãng hàng không quốc gia Malaysia Airlines và ba đối tác Trip."
+          },
+          {
+            "sentence_id": 15,
+            "text": "com, Agoda."
+          },
+          {
+            "sentence_id": 16,
+            "text": "com, Traveloka."
+          },
+          {
+            "sentence_id": 17,
+            "text": "com, mang đến ưu đãi giảm giá khách sạn, vé máy bay từ Việt Nam đến các thành phố của Malaysia đến 30%."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Thời gian đặt vé: 15/6 – 31/7Thời gian du lịch:15/6 – 31/3/2025"
+          }
+        ],
+        "sentence_count": 18,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:25.448470",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.\",\n    \"issues_found\": [\"Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc\"],\n    \"summary\": \"Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:25.448470",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật v",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.\",\n    \"issues_found\": [\"Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc\"],\n    \"summary\": \"Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:25.448470",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_stat",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:25.448470",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=625",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:25.448470",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:25.448470",
+      "step_name": "exec_step1_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.179635",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.179635",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong vă",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.179635",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feed",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.179635",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=545",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.179635",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.179635",
+      "step_name": "exec_step1_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.181636",
+      "step_name": "execution_agent.run.step_1",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm thành chunks'",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật và Văn hóa Malaysia cùng ông Manoharan Periasamy, Tổng giám đốc Cục Xúc tiến Du lịch Malaysia công bố khởi động chiến dịch, tại trung tâm thương mại Pavilion, Kuala Lumpur."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Chương trình với sự tham gia của các trung tâm mua sắm và nhà bán lẻ hàng đầu Malaysia, mang đến chương trình giảm giá đến 85%."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sáng kiến này được thiết kế để thu hút du khách nội địa lẫn quốc tế, tăng giá trị kèm theo khi du lịch Malaysia."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đến Malaysia Mega Sale 2024, du khách được tận hưởng trải nghiệm mua sắm trọn vẹn và xứng đáng, phù hợp với thông điệp của chiến dịch mua sắm quốc gia 'MY Priceless Experience'(tạm dịch: Trải nghiệm mua sắm vô giá tại Malaysia)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Chương trình này được kỳ vọng góp phần đáng kể vào doanh thu du lịch gần 553."
+          },
+          {
+            "sentence_id": 6,
+            "text": "000 tỷ trong năm nay."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Chiến dịch mua sắm quốc gia Malaysia năm nay được tổ chức hai kỳ: Malaysia Mega Sale (15/6 – 31/7) và Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong năm 2025 và 2026, chiến dịch sẽ được tổ chức ba lần mỗi năm: Malaysia Super Sale (1–31/3), Malaysia Mega Sale (15/6 – 31/7), Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Bà Nor Hayati Zainuddin, Giám đốc Cục Xúc tiến Du lịch Malaysia tại Việt Nam mong muốn bổ sung tác động tích cực được Mega Sale mang đến."
+          },
+          {
+            "sentence_id": 10,
+            "text": "'Mua sắm là một phần không thể thiếu trong trải nghiệm của du khách."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Với các chương trình khuyến mãi độc nhất và hấp dẫn, Malaysia chắc chắn có thể nâng cao hình ảnh của một điểm đến mua sắm hàng đầu', bà Nor khẳng định."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Với mục tiêu thu hút 470."
+          },
+          {
+            "sentence_id": 13,
+            "text": "000 du khách Việt Nam đến Malaysia trong năm 2024, Cục Xúc tiến Du lịch Malaysia tại Việt Nam kỳ vọng chiến dịch sẽ thu hút khách Việt đến mua sắm và khám phá nét văn hóa, hướng đến Năm Du lịch Malaysia 2026."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Thanh Thư Trong khuôn khổ quảng bá chiến dịch Malaysia Mega Sale 2024 tại Việt Nam, Cục Xúc tiến Du lịch Malaysia hợp tác cùng hãng hàng không quốc gia Malaysia Airlines và ba đối tác Trip."
+          },
+          {
+            "sentence_id": 15,
+            "text": "com, Agoda."
+          },
+          {
+            "sentence_id": 16,
+            "text": "com, Traveloka."
+          },
+          {
+            "sentence_id": 17,
+            "text": "com, mang đến ưu đãi giảm giá khách sạn, vé máy bay từ Việt Nam đến các thành phố của Malaysia đến 30%."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Thời gian đặt vé: 15/6 – 31/7Thời gian du lịch:15/6 – 31/3/2025"
+          }
+        ],
+        "sentence_count": 18,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:57:48.181636",
+      "step_name": "exec_step1_Tách văn bản thành câu và nhóm thành chunks",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, attempt=3",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "split_sentences",
+        "sentences": [
+          {
+            "sentence_id": 1,
+            "text": "Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật và Văn hóa Malaysia cùng ông Manoharan Periasamy, Tổng giám đốc Cục Xúc tiến Du lịch Malaysia công bố khởi động chiến dịch, tại trung tâm thương mại Pavilion, Kuala Lumpur."
+          },
+          {
+            "sentence_id": 2,
+            "text": "Chương trình với sự tham gia của các trung tâm mua sắm và nhà bán lẻ hàng đầu Malaysia, mang đến chương trình giảm giá đến 85%."
+          },
+          {
+            "sentence_id": 3,
+            "text": "Sáng kiến này được thiết kế để thu hút du khách nội địa lẫn quốc tế, tăng giá trị kèm theo khi du lịch Malaysia."
+          },
+          {
+            "sentence_id": 4,
+            "text": "Đến Malaysia Mega Sale 2024, du khách được tận hưởng trải nghiệm mua sắm trọn vẹn và xứng đáng, phù hợp với thông điệp của chiến dịch mua sắm quốc gia 'MY Priceless Experience'(tạm dịch: Trải nghiệm mua sắm vô giá tại Malaysia)."
+          },
+          {
+            "sentence_id": 5,
+            "text": "Chương trình này được kỳ vọng góp phần đáng kể vào doanh thu du lịch gần 553."
+          },
+          {
+            "sentence_id": 6,
+            "text": "000 tỷ trong năm nay."
+          },
+          {
+            "sentence_id": 7,
+            "text": "Chiến dịch mua sắm quốc gia Malaysia năm nay được tổ chức hai kỳ: Malaysia Mega Sale (15/6 – 31/7) và Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 8,
+            "text": "Trong năm 2025 và 2026, chiến dịch sẽ được tổ chức ba lần mỗi năm: Malaysia Super Sale (1–31/3), Malaysia Mega Sale (15/6 – 31/7), Year-End Sale (15/11 – 31/12)."
+          },
+          {
+            "sentence_id": 9,
+            "text": "Bà Nor Hayati Zainuddin, Giám đốc Cục Xúc tiến Du lịch Malaysia tại Việt Nam mong muốn bổ sung tác động tích cực được Mega Sale mang đến."
+          },
+          {
+            "sentence_id": 10,
+            "text": "'Mua sắm là một phần không thể thiếu trong trải nghiệm của du khách."
+          },
+          {
+            "sentence_id": 11,
+            "text": "Với các chương trình khuyến mãi độc nhất và hấp dẫn, Malaysia chắc chắn có thể nâng cao hình ảnh của một điểm đến mua sắm hàng đầu', bà Nor khẳng định."
+          },
+          {
+            "sentence_id": 12,
+            "text": "Với mục tiêu thu hút 470."
+          },
+          {
+            "sentence_id": 13,
+            "text": "000 du khách Việt Nam đến Malaysia trong năm 2024, Cục Xúc tiến Du lịch Malaysia tại Việt Nam kỳ vọng chiến dịch sẽ thu hút khách Việt đến mua sắm và khám phá nét văn hóa, hướng đến Năm Du lịch Malaysia 2026."
+          },
+          {
+            "sentence_id": 14,
+            "text": "Thanh Thư Trong khuôn khổ quảng bá chiến dịch Malaysia Mega Sale 2024 tại Việt Nam, Cục Xúc tiến Du lịch Malaysia hợp tác cùng hãng hàng không quốc gia Malaysia Airlines và ba đối tác Trip."
+          },
+          {
+            "sentence_id": 15,
+            "text": "com, Agoda."
+          },
+          {
+            "sentence_id": 16,
+            "text": "com, Traveloka."
+          },
+          {
+            "sentence_id": 17,
+            "text": "com, mang đến ưu đãi giảm giá khách sạn, vé máy bay từ Việt Nam đến các thành phố của Malaysia đến 30%."
+          },
+          {
+            "sentence_id": 18,
+            "text": "Thời gian đặt vé: 15/6 – 31/7Thời gian du lịch:15/6 – 31/3/2025"
+          }
+        ],
+        "sentence_count": 18,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:58:37.701016",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.\",\n    \"issues_found\": [\"Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc\"],\n    \"summary\": \"Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:58:37.701016",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Ngày 7/6, ông Khairul Firdaus Akbar Khan, Thứ trưởng Bộ Du lịch, Nghệ thuật v",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.\",\n    \"issues_found\": [\"Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc\"],\n    \"summary\": \"Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:58:37.701016",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong văn bản gốc.\",\n    \"completion_stat",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:58:37.701016",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=625",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:58:37.701016",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:58:37.701016",
+      "step_name": "exec_step1_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=split_sentences",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "split_sentences",
+          "factual_accuracy": "Output không chứa bất kỳ fact nào có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output tóm tắt các đoạn văn từ văn bản gốc một cách chính xác và đầy đủ. Tuy nhiên, số lượng câu được chia nhỏ còn thiếu so với tổng số câu của văn bản gốc.",
+          "issues_found": [
+            "Số lượng câu trong output không khớp hoàn toàn với số lượng câu trong văn bản gốc"
+          ],
+          "summary": "Output tóm tắt thành công các đoạn từ văn bản gốc nhưng có sự thiếu sót về số lượng câu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.508178",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.508178",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào có trong vă",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.\",\n    \"reasoning\": \"Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.508178",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feed",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.508178",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=545",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.508178",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.508178",
+      "step_name": "exec_step1_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Số lượng câu trong output thiếu so với số lượng câu của văn bản gốc (số liệu không khớp). Cần chia nhỏ thêm các đoạn để đảm bảo đầy đủ.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về factual consistency và coverage completeness nhưng độ dài compliance chưa đúng. Để đáp ứng yêu cầu, cần tiếp tục thực thi bước này."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.509178",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt mỗi chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.509178",
+      "step_name": "exec_step2_Tóm tắt mỗi chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.510681",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt mỗi chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.510681",
+      "step_name": "exec_step2_Tóm tắt mỗi chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=2",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.510681",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt mỗi chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.510681",
+      "step_name": "exec_step2_Tóm tắt mỗi chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=3",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "status": "failed",
+        "error": "No chunks available. Run chunking step first."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.511687",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary tổng thể'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.511687",
+      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=1",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.511687",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary tổng thể'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.511687",
+      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=2",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.511687",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary tổng thể'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.511687",
+      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=3",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.513192",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho summary tổng thể'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.513192",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho summary tổng thể",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=1",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.513192",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho summary tổng thể'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.513192",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho summary tổng thể",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=2",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.513192",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho summary tổng thể'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.513192",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho summary tổng thể",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=3",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.514198",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.514198",
+      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=1",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.514198",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.514198",
+      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=2",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.515198",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.515198",
+      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=3",
+      "output_data": {
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.515198",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.515198",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=1",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.515198",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.515198",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=2",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.516198",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.516198",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=3",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-27T22:59:00.517703",
+      "step_name": "workflow_complete",
+      "agent_name": "Manager Agent",
+      "phase": "workflow",
+      "input_summary": "",
+      "output_data": {
+        "summary": "",
+        "style": "news_brief",
+        "word_count": 0,
+        "trace": [
+          {
+            "agent": "execution",
+            "action": "split_sentences",
+            "step_id": "step_1",
+            "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "split_sentences",
+            "step_id": "step_1",
+            "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "split_sentences",
+            "step_id": "step_1",
+            "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          }
+        ],
+        "verification_report": null,
+        "intermediate_outputs": {
+          "outline": null,
+          "draft_summary": null,
+          "verification": null,
+          "edited_summary": null
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    }
+  ]
+}

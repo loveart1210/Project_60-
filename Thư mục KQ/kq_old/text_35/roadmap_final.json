@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.",
+        "tool": "word_tokenize, sent_tokenize",
+        "expected_output": "Danh sách các chunks chứa từ hoặc câu"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.",
+        "tool": "summarize_chunk",
+        "expected_output": "Danh sách các bản tóm tắt của chunks"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+        "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.",
+        "tool": "merge_summaries",
+        "expected_output": "Bản summary tổng thể"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách của summary tổng thể",
+        "description": "Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.",
+        "tool": "refine_summary",
+        "expected_output": "Bản summary đã được tinh chỉnh"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
+        "description": "Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.",
+        "tool": "verify_claim",
+        "expected_output": "Danh sách các câu đã được kiểm chứng"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc."
+  }
+}

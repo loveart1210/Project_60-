@@ -1,16 +1,26 @@
 {
-  "summary": "Osaka, Kyoto và Tokyo được làm mới trong tour Nhật Bản dịp Tết Dương lịch của NhatbanAZ với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm có giá 31,9 triệu đồng. Công ty đã nhận sự quan tâm từ du khách muốn trải nghiệm Hokkaido tuyết dày đặc; NhatbanAZ chủ động gặp đối tác để xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản, là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip.",
+  "summary": "31,9 triệu đồng mỗi khách cho tour Shirakawago - núi Phú Sĩ - Tokyo trong 6 ngày; 55,9 triệu đồng mỗi khách cho tour Hokkaido với trải nghiệm câu cá trên băng và tham quan lâu đài Matsumoto. NhatbanAZ mở bán chùm tour Nhật Bản dịp Tết Dương lịch và Âm lịch từ đầu tháng 10, thu hút du khách nhờ kinh nghiệm hơn 15 năm ở Nhật Bản và chính sách ưu đãi tốt nhất cho khách hàng.",
   "style": "news_brief",
-  "word_count": 85,
+  "word_count": 61,
   "trace": [
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "split_sentences",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Xác định các chunk chính trong văn bản",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
       }
     },
     {
@@ -27,37 +37,17 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary tổng thể",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho summary tổng thể",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -67,10 +57,10 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -84,11 +74,205 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "31,9 triệu đồng mỗi khách cho tour Shirakawago - núi Phú Sĩ - Tokyo trong 6 ngày",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 8,
+          "source_text": "Tour cũng gồm tham quan lâu đài Matsumoto - di tích bảo vật quốc gia của Nhật Bản và trải nghiệm trượt tuyết tại Fujiten Snow Resort - top 3 khu trượt tuyết nổi tiếng."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "55,9 triệu đồng mỗi khách cho tour Hokkaido với trải nghiệm câu cá trên băng và tham quan lâu đài Matsumoto",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 4,
+          "source_text": "Cụ thể, tour Hokkaido gồm Asahikawa, Monbetsu và Sapporo với giá 55,9 triệu đồng mỗi khách."
+        },
+        {
+          "sentence_id": 7,
+          "source_text": "Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "NhatbanAZ mở bán chùm tour Nhật Bản dịp Tết Dương lịch và Âm lịch từ đầu tháng 10, tạo sự chú ý lớn từ du khách nhờ kinh nghiệm hơn 15 năm ở Nhật Bản và chính sách ưu đãi tốt nhất cho khách hàng",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 2,
+          "source_text": "Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato."
+        },
+        {
+          "sentence_id": 3,
+          "source_text": "NhatbanAZ cũng mở rộng các cung đường mới cho du khách trải nghiệm trong dịp Tết 2025."
+        },
+        {
+          "sentence_id": 1,
+          "source_text": "[1] Công ty du lịch NhatbanAZ mở bán chùm tour Nhật Bản khởi hành dịp Tết Dương lịch và Âm lịch từ đầu tháng 10."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 4,
+      "claim_text": "NhatbanAZ cung cấp các hành trình từ 5 đến 6 ngày với mức giá cơ bản đến cao cấp, khoảng 31,9 - 55,9 triệu đồng mỗi khách để đáp ứng nhu cầu đa dạng",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 8,
+          "source_text": "[7] Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995."
+        },
+        {
+          "sentence_id": 2,
+          "source_text": "[2] Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato."
+        },
+        {
+          "sentence_id": 10,
+          "source_text": "[9] Bà Hồ Như Thảo, Giám đốc Điều hành NhatbanAZ Văn phòng TP HCM cho biết sản phẩm mới này nhận được sự quan tâm lớn từ du khách, đặc biệt là những người từng đi Nhật và muốn trở lại với hành trình mới."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 5,
+      "claim_text": "NhatbanAZ thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản đề xuất",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 14,
+          "source_text": "[13] Do đó, NhatbanAZ chủ động gặp gỡ và làm việc với các đối tác cung cấp dịch vụ, từ đó xây dựng chương trình, đưa ra chính sách ưu đãi tốt nhất cho khách hàng."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 6,
+      "claim_text": "NhatbanAZ là nhà tư vấn và tổ chức những chuyến Famtrip kết nối các công ty du lịch Việt Nam tới tham quan xúc tiến đầu tư, hợp tác tại Nhật Bản",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 16,
+          "source_text": "[15] Đồng thời là đối tác chiến lược của các hãng hàng không, khách sạn và đối tác land tour uy tín tại Nhật Bản."
+        },
+        {
+          "sentence_id": 17,
+          "source_text": "[20] Thanh Thư"
+        }
+      ],
+      "confidence": 0.9
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Osaka, Kyoto và Tokyo được làm mới trong tour Nhật Bản dịp Tết Dương lịch của NhatbanAZ với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm có giá 31,9 triệu đồng. Công ty đã nhận sự quan tâm từ du khách muốn trải nghiệm Hokkaido tuyết dày đặc. NhatbanAZ chủ động gặp đối tác để xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản, là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip.",
-    "verification": null,
-    "edited_summary": "Osaka, Kyoto và Tokyo được làm mới trong tour Nhật Bản dịp Tết Dương lịch của NhatbanAZ với giá 55,9 triệu đồng mỗi khách; Shirakawago, núi Phú Sĩ và Tokyo trong 6 ngày 5 đêm có giá 31,9 triệu đồng. Công ty đã nhận sự quan tâm từ du khách muốn trải nghiệm Hokkaido tuyết dày đặc; NhatbanAZ chủ động gặp đối tác để xây dựng chương trình và chính sách ưu đãi tốt nhất cho khách hàng; thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản, là đối tác chiến lược của hãng hàng không, khách sạn và land tour uy tín tại Nhật Bản cùng nhà tư vấn Famtrip."
+    "draft_summary": "55,9 triệu đồng mỗi khách cho tour Hokkaido với trải nghiệm câu cá trên băng và tham quan lâu đài Matsumoto; 31,9 triệu đồng mỗi khách cho tour Shirakawago - núi Phú Sĩ - Tokyo trong 6 ngày. NhatbanAZ chủ động gặp đối tác, xây dựng chương trình ưu đãi; kinh nghiệm 15 năm ở Nhật Bản, công ty chỉ định visa Đại sứ quán Nhật. Đối tác chiến lược hãng hàng không khách sạn land tour uy tín, tổ chức Famtrip xúc tiến đầu tư tại Nhật.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "31,9 triệu đồng mỗi khách cho tour Shirakawago - núi Phú Sĩ - Tokyo trong 6 ngày",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 8,
+            "source_text": "Tour cũng gồm tham quan lâu đài Matsumoto - di tích bảo vật quốc gia của Nhật Bản và trải nghiệm trượt tuyết tại Fujiten Snow Resort - top 3 khu trượt tuyết nổi tiếng."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "55,9 triệu đồng mỗi khách cho tour Hokkaido với trải nghiệm câu cá trên băng và tham quan lâu đài Matsumoto",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "source_text": "Cụ thể, tour Hokkaido gồm Asahikawa, Monbetsu và Sapporo với giá 55,9 triệu đồng mỗi khách."
+          },
+          {
+            "sentence_id": 7,
+            "source_text": "Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "NhatbanAZ mở bán chùm tour Nhật Bản dịp Tết Dương lịch và Âm lịch từ đầu tháng 10, tạo sự chú ý lớn từ du khách nhờ kinh nghiệm hơn 15 năm ở Nhật Bản và chính sách ưu đãi tốt nhất cho khách hàng",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "source_text": "Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato."
+          },
+          {
+            "sentence_id": 3,
+            "source_text": "NhatbanAZ cũng mở rộng các cung đường mới cho du khách trải nghiệm trong dịp Tết 2025."
+          },
+          {
+            "sentence_id": 1,
+            "source_text": "[1] Công ty du lịch NhatbanAZ mở bán chùm tour Nhật Bản khởi hành dịp Tết Dương lịch và Âm lịch từ đầu tháng 10."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "NhatbanAZ cung cấp các hành trình từ 5 đến 6 ngày với mức giá cơ bản đến cao cấp, khoảng 31,9 - 55,9 triệu đồng mỗi khách để đáp ứng nhu cầu đa dạng",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 8,
+            "source_text": "[7] Du khách sẽ được chiêm ngưỡng tuyết trắng tại Shirakawago, một Di sản Văn hóa Thế giới của UNESCO từ năm 1995."
+          },
+          {
+            "sentence_id": 2,
+            "source_text": "[2] Trong đó, các tour truyền thống đến Osaka, Kyoto và Tokyo được làm mới bằng những hoạt động phù hợp với mùa đông xuân như trượt tuyết tại Fujiten Resort, ngắm tuyết làng cổ Oshino Hakkai và tham gia lễ hội ánh sáng Nabana no sato."
+          },
+          {
+            "sentence_id": 10,
+            "source_text": "[9] Bà Hồ Như Thảo, Giám đốc Điều hành NhatbanAZ Văn phòng TP HCM cho biết sản phẩm mới này nhận được sự quan tâm lớn từ du khách, đặc biệt là những người từng đi Nhật và muốn trở lại với hành trình mới."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 5,
+        "claim_text": "NhatbanAZ thuộc danh sách công ty chỉ định nộp visa bởi Đại sứ quán Nhật Bản đề xuất",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "[13] Do đó, NhatbanAZ chủ động gặp gỡ và làm việc với các đối tác cung cấp dịch vụ, từ đó xây dựng chương trình, đưa ra chính sách ưu đãi tốt nhất cho khách hàng."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 6,
+        "claim_text": "NhatbanAZ là nhà tư vấn và tổ chức những chuyến Famtrip kết nối các công ty du lịch Việt Nam tới tham quan xúc tiến đầu tư, hợp tác tại Nhật Bản",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 16,
+            "source_text": "[15] Đồng thời là đối tác chiến lược của các hãng hàng không, khách sạn và đối tác land tour uy tín tại Nhật Bản."
+          },
+          {
+            "sentence_id": 17,
+            "source_text": "[20] Thanh Thư"
+          }
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "edited_summary": "31,9 triệu đồng mỗi khách cho tour Shirakawago - núi Phú Sĩ - Tokyo trong 6 ngày; 55,9 triệu đồng mỗi khách cho tour Hokkaido với trải nghiệm câu cá trên băng và tham quan lâu đài Matsumoto. NhatbanAZ mở bán chùm tour Nhật Bản dịp Tết Dương lịch và Âm lịch từ đầu tháng 10, thu hút du khách nhờ kinh nghiệm hơn 15 năm ở Nhật Bản và chính sách ưu đãi tốt nhất cho khách hàng."
   }
 }

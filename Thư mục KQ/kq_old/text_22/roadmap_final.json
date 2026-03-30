@@ -1,0 +1,38 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản gốc tiếng Việt thành các câu, sau đó nhóm chúng lại thành chunks phù hợp với thông tin chính.",
+        "tool": "sent_tokenize, chunk_text"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Dùng LLM để tóm tắt mỗi chunk đã nhóm được. Kết quả này sẽ là bản tóm tắt sơ bộ.",
+        "tool": "summarize_chunk"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp nhiều bản tóm tắt lại thành một",
+        "description": "Tổng hợp các bản tóm tắt từ bước 2 để tạo ra bản tóm tắt tổng thể.",
+        "tool": "merge_summaries"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
+        "description": "Refine và điều chỉnh các đoạn văn để đảm bảo phong cách phù hợp với yêu cầu.",
+        "tool": "refine_summary"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+        "description": "Verify rằng thông tin chính trong bản tóm tắt vẫn đúng và không thay đổi entity từ văn bản gốc.",
+        "tool": "verify_claim"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Lưu ý kiểm tra độ dài cuối cùng của bản tóm tắt để đảm bảo nằm trong khoảng yêu cầu (150–250 từ, không quá 20% độ dài input)"
+  }
+}

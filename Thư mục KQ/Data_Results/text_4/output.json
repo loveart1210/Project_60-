@@ -1,13 +1,23 @@
 {
-  "summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam. Công ty trao tặng quà cho khách tham dự với ưu đãi tour Bắc Á trong ba ngày đầu; tour Đông Nam Á trong ba tháng từ ngày khai trương; tour nội địa trong một năm; đặt phòng khách sạn hoặc xe du lịch trong 6 tháng và vé máy bay trong 6 tháng. MayTrip giới thiệu các chương trình tour Hokkaido dịp Tết Nguyên đán, cung cấp trải nghiệm suối nước nóng trên tuyết trắng cho năm 2030.",
+  "summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 với mục tiêu mở rộng dịch vụ và nâng cao trải nghiệm khách hàng. Công ty trao tặng nhiều voucher ưu đãi cho khách tham dự, trong đó có tour Nhật Bản dịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết tại Hokkaido - miền tuyết trắng; các hành trình du lịch khác với lịch khởi hành linh hoạt đến hết năm 2030.",
   "style": "news_brief",
-  "word_count": 76,
+  "word_count": 56,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -15,29 +25,9 @@
     },
     {
       "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
       "reflection_scores": {
         "factual_consistency": 0.8,
         "coverage_completeness": 0.75
@@ -47,27 +37,17 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt thành một văn bản tổng thể",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt thành một văn bản tổng thể",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt thành một văn bản tổng thể",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách của bản tổng thể",
       "reflection_scores": {
         "factual_consistency": 0.8,
         "coverage_completeness": 0.75
@@ -77,20 +57,30 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho văn bản tổng thể",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách của bản tổng thể",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách của bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
       }
     },
     {
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề trong văn bản tổng thể",
+      "evidence": "Step 5: Kiểm chứng (verification)",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -104,11 +94,137 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 với mục tiêu mở rộng dịch vụ và nâng cao trải nghiệm khách hàng.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 2,
+          "source_text": "[2] Văn phòng mới được kỳ vọng là điểm đến thuận tiện cho khách hàng trong việc tìm hiểu và sử dụng dịch vụ của công ty."
+        },
+        {
+          "sentence_id": 1,
+          "source_text": "[1] Văn phòng mới của MayTrip tại địa chỉ 833 Lê Hồng Phong, quận 10, nhằm mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "MayTrip trao tặng nhiều voucher ưu đãi cho khách tham dự, trong đó có tour Nhật Bản dịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết tại Hokkaido - miền tuyết trắng.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 4,
+          "source_text": "[4] Các voucher gồm: 2 triệu đồng cho khách đăng ký tour Bắc Á trong ba ngày khai trương, 1 triệu đồng cho tour Đông Nam Á trong ba tháng từ ngày khai trương, 500."
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "[8] Buổi lễ khai trương văn phòng tại Sài Gòn còn giới thiệu các chương trìnhtour Nhật Bảndịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết, Hokkaido - miền tuyết trắng."
+        },
+        {
+          "sentence_id": 12,
+          "source_text": "[12] Tour Hokkaido dịp Tết là hành trình lý tưởng để du khách tận hưởng kỳ nghỉ theo cách mới mẻ và ấn tượng trong tuyết trắng."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "MayTrip giới thiệu các hành trình du lịch khác với lịch khởi hành linh hoạt đến hết năm 2030.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 14,
+          "source_text": "[14] Bên cạnh đó, MayTrip cũng cung cấp các tour du lịch khác với lịch khởi hành linh hoạt kéo dài đến hết năm 2025, gồm hành trình ngắm hoa anh đào, hoa mơ, mận và nghỉ lễ 30/4 và 1/5."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_id": 4,
+      "claim_text": "",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.8
+    },
+    {
+      "claim_id": 5,
+      "claim_text": "",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.7
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam. Trao tặng quà tặng cho khách tham dự với nhiều ưu đãi như tour Bắc Á, Đông Nam Á, nội địa trong năm tới; đặt phòng khách sạn hoặc xe du lịch trong 6 tháng; vé máy bay trong 6 tháng. MayTrip giới thiệu các chương trình tour Hokkaido dịp Tết Nguyên đán, cung cấp trải nghiệm suối nước nóng trên tuyết trắng và nhiều hành trình khác cho năm 2030. Công ty ưu tiên trải nghiệm khách hàng, cam kết chất lượng dịch vụ an toàn cho khách.",
-    "verification": null,
-    "edited_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam. Công ty trao tặng quà cho khách tham dự với ưu đãi tour Bắc Á trong ba ngày đầu; tour Đông Nam Á trong ba tháng từ ngày khai trương; tour nội địa trong một năm; đặt phòng khách sạn hoặc xe du lịch trong 6 tháng và vé máy bay trong 6 tháng. MayTrip giới thiệu các chương trình tour Hokkaido dịp Tết Nguyên đán, cung cấp trải nghiệm suối nước nóng trên tuyết trắng cho năm 2030."
+    "draft_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 với mục tiêu mở rộng dịch vụ và nâng cao trải nghiệm khách hàng. Công ty trao tặng nhiều voucher ưu đãi cho khách tham dự, trong đó có tour Nhật Bản dịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết tại Hokkaido - miền tuyết trắng. MayTrip cũng giới thiệu các hành trình du lịch khác với lịch khởi hành linh hoạt đến hết năm 2030. Công ty ưu tiên trải nghiệm khách hàng, hướng tới trở thành công ty lữ hành hàng đầu toàn cầu trong thập kỷ tới.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 với mục tiêu mở rộng dịch vụ và nâng cao trải nghiệm khách hàng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "source_text": "[2] Văn phòng mới được kỳ vọng là điểm đến thuận tiện cho khách hàng trong việc tìm hiểu và sử dụng dịch vụ của công ty."
+          },
+          {
+            "sentence_id": 1,
+            "source_text": "[1] Văn phòng mới của MayTrip tại địa chỉ 833 Lê Hồng Phong, quận 10, nhằm mở rộng dịch vụ và nâng cao trải nghiệm khách hàng khu vực phía Nam."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "MayTrip trao tặng nhiều voucher ưu đãi cho khách tham dự, trong đó có tour Nhật Bản dịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết tại Hokkaido - miền tuyết trắng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "source_text": "[4] Các voucher gồm: 2 triệu đồng cho khách đăng ký tour Bắc Á trong ba ngày khai trương, 1 triệu đồng cho tour Đông Nam Á trong ba tháng từ ngày khai trương, 500."
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "[8] Buổi lễ khai trương văn phòng tại Sài Gòn còn giới thiệu các chương trìnhtour Nhật Bảndịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết, Hokkaido - miền tuyết trắng."
+          },
+          {
+            "sentence_id": 12,
+            "source_text": "[12] Tour Hokkaido dịp Tết là hành trình lý tưởng để du khách tận hưởng kỳ nghỉ theo cách mới mẻ và ấn tượng trong tuyết trắng."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "MayTrip giới thiệu các hành trình du lịch khác với lịch khởi hành linh hoạt đến hết năm 2030.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "[14] Bên cạnh đó, MayTrip cũng cung cấp các tour du lịch khác với lịch khởi hành linh hoạt kéo dài đến hết năm 2025, gồm hành trình ngắm hoa anh đào, hoa mơ, mận và nghỉ lễ 30/4 và 1/5."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.8
+      },
+      {
+        "claim_id": 5,
+        "claim_text": "",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.7
+      }
+    ],
+    "edited_summary": "MayTrip khai trương văn phòng mới tại 833 Lê Hồng Phong, quận 10 với mục tiêu mở rộng dịch vụ và nâng cao trải nghiệm khách hàng. Công ty trao tặng nhiều voucher ưu đãi cho khách tham dự, trong đó có tour Nhật Bản dịp Tết Âm lịch như cung đường vàng trải nghiệm trượt tuyết tại Hokkaido - miền tuyết trắng; các hành trình du lịch khác với lịch khởi hành linh hoạt đến hết năm 2030."
   }
 }

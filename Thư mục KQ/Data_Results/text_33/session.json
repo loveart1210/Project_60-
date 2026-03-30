@@ -1,5 +1,5 @@
 {
-  "session_id": "aa4209d2",
+  "session_id": "f140f6d0",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 553,
-  "created_at": "2026-03-27T23:13:55.845681",
+  "created_at": "2026-03-30T04:16:37.108186",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T23:14:55.655165",
+      "timestamp": "2026-03-30T04:17:00.368501",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T23:15:52.991732",
+      "timestamp": "2026-03-30T04:17:24.437773",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T23:16:16.915182",
+      "timestamp": "2026-03-30T04:17:32.857871",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,61 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết nội dung văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đủ để thực thi các bước cụ thể mà không có rủi ro hallucination đáng kể."
+          "reasoning": "Roadmap bao quát được nội dung chính của văn bản gốc với điểm coverage ≥ 0.8 và specificity ≥ 0.7, đồng thời không có rủi ro hallucination. Điểm mạnh về việc sử dụng tool đã được tận dụng một cách hợp lý nhưng roadmap cần bổ sung chi tiết về con đường thay thế Pan-America hoặc con đường thẳng dài nhất thế giới do Rohan Chabukswar và Kushal Mukherjee nghiên cứu."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "chunking",
-      "timestamp": "2026-03-27T23:16:16.939705",
+      "action": "split_sentences",
+      "timestamp": "2026-03-30T04:17:32.861962",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T04:17:46.745338",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T23:17:10.605308",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T04:18:04.598940",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T23:17:33.900609",
+      "timestamp": "2026-03-30T04:18:12.635255",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung thông tin cá nhân George Meegan, cập nhật hành trình của Holly Harrison trong văn bản gốc. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: chất lượng tốt nhưng có vấn đề nghiêm trọng về factual consistency và coverage completeness."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T04:18:34.302981",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:18:56.587480",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:19:07.999122",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,20 +100,231 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đã giữ nguyên thông tin chính xác và tổng quan về đường cao tốc Pan-American nhưng thiếu một số đoạn văn bản gốc và có sự cắt bớt không đồng đều. Đây là bước cuối cùng nên tiếp tục."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên người hoàn thành hành trình dài hơn ở Cape Town và Magadan. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: Bảng phân tích cho thấy chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn có một số chi tiết nhỏ bị lược bỏ như tên người hoàn thành hành trình dài hơn ở Cape Town và Magadan. Vì vậy, bước tiếp theo là cần bổ sung thêm thông tin này."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T04:19:23.389631",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:19:38.524515",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:19:46.893643",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt thông tin đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào. Tuy nhiên, cần bổ sung chi tiết hơn về các điểm chính của con đường Pan-America và hành trình Cape Town đến Magadan để đảm bảo độ bao quát hoàn thiện.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt với sự tóm tắt ngắn gọn nhưng không chứa fact mới. Đây là bước cuối cùng, nên tiếp tục thực hiện."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T04:19:59.677971",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:20:18.729462",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:20:28.022392",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên người trẻ tuổi đi xe đạp xuyên Pan-America, thời gian di chuyển cụ thể. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: Bước hiện tại đạt chất lượng tốt (factual consistency = 0.9 và coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung để đảm bảo độ chính xác hoàn chỉnh."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T04:22:42.593703",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T04:22:52.343764",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:23:06.143905",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:23:13.982933",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt lại thông tin đã có, không bổ sung thêm fact mới hoặc chi tiết quan trọng khác từ văn bản gốc.",
+          "reasoning": "Lý do quyết định: Chất lượng tốt (factual consistency = 0.9 và coverage completeness = 0.85) nhưng Output chỉ tóm tắt lại thông tin đã có, không bổ sung thêm fact mới hoặc chi tiết quan trọng khác từ văn bản gốc."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T23:17:33.907118",
+      "timestamp": "2026-03-30T04:23:13.988039",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "chunks": [
+    "sentences": [
+      {
+        "sentence_id": 1,
+        "text": "Pan-American là cao tốc dài nhất hành tinh (thích hợp cho xe cơ giới sử dụng) với hơn 24."
+      },
+      {
+        "sentence_id": 2,
+        "text": "000 km, xuyên qua 14 quốc gia, theo kỷ lục Guinness."
+      },
+      {
+        "sentence_id": 3,
+        "text": "Đường bắt đầu từ Alaska, Mỹ đến Santiago, Chile rồi đi về phía đông đến Buenos Aires, Argentina và kết thúc ở Brasilia, Brazil."
+      },
+      {
+        "sentence_id": 4,
+        "text": "14 quốc gia tuyến đường này chạy qua gồm Mỹ, Canada, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile và Argentina."
+      },
+      {
+        "sentence_id": 5,
+        "text": "Tuy nhiên Pan-America có một đoạn bị ngắt quãng từ Panama đến Colombia do đi qua rừng nhiệt đới Darien Gap dài 100 km với địa hình hiểm trở, toàn núi và đầm lầy."
+      },
+      {
+        "sentence_id": 6,
+        "text": "Hầu hết mọi người đều vượt qua đoạn đường này bằng cách lên phà từ Panama đến Colombia hoặc Ecuador."
+      },
+      {
+        "sentence_id": 7,
+        "text": "Có rất ít người được công nhận đã đi bộ xuyên Pan-America, gồm đi qua cả Darién Gap."
+      },
+      {
+        "sentence_id": 8,
+        "text": "Người đầu tiên hoàn thành chuyến đi là cựu thủy thủ người Anh, George Meegan, khởi hành từ năm 1977 và mất hơn 2."
+      },
+      {
+        "sentence_id": 9,
+        "text": "400 ngày để hoàn thành hành trình này."
+      },
+      {
+        "sentence_id": 10,
+        "text": "Gần 40 năm sau, cựu lính Mỹ Holly Harrison đã thực hiện chuyến đi tương tự, hoàn thành lộ trình ngắn hơn, khoảng 23."
+      },
+      {
+        "sentence_id": 11,
+        "text": "000 km trong 530 ngày."
+      },
+      {
+        "sentence_id": 12,
+        "text": "Emmanuel Gentinetta, 18 tuổi người Mỹ, đã được kỷ lục Guinness công nhận là 'Người trẻ nhất đi xe đạp xuyên Pan-America'."
+      },
+      {
+        "sentence_id": 13,
+        "text": "Genitnetta bắt đầu từ vịnh Prudhoe, bang Alaska, Mỹ ngày 23/6/1999 và kết thúc tại Hahia Lapataia, quần đảo Tierra del Fuego, Argentina ngày 9/3/2000."
+      },
+      {
+        "sentence_id": 14,
+        "text": "Hành trình kéo dài 261 ngày với quãng đường dài hơn 24."
+      },
+      {
+        "sentence_id": 15,
+        "text": "500 km."
+      },
+      {
+        "sentence_id": 16,
+        "text": "Tuy nhiên, không nhiều người đồng tình với ý tưởng đi xuyên Darién Gap vì mức độ nguy hiểm của nó."
+      },
+      {
+        "sentence_id": 17,
+        "text": "Nếu dùng phà để di chuyển lại không phù hợp với tên gọi cao tốc xuyên Mỹ (chỉ đi trên mặt đất, không di chuyển bằng đường thủy)."
+      },
+      {
+        "sentence_id": 18,
+        "text": "Do đó, một người dùng trên diễn đàn Reddit nổi tiếng của Mỹ đã tìm ra con đường khác thay thế Pan-America và an toàn hơn."
+      },
+      {
+        "sentence_id": 19,
+        "text": "Con đường bắt đầu từ Cape Town, Nam Phi và kết thúc ở Magadan, Nga với tổng chiều dài hơn 22."
+      },
+      {
+        "sentence_id": 20,
+        "text": "000 km, mất gần 4."
+      },
+      {
+        "sentence_id": 21,
+        "text": "500 giờ di chuyển, tương đương 187 ngày đi bộ không ngừng nghỉ hoặc 561 ngày nếu mỗi ngày di chuyển 8 tiếng."
+      },
+      {
+        "sentence_id": 22,
+        "text": "Bạn sẽ đi qua 17 quốc gia, 6 múi giờ và các mùa trong năm khi hoàn thành cung đường này."
+      },
+      {
+        "sentence_id": 23,
+        "text": "Còn nếu muốn đi bộ thẳng một đường, hãy suy nghĩ đến con đường do hai kỹ sư Rohan Chabukswar và Kushal Mukherjee người Ấn Độ đã nghiên cứu và tìm ra năm 2018."
+      },
+      {
+        "sentence_id": 24,
+        "text": "Đây là con đường thẳng (đường chim bay) dài nhất thế giới với điểm bắt đầu ở Trung Quốc và kết thúc ở Bồ Đào Nha."
+      },
+      {
+        "sentence_id": 25,
+        "text": "Con đường thẳng này sẽ xuyên qua các ngọn núi, mọi địa hình, dài 11."
+      },
+      {
+        "sentence_id": 26,
+        "text": "240 km, không băng qua bất kỳ vùng nước nào."
+      },
+      {
+        "sentence_id": 27,
+        "text": "Hành trình gồm Trung Quốc, Mông Cổ, Kazakhstan, Nga, Belarus, Ukraine, Ba Lan, Cộng hòa Czech, Đức, Áo, Liechtenstein, Thụy Sĩ, Pháp và Tây Ban Nha trước khi kết thúc ở Sagres, Bồ Đào Nha."
+      },
+      {
+        "sentence_id": 28,
+        "text": "Tuy nhiên, tuyến đường này được đánh giá 'bất khả thi' vì quá nguy hiểm."
+      },
+      {
+        "sentence_id": 29,
+        "text": "Anh Minh(TheoGuinness World Records, NZ Hearald)"
+      }
+    ],
+    "chunk_summaries": [
       {
         "chunk_id": 1,
         "sentence_ids": [
@@ -101,8 +347,8 @@
           17,
           18
         ],
-        "text": "Pan-American là cao tốc dài nhất hành tinh (thích hợp cho xe cơ giới sử dụng) với hơn 24. 000 km, xuyên qua 14 quốc gia, theo kỷ lục Guinness. Đường bắt đầu từ Alaska, Mỹ đến Santiago, Chile rồi đi về phía đông đến Buenos Aires, Argentina và kết thúc ở Brasilia, Brazil. 14 quốc gia tuyến đường này chạy qua gồm Mỹ, Canada, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile và Argentina. Tuy nhiên Pan-America có một đoạn bị ngắt quãng từ Panama đến Colombia do đi qua rừng nhiệt đới Darien Gap dài 100 km với địa hình hiểm trở, toàn núi và đầm lầy. Hầu hết mọi người đều vượt qua đoạn đường này bằng cách lên phà từ Panama đến Colombia hoặc Ecuador. Có rất ít người được công nhận đã đi bộ xuyên Pan-America, gồm đi qua cả Darién Gap. Người đầu tiên hoàn thành chuyến đi là cựu thủy thủ người Anh, George Meegan, khởi hành từ năm 1977 và mất hơn 2. 400 ngày để hoàn thành hành trình này. Gần 40 năm sau, cựu lính Mỹ Holly Harrison đã thực hiện chuyến đi tương tự, hoàn thành lộ trình ngắn hơn, khoảng 23. 000 km trong 530 ngày. Emmanuel Gentinetta, 18 tuổi người Mỹ, đã được kỷ lục Guinness công nhận là 'Người trẻ nhất đi xe đạp xuyên Pan-America'. Genitnetta bắt đầu từ vịnh Prudhoe, bang Alaska, Mỹ ngày 23/6/1999 và kết thúc tại Hahia Lapataia, quần đảo Tierra del Fuego, Argentina ngày 9/3/2000. Hành trình kéo dài 261 ngày với quãng đường dài hơn 24. 500 km. Tuy nhiên, không nhiều người đồng tình với ý tưởng đi xuyên Darién Gap vì mức độ nguy hiểm của nó. Nếu dùng phà để di chuyển lại không phù hợp với tên gọi cao tốc xuyên Mỹ (chỉ đi trên mặt đất, không di chuyển bằng đường thủy). Do đó, một người dùng trên diễn đàn Reddit nổi tiếng của Mỹ đã tìm ra con đường khác thay thế Pan-America và an toàn hơn.",
-        "word_count": 289
+        "summary": "24. 000 km Pan-American xuyên qua 14 quốc gia, bị ngắt quãng do Darién Gap hiểm trở. George Meegan (Anh) và Holly Harrison (Mỹ) lần lượt hoàn thành hành trình dài hơn trong gần 3 năm. Gentinetta (18 tuổi Mỹ) là người trẻ nhất đi xe đạp xuyên Pan-America với lộ trình ngắn hơn nhưng vẫn vượt qua Darién Gap an toàn.",
+        "word_count": 49
       },
       {
         "chunk_id": 2,
@@ -119,10 +365,13 @@
           28,
           29
         ],
-        "text": "Con đường bắt đầu từ Cape Town, Nam Phi và kết thúc ở Magadan, Nga với tổng chiều dài hơn 22. 000 km, mất gần 4. 500 giờ di chuyển, tương đương 187 ngày đi bộ không ngừng nghỉ hoặc 561 ngày nếu mỗi ngày di chuyển 8 tiếng. Bạn sẽ đi qua 17 quốc gia, 6 múi giờ và các mùa trong năm khi hoàn thành cung đường này. Còn nếu muốn đi bộ thẳng một đường, hãy suy nghĩ đến con đường do hai kỹ sư Rohan Chabukswar và Kushal Mukherjee người Ấn Độ đã nghiên cứu và tìm ra năm 2018. Đây là con đường thẳng (đường chim bay) dài nhất thế giới với điểm bắt đầu ở Trung Quốc và kết thúc ở Bồ Đào Nha. Con đường thẳng này sẽ xuyên qua các ngọn núi, mọi địa hình, dài 11. 240 km, không băng qua bất kỳ vùng nước nào. Hành trình gồm Trung Quốc, Mông Cổ, Kazakhstan, Nga, Belarus, Ukraine, Ba Lan, Cộng hòa Czech, Đức, Áo, Liechtenstein, Thụy Sĩ, Pháp và Tây Ban Nha trước khi kết thúc ở Sagres, Bồ Đào Nha. Tuy nhiên, tuyến đường này được đánh giá 'bất khả thi' vì quá nguy hiểm. Anh Minh(TheoGuinness World Records, NZ Hearald)",
-        "word_count": 166
+        "summary": "Cape Town, Nam Phi đến Magadan, Nga dài hơn 22.000 km mất khoảng 187 ngày đi bộ không ngừng nghỉ hoặc 561 ngày mỗi ngày di chuyển 8 tiếng qua 17 quốc gia và 6 múi giờ trong năm. Hai kỹ sư Rohan Chabukswar và Kushal Mukherjee đã tìm ra con đường thẳng dài nhất thế giới từ Trung Quốc đến Bồ Đào Nha, xuyên suốt các ngọn núi và địa hình khác nhưng được đánh giá 'bất khả thi' vì quá nguy hiểm.",
+        "word_count": 67
       }
-    ]
+    ],
+    "merged_summary": "Cape Town, Nam Phi đến Magadan, Nga dài hơn 22.000 km mất khoảng 187 ngày đi bộ không ngừng nghỉ hoặc 561 ngày mỗi ngày di chuyển 8 tiếng qua 17 quốc gia và 6 múi giờ trong năm. Hai kỹ sư Rohan Chabukswar và Kushal Mukherjee đã tìm ra con đường thẳng dài nhất thế giới từ Trung Quốc đến Bồ Đào Nha, xuyên suốt các ngọn núi và địa hình khác nhưng được đánh giá 'bất khả thi' vì quá nguy hiểm. 24.000 km Pan-American xuyên qua 14 quốc gia bị ngắt quãng do Darién Gap hiểm trở. George Meegan (Anh) và Holly Harrison (Mỹ), lần lượt hoàn thành hành trình dài hơn trong gần 3 năm, Gentinetta (18 tuổi Mỹ) là người trẻ nhất đi xe đạp xuyên Pan-America với lộ trình ngắn hơn nhưng vẫn vượt qua Darién Gap an toàn.",
+    "refined_summary": "Cape Town, Nam Phi đến Magadan, Nga dài hơn 22.000 km mất khoảng 187 ngày đi bộ không ngừng nghỉ hoặc 561 ngày mỗi ngày di chuyển 8 tiếng qua 17 quốc gia và 6 múi giờ trong năm. George Meegan (Anh) và Holly Harrison (Mỹ), lần lượt hoàn thành hành trình dài hơn trong gần 3 năm, Gentinetta (18 tuổi Mỹ) là người trẻ nhất đi xe đạp xuyên Pan-America với lộ trình ngắn hơn nhưng vẫn vượt qua Darién Gap an toàn.",
+    "edited_summary": "Người Anh George Meegan và người Mỹ Holly Harrison hoàn thành hành trình đi bộ dài hơn 22.000 km từ Cape Town, Nam Phi đến Magadan, Nga trong gần 187 ngày hoặc 561 ngày mỗi ngày di chuyển 8 tiếng qua 17 quốc gia và 6 múi giờ. Người Mỹ Gentinetta (18 tuổi) là người trẻ nhất đi xe đạp xuyên Pan-America với lộ trình ngắn hơn nhưng vẫn vượt qua Darién Gap an toàn."
   },
   "stats": {
     "planner_loop": 0,
@@ -134,5 +383,5 @@
     "chunks": 0
   },
   "input_text": "Pan-American là cao tốc dài nhất hành tinh (thích hợp cho xe cơ giới sử dụng) với hơn 24.000 km, xuyên qua 14 quốc gia, theo kỷ lục Guinness. Đường bắt đầu từ Alaska, Mỹ đến Santiago, Chile rồi đi về phía đông đến Buenos Aires, Argentina và kết thúc ở Brasilia, Brazil. 14 quốc gia tuyến đường này chạy qua gồm Mỹ, Canada, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile và Argentina. Tuy nhiên Pan-America có một đoạn bị ngắt quãng từ Panama đến Colombia do đi qua rừng nhiệt đới Darien Gap dài 100 km với địa hình hiểm trở, toàn núi và đầm lầy. Hầu hết mọi người đều vượt qua đoạn đường này bằng cách lên phà từ Panama đến Colombia hoặc Ecuador. Có rất ít người được công nhận đã đi bộ xuyên Pan-America, gồm đi qua cả Darién Gap. Người đầu tiên hoàn thành chuyến đi là cựu thủy thủ người Anh, George Meegan, khởi hành từ năm 1977 và mất hơn 2.400 ngày để hoàn thành hành trình này. Gần 40 năm sau, cựu lính Mỹ Holly Harrison đã thực hiện chuyến đi tương tự, hoàn thành lộ trình ngắn hơn, khoảng 23.000 km trong 530 ngày. Emmanuel Gentinetta, 18 tuổi người Mỹ, đã được kỷ lục Guinness công nhận là 'Người trẻ nhất đi xe đạp xuyên Pan-America'. Genitnetta bắt đầu từ vịnh Prudhoe, bang Alaska, Mỹ ngày 23/6/1999 và kết thúc tại Hahia Lapataia, quần đảo Tierra del Fuego, Argentina ngày 9/3/2000. Hành trình kéo dài 261 ngày với quãng đường dài hơn 24.500 km. Tuy nhiên, không nhiều người đồng tình với ý tưởng đi xuyên Darién Gap vì mức độ nguy hiểm của nó. Nếu dùng phà để di chuyển lại không phù hợp với tên gọi cao tốc xuyên Mỹ (chỉ đi trên mặt đất, không di chuyển bằng đường thủy). Do đó, một người dùng trên diễn đàn Reddit nổi tiếng của Mỹ đã tìm ra con đường khác thay thế Pan-America và an toàn hơn. Con đường bắt đầu từ Cape Town, Nam Phi và kết thúc ở Magadan, Nga với tổng chiều dài hơn 22.000 km, mất gần 4.500 giờ di chuyển, tương đương 187 ngày đi bộ không ngừng nghỉ hoặc 561 ngày nếu mỗi ngày di chuyển 8 tiếng. Bạn sẽ đi qua 17 quốc gia, 6 múi giờ và các mùa trong năm khi hoàn thành cung đường này. Còn nếu muốn đi bộ thẳng một đường, hãy suy nghĩ đến con đường do hai kỹ sư Rohan Chabukswar và Kushal Mukherjee người Ấn Độ đã nghiên cứu và tìm ra năm 2018. Đây là con đường thẳng (đường chim bay) dài nhất thế giới với điểm bắt đầu ở Trung Quốc và kết thúc ở Bồ Đào Nha. Con đường thẳng này sẽ xuyên qua các ngọn núi, mọi địa hình, dài 11.240 km, không băng qua bất kỳ vùng nước nào. Hành trình gồm Trung Quốc, Mông Cổ, Kazakhstan, Nga, Belarus, Ukraine, Ba Lan, Cộng hòa Czech, Đức, Áo, Liechtenstein, Thụy Sĩ, Pháp và Tây Ban Nha trước khi kết thúc ở Sagres, Bồ Đào Nha. Tuy nhiên, tuyến đường này được đánh giá 'bất khả thi' vì quá nguy hiểm. Anh Minh(TheoGuinness World Records, NZ Hearald)",
-  "last_updated": "2026-03-27T23:16:16.938203"
+  "last_updated": "2026-03-30T04:22:52.341685"
 }

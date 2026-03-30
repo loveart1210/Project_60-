@@ -1,23 +1,43 @@
 {
-  "summary": "Mì Quảng tôm hùm La Plage tại Sheraton Grand Danang Resort kết hợp nguyên liệu đặc biệt và hương vị truyền thống, tạo thông điệp sáng tạo cho món ăn dễ nấu. Giá 800.000 đồng/suất.",
+  "summary": "Sheraton Grand Danang Resort giới thiệu món mì Quảng tôm hùm giá 800.000 đồng/suất tại La Plage, với nguyên liệu độc đáo và cách phục vụ sáng tạo, nhận được đánh giá cao từ Helen ở miền Nam.",
   "style": "news_brief",
-  "word_count": 25,
+  "word_count": 30,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Group Sentences into Chunks",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
       "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk thông qua LLM",
+      "evidence": "Step 2: Summarize Each Chunk with LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarize Each Chunk with LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarize Each Chunk with LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -27,7 +47,7 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng thể",
+      "evidence": "Step 3: Merge Summaries into a Single Summary",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -37,7 +57,7 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng thể",
+      "evidence": "Step 4: Refine Summary for Style and Clarity",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -47,10 +67,10 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng tính chính xác của bản tổng thể so với văn bản gốc",
+      "evidence": "Step 5: Kiểm chứng (verification)",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -67,24 +87,16 @@
   "verification_report": [
     {
       "claim_id": 1,
-      "claim_text": "Mì Quảng tôm hùm của La Plage tại Sheraton Grand Danang Resort kết hợp nguyên liệu đặc biệt với hương vị truyền thống, tạo thông điệp sáng tạo cho món ăn dễ nấu và đa dạng.",
+      "claim_text": "La Plage tại Sheraton Grand Danang Resort giới thiệu món mì Quảng tôm hùm đặc biệt, giá 800.000 đồng/suất",
       "status": "pass",
       "evidence": [
         {
-          "sentence_id": 7,
-          "source_text": "Đặc điểm của mì Quảng là dễ kết hợp với các nguyên liệu như thịt, cá, tôm, sứa khiến món ăn dễ nấu, có thể bắt gặp ở các quán đường phố đến các nhà hàng sang trọng."
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_id": 2,
-      "claim_text": "Giá 800.000 đồng/suất.",
-      "status": "pass",
-      "evidence": [
+          "sentence_id": 1,
+          "source_text": "[1] Lấy cảm hứng từ tô mì Quảng luôn được thực khách yêu thích tại Đà Nẵng hay Hội An, các đầu bếp tại nhà hàng La Plage ở khu nghỉ dưỡng Sheraton Grand Danang Resort đã sáng tạo ra món mì Quảng tôm hùm."
+        },
         {
           "sentence_id": 16,
-          "source_text": "Giá bán tại nhà hàng cho một suất là hơn 800.000 đồng."
+          "source_text": "[16] Giá bán tại nhà hàng cho một suất là hơn 800.000 đồng."
         }
       ],
       "confidence": 0.95
@@ -92,33 +104,25 @@
   ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Món mì Quảng tôm hùm của La Plage tại Sheraton Grand Danang Resort kết hợp nguyên liệu đặc biệt với hương vị truyền thống, tạo thông điệp sáng tạo cho món ăn dễ nấu và đa dạng. Mì giữ vị truyền thống nhưng làm mới khẩu vị, giá 800.000 đồng/suất.",
+    "draft_summary": "La Plage tại Sheraton Grand Danang Resort giới thiệu món mì Quảng tôm hùm đặc biệt giữ vị truyền thống, giá 800. 000 đồng/suất, nhận được đánh giá cao từ khách Helen ở miền Nam.",
     "verification": [
       {
         "claim_id": 1,
-        "claim_text": "Mì Quảng tôm hùm của La Plage tại Sheraton Grand Danang Resort kết hợp nguyên liệu đặc biệt với hương vị truyền thống, tạo thông điệp sáng tạo cho món ăn dễ nấu và đa dạng.",
+        "claim_text": "La Plage tại Sheraton Grand Danang Resort giới thiệu món mì Quảng tôm hùm đặc biệt, giá 800.000 đồng/suất",
         "status": "pass",
         "evidence": [
           {
-            "sentence_id": 7,
-            "source_text": "Đặc điểm của mì Quảng là dễ kết hợp với các nguyên liệu như thịt, cá, tôm, sứa khiến món ăn dễ nấu, có thể bắt gặp ở các quán đường phố đến các nhà hàng sang trọng."
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_id": 2,
-        "claim_text": "Giá 800.000 đồng/suất.",
-        "status": "pass",
-        "evidence": [
+            "sentence_id": 1,
+            "source_text": "[1] Lấy cảm hứng từ tô mì Quảng luôn được thực khách yêu thích tại Đà Nẵng hay Hội An, các đầu bếp tại nhà hàng La Plage ở khu nghỉ dưỡng Sheraton Grand Danang Resort đã sáng tạo ra món mì Quảng tôm hùm."
+          },
           {
             "sentence_id": 16,
-            "source_text": "Giá bán tại nhà hàng cho một suất là hơn 800.000 đồng."
+            "source_text": "[16] Giá bán tại nhà hàng cho một suất là hơn 800.000 đồng."
           }
         ],
         "confidence": 0.95
       }
     ],
-    "edited_summary": "Mì Quảng tôm hùm La Plage tại Sheraton Grand Danang Resort kết hợp nguyên liệu đặc biệt và hương vị truyền thống, tạo thông điệp sáng tạo cho món ăn dễ nấu. Giá 800.000 đồng/suất."
+    "edited_summary": "Sheraton Grand Danang Resort giới thiệu món mì Quảng tôm hùm giá 800.000 đồng/suất tại La Plage, với nguyên liệu độc đáo và cách phục vụ sáng tạo, nhận được đánh giá cao từ Helen ở miền Nam."
   }
 }

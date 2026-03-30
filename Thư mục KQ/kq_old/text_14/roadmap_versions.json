@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Nhóm các chunk có liên quan với nhau.",
+          "tool": null,
+          "expected_output": "Mảng chứa danh sách các chunk được tạo ra"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã nhóm.",
+          "tool": "summarize_chunk",
+          "expected_output": "Mảng chứa bản tóm tắt của từng chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một bản tổng thể",
+          "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt đã tạo ra.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản tóm tắt tổng thể"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách và kiểm chứng thông tin",
+          "description": "Dùng refine_summary để tinh chỉnh văn bản tổng thể. Sau đó dùng verify_claim để kiểm tra xem liệu thông tin trong bản tổng thể vẫn đúng với văn bản gốc.",
+          "tool": null,
+          "expected_output": "Bản tóm tắt đã được refinement và verification"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Các bước này cần đảm bảo độ dài kết quả không quá 250 từ, đồng thời giữ nguyên thông tin chính của văn bản gốc."
+    }
+  }
+}

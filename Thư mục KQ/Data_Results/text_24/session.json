@@ -1,5 +1,5 @@
 {
-  "session_id": "dd6c0a95",
+  "session_id": "d936c6fe",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 545,
-  "created_at": "2026-03-27T21:31:14.654833",
+  "created_at": "2026-03-30T03:32:08.023077",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T21:32:12.677489",
+      "timestamp": "2026-03-30T03:32:41.171192",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T21:33:06.193627",
+      "timestamp": "2026-03-30T03:33:05.293601",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T21:33:30.221387",
+      "timestamp": "2026-03-30T03:33:13.361785",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát nội dung chính của văn bản gốc với mức độ ≥ 80%, và cụ thể về cách sử dụng các tool như word_tokenize, chunk_text. Hallucination risk được xác định là low, đồng thời roadmap không thiếu bước tách câu và nhóm chunk cần thiết."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc với coverage score cao và specificity score cũng tương đối tốt. Mặc dù roadmap thiếu một số chi tiết cụ thể về hoạt động thể thao và sự kiện nghệ thuật tại Regal Legend, nhưng không ảnh hưởng đáng kể đến khả năng thực thi các bước còn lại."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunking",
-      "timestamp": "2026-03-27T21:33:30.242919",
+      "timestamp": "2026-03-30T03:33:13.384141",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T03:33:30.472435",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T21:34:19.210720",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T03:33:49.380281",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:34:41.073734",
+      "timestamp": "2026-03-30T03:33:58.299202",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,114 +71,85 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết cuối cùng.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết ở cuối đoạn văn bản."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T21:35:29.257758",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T21:36:13.387732",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:36:35.435263",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "summary thứ hai hơi dài nên cần tối ưu hóa để phù hợp hơn với chuẩn news_brief.",
-          "reasoning": "Bước hiện tại có chất lượng tốt về factual consistency và coverage completeness, nhưng redundancy score cao do summary quá dài. Cần điều chỉnh để đảm bảo độ dài compliance."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T21:37:21.265210",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T21:38:04.404466",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:38:26.555204",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "summary thứ hai hơi dài nên cần tối ưu hóa để phù hợp hơn với chuẩn news_brief.",
-          "reasoning": "Bước hiện tại có chất lượng tốt về factual consistency và coverage completeness, nhưng redundancy score cao do summary quá dài. Cần điều chỉnh để đảm bảo độ dài compliance."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T21:39:12.252896",
-      "result_summary": "Step 2 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T21:39:55.385759",
-      "result_summary": "Observation for step 2 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:40:17.581513",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "summary thứ hai hơi dài nên cần tối ưu hóa để phù hợp hơn với chuẩn news_brief.",
-          "reasoning": "Bước hiện tại có chất lượng tốt về factual consistency và coverage completeness, nhưng redundancy score cao do summary quá dài. Cần điều chỉnh để đảm bảo độ dài compliance."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng còn thiếu một số chi tiết về sự kiện Regal Legend Summer Festival và cần bổ sung thông tin về các điểm đến khác trong Quảng Bình. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đã hoàn thành đầy đủ, đạt chất lượng tốt nhưng còn thiếu một số chi tiết quan trọng."
         }
       }
     },
     {
       "agent": "execution",
       "action": "merge",
-      "timestamp": "2026-03-27T21:40:45.799652",
+      "timestamp": "2026-03-30T03:34:09.738129",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T21:41:21.317063",
+      "timestamp": "2026-03-30T03:34:27.917139",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:41:41.374968",
+      "timestamp": "2026-03-30T03:34:35.651090",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.85,
+          "coverage_completeness": 0.7,
+          "redundancy_score": 0.1,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Chất lượng tốt là 0.85 (coverage) nhưng độ dài chưa đạt yêu cầu nên quyết định retry."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T03:34:48.386876",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T03:35:07.043244",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T03:35:15.975283",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.85,
+          "coverage_completeness": 0.7,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' и 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual = 0.85 > 0.8 và coverage = 0.7 < 0.7). Nên thử lại bước hiện tại để bổ sung chi tiết từ 'issues_found' và 'quality_assessment'."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T03:35:27.016748",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T03:35:41.372646",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T03:35:49.002705",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -181,143 +158,91 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt và đây là bước cuối cùng trong quá trình thực thi."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng cần bổ sung thông tin về các điểm du lịch khác tại Quảng Bình, đặc biệt là nhấn mạnh thêm vào Regal Legend. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output có độ chính xác cao và bao quát đầy đủ nhưng vẫn cần bổ sung thông tin để hoàn thiện hơn."
         }
       }
     },
     {
       "agent": "execution",
       "action": "refine",
-      "timestamp": "2026-03-27T21:42:16.574073",
+      "timestamp": "2026-03-30T03:36:02.342164",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T21:42:58.836740",
+      "timestamp": "2026-03-30T03:36:18.127906",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:43:25.090137",
+      "timestamp": "2026-03-30T03:36:26.130547",
       "result_summary": "Decision: retry",
       "details": {
         "reflection": {
           "factual_consistency": 0.8,
           "coverage_completeness": 0.75,
           "redundancy_score": 0.2,
-          "length_compliance": true,
+          "length_compliance": false,
           "decision": "retry",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về tên và đặc điểm từng hang động ở vườn quốc gia Phong Nha - Kẻ Bàng.",
-          "reasoning": "Mặc dù summary có độ dài phù hợp và bao quát được các sự kiện chính nhưng vẫn còn thiếu một số thông tin cụ thể từ văn bản gốc, gây ra mức độ trùng lặp cao (redundancy_score = 0.2)."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung hang Én lớn thứ ba thế giới, suối nước Moọc có thiên nhiên ngập tràn sắc xanh và bãi biển Nhật Lệ/Bảo Ninh. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt nhưng độ chính xác về thông tin quan trọng chưa đạt yêu cầu (factual consistency < 0.8) và độ bao quát còn thiếu một số chi tiết địa lý."
         }
       }
     },
     {
       "agent": "execution",
       "action": "refine",
-      "timestamp": "2026-03-27T21:44:00.377882",
+      "timestamp": "2026-03-30T03:36:38.550348",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T21:44:42.739820",
+      "timestamp": "2026-03-30T03:36:50.480666",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:45:08.955874",
-      "result_summary": "Decision: retry",
+      "timestamp": "2026-03-30T03:36:57.904496",
+      "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
           "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về tên và đặc điểm từng hang động ở vườn quốc gia Phong Nha - Kẻ Bàng.",
-          "reasoning": "Mặc dù summary có độ dài phù hợp và bao quát được các sự kiện chính nhưng vẫn còn thiếu một số thông tin cụ thể từ văn bản gốc, gây ra mức độ trùng lặp cao (redundancy_score = 0.2)."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "timestamp": "2026-03-27T21:45:44.296013",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T21:46:26.646375",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:46:52.839269",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.2,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về tên và đặc điểm từng hang động ở vườn quốc gia Phong Nha - Kẻ Bàng.",
-          "reasoning": "Mặc dù summary có độ dài phù hợp và bao quát được các sự kiện chính nhưng vẫn còn thiếu một số thông tin cụ thể từ văn bản gốc, gây ra mức độ trùng lặp cao (redundancy_score = 0.2)."
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không tìm thấy vấn đề trong phân tích, nhưng Output chỉ bao gồm tóm tắt ngắn gọn và chính xác không chứa thông tin khác ngoài văn bản gốc. Tuy nhiên, cần bổ sung thêm chi tiết về chất lượng của các nguồn tham khảo nếu có để đảm bảo sự toàn diện hơn.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt với tóm tắt ngắn gọn và chính xác theo yêu cầu news_brief. Đây là bước cuối cùng, nhưng vẫn cần bổ sung thêm thông tin về nguồn tham khảo để đảm bảo độ toàn diện."
         }
       }
     },
     {
       "agent": "execution",
       "action": "verify",
-      "timestamp": "2026-03-27T21:48:18.736413",
+      "timestamp": "2026-03-30T03:37:09.862106",
       "result_summary": "Step 5 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T21:49:07.743288",
-      "result_summary": "Observation for step 5 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:49:29.139074",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về lễ hội Legend Summer Festival.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số thông tin cụ thể."
-        }
-      }
     },
     {
       "agent": "execution",
       "action": "edit",
-      "timestamp": "2026-03-27T21:49:51.250495",
+      "timestamp": "2026-03-30T03:37:19.195927",
       "result_summary": "Step 6 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T21:50:26.902956",
+      "timestamp": "2026-03-30T03:37:31.208513",
       "result_summary": "Observation for step 6 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T21:50:47.681745",
+      "timestamp": "2026-03-30T03:37:37.765646",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -326,15 +251,15 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Agent đã hoàn thành bước cuối cùng với chất lượng tốt và không có vấn đề nghiêm trọng nên tiếp tục tới bước kế tiếp."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng vẫn còn một số thông tin cần bổ sung và làm rõ hơn trong phần tóm tắt về địa điểm Regal Legend. Ghi chú: Cần thêm chi tiết về lễ hội Summer Festival.",
+          "reasoning": "Lý do quyết định dựa trên observation, output đã giữ nguyên cấu trúc và nội dung chính của đoạn văn bản gốc nhưng vẫn cần bổ sung thông tin để đảm bảo độ bao quát."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T21:50:47.685754",
+      "timestamp": "2026-03-30T03:37:37.770218",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
@@ -396,8 +321,8 @@
           15,
           16
         ],
-        "summary": "Đồng Hới và Bố Trạch chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, Moọc Suối, Nhật Lệ và Bảo Ninh. Du lịch ở đây đa dạng từ thám hiểm hang động đến câu cá, đua bơi, chèo Kayak... Regal Legend tại Đồng Hới là khu nghỉ dưỡng 5 sao với nhiều tiện ích về đêm.",
-        "word_count": 39
+        "summary": "Đồng Hới và Bố Trạch chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc, bãi biển Nhật Lệ-Bảo Ninh. Du lịch Regal Legend tại Đồng Hới cung cấp dịch vụ 5 sao, sự kiện nghệ thuật đêm lớn, lễ hội EDM và pháo hoa quốc tế.",
+        "word_count": 32
       },
       {
         "chunk_id": 2,
@@ -407,13 +332,35 @@
           19,
           20
         ],
-        "summary": "Lou Hoàng, ICD, Muộii, DJ PIA & TUMIE, và DJ FWIN tham gia sự kiện. Lễ hội ẩm thực từ ngày 6-14/7 có hơn 300 gian hàng du lịch, ẩm thực miền Trung-Việt-Nam, vui chơi giải trí tại phố đi bộ. Nhiều nghệ nhân nổi tiếng như Nguyễn Hồ Tiếu Anh, Hồ Đắc Thiếu Anh, Phan Tôn Gia Hiền, Hồ Nhất Phương và Lê Văn Khánh tham gia với tác phẩm đặc sắc.",
-        "word_count": 43
+        "summary": "Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham gia. Lễ hội ẩm thực từ 6-14/7 với gần 300 gian hàng du lịch, ẩm thực ba miền, vui chơi giải trí tại phố đi bộ. Nghệ nhân nổi tiếng như Nguyễn Hồ Tiếu Anh, Hồ Đắc Thiếu Anh tham gia.",
+        "word_count": 31
       }
     ],
-    "merged_summary": "Đồng Hới và Bố Trạch đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, Moọc Suối, Nhật Lệ và Bảo Ninh. Regal Legend tại Đồng Hới là khu nghỉ dưỡng 5 sao. Lou Hoàng, ICD, Muộii, DJ PIA & TUMIE, DJ FWIN tham dự lễ hội ẩm thực từ ngày 6-14/7 với hơn 300 gian hàng du lịch và nghệ thuật nổi tiếng.",
-    "refined_summary": "Regal Legend tại Đồng Hới, Quảng Bình đón du khách với lễ hội mùa hè từ 6-14/7. Du lịch khám phá vườn quốc gia Phong Nha - Kẻ Bàng, Moọc Suối và Nhật Lệ-Bảo Ninh. Regal Residence Luxury tổ chức Đại nhạc hội EDM quốc tế vào tối 12/7.",
-    "edited_summary": "Regal Legend tại Đồng Hới đón du khách với lễ hội mùa hè 6-14/7, bao gồm khám phá vườn quốc gia Phong Nha - Kẻ Bàng và Moọc Suối. Đại nhạc hội EDM quốc tế diễn ra tối 12/7 do Regal Residence Luxury tổ chức."
+    "merged_summary": "Du lịch Regal Legend tại Đồng Hới chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc và bãi biển Nhật Lệ-Bảo Ninh. Lễ hội ẩm thực từ 6-14/7 có Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham dự cùng gần 300 gian hàng du lịch, ẩm thực ba miền và vui chơi giải trí tại phố đi bộ.",
+    "refined_summary": "Đồng Hới chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc và bãi biển Nhật Lệ-Bảo Ninh. Du lịch Regal Legend tại trung tâm thành phố tổ chức lễ hội ẩm thực từ 6-14/7 có Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham dự cùng gần 300 gian hàng du lịch, ẩm thực ba miền và vui chơi giải trí tại phố đi bộ.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Đồng Hới chào đón du khách với vườn quốc gia Phong Nha - Kẻ Bàng, suối Moọc và bãi biển Nhật Lệ-Bảo Ninh.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "Ban ngày, Quảng Bình chào đón du khách khám phá thiên nhiên hùng vĩ, thơ mộng với điểm đến đầu tiên là vườn quốc gia Phong Nha - Kẻ Bàng."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "Nằm trong hệ thống vườn quốc gia Phong Nha - Kẻ Bàng, suối nước Moọc có thiên nhiên ngập tràn sắc xanh."
+          },
+          {
+            "sentence_id": 6,
+            "source_text": "Bãi biển Nhật Lệ và Bảo Ninh, thường xuyên tổ chức hoạt động thể thao biển, ẩm thực với nhiều món hải sản."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Đồng Hới đón du khách với Phong Nha - Kẻ Bàng, Moọc và Nhật Lệ-Bảo Ninh. Regal Legend tổ chức lễ hội ẩm thực từ 6-14/7 có Lou Hoàng, ICD, Muộii và DJ PIA & TUMIE tham dự cùng hơn 300 gian hàng du lịch, ẩm thực ba miền và vui chơi giải trí tại phố đi bộ."
   },
   "stats": {
     "planner_loop": 0,
@@ -425,5 +372,5 @@
     "chunks": 0
   },
   "input_text": "Ban ngày, Quảng Bình chào đón du khách khám phá thiên nhiên hùng vĩ, thơ mộng với điểm đến đầu tiên là vườn quốc gia Phong Nha - Kẻ Bàng. Nơi đây có 400 hang động, trong đó hang Sơn Đoòng lớn nhất thế giới, hang Én lớn thứ ba thế giới với hàng triệu con chim én trú ngụ. Tại đây, du khách sẽ leo núi, cắm trại, tham quan thác nước trong động. Nằm trong hệ thống vườn quốc gia Phong Nha - Kẻ Bàng, suối nước Moọc có thiên nhiên ngập tràn sắc xanh. Du khách có thể tham quan rừng nguyên sinh, trải nghiệm các hoạt động thể thao như đua bơi, chèo thuyền Kayak, câu cá, đu dây... Tiếp đến là bãi biển Nhật Lệ và Bảo Ninh, thường xuyên tổ chức hoạt động thể thao biển, ẩm thực với nhiều món hải sản. Bãi biển cũng là nơi nghỉ dưỡng thích hợp cho những người muốn có không khí trong lành, lắng nghe tiếng sóng vỗ... Du khách muốn tham gia trải nghiệm mới, có thể lựa chọn trượt cát ở cồn cát Quang Phú. Địa điểm nằm giữa thành phố Đồng Hới và huyện Bố Trạch, vẫn giữ được nét hoang sơ vốn có. Những ngọn đồi cát trắng mịn, cao hơn 100m giúp du khách cảm nhận như đang lạc vào sa mạc thu nhỏ. Một điểm nhấn du lịch khác ở Quảng Bình trong mùa hè, là đô thịRegal Legendtại trung tâm thành phố Đồng Hới. Đô thị sở hữu dịch vụ lưu trú, nghỉ dưỡng 5 sao, tuyến phố đêm gói gọn hàng trăm tiện ích, giúp du khách không cần di chuyển xa trong điều kiện thời tiết nóng nực. Tại các tuyến phố về đêm sẽ diễn ra nhiều sự kiện nghệ thuật, giải trí quy mô lớn, cùng với nhiều thương hiệu thời trang, ẩm thực, mua sắm, vui chơi, giải trí... Ngoài ra, vào đầu tháng 7, du khách có thể được tham gia lễ hội mùa hè Legend Summer Festival, tổ chức 9 ngày 9 đêm do Regal Group tổ chức. Mỗi đêm ban tổ chức sẽ đưa khán giả đến với những chủ đề âm nhạc khác nhau như Pop Ballad, Rap & Hip Hop, Flamenco, EDM, Rock... Tối 12/7, sự kiện khởi động kinh doanh tòa tháp Regal Residence Luxury với Đại nhạc hội EDM quốc tế và trình diễn pháo hoa quốc tế sẽ diễn ra, đón chào du khách tham gia. Sự kiện có sự tham gia của nhiều tên tuổi như Lou Hoàng, ICD, Muộii, DJ PIA & TUMIE, DJ FWIN. Cuối cùng là lễ hội ẩm thực tổ chức vào 6-14/7, với gần 300 gian hàng về du lịch, ẩm thực ba miền, vui chơi giải trí tại tuyến phố đi bộ. Loạt nghệ nhân ẩm thực nổi tiếng sẽ tham gia, như: Nguyễn Hồ Tiếu Anh với tác phẩm 'Hoa tình thương', nghệ nhân Hồ Đắc Thiếu Anh với '50 món kẹo mứt miền Trung', nghệ nhân ưu tú Phan Tôn Gia Hiền với 'Nem công chả phượng'; nghệ nhân Hồ Nhất Phương với 'Gà tần sâm bố chính hoàng gia'; nghệ nhân Lê Văn Khánh có 'Kình ngư hóa long'... Văn Hà",
-  "last_updated": "2026-03-27T21:49:51.247988"
+  "last_updated": "2026-03-30T03:37:19.194037"
 }

@@ -1,70 +1,72 @@
 {
-  "generated_at": "2026-03-27T18:47:35.042314",
-  "total_entries": 57,
+  "generated_at": "2026-03-30T02:08:29.006462",
+  "total_entries": 92,
   "none_count": 0,
   "logs": [
     {
-      "timestamp": "2026-03-27T18:44:54.869962",
+      "timestamp": "2026-03-30T02:02:11.300959",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 334 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.\",\n        \"tool\": \"word_tokenize(sent_tokenize('Văn bản gốc'))\",\n        \"expected_output\": \"Một danh sách chunks chứa các đoạn văn tương ứng\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.\",\n        \"tool\": \"summarize_chunk('Chunks sau khi nhóm')\",\n        \"expected_output\": \"Một danh sách bản tóm tắt mỗi chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một bản tổng hợp\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.\",\n        \"tool\": \"merge_summaries('Bản tóm tắt mỗi chunk')\",\n        \"expected_output\": \"Một đoạn văn ngắn gọn và chính xác\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.\",\n        \"tool\": \"verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')\",\n        \"expected_output\": \"Một đoạn văn ngắn gọn và chính xác\"\n      }\n    ],\n    \"total_steps\": 4,\n    \"notes\": \"Ghi chú thêm nếu cần thiết\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.\",\n        \"tool\": \"sent_tokenize, chunk_text\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.\",\n        \"tool\": \"summarize_chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một\",\n        \"description\": \"Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.\",\n        \"tool\": \"merge_summaries\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tổng thể\",\n        \"description\": \"Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.\",\n        \"tool\": \"refine_summary\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.\",\n        \"tool\": \"verify_claim\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:44:54.869962",
+      "timestamp": "2026-03-30T02:02:11.300959",
       "step_name": "Planner Agent._call_llm",
       "agent_name": "Planner Agent",
       "phase": "agent_llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 334 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.\",\n        \"tool\": \"word_tokenize(sent_tokenize('Văn bản gốc'))\",\n        \"expected_output\": \"Một danh sách chunks chứa các đoạn văn tương ứng\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.\",\n        \"tool\": \"summarize_chunk('Chunks sau khi nhóm')\",\n        \"expected_output\": \"Một danh sách bản tóm tắt mỗi chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một bản tổng hợp\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.\",\n        \"tool\": \"merge_summaries('Bản tóm tắt mỗi chunk')\",\n        \"expected_output\": \"Một đoạn văn ngắn gọn và chính xác\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.\",\n        \"tool\": \"verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')\",\n        \"expected_output\": \"Một đoạn văn ngắn gọn và chính xác\"\n      }\n    ],\n    \"total_steps\": 4,\n    \"notes\": \"Ghi chú thêm nếu cần thiết\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.\",\n        \"tool\": \"sent_tokenize, chunk_text\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.\",\n        \"tool\": \"summarize_chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một\",\n        \"description\": \"Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.\",\n        \"tool\": \"merge_summaries\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tổng thể\",\n        \"description\": \"Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.\",\n        \"tool\": \"refine_summary\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.\",\n        \"tool\": \"verify_claim\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:44:54.869962",
+      "timestamp": "2026-03-30T02:02:11.300959",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng ",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Sử dụng sent_tokenize để tách văn bả",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.",
-              "tool": "word_tokenize(sent_tokenize('Văn bản gốc'))",
-              "expected_output": "Một danh sách chunks chứa các đoạn văn tương ứng"
+              "description": "Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.",
+              "tool": "sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.",
-              "tool": "summarize_chunk('Chunks sau khi nhóm')",
-              "expected_output": "Một danh sách bản tóm tắt mỗi chunk"
+              "description": "Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
-              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.",
-              "tool": "merge_summaries('Bản tóm tắt mỗi chunk')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng thể",
+              "description": "Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
               "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.",
-              "tool": "verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "description": "Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.",
+              "tool": "verify_claim"
             }
           ],
-          "total_steps": 4,
-          "notes": "Ghi chú thêm nếu cần thiết"
+          "total_steps": 5,
+          "notes": "Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp."
         }
       },
       "output_type": "dict",
@@ -72,45 +74,47 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:44:54.869962",
+      "timestamp": "2026-03-30T02:02:11.300959",
       "step_name": "Planner Agent._call_llm_json",
       "agent_name": "Planner Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=1813",
+      "input_summary": "raw_len=1584",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.",
-              "tool": "word_tokenize(sent_tokenize('Văn bản gốc'))",
-              "expected_output": "Một danh sách chunks chứa các đoạn văn tương ứng"
+              "description": "Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.",
+              "tool": "sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.",
-              "tool": "summarize_chunk('Chunks sau khi nhóm')",
-              "expected_output": "Một danh sách bản tóm tắt mỗi chunk"
+              "description": "Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
-              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.",
-              "tool": "merge_summaries('Bản tóm tắt mỗi chunk')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng thể",
+              "description": "Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
               "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.",
-              "tool": "verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "description": "Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.",
+              "tool": "verify_claim"
             }
           ],
-          "total_steps": 4,
-          "notes": "Ghi chú thêm nếu cần thiết"
+          "total_steps": 5,
+          "notes": "Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp."
         }
       },
       "output_type": "dict",
@@ -118,7 +122,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:44:54.869962",
+      "timestamp": "2026-03-30T02:02:11.300959",
       "step_name": "planner_agent.run",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -129,34 +133,36 @@
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.",
-              "tool": "word_tokenize(sent_tokenize('Văn bản gốc'))",
-              "expected_output": "Một danh sách chunks chứa các đoạn văn tương ứng"
+              "description": "Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.",
+              "tool": "sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.",
-              "tool": "summarize_chunk('Chunks sau khi nhóm')",
-              "expected_output": "Một danh sách bản tóm tắt mỗi chunk"
+              "description": "Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
-              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.",
-              "tool": "merge_summaries('Bản tóm tắt mỗi chunk')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng thể",
+              "description": "Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
               "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.",
-              "tool": "verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "description": "Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.",
+              "tool": "verify_claim"
             }
           ],
-          "total_steps": 4,
-          "notes": "Ghi chú thêm nếu cần thiết"
+          "total_steps": 5,
+          "notes": "Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp."
         }
       },
       "output_type": "dict",
@@ -164,7 +170,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:44:54.869962",
+      "timestamp": "2026-03-30T02:02:11.300959",
       "step_name": "planning_iter1_planner",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -175,34 +181,36 @@
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.",
-              "tool": "word_tokenize(sent_tokenize('Văn bản gốc'))",
-              "expected_output": "Một danh sách chunks chứa các đoạn văn tương ứng"
+              "description": "Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.",
+              "tool": "sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.",
-              "tool": "summarize_chunk('Chunks sau khi nhóm')",
-              "expected_output": "Một danh sách bản tóm tắt mỗi chunk"
+              "description": "Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
-              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.",
-              "tool": "merge_summaries('Bản tóm tắt mỗi chunk')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "name": "Gộp nhiều bản tóm tắt lại thành một",
+              "description": "Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
+              "name": "Tinh chỉnh phong cách cho bản tổng thể",
+              "description": "Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.",
+              "tool": "refine_summary"
+            },
+            {
+              "step_id": "step_5",
               "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.",
-              "tool": "verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')",
-              "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+              "description": "Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.",
+              "tool": "verify_claim"
             }
           ],
-          "total_steps": 4,
-          "notes": "Ghi chú thêm nếu cần thiết"
+          "total_steps": 5,
+          "notes": "Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp."
         }
       },
       "output_type": "dict",
@@ -210,49 +218,49 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:45:57.900360",
+      "timestamp": "2026-03-30T02:02:44.889337",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng mệnh đề với văn bản gốc.\",\n    \"specificity_analysis\": \"Các bước trong roadmap cụ thể về cách thực hiện mỗi công việc như dùng word_tokenize để tách từ tiếng Việt và sent_tokenize để tách các đoạn văn thành câu. Việc nhóm chunk dựa trên cấu trúc tự nhiên của văn bản cũng được mô tả chi tiết, nhưng không đề cập đến quá trình xác định chính xác những câu nào nên thuộc cùng một chunk.\",\n    \"hallucination_risk_analysis\": \"Không có bước trong roadmap tiềm ẩn rủi ro hallucination vì tất cả các công việc đều dựa trên thông tin từ văn bản gốc và sử dụng LLM để tóm tắt, không thay đổi entity.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý. Tuy nhiên, roadmap thiếu step về chunk_text vì việc nhóm các đoạn văn thành chunks dựa trên cấu trúc tự nhiên của văn bản nên cần có bước này để xác định chính xác những câu nào thuộc cùng một chunk.\",\n    \"missing_steps\": [\"step_3: Gộp các bản tóm tắt lại thành một bản tổng hợp\", \"step_4: Kiểm chứng mệnh đề vs văn bản gốc\"],\n    \"strengths\": [\"Roadmap bao quát nội dung chính của văn bản, sử dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) và LLM để tạo bản tóm tắt fact-grounded.\"],\n    \"weaknesses\": [\"Missing step về chunk_text vì không xác định được những câu nào thuộc cùng một chunk.\", \"Missing steps in verification process.\"]\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp.\",\n    \"specificity_analysis\": \"Các bước cụ thể đều có chi tiết về công nghệ sử dụng (sent_tokenize, chunk_text) nhưng thiếu hướng dẫn chi tiết hơn cho các bước tách và nhóm chunks. Bước merge_summaries không mô tả rõ ràng cách kết hợp các bản summary vào một tổng thể.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunk đã được xác nhận chính xác trước đó, và không đưa ra bất kỳ thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như sent_tokenize, chunk_text một cách hợp lý. Tuy nhiên, cần thêm hướng dẫn chi tiết hơn về việc sử dụng chunk_text để đảm bảo chunks được tạo chính xác.\",\n    \"missing_steps\": [\"Kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp\"],\n    \"strengths\": [\n      \"Roadmap bao quát các bước chính trong văn bản gốc\",\n      \"Tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp\"\n    ],\n    \"weaknesses\": [\n      \"Thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks\",\n      \"Bước merge_summaries không mô tả rõ ràng phương pháp kết hợp các summary vào tổng thể.\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:45:57.900360",
+      "timestamp": "2026-03-30T02:02:44.889337",
       "step_name": "Planner-Observation Agent._call_llm",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để t",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng mệnh đề với văn bản gốc.\",\n    \"specificity_analysis\": \"Các bước trong roadmap cụ thể về cách thực hiện mỗi công việc như dùng word_tokenize để tách từ tiếng Việt và sent_tokenize để tách các đoạn văn thành câu. Việc nhóm chunk dựa trên cấu trúc tự nhiên của văn bản cũng được mô tả chi tiết, nhưng không đề cập đến quá trình xác định chính xác những câu nào nên thuộc cùng một chunk.\",\n    \"hallucination_risk_analysis\": \"Không có bước trong roadmap tiềm ẩn rủi ro hallucination vì tất cả các công việc đều dựa trên thông tin từ văn bản gốc và sử dụng LLM để tóm tắt, không thay đổi entity.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý. Tuy nhiên, roadmap thiếu step về chunk_text vì việc nhóm các đoạn văn thành chunks dựa trên cấu trúc tự nhiên của văn bản nên cần có bước này để xác định chính xác những câu nào thuộc cùng một chunk.\",\n    \"missing_steps\": [\"step_3: Gộp các bản tóm tắt lại thành một bản tổng hợp\", \"step_4: Kiểm chứng mệnh đề vs văn bản gốc\"],\n    \"strengths\": [\"Roadmap bao quát nội dung chính của văn bản, sử dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) và LLM để tạo bản tóm tắt fact-grounded.\"],\n    \"weaknesses\": [\"Missing step về chunk_text vì không xác định được những câu nào thuộc cùng một chunk.\", \"Missing steps in verification process.\"]\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Sử dụng sent_tokenize đ",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp.\",\n    \"specificity_analysis\": \"Các bước cụ thể đều có chi tiết về công nghệ sử dụng (sent_tokenize, chunk_text) nhưng thiếu hướng dẫn chi tiết hơn cho các bước tách và nhóm chunks. Bước merge_summaries không mô tả rõ ràng cách kết hợp các bản summary vào một tổng thể.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunk đã được xác nhận chính xác trước đó, và không đưa ra bất kỳ thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như sent_tokenize, chunk_text một cách hợp lý. Tuy nhiên, cần thêm hướng dẫn chi tiết hơn về việc sử dụng chunk_text để đảm bảo chunks được tạo chính xác.\",\n    \"missing_steps\": [\"Kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp\"],\n    \"strengths\": [\n      \"Roadmap bao quát các bước chính trong văn bản gốc\",\n      \"Tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp\"\n    ],\n    \"weaknesses\": [\n      \"Thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks\",\n      \"Bước merge_summaries không mô tả rõ ràng phương pháp kết hợp các summary vào tổng thể.\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:45:57.900360",
+      "timestamp": "2026-03-30T02:02:44.889337",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. T",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến vi",
       "output_data": {
         "observation": {
-          "coverage_analysis": "Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng mệnh đề với văn bản gốc.",
-          "specificity_analysis": "Các bước trong roadmap cụ thể về cách thực hiện mỗi công việc như dùng word_tokenize để tách từ tiếng Việt và sent_tokenize để tách các đoạn văn thành câu. Việc nhóm chunk dựa trên cấu trúc tự nhiên của văn bản cũng được mô tả chi tiết, nhưng không đề cập đến quá trình xác định chính xác những câu nào nên thuộc cùng một chunk.",
-          "hallucination_risk_analysis": "Không có bước trong roadmap tiềm ẩn rủi ro hallucination vì tất cả các công việc đều dựa trên thông tin từ văn bản gốc và sử dụng LLM để tóm tắt, không thay đổi entity.",
-          "tool_utilization_analysis": "Roadmap tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý. Tuy nhiên, roadmap thiếu step về chunk_text vì việc nhóm các đoạn văn thành chunks dựa trên cấu trúc tự nhiên của văn bản nên cần có bước này để xác định chính xác những câu nào thuộc cùng một chunk.",
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp.",
+          "specificity_analysis": "Các bước cụ thể đều có chi tiết về công nghệ sử dụng (sent_tokenize, chunk_text) nhưng thiếu hướng dẫn chi tiết hơn cho các bước tách và nhóm chunks. Bước merge_summaries không mô tả rõ ràng cách kết hợp các bản summary vào một tổng thể.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunk đã được xác nhận chính xác trước đó, và không đưa ra bất kỳ thông tin giả mạo nào.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize, chunk_text một cách hợp lý. Tuy nhiên, cần thêm hướng dẫn chi tiết hơn về việc sử dụng chunk_text để đảm bảo chunks được tạo chính xác.",
           "missing_steps": [
-            "step_3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
-            "step_4: Kiểm chứng mệnh đề vs văn bản gốc"
+            "Kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp"
           ],
           "strengths": [
-            "Roadmap bao quát nội dung chính của văn bản, sử dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) và LLM để tạo bản tóm tắt fact-grounded."
+            "Roadmap bao quát các bước chính trong văn bản gốc",
+            "Tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp"
           ],
           "weaknesses": [
-            "Missing step về chunk_text vì không xác định được những câu nào thuộc cùng một chunk.",
-            "Missing steps in verification process."
+            "Thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks",
+            "Bước merge_summaries không mô tả rõ ràng phương pháp kết hợp các summary vào tổng thể."
           ]
         }
       },
@@ -261,27 +269,27 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:45:57.900360",
+      "timestamp": "2026-03-30T02:02:44.889337",
       "step_name": "Planner-Observation Agent._call_llm_json",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=1614",
+      "input_summary": "raw_len=1403",
       "output_data": {
         "observation": {
-          "coverage_analysis": "Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng mệnh đề với văn bản gốc.",
-          "specificity_analysis": "Các bước trong roadmap cụ thể về cách thực hiện mỗi công việc như dùng word_tokenize để tách từ tiếng Việt và sent_tokenize để tách các đoạn văn thành câu. Việc nhóm chunk dựa trên cấu trúc tự nhiên của văn bản cũng được mô tả chi tiết, nhưng không đề cập đến quá trình xác định chính xác những câu nào nên thuộc cùng một chunk.",
-          "hallucination_risk_analysis": "Không có bước trong roadmap tiềm ẩn rủi ro hallucination vì tất cả các công việc đều dựa trên thông tin từ văn bản gốc và sử dụng LLM để tóm tắt, không thay đổi entity.",
-          "tool_utilization_analysis": "Roadmap tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý. Tuy nhiên, roadmap thiếu step về chunk_text vì việc nhóm các đoạn văn thành chunks dựa trên cấu trúc tự nhiên của văn bản nên cần có bước này để xác định chính xác những câu nào thuộc cùng một chunk.",
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp.",
+          "specificity_analysis": "Các bước cụ thể đều có chi tiết về công nghệ sử dụng (sent_tokenize, chunk_text) nhưng thiếu hướng dẫn chi tiết hơn cho các bước tách và nhóm chunks. Bước merge_summaries không mô tả rõ ràng cách kết hợp các bản summary vào một tổng thể.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunk đã được xác nhận chính xác trước đó, và không đưa ra bất kỳ thông tin giả mạo nào.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize, chunk_text một cách hợp lý. Tuy nhiên, cần thêm hướng dẫn chi tiết hơn về việc sử dụng chunk_text để đảm bảo chunks được tạo chính xác.",
           "missing_steps": [
-            "step_3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
-            "step_4: Kiểm chứng mệnh đề vs văn bản gốc"
+            "Kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp"
           ],
           "strengths": [
-            "Roadmap bao quát nội dung chính của văn bản, sử dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) và LLM để tạo bản tóm tắt fact-grounded."
+            "Roadmap bao quát các bước chính trong văn bản gốc",
+            "Tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp"
           ],
           "weaknesses": [
-            "Missing step về chunk_text vì không xác định được những câu nào thuộc cùng một chunk.",
-            "Missing steps in verification process."
+            "Thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks",
+            "Bước merge_summaries không mô tả rõ ràng phương pháp kết hợp các summary vào tổng thể."
           ]
         }
       },
@@ -290,27 +298,27 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:45:57.900360",
+      "timestamp": "2026-03-30T02:02:44.889337",
       "step_name": "planner_observation_agent.run",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_type=dict",
       "output_data": {
         "observation": {
-          "coverage_analysis": "Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng mệnh đề với văn bản gốc.",
-          "specificity_analysis": "Các bước trong roadmap cụ thể về cách thực hiện mỗi công việc như dùng word_tokenize để tách từ tiếng Việt và sent_tokenize để tách các đoạn văn thành câu. Việc nhóm chunk dựa trên cấu trúc tự nhiên của văn bản cũng được mô tả chi tiết, nhưng không đề cập đến quá trình xác định chính xác những câu nào nên thuộc cùng một chunk.",
-          "hallucination_risk_analysis": "Không có bước trong roadmap tiềm ẩn rủi ro hallucination vì tất cả các công việc đều dựa trên thông tin từ văn bản gốc và sử dụng LLM để tóm tắt, không thay đổi entity.",
-          "tool_utilization_analysis": "Roadmap tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý. Tuy nhiên, roadmap thiếu step về chunk_text vì việc nhóm các đoạn văn thành chunks dựa trên cấu trúc tự nhiên của văn bản nên cần có bước này để xác định chính xác những câu nào thuộc cùng một chunk.",
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp.",
+          "specificity_analysis": "Các bước cụ thể đều có chi tiết về công nghệ sử dụng (sent_tokenize, chunk_text) nhưng thiếu hướng dẫn chi tiết hơn cho các bước tách và nhóm chunks. Bước merge_summaries không mô tả rõ ràng cách kết hợp các bản summary vào một tổng thể.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunk đã được xác nhận chính xác trước đó, và không đưa ra bất kỳ thông tin giả mạo nào.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize, chunk_text một cách hợp lý. Tuy nhiên, cần thêm hướng dẫn chi tiết hơn về việc sử dụng chunk_text để đảm bảo chunks được tạo chính xác.",
           "missing_steps": [
-            "step_3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
-            "step_4: Kiểm chứng mệnh đề vs văn bản gốc"
+            "Kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp"
           ],
           "strengths": [
-            "Roadmap bao quát nội dung chính của văn bản, sử dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) và LLM để tạo bản tóm tắt fact-grounded."
+            "Roadmap bao quát các bước chính trong văn bản gốc",
+            "Tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp"
           ],
           "weaknesses": [
-            "Missing step về chunk_text vì không xác định được những câu nào thuộc cùng một chunk.",
-            "Missing steps in verification process."
+            "Thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks",
+            "Bước merge_summaries không mô tả rõ ràng phương pháp kết hợp các summary vào tổng thể."
           ]
         }
       },
@@ -319,27 +327,27 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:45:57.900360",
+      "timestamp": "2026-03-30T02:02:44.889337",
       "step_name": "planning_iter1_observation",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_keys=['roadmap']",
       "output_data": {
         "observation": {
-          "coverage_analysis": "Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó tóm tắt từng chunk bằng LLM. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng mệnh đề với văn bản gốc.",
-          "specificity_analysis": "Các bước trong roadmap cụ thể về cách thực hiện mỗi công việc như dùng word_tokenize để tách từ tiếng Việt và sent_tokenize để tách các đoạn văn thành câu. Việc nhóm chunk dựa trên cấu trúc tự nhiên của văn bản cũng được mô tả chi tiết, nhưng không đề cập đến quá trình xác định chính xác những câu nào nên thuộc cùng một chunk.",
-          "hallucination_risk_analysis": "Không có bước trong roadmap tiềm ẩn rủi ro hallucination vì tất cả các công việc đều dựa trên thông tin từ văn bản gốc và sử dụng LLM để tóm tắt, không thay đổi entity.",
-          "tool_utilization_analysis": "Roadmap tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý. Tuy nhiên, roadmap thiếu step về chunk_text vì việc nhóm các đoạn văn thành chunks dựa trên cấu trúc tự nhiên của văn bản nên cần có bước này để xác định chính xác những câu nào thuộc cùng một chunk.",
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp.",
+          "specificity_analysis": "Các bước cụ thể đều có chi tiết về công nghệ sử dụng (sent_tokenize, chunk_text) nhưng thiếu hướng dẫn chi tiết hơn cho các bước tách và nhóm chunks. Bước merge_summaries không mô tả rõ ràng cách kết hợp các bản summary vào một tổng thể.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunk đã được xác nhận chính xác trước đó, và không đưa ra bất kỳ thông tin giả mạo nào.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như sent_tokenize, chunk_text một cách hợp lý. Tuy nhiên, cần thêm hướng dẫn chi tiết hơn về việc sử dụng chunk_text để đảm bảo chunks được tạo chính xác.",
           "missing_steps": [
-            "step_3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
-            "step_4: Kiểm chứng mệnh đề vs văn bản gốc"
+            "Kiểm chứng sự chính xác của mỗi chunk trước khi tổng hợp"
           ],
           "strengths": [
-            "Roadmap bao quát nội dung chính của văn bản, sử dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) và LLM để tạo bản tóm tắt fact-grounded."
+            "Roadmap bao quát các bước chính trong văn bản gốc",
+            "Tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp"
           ],
           "weaknesses": [
-            "Missing step về chunk_text vì không xác định được những câu nào thuộc cùng một chunk.",
-            "Missing steps in verification process."
+            "Thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks",
+            "Bước merge_summaries không mô tả rõ ràng phương pháp kết hợp các summary vào tổng thể."
           ]
         }
       },
@@ -348,29 +356,29 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.677982",
+      "timestamp": "2026-03-30T02:02:54.314896",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao qu",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát nội dung chính của văn bản với điểm Coverage Score đạt 85% và Specificity Score đạt 75%. Hallucination Risk được đánh giá là low. Tool Utilization cũng đáng khen ngợi khi tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý, mặc dù roadmap thiếu bước xác định chunk_text nhưng không ảnh hưởng lớn đến hiệu quả tổng thể.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát được các bước chính trong văn bản gốc và tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp. Tuy nhiên, roadmap thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks và chưa mô tả rõ ràng phương pháp kết hợp summary vào tổng thể.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.677982",
+      "timestamp": "2026-03-30T02:02:54.314896",
       "step_name": "Planner-Reflection Agent._call_llm",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, tập trung vào việc tách và nhóm các đoạn văn thành chunks, sau đó",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát nội dung chính của văn bản với điểm Coverage Score đạt 85% và Specificity Score đạt 75%. Hallucination Risk được đánh giá là low. Tool Utilization cũng đáng khen ngợi khi tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý, mặc dù roadmap thiếu bước xác định chunk_text nhưng không ảnh hưởng lớn đến hiệu quả tổng thể.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách văn bản thành chunks và tạo summary. Tuy nhi",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát được các bước chính trong văn bản gốc và tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp. Tuy nhiên, roadmap thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks và chưa mô tả rõ ràng phương pháp kết hợp summary vào tổng thể.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.677982",
+      "timestamp": "2026-03-30T02:02:54.314896",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -383,7 +391,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản với điểm Coverage Score đạt 85% và Specificity Score đạt 75%. Hallucination Risk được đánh giá là low. Tool Utilization cũng đáng khen ngợi khi tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý, mặc dù roadmap thiếu bước xác định chunk_text nhưng không ảnh hưởng lớn đến hiệu quả tổng thể."
+          "reasoning": "Roadmap bao quát được các bước chính trong văn bản gốc và tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp. Tuy nhiên, roadmap thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks và chưa mô tả rõ ràng phương pháp kết hợp summary vào tổng thể."
         }
       },
       "output_type": "dict",
@@ -391,11 +399,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.677982",
+      "timestamp": "2026-03-30T02:02:54.314896",
       "step_name": "Planner-Reflection Agent._call_llm_json",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=603",
+      "input_summary": "raw_len=517",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -404,7 +412,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản với điểm Coverage Score đạt 85% và Specificity Score đạt 75%. Hallucination Risk được đánh giá là low. Tool Utilization cũng đáng khen ngợi khi tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý, mặc dù roadmap thiếu bước xác định chunk_text nhưng không ảnh hưởng lớn đến hiệu quả tổng thể."
+          "reasoning": "Roadmap bao quát được các bước chính trong văn bản gốc và tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp. Tuy nhiên, roadmap thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks và chưa mô tả rõ ràng phương pháp kết hợp summary vào tổng thể."
         }
       },
       "output_type": "dict",
@@ -412,7 +420,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.677982",
+      "timestamp": "2026-03-30T02:02:54.314896",
       "step_name": "planner_reflection_agent.run",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -425,7 +433,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản với điểm Coverage Score đạt 85% và Specificity Score đạt 75%. Hallucination Risk được đánh giá là low. Tool Utilization cũng đáng khen ngợi khi tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý, mặc dù roadmap thiếu bước xác định chunk_text nhưng không ảnh hưởng lớn đến hiệu quả tổng thể."
+          "reasoning": "Roadmap bao quát được các bước chính trong văn bản gốc và tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp. Tuy nhiên, roadmap thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks và chưa mô tả rõ ràng phương pháp kết hợp summary vào tổng thể."
         }
       },
       "output_type": "dict",
@@ -433,7 +441,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.677982",
+      "timestamp": "2026-03-30T02:02:54.314896",
       "step_name": "planning_iter1_reflection",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -446,7 +454,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản với điểm Coverage Score đạt 85% và Specificity Score đạt 75%. Hallucination Risk được đánh giá là low. Tool Utilization cũng đáng khen ngợi khi tận dụng tool word_tokenize(sent_tokenize('Văn bản gốc')) một cách hợp lý, mặc dù roadmap thiếu bước xác định chunk_text nhưng không ảnh hưởng lớn đến hiệu quả tổng thể."
+          "reasoning": "Roadmap bao quát được các bước chính trong văn bản gốc và tận dụng tool word_tokenize, sent_tokenize, chunk_text một cách phù hợp. Tuy nhiên, roadmap thiếu hướng dẫn chi tiết hơn cho việc tách và nhóm chunks và chưa mô tả rõ ràng phương pháp kết hợp summary vào tổng thể."
         }
       },
       "output_type": "dict",
@@ -454,7 +462,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.681496",
+      "timestamp": "2026-03-30T02:02:54.317418",
       "step_name": "execution_agent.run.step_1",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -544,7 +552,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:46:26.681496",
+      "timestamp": "2026-03-30T02:02:54.317418",
       "step_name": "exec_step1_Tách văn bản thành câu và nhóm thành chunks",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -634,42 +642,188 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:14.657756",
+      "timestamp": "2026-03-30T02:03:10.798513",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact từ văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt các điểm chính của bảng xếp hạng một cách rõ ràng và ngắn gọn.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước này đã hoàn thành đầy đủ, tách câu thành nhiều đoạn văn ngắn đúng nghĩa từ bản gốc với độ chính xác cao.\"\n  }\n}\n```",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng tích cực từ 2019 đến nay, dự kiến đón hơn 17 triệu lượt năm 2024. Thái Lan đa dạng cảnh quan với giao thông thuận tiện, ẩm thực nổi bật tại các khu chợ đêm nhộn nhịp.",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:14.657756",
+      "timestamp": "2026-03-30T02:03:10.798513",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 33 từ\n        -",
+      "output_data": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng tích cực từ 2019 đến nay, dự kiến đón hơn 17 triệu lượt năm 2024. Thái Lan đa dạng cảnh quan với giao thông thuận tiện, ẩm thực nổi bật tại các khu chợ đêm nhộn nhịp.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:03:13.116707",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Condé Nast Traveler, tạp chí du lịch ra mắt năm 1987, được đánh giá uy tín bởi bảng xếp hạng Readers' Choice Awards dựa trên ý kiến từ hàng triệu độc giả quốc tế.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:03:13.116707",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 33 từ\n        -",
+      "output_data": "Condé Nast Traveler, tạp chí du lịch ra mắt năm 1987, được đánh giá uy tín bởi bảng xếp hạng Readers' Choice Awards dựa trên ý kiến từ hàng triệu độc giả quốc tế.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:03:13.117714",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "summary": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng tích cực từ 2019 đến nay, dự kiến đón hơn 17 triệu lượt năm 2024. Thái Lan đa dạng cảnh quan với giao thông thuận tiện, ẩm thực nổi bật tại các khu chợ đêm nhộn nhịp.",
+            "word_count": 61
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              16,
+              17,
+              18
+            ],
+            "summary": "Condé Nast Traveler, tạp chí du lịch ra mắt năm 1987, được đánh giá uy tín bởi bảng xếp hạng Readers' Choice Awards dựa trên ý kiến từ hàng triệu độc giả quốc tế.",
+            "word_count": 23
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:03:13.117714",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "summary": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng tích cực từ 2019 đến nay, dự kiến đón hơn 17 triệu lượt năm 2024. Thái Lan đa dạng cảnh quan với giao thông thuận tiện, ẩm thực nổi bật tại các khu chợ đêm nhộn nhịp.",
+            "word_count": 61
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              16,
+              17,
+              18
+            ],
+            "summary": "Condé Nast Traveler, tạp chí du lịch ra mắt năm 1987, được đánh giá uy tín bởi bảng xếp hạng Readers' Choice Awards dựa trên ý kiến từ hàng triệu độc giả quốc tế.",
+            "word_count": 23
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:03:43.226842",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.\",\n    \"completion_status\": \"incomplete\",\n    \"quality_assessment\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.\",\n    \"issues_found\": [\"Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản\"],\n    \"summary\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024' không chính xác so với văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:03:43.226842",
       "step_name": "Execution-Observation Agent._call_llm",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Theo bảng xếp hạng 20 quốc gia tốt nhất thế giới năm 2024 (The Best Countries",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact từ văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt các điểm chính của bảng xếp hạng một cách rõ ràng và ngắn gọn.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước này đã hoàn thành đầy đủ, tách câu thành nhiều đoạn văn ngắn đúng nghĩa từ bản gốc với độ chính xác cao.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.\",\n    \"completion_status\": \"incomplete\",\n    \"quality_assessment\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.\",\n    \"issues_found\": [\"Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản\"],\n    \"summary\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024' không chính xác so với văn bản gốc.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:14.657756",
+      "timestamp": "2026-03-30T02:03:43.227849",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact từ văn bản gốc.\",\n    \"completion_status\": \"",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 v",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt các điểm chính của bảng xếp hạng một cách rõ ràng và ngắn gọn.",
-          "issues_found": [],
-          "summary": "Bước này đã hoàn thành đầy đủ, tách câu thành nhiều đoạn văn ngắn đúng nghĩa từ bản gốc với độ chính xác cao."
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "completion_status": "incomplete",
+          "quality_assessment": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "issues_found": [
+            "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản"
+          ],
+          "summary": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024' không chính xác so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -677,20 +831,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:14.657756",
+      "timestamp": "2026-03-30T02:03:43.227849",
       "step_name": "Execution-Observation Agent._call_llm_json",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=498",
+      "input_summary": "raw_len=945",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt các điểm chính của bảng xếp hạng một cách rõ ràng và ngắn gọn.",
-          "issues_found": [],
-          "summary": "Bước này đã hoàn thành đầy đủ, tách câu thành nhiều đoạn văn ngắn đúng nghĩa từ bản gốc với độ chính xác cao."
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "completion_status": "incomplete",
+          "quality_assessment": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "issues_found": [
+            "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản"
+          ],
+          "summary": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024' không chính xác so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -698,20 +854,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:14.657756",
+      "timestamp": "2026-03-30T02:03:43.227849",
       "step_name": "execution_observation_agent.run",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=split_sentences",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt các điểm chính của bảng xếp hạng một cách rõ ràng và ngắn gọn.",
-          "issues_found": [],
-          "summary": "Bước này đã hoàn thành đầy đủ, tách câu thành nhiều đoạn văn ngắn đúng nghĩa từ bản gốc với độ chính xác cao."
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "completion_status": "incomplete",
+          "quality_assessment": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "issues_found": [
+            "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản"
+          ],
+          "summary": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024' không chính xác so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -719,20 +877,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:14.657756",
-      "step_name": "exec_step1_observation",
+      "timestamp": "2026-03-30T02:03:43.227849",
+      "step_name": "exec_step2_observation",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=split_sentences",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt các điểm chính của bảng xếp hạng một cách rõ ràng và ngắn gọn.",
-          "issues_found": [],
-          "summary": "Bước này đã hoàn thành đầy đủ, tách câu thành nhiều đoạn văn ngắn đúng nghĩa từ bản gốc với độ chính xác cao."
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "completion_status": "incomplete",
+          "quality_assessment": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản' không chính xác so với văn bản gốc. Văn bản gốc chỉ nói Việt Nam ở vị trí thứ 15 chứ chưa cụ thể về điểm số.",
+          "issues_found": [
+            "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản"
+          ],
+          "summary": "'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024' không chính xác so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -740,29 +900,29 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.030243",
+      "timestamp": "2026-03-30T02:03:54.882865",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước này đã hoàn thành với chất lượng tốt và không có vấn đề nào được phát hiện. Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Quyết định tiếp theo là đi đến bước tiếp theo vì chất lượng tốt (factual ≥ 0.8 và coverage ≥ 0.7) nhưng vẫn có vấn đề nghiêm trọng về factual consistency.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.031243",
+      "timestamp": "2026-03-30T02:03:54.882865",
       "step_name": "Execution-Reflection Agent._call_llm",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact từ văn bản ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước này đã hoàn thành với chất lượng tốt và không có vấn đề nào được phát hiện. Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"'Việt Nam xếp thứ 15 trong bảng xếp hạng quốc",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Quyết định tiếp theo là đi đến bước tiếp theo vì chất lượng tốt (factual ≥ 0.8 và coverage ≥ 0.7) nhưng vẫn có vấn đề nghiêm trọng về factual consistency.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.031243",
+      "timestamp": "2026-03-30T02:03:54.882865",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -774,8 +934,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước này đã hoàn thành với chất lượng tốt và không có vấn đề nào được phát hiện. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Quyết định tiếp theo là đi đến bước tiếp theo vì chất lượng tốt (factual ≥ 0.8 và coverage ≥ 0.7) nhưng vẫn có vấn đề nghiêm trọng về factual consistency."
         }
       },
       "output_type": "dict",
@@ -783,11 +943,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.031243",
+      "timestamp": "2026-03-30T02:03:54.882865",
       "step_name": "Execution-Reflection Agent._call_llm_json",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=420",
+      "input_summary": "raw_len=610",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -795,8 +955,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước này đã hoàn thành với chất lượng tốt và không có vấn đề nào được phát hiện. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Quyết định tiếp theo là đi đến bước tiếp theo vì chất lượng tốt (factual ≥ 0.8 và coverage ≥ 0.7) nhưng vẫn có vấn đề nghiêm trọng về factual consistency."
         }
       },
       "output_type": "dict",
@@ -804,11 +964,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.031243",
+      "timestamp": "2026-03-30T02:03:54.882865",
       "step_name": "execution_reflection_agent.run",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step=1/5",
+      "input_summary": "step=2/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -816,8 +976,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước này đã hoàn thành với chất lượng tốt và không có vấn đề nào được phát hiện. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Quyết định tiếp theo là đi đến bước tiếp theo vì chất lượng tốt (factual ≥ 0.8 và coverage ≥ 0.7) nhưng vẫn có vấn đề nghiêm trọng về factual consistency."
         }
       },
       "output_type": "dict",
@@ -825,11 +985,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.031243",
-      "step_name": "exec_step1_reflection",
+      "timestamp": "2026-03-30T02:03:54.882865",
+      "step_name": "exec_step2_reflection",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, step=1/5",
+      "input_summary": "step_id=step_2, step=2/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -837,8 +997,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước này đã hoàn thành với chất lượng tốt và không có vấn đề nào được phát hiện. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Quyết định tiếp theo là đi đến bước tiếp theo vì chất lượng tốt (factual ≥ 0.8 và coverage ≥ 0.7) nhưng vẫn có vấn đề nghiêm trọng về factual consistency."
         }
       },
       "output_type": "dict",
@@ -846,405 +1006,953 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.032746",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
+      "timestamp": "2026-03-30T02:04:09.096633",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng từ 2019 đến nay dự kiến đón hơn 17 triệu lượt năm 2024. Condé Nast Traveler, tạp chí du lịch uy tín với ý kiến độc giả quốc tế, bình chọn Việt Nam trong bảng xếp hạng Readers' Choice Awards.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.032746",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "timestamp": "2026-03-30T02:04:09.096633",
+      "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=1",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 66–66 từ\n        - Giữ",
+      "output_data": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng từ 2019 đến nay dự kiến đón hơn 17 triệu lượt năm 2024. Condé Nast Traveler, tạp chí du lịch uy tín với ý kiến độc giả quốc tế, bình chọn Việt Nam trong bảng xếp hạng Readers' Choice Awards.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.032746",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T18:47:35.032746",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=2",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T18:47:35.033749",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T18:47:35.033749",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=3",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T18:47:35.034748",
+      "timestamp": "2026-03-30T02:04:09.099681",
       "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một bản tổng hợp'",
+      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một'",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng từ 2019 đến nay dự kiến đón hơn 17 triệu lượt năm 2024. Condé Nast Traveler, tạp chí du lịch uy tín với ý kiến độc giả quốc tế, bình chọn Việt Nam trong bảng xếp hạng Readers' Choice Awards.",
+        "word_count": 62,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.034748",
-      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một bản tổng hợp",
+      "timestamp": "2026-03-30T02:04:09.099681",
+      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, attempt=1",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng từ 2019 đến nay dự kiến đón hơn 17 triệu lượt năm 2024. Condé Nast Traveler, tạp chí du lịch uy tín với ý kiến độc giả quốc tế, bình chọn Việt Nam trong bảng xếp hạng Readers' Choice Awards.",
+        "word_count": 62,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.034748",
-      "step_name": "execution_agent.run.step_3",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một bản tổng hợp'",
+      "timestamp": "2026-03-30T02:04:30.409160",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Việt Nam xếp thứ 15 trong bả",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái Lan và Nhật Bản đứng sau Việt Nam.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác từ văn bản gốc về vị trí của Việt Nam trong bảng xếp hạng, điểm số, các quốc gia khác cùng với đánh giá và dự đoán tương lai.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tách bóc thành công. Output giữ nguyên nội dung chính xác từ văn bản gốc nhưng thiếu một số chi tiết cụ thể.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:30.409160",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du kh",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái Lan và Nhật Bản đứng sau Việt Nam.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác từ văn bản gốc về vị trí của Việt Nam trong bảng xếp hạng, điểm số, các quốc gia khác cùng với đánh giá và dự đoán tương lai.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tách bóc thành công. Output giữ nguyên nội dung chính xác từ văn bản gốc nhưng thiếu một số chi tiết cụ thể.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:30.409160",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái L",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái Lan và Nhật Bản đứng sau Việt Nam.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác từ văn bản gốc về vị trí của Việt Nam trong bảng xếp hạng, điểm số, các quốc gia khác cùng với đánh giá và dự đoán tương lai.",
+          "issues_found": [],
+          "summary": "Bước thực thi tách bóc thành công. Output giữ nguyên nội dung chính xác từ văn bản gốc nhưng thiếu một số chi tiết cụ thể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.034748",
-      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một bản tổng hợp",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, attempt=2",
+      "timestamp": "2026-03-30T02:04:30.409160",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=684",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái Lan và Nhật Bản đứng sau Việt Nam.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác từ văn bản gốc về vị trí của Việt Nam trong bảng xếp hạng, điểm số, các quốc gia khác cùng với đánh giá và dự đoán tương lai.",
+          "issues_found": [],
+          "summary": "Bước thực thi tách bóc thành công. Output giữ nguyên nội dung chính xác từ văn bản gốc nhưng thiếu một số chi tiết cụ thể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.036251",
-      "step_name": "execution_agent.run.step_3",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T02:04:30.409160",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một bản tổng hợp'",
+      "input_summary": "step_id=step_3, action=merge",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái Lan và Nhật Bản đứng sau Việt Nam.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác từ văn bản gốc về vị trí của Việt Nam trong bảng xếp hạng, điểm số, các quốc gia khác cùng với đánh giá và dự đoán tương lai.",
+          "issues_found": [],
+          "summary": "Bước thực thi tách bóc thành công. Output giữ nguyên nội dung chính xác từ văn bản gốc nhưng thiếu một số chi tiết cụ thể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.036251",
-      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một bản tổng hợp",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T02:04:30.409160",
+      "step_name": "exec_step3_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, attempt=3",
+      "input_summary": "step_id=step_3, action=merge",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact có trong văn bản gốc như: Việt Nam xếp thứ 15, điểm số 89; Thái Lan và Nhật Bản đứng sau Việt Nam.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác từ văn bản gốc về vị trí của Việt Nam trong bảng xếp hạng, điểm số, các quốc gia khác cùng với đánh giá và dự đoán tương lai.",
+          "issues_found": [],
+          "summary": "Bước thực thi tách bóc thành công. Output giữ nguyên nội dung chính xác từ văn bản gốc nhưng thiếu một số chi tiết cụ thể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.036251",
+      "timestamp": "2026-03-30T02:04:41.542785",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output thiếu một số chi tiết cụ thể như vị trí chính xác của Việt Nam trong bảng xếp hạng và điểm số cụ thể, cũng như các quốc gia khác. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định là vì chất lượng tốt nhưng vẫn còn vấn đề về độ bao quát (coverage) cần được cải thiện thông qua việc bổ sung chi tiết thiếu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:41.542785",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact có trong văn bản gốc như: Việt N",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output thiếu một số chi tiết cụ thể như vị trí chính xác của Việt Nam trong bảng xếp hạng và điểm số cụ thể, cũng như các quốc gia khác. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định là vì chất lượng tốt nhưng vẫn còn vấn đề về độ bao quát (coverage) cần được cải thiện thông qua việc bổ sung chi tiết thiếu.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:41.542785",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output thiếu một số chi tiết cụ thể như vị trí chính xác của Việt Nam trong bảng xếp hạng và điểm số cụ thể, cũng như các quốc gia khác. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì chất lượng tốt nhưng vẫn còn vấn đề về độ bao quát (coverage) cần được cải thiện thông qua việc bổ sung chi tiết thiếu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:41.542785",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=580",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output thiếu một số chi tiết cụ thể như vị trí chính xác của Việt Nam trong bảng xếp hạng và điểm số cụ thể, cũng như các quốc gia khác. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì chất lượng tốt nhưng vẫn còn vấn đề về độ bao quát (coverage) cần được cải thiện thông qua việc bổ sung chi tiết thiếu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:41.542785",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output thiếu một số chi tiết cụ thể như vị trí chính xác của Việt Nam trong bảng xếp hạng và điểm số cụ thể, cũng như các quốc gia khác. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì chất lượng tốt nhưng vẫn còn vấn đề về độ bao quát (coverage) cần được cải thiện thông qua việc bổ sung chi tiết thiếu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:04:41.542785",
+      "step_name": "exec_step3_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output thiếu một số chi tiết cụ thể như vị trí chính xác của Việt Nam trong bảng xếp hạng và điểm số cụ thể, cũng như các quốc gia khác. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì chất lượng tốt nhưng vẫn còn vấn đề về độ bao quát (coverage) cần được cải thiện thông qua việc bổ sung chi tiết thiếu."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:00.848482",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản. Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:00.848482",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 66–66 từ\n        - Giữ",
+      "output_data": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản. Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:00.852493",
       "step_name": "execution_agent.run.step_4",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tổng thể'",
       "output_data": {
         "step_id": "step_4",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "action": "refine",
+        "refined_summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản. Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.",
+        "word_count": 63,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.036251",
-      "step_name": "exec_step4_Kiểm chứng mệnh đề vs văn bản gốc",
+      "timestamp": "2026-03-30T02:05:00.852493",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tổng thể",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_4, attempt=1",
       "output_data": {
         "step_id": "step_4",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "action": "refine",
+        "refined_summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản. Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.",
+        "word_count": 63,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.036251",
-      "step_name": "execution_agent.run.step_4",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "timestamp": "2026-03-30T02:05:18.129482",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Việt Nam đứng thứ 15 trong",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác theo yêu cầu của phong cách news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt đúng nội dung đã có trong văn bản gốc, không chứa thông tin mới.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:18.129482",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản. Condé N",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác theo yêu cầu của phong cách news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt đúng nội dung đã có trong văn bản gốc, không chứa thông tin mới.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:18.130146",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"co",
       "output_data": {
-        "step_id": "step_4",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Output tóm tắt đúng nội dung đã có trong văn bản gốc, không chứa thông tin mới."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.036251",
-      "step_name": "exec_step4_Kiểm chứng mệnh đề vs văn bản gốc",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, attempt=2",
+      "timestamp": "2026-03-30T02:05:18.130146",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=486",
       "output_data": {
-        "step_id": "step_4",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Output tóm tắt đúng nội dung đã có trong văn bản gốc, không chứa thông tin mới."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.037807",
-      "step_name": "execution_agent.run.step_4",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T02:05:18.130146",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "input_summary": "step_id=step_4, action=refine",
       "output_data": {
-        "step_id": "step_4",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Output tóm tắt đúng nội dung đã có trong văn bản gốc, không chứa thông tin mới."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.037807",
-      "step_name": "exec_step4_Kiểm chứng mệnh đề vs văn bản gốc",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T02:05:18.130146",
+      "step_name": "exec_step4_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, attempt=3",
+      "input_summary": "step_id=step_4, action=refine",
       "output_data": {
-        "step_id": "step_4",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác theo yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Output tóm tắt đúng nội dung đã có trong văn bản gốc, không chứa thông tin mới."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.038809",
+      "timestamp": "2026-03-30T02:05:28.787577",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output không chứa thông tin mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc và đạt chất lượng tốt. Tuy nhiên, cần bổ sung thêm chi tiết về cách thức thực hiện các bước để đảm bảo độ bao quát hơn.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa thông tin mới và chỉ tóm tắt lại nội dung đã có. Cần tiếp tục hoàn thiện bằng việc bổ sung chi tiết về cách thức thực hiện các bước.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:28.788595",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output không chứa thông tin mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc và đạt chất lượng tốt. Tuy nhiên, cần bổ sung thêm chi tiết về cách thức thực hiện các bước để đảm bảo độ bao quát hơn.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa thông tin mới và chỉ tóm tắt lại nội dung đã có. Cần tiếp tục hoàn thiện bằng việc bổ sung chi tiết về cách thức thực hiện các bước.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:28.788595",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa thông tin mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc và đạt chất lượng tốt. Tuy nhiên, cần bổ sung thêm chi tiết về cách thức thực hiện các bước để đảm bảo độ bao quát hơn.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa thông tin mới và chỉ tóm tắt lại nội dung đã có. Cần tiếp tục hoàn thiện bằng việc bổ sung chi tiết về cách thức thực hiện các bước."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:28.788595",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=679",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa thông tin mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc và đạt chất lượng tốt. Tuy nhiên, cần bổ sung thêm chi tiết về cách thức thực hiện các bước để đảm bảo độ bao quát hơn.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa thông tin mới và chỉ tóm tắt lại nội dung đã có. Cần tiếp tục hoàn thiện bằng việc bổ sung chi tiết về cách thức thực hiện các bước."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:28.788595",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa thông tin mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc và đạt chất lượng tốt. Tuy nhiên, cần bổ sung thêm chi tiết về cách thức thực hiện các bước để đảm bảo độ bao quát hơn.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa thông tin mới và chỉ tóm tắt lại nội dung đã có. Cần tiếp tục hoàn thiện bằng việc bổ sung chi tiết về cách thức thực hiện các bước."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:05:28.788595",
+      "step_name": "exec_step4_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa thông tin mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc và đạt chất lượng tốt. Tuy nhiên, cần bổ sung thêm chi tiết về cách thức thực hiện các bước để đảm bảo độ bao quát hơn.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa thông tin mới và chỉ tóm tắt lại nội dung đã có. Cần tiếp tục hoàn thiện bằng việc bổ sung chi tiết về cách thức thực hiện các bước."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:07:43.729385",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nViệt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới ",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Đứng đầu top 20 là Nhật Bản với 95,32 điểm.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Xếp hạng nằm trong giải thưởng thường niênReaders' Choice Awards của tạp chí Mỹ, dựa trên đánh giá của hơn 575.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"'Độc giả của Condé Nast Traveler nhận xét Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rủ.'\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"Lượng khách nước ngoài đến Việt Nam tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"'Với lượng khách nước ngoài đang trên đà tăng từ 2019 đến nay, Việt Nam không còn là điểm đến đáng chú ý mà thành điểm đến đáng ghé thăm.'\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Theo số liệu từ Tổng cục Thống kê, trong 9 tháng đầu năm, Việt Nam đón hơn 12,7 triệu lượt khách quốc tế, vượt lượng khách cả năm 2023 là 12,6 triệu lượt.\"\n        },\n        {\n          \"sentence_id\": 9,\n          \"source_text\": \"Lượng khách quốc tế đến Việt Nam tăng trưởng tích c…",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:07:43.729385",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nViệt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản. Condé Nast Traveler bình chọn Việt Nam trong Read",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Đứng đầu top 20 là Nhật Bản với 95,32 điểm.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Xếp hạng nằm trong giải thưởng thường niênReaders' Choice Awards của tạp chí Mỹ, dựa trên đánh giá của hơn 575.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"'Độc giả của Condé Nast Traveler nhận xét Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rủ.'\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"Lượng khách nước ngoài đến Việt Nam tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"'Với lượng khách nước ngoài đang trên đà tăng từ 2019 đến nay, Việt Nam không còn là điểm đến đáng chú ý mà thành điểm đến đáng ghé thăm.'\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Theo số liệu từ Tổng cục Thống kê, trong 9 tháng đầu năm, Việt Nam đón hơn 12,7 triệu lượt khách quốc tế, vượt lượng khách cả năm 2023 là 12,6 triệu lượt.\"\n        },\n        {\n          \"sentence_id\": 9,\n          \"source_text\": \"Lượng khách quốc tế đến Việt Nam tăng trưởng tích c…",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:07:43.729889",
+      "step_name": "Execution Agent._call_llm_json",
+      "agent_name": "Execution Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=4849",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Đứng đầu top 20 là Nhật Bản với 95,32 điểm.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Xếp hạng nằm trong giải thưởng thường niênReaders' Choice Awards của tạp chí Mỹ, dựa trên đánh giá của hơn 575.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"'Độc giả của Condé Nast Traveler nhận xét Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rủ.'\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"Lượng khách nước ngoài đến Việt Nam tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"'Với lượng khách nước ngoài đang trên đà tăng từ 2019 đến nay, Việt Nam không còn là điểm đến đáng chú ý mà thành điểm đến đáng ghé thăm.'\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Theo số liệu từ Tổng cục Thống kê, trong 9 tháng đầu năm, Việt Nam đón hơn 12,7 triệu lượt khách quốc tế, vượt lượng khách cả năm 2023 là 12,6 triệu lượt.\"\n        },\n        {\n          \"sentence_id\": 9,\n          \"source_text\": \"Lượng khách quốc tế đến Việt Nam tăng trưởng tích c…",
+        "_parse_error": true
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": "JSON parse failed: Expecting value: line 74 column 26 (char 2832)"
+    },
+    {
+      "timestamp": "2026-03-30T02:07:43.729889",
       "step_name": "execution_agent.run.step_5",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Hiệu chỉnh phong cách (editing)'",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
       "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Đứng đầu top 20 là Nhật Bản với 95,32 điểm.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Xếp hạng nằm trong giải thưởng thường niênReaders' Choice Awards của tạp chí Mỹ, dựa trên đánh giá của hơn 575.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"'Độc giả của Condé Nast Traveler nhận xét Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rủ.'\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"Lượng khách nước ngoài đến Việt Nam tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"'Với lượng khách nước ngoài đang trên đà tăng từ 2019 đến nay, Việt Nam không còn là điểm đến đáng chú ý mà thành điểm đến đáng ghé thăm.'\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Theo số liệu từ Tổng cục Thống kê, trong 9 tháng đầu năm, Việt Nam đón hơn 12,7 triệu lượt khách quốc tế, vượt lượng khách cả năm 2023 là 12,6 triệu lượt.\"\n        },\n        {\n          \"sentence_id\": 9,\n          \"source_text\": \"Lượng khách quốc tế đến Việt Nam tăng trưởng tích c…",
+        "_parse_error": true,
         "step_id": "step_5",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "action": "verify",
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.038809",
-      "step_name": "exec_step5_Hiệu chỉnh phong cách (editing)",
+      "timestamp": "2026-03-30T02:07:43.729889",
+      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_5, attempt=1",
       "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, sau Thái Lan và Nhật Bản.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Đứng đầu top 20 là Nhật Bản với 95,32 điểm.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Condé Nast Traveler bình chọn Việt Nam trong Readers' Choice Awards dựa trên đánh giá của hơn 575.000 độc giả về trải nghiệm du lịch tại mỗi quốc gia.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Xếp hạng nằm trong giải thưởng thường niênReaders' Choice Awards của tạp chí Mỹ, dựa trên đánh giá của hơn 575.\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"'Độc giả của Condé Nast Traveler nhận xét Việt Nam thu hút du khách nhờ vẻ đẹp mộc mạc và quyến rủ.'\"\n        }\n      ],\n      \"confidence\": 1.0\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"Lượng khách nước ngoài đến Việt Nam tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt năm 2024.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"'Với lượng khách nước ngoài đang trên đà tăng từ 2019 đến nay, Việt Nam không còn là điểm đến đáng chú ý mà thành điểm đến đáng ghé thăm.'\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Theo số liệu từ Tổng cục Thống kê, trong 9 tháng đầu năm, Việt Nam đón hơn 12,7 triệu lượt khách quốc tế, vượt lượng khách cả năm 2023 là 12,6 triệu lượt.\"\n        },\n        {\n          \"sentence_id\": 9,\n          \"source_text\": \"Lượng khách quốc tế đến Việt Nam tăng trưởng tích c…",
+        "_parse_error": true,
         "step_id": "step_5",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "action": "verify",
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.038809",
-      "step_name": "execution_agent.run.step_5",
+      "timestamp": "2026-03-30T02:07:55.269921",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:07:55.269921",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 66–66 từ\n        - Giữ",
+      "output_data": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:07:55.271926",
+      "step_name": "execution_agent.run.step_6",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Hiệu chỉnh phong cách (editing)'",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
       "output_data": {
-        "step_id": "step_5",
+        "step_id": "step_6",
         "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "edited_summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024.",
+        "word_count": 40,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.038809",
-      "step_name": "exec_step5_Hiệu chỉnh phong cách (editing)",
+      "timestamp": "2026-03-30T02:07:55.271926",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, attempt=2",
+      "input_summary": "step_id=step_6, attempt=1",
       "output_data": {
-        "step_id": "step_5",
+        "step_id": "step_6",
         "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "edited_summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024.",
+        "word_count": 40,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.039809",
-      "step_name": "execution_agent.run.step_5",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T02:08:17.242933",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Việt Nam đứng thứ 15 trong bả",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ và cụ thể hơn so với thông tin trong văn bản gốc.\",\n    \"issues_found\": [\"Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu\"],\n    \"summary\": \"Output đã tóm tắt chính xác nội dung từ văn bản gốc. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:17.242933",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ và cụ thể hơn so với thông tin trong văn bản gốc.\",\n    \"issues_found\": [\"Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu\"],\n    \"summary\": \"Output đã tóm tắt chính xác nội dung từ văn bản gốc. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:17.242933",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"comp",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ và cụ thể hơn so với thông tin trong văn bản gốc.",
+          "issues_found": [
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
+          ],
+          "summary": "Output đã tóm tắt chính xác nội dung từ văn bản gốc. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:17.242933",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=693",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ và cụ thể hơn so với thông tin trong văn bản gốc.",
+          "issues_found": [
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
+          ],
+          "summary": "Output đã tóm tắt chính xác nội dung từ văn bản gốc. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:17.242933",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Hiệu chỉnh phong cách (editing)'",
+      "input_summary": "step_id=step_6, action=edit",
       "output_data": {
-        "step_id": "step_5",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ và cụ thể hơn so với thông tin trong văn bản gốc.",
+          "issues_found": [
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
+          ],
+          "summary": "Output đã tóm tắt chính xác nội dung từ văn bản gốc. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.039809",
-      "step_name": "exec_step5_Hiệu chỉnh phong cách (editing)",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T02:08:17.242933",
+      "step_name": "exec_step6_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, attempt=3",
+      "input_summary": "step_id=step_6, action=edit",
       "output_data": {
-        "step_id": "step_5",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ và cụ thể hơn so với thông tin trong văn bản gốc.",
+          "issues_found": [
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
+          ],
+          "summary": "Output đã tóm tắt chính xác nội dung từ văn bản gốc. Tuy nhiên, một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T18:47:35.042314",
+      "timestamp": "2026-03-30T02:08:29.000682",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output đã đạt chất lượng tốt nhưng một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung và cụ thể hóa hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:29.000682",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output đã đạt chất lượng tốt nhưng một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung và cụ thể hóa hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:29.000682",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã đạt chất lượng tốt nhưng một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung và cụ thể hóa hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:29.000682",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=588",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã đạt chất lượng tốt nhưng một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung và cụ thể hóa hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:29.000682",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã đạt chất lượng tốt nhưng một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung và cụ thể hóa hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:29.000682",
+      "step_name": "exec_step6_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã đạt chất lượng tốt nhưng một số chi tiết như mục tiêu đón khách quốc tế năm 2024 chưa được hoàn thiện đầy đủ. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là vì output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn còn một số chi tiết cần bổ sung và cụ thể hóa hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T02:08:29.006462",
       "step_name": "workflow_complete",
       "agent_name": "Manager Agent",
       "phase": "workflow",
       "input_summary": "",
       "output_data": {
-        "summary": "",
+        "summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024.",
         "style": "news_brief",
-        "word_count": 0,
+        "word_count": 40,
         "trace": [
           {
             "agent": "execution",
             "action": "split_sentences",
             "step_id": "step_1",
             "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+            "reflection_scores": {
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "chunk_summarize",
+            "step_id": "step_2",
+            "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "merge",
+            "step_id": "step_3",
+            "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "refine",
+            "step_id": "step_4",
+            "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng thể",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "verify",
+            "step_id": "step_5",
+            "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+            "reflection_scores": {
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "edit",
+            "step_id": "step_6",
+            "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
             "reflection_scores": {
               "factual_consistency": 0.9,
               "coverage_completeness": 0.85
@@ -1254,9 +1962,9 @@
         "verification_report": null,
         "intermediate_outputs": {
           "outline": null,
-          "draft_summary": null,
+          "draft_summary": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng từ 2019 đến nay dự kiến đón hơn 17 triệu lượt năm 2024. Condé Nast Traveler, tạp chí du lịch uy tín với ý kiến độc giả quốc tế, bình chọn Việt Nam trong bảng xếp hạng Readers' Choice Awards.",
           "verification": null,
-          "edited_summary": null
+          "edited_summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024."
         }
       },
       "output_type": "dict",

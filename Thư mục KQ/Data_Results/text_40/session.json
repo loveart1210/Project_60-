@@ -1,5 +1,5 @@
 {
-  "session_id": "9be7450f",
+  "session_id": "912ae63e",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 472,
-  "created_at": "2026-03-28T00:15:38.573865",
+  "created_at": "2026-03-30T04:48:44.203409",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-28T00:16:36.319846",
+      "timestamp": "2026-03-30T04:49:04.981844",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-28T00:17:26.602458",
+      "timestamp": "2026-03-30T04:49:27.229288",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-28T00:17:50.804269",
+      "timestamp": "2026-03-30T04:49:35.553687",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát được các bước chính trong văn bản gốc và có hướng dẫn cụ thể cho nhiều phần. Tuy nhiên, roadmap thiếu chi tiết về xác định chunks phù hợp từ summary và xử lý thông tin lan Anh. Mặc dù vậy, điểm yếu này không ảnh hưởng nghiêm trọng đến khả năng thực hiện roadmap."
+          "reasoning": "Roadmap đã bao quát được nội dung văn bản gốc với mức độ cao (coverage ≥ 0.8) và có bước cụ thể như cách phân chia chunks dựa trên ngữ nghĩa và cấu trúc, cùng việc sử dụng API để tóm tắt chunk bằng mô hình lớn (specificity ≥ 0.7). Hallucination risk được đánh giá là low do roadmap không đề cập tới tạo fact mới mà không có trong nguồn gốc."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-28T00:17:50.807274",
+      "action": "chunking",
+      "timestamp": "2026-03-30T04:49:35.574006",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T04:49:48.444896",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-28T00:18:39.817385",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T04:50:03.217767",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-28T00:19:00.638986",
+      "timestamp": "2026-03-30T04:50:10.160286",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,89 +71,264 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, mặc dù có một chút redundancy. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã tóm tắt hai đoạn văn với độ dài phù hợp và giữ được ngữ cảnh chính của từng đoạn nhưng cần bổ sung thêm thông tin về hệ thống cáp treo. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) và đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T04:50:20.642891",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:50:36.111313",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:50:43.711704",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng có một số chi tiết cụ thể bị lược bỏ, cần bổ sung về vị trí an vị tượng Phật ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là output đạt chất lượng tốt với tóm tắt ngắn gọn và chính xác, tuy nhiên vẫn còn một số chi tiết cụ thể bị lược bỏ. Điều này yêu cầu tiếp tục thực hiện bước hiện tại để hoàn thiện hơn."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T04:50:55.725368",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:51:10.345062",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:51:17.541160",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung vị trí an vị của bức tượng Phật ngọc, cụ thể là Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt nhưng thiếu chi tiết địa lý và độ dài của tóm tắt chưa đạt yêu cầu."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T04:51:28.774115",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:51:43.038563",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:51:50.619734",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output hiện tại đã có sự trùng lặp nhẹ với văn bản gốc như việc tạc tượng từ ngọc bích nguyên khối và vị trí an vị. Tuy nhiên, tổng hợp chi tiết về bức tượng vẫn cần bổ sung thêm thông tin chính xác hơn.",
+          "reasoning": "Lý do quyết định là chất lượng output đạt tiêu chuẩn tốt (factual consistency = 0.9 > 0.8; coverage completeness = 0.85 > 0.7) nhưng còn có sự trùng lặp nhẹ và cần bổ sung thêm thông tin chi tiết."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T04:52:19.205175",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T04:52:27.646183",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T04:52:41.975161",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T04:52:49.636969",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng vẫn còn một số vấn đề: Tóm tắt chỉ tập trung vào bức tượng Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000 và an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Cần bổ sung thêm thông tin về kích thước, trọng lượng của bức tượng.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng vẫn còn một số vấn đề nhỏ cần được cải thiện."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-28T00:19:00.648006",
+      "timestamp": "2026-03-30T04:52:49.640995",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
+    "chunks": [
       {
-        "sentence_id": 1,
-        "text": "Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia."
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "text": "Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia. Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000. Sau 8 năm, đến tháng 12/2008 thì hoàn thành. Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ). Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới. Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu. Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma. Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ. Hình ảnh này tượng trưng cho 'sự giác ngộ, viên mãn, may mắn và bình an'. Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển. Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới. Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng. Trước đây, để lên đỉnh núi, khách hành hương thường dọn đi xe máy quanh sườn núi. Tuy nhiên, từ năm 2021, tỉnh An Giang đã đưa vào vận hành hệ thống cáp treo với tổng chiều dài 900m, với 37 cabin, mỗi cabin có sức chứa 8 hành khách vận hành liên tục.",
+        "word_count": 293
       },
       {
-        "sentence_id": 2,
-        "text": "Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Sau 8 năm, đến tháng 12/2008 thì hoàn thành."
-      },
-      {
-        "sentence_id": 4,
-        "text": "Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ)."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
-      },
-      {
-        "sentence_id": 6,
-        "text": "Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu."
-      },
-      {
-        "sentence_id": 7,
-        "text": "Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma."
-      },
-      {
-        "sentence_id": 8,
-        "text": "Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ."
-      },
-      {
-        "sentence_id": 9,
-        "text": "Hình ảnh này tượng trưng cho 'sự giác ngộ, viên mãn, may mắn và bình an'."
-      },
-      {
-        "sentence_id": 10,
-        "text": "Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển."
-      },
-      {
-        "sentence_id": 11,
-        "text": "Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
-      },
-      {
-        "sentence_id": 12,
-        "text": "Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng."
-      },
-      {
-        "sentence_id": 13,
-        "text": "Trước đây, để lên đỉnh núi, khách hành hương thường dọn đi xe máy quanh sườn núi."
-      },
-      {
-        "sentence_id": 14,
-        "text": "Tuy nhiên, từ năm 2021, tỉnh An Giang đã đưa vào vận hành hệ thống cáp treo với tổng chiều dài 900m, với 37 cabin, mỗi cabin có sức chứa 8 hành khách vận hành liên tục."
-      },
-      {
-        "sentence_id": 15,
-        "text": "Khách du lịch sẽ được trải nghiệm cảm giác cưỡi mây ngắm toàn cảnh Châu Đốc và đắm mình trong không gian Phật giáo thanh bình."
-      },
-      {
-        "sentence_id": 16,
-        "text": "Đặc biệt cầu Châu Đốc vừa thông xe sáng 23/4 sẽ giúp hành khách rút ngắn thời gian di chuyển từ TP HCM đi các tỉnh miền Tây và ngược lại."
-      },
-      {
-        "sentence_id": 17,
-        "text": "Lan Anh"
+        "chunk_id": 2,
+        "sentence_ids": [
+          15,
+          16,
+          17
+        ],
+        "text": "Khách du lịch sẽ được trải nghiệm cảm giác cưỡi mây ngắm toàn cảnh Châu Đốc và đắm mình trong không gian Phật giáo thanh bình. Đặc biệt cầu Châu Đốc vừa thông xe sáng 23/4 sẽ giúp hành khách rút ngắn thời gian di chuyển từ TP HCM đi các tỉnh miền Tây và ngược lại. Lan Anh",
+        "word_count": 44
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "summary": "Tượng Phật ngọc hòa bình thế giới 18 tấn, chạm khắc từ nguyên khối ngọc bích tại Canada năm 2000. An vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang), tượng được tạc theo khuôn mẫu đức Phật Thích Ca Mâu Ni Ấn Độ. Du khách có thể chiêm bái cùng gia đình vào dịp lễ 30/4, nơi đây mát mẻ với nhiều cây xanh và cánh đồng dưới chân núi.",
+        "word_count": 53
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          15,
+          16,
+          17
+        ],
+        "summary": "Khách du lịch trải nghiệm cưỡi mây, ngắm cảnh Châu Đốc và tham quan không gian Phật giáo. Cầu mới thông xe 23/4 giúp rút ngắn thời gian di chuyển TP HCM - miền Tây.",
+        "word_count": 26
+      }
+    ],
+    "merged_summary": "Đức Phật Thích Ca Mâu Ni được tạc từ nguyên khối ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4. Khách du lịch trải nghiệm cưỡi mây và tham quan không gian Phật giáo tại đây. Cầu mới thông xe giúp rút ngắn thời gian di chuyển TP HCM - miền Tây, nơi mát mẻ với nhiều cây xanh và cánh đồng dưới chân núi.",
+    "refined_summary": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "[1] Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia."
+          },
+          {
+            "sentence_id": 2,
+            "source_text": "[2] Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000."
+          },
+          {
+            "sentence_id": 3,
+            "source_text": "[3] Sau 8 năm, đến tháng 12/2008 thì hoàn thành."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "[4] Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ)."
+          },
+          {
+            "sentence_id": 5,
+            "source_text": "[5] Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 6,
+            "source_text": "[6] Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu."
+          },
+          {
+            "sentence_id": 7,
+            "source_text": "[7] Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma."
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "[8] Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ."
+          },
+          {
+            "sentence_id": 10,
+            "source_text": "[10] Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển."
+          },
+          {
+            "sentence_id": 11,
+            "source_text": "[11] Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 12,
+            "source_text": "[12] Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4."
   },
   "stats": {
     "planner_loop": 0,
@@ -159,5 +340,5 @@
     "chunks": 0
   },
   "input_text": "Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia. Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000. Sau 8 năm, đến tháng 12/2008 thì hoàn thành. Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ). Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới. Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu. Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma. Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ. Hình ảnh này tượng trưng cho 'sự giác ngộ, viên mãn, may mắn và bình an'. Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển. Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới. Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng. Trước đây, để lên đỉnh núi, khách hành hương thường dọn đi xe máy quanh sườn núi. Tuy nhiên, từ năm 2021, tỉnh An Giang đã đưa vào vận hành hệ thống cáp treo với tổng chiều dài 900m, với 37 cabin, mỗi cabin có sức chứa 8 hành khách vận hành liên tục. Khách du lịch sẽ được trải nghiệm cảm giác cưỡi mây ngắm toàn cảnh Châu Đốc và đắm mình trong không gian Phật giáo thanh bình. Đặc biệt cầu Châu Đốc vừa thông xe sáng 23/4 sẽ giúp hành khách rút ngắn thời gian di chuyển từ TP HCM đi các tỉnh miền Tây và ngược lại. Lan Anh",
-  "last_updated": "2026-03-28T00:17:50.806271"
+  "last_updated": "2026-03-30T04:52:27.644199"
 }

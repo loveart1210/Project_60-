@@ -5,41 +5,36 @@
         {
           "step_id": "step_1",
           "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.",
-          "tool": "word_tokenize, sent_tokenize, chunk_text",
-          "expected_output": "Danh sách chunks chứa các segment của văn bản"
+          "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.",
+          "tool": "word_tokenize, sent_tokenize, chunk_text"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.",
-          "tool": "summarize_chunk",
-          "expected_output": "Danh sách các bản tóm tắt gộp"
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.",
+          "tool": "summarize_chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một",
-          "description": "Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.",
-          "tool": "merge_summaries",
-          "expected_output": "Bản tóm tắt gộp"
+          "name": "Gộp các bản tóm tắt lại thành một summary lớn",
+          "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.",
+          "tool": "merge_summaries"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-          "description": "Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.",
-          "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt đã được refinement"
+          "name": "Tinh chỉnh phong cách cho summary lớn",
+          "description": "Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.",
+          "tool": "refine_summary"
         },
         {
           "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-          "description": "Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.",
-          "tool": "verify_claim",
-          "expected_output": "Bản tóm tắt đã được kiểm chứng"
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+          "description": "Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.",
+          "tool": "verify_claim"
         }
       ],
       "total_steps": 5,
-      "notes": "Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap."
+      "notes": "Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước."
     }
   }
 }

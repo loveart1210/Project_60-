@@ -4,42 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Grouping sentences into chunks",
-          "description": "Tách văn bản thành các đoạn (chunks) phù hợp với thông tin cần tóm tắt.",
-          "tool": "chunk_text",
-          "expected_output": "Danh sách các chunk đã nhóm"
+          "name": "Xác định các chunk chính",
+          "description": "Tách văn bản thành nhiều chunks thông qua word_tokenize và sent_tokenize, sau đó nhóm lại những đoạn liên quan đến hộp bánh trung thu.",
+          "tool": "word_tokenize, sent_tokenize, chunk_text",
+          "expected_output": "Danh sách các chunk chứa thông tin chính về hộp bánh trung thu"
         },
         {
           "step_id": "step_2",
-          "name": "Summarizing each chunk using LLM",
-          "description": "Tạo bản tóm tắt cho từng đoạn (chunk) thông qua hệ thống AI.",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Đưa mỗi chunk vào summarization model để tóm tắt, tạo ra bản tóm tắt ngắn gọn.",
           "tool": "summarize_chunk",
-          "expected_output": "Danh sách các bản tóm tắt đã tạo"
+          "expected_output": "Một bản tóm tắt của mỗi chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Merging summaries into one summary",
-          "description": "Gộp tất cả các bản tóm tắt thành một bản tổng hợp.",
+          "name": "Gộp các bản tóm tắt lại thành một đoạn văn tổng quát",
+          "description": "Tổng hợp tất cả các bản tóm tắt đã được tạo ra để tạo nên một đoạn văn ngắn gọn và tổng quan về hộp bánh trung thu.",
           "tool": "merge_summaries",
-          "expected_output": "Bản tóm tắt tổng thể"
+          "expected_output": "Bản tóm tắt gộp của toàn bộ chunks"
         },
         {
           "step_id": "step_4",
-          "name": "Refining summary to improve readability and style",
-          "description": "Tinh chỉnh văn phong và ngữ cảnh của bản tóm tắt để phù hợp với định dạng news_brief.",
+          "name": "Tinh chỉnh phong cách cho bản tổng kết",
+          "description": "Refine đoạn văn tổng quan để phù hợp với phong cách news_brief, đảm bảo thông tin chính vẫn được giữ lại.",
           "tool": "refine_summary",
-          "expected_output": "Bản tổng kết đã được tinh chỉnh"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Verification of claims against original text",
-          "description": "Kiểm tra lại các tuyên bố trong bản tóm tắt với văn bản gốc để đảm bảo không thay đổi thông tin chính.",
-          "tool": "verify_claim",
-          "expected_output": "Bản tổng kết đã được kiểm chứng"
+          "expected_output": "Bản tóm tắt gộp đã được refine"
         }
       ],
-      "total_steps": 5,
-      "notes": "Ghi chú: Có thể cần thêm bước tùy thuộc vào độ phức tạp của văn bản và yêu cầu cụ thể."
+      "total_steps": 4,
+      "notes": "Đảm bảo độ dài tổng kết nằm trong khoảng từ 150 đến 250 từ, không quá 20% so với văn bản gốc."
     }
   }
 }

@@ -3,34 +3,41 @@
     "tasks": [
       {
         "step_id": "step_1",
-        "name": "Tách văn bản thành câu và nhóm chunk",
-        "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng thành chunks thông qua chunk_text.",
-        "tool": "word_tokenize, chunk_text",
-        "expected_output": "Danh sách các chunks chứa từ khóa chính của văn bản"
+        "name": "Chunking văn bản gốc",
+        "description": "Tách văn bản gốc thành các chunks phù hợp với thông tin cần tóm tắt.",
+        "tool": "chunk_text",
+        "expected_output": "Danh sách các chunk"
       },
       {
         "step_id": "step_2",
         "name": "Tóm tắt từng chunk bằng LLM",
-        "description": "Đưa mỗi chunk vào summarization model để tóm tắt, tạo ra một bản tóm tắt ngắn gọn.",
+        "description": "Gọi API để tóm tắt mỗi chunk thông qua mô hình lớn.",
         "tool": "summarize_chunk",
-        "expected_output": "Danh sách các bản tóm tắt của chunks"
+        "expected_output": "Bản tóm tắt của mỗi chunk"
       },
       {
         "step_id": "step_3",
-        "name": "Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
-        "description": "Tổng hợp tất cả những bản tóm tắt vừa được tạo ra, kết nối chúng với nhau để tạo nên một bản tóm tắt cuối cùng.",
+        "name": "Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
+        "description": "Tổng hợp tất cả các bản tóm tắt đã được tạo ra để tạo nên bản tóm tắt tổng thể.",
         "tool": "merge_summaries",
-        "expected_output": "Bản tóm tắt tổng thể của văn bản gốc"
+        "expected_output": "Bản tóm tắt cuối cùng"
       },
       {
         "step_id": "step_4",
-        "name": "Tinh chỉnh phong cách cho bản tổng hợp",
-        "description": "Refine và điều chỉnh ngữ cảnh, từ vựng để đảm bảo rằng bản tổng hợp vẫn giữ được thông tin chính nhưng có vẻ như một bài báo news_brief.",
+        "name": "Tinh chỉnh phong cách và ngữ cảnh của đoạn văn ngắn gọn",
+        "description": "Refine summary để đảm bảo rằng nó giữ được thông tin chính nhưng vẫn phù hợp với phong cách news_brief.",
         "tool": "refine_summary",
-        "expected_output": "Bản tóm tắt đã được refinement"
+        "expected_output": "Bản tóm tắt cuối cùng đã được refinement"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng đoạn văn ngắn gọn và bản gốc",
+        "description": "Verify the summary against the original text to ensure accuracy.",
+        "tool": "verify_claim",
+        "expected_output": "Đảm bảo rằng thông tin chính trong bản tóm tắt vẫn đúng với thông tin của văn bản gốc."
       }
     ],
-    "total_steps": 4,
-    "notes": "Đảm bảo rằng mỗi bước đều tạo ra output mong đợi và tổng hợp cuối cùng không vượt quá giới hạn độ dài yêu cầu."
+    "total_steps": 5,
+    "notes": "Ghi chú thêm nếu cần"
   }
 }

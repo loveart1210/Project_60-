@@ -1,16 +1,26 @@
 {
-  "summary": "Đây là quán giải trí hiện đại SOL Skybar & Lounge tại Nguyễn Huệ, Quy Nhơn với ánh đèn LED đa sắc màu và âm nhạc sôi động. Đội ngũ đầu bếp dày dặn kinh nghiệm cung cấp thực đơn Âu - Á phong phú cùng bộ sưu tập rượu vang và cocktail.",
+  "summary": "Nguyễn Huệ, SOL Skybar & Lounge là điểm giải trí cao cấp với tầm nhìn đẹp và đa dạng trải nghiệm âm nhạc.",
   "style": "news_brief",
-  "word_count": 35,
+  "word_count": 15,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
       }
     },
     {
@@ -27,7 +37,7 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một văn bản tổng thể",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -37,7 +47,7 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho văn bản tổng thể",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng kết",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -47,28 +57,72 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng các mệnh đề trong văn bản tổng thể với văn bản gốc",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (không cần thực hiện)",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_6",
+      "evidence": "Step 6: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "step_id": "step_7",
+      "evidence": "Step 7: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "SOL Skybar & Lounge, vị trí thuận lợi trên Nguyễn Huệ, là điểm giải trí cao cấp với tầm nhìn đẹp và đa dạng trải nghiệm âm nhạc.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3,
+          "source_text": "Bước vào SOL Skybar & Lounge, du khách sẽ được hòa vào không gian thiết kế hiện đại."
+        },
+        {
+          "sentence_id": 4,
+          "source_text": "Ánh đèn LED đa sắc màu kết hợp với âm nhạc sôi động tạo nên không khí náo nhiệt, giúp giải tỏa căng thẳng."
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Đội ngũ đầu bếp dày dặn kinh nghiệm và dịch vụ chuyên nghiệp đáp ứng nhu cầu ẩm thực Âu - Á, cocktail tại SOL Skybar & Lounge ở Quy Nhơn. Không gian hiện đại với ánh đèn LED đa sắc màu kết hợp âm nhạc sôi động tạo điểm giải trí đẹp nhất trên Nguyễn Huệ cho các sự kiện lớn như đám cưới, tất niên công ty.",
-    "verification": null,
-    "edited_summary": "Đây là quán giải trí hiện đại SOL Skybar & Lounge tại Nguyễn Huệ, Quy Nhơn với ánh đèn LED đa sắc màu và âm nhạc sôi động. Đội ngũ đầu bếp dày dặn kinh nghiệm cung cấp thực đơn Âu - Á phong phú cùng bộ sưu tập rượu vang và cocktail."
+    "draft_summary": "SOL Skybar & Lounge, vị trí thuận lợi trên Nguyễn Huệ, là điểm giải trí cao cấp với tầm nhìn đẹp và đa dạng trải nghiệm âm nhạc.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "SOL Skybar & Lounge, vị trí thuận lợi trên Nguyễn Huệ, là điểm giải trí cao cấp với tầm nhìn đẹp và đa dạng trải nghiệm âm nhạc.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "source_text": "Bước vào SOL Skybar & Lounge, du khách sẽ được hòa vào không gian thiết kế hiện đại."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "Ánh đèn LED đa sắc màu kết hợp với âm nhạc sôi động tạo nên không khí náo nhiệt, giúp giải tỏa căng thẳng."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Nguyễn Huệ, SOL Skybar & Lounge là điểm giải trí cao cấp với tầm nhìn đẹp và đa dạng trải nghiệm âm nhạc."
   }
 }

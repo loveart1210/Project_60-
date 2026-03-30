@@ -4,42 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm những câu liên quan vào một chunk.",
+          "name": "Group Sentences into Chunks",
+          "description": "Nhóm các câu thành chunks dựa trên ý chính và cấu trúc ngữ nghĩa.",
           "tool": "chunk_text",
-          "expected_output": "Danh sách các chunk đã được tạo ra"
+          "expected_output": "Danh sách chunks được tạo ra"
         },
         {
           "step_id": "step_2",
-          "name": "Tóm tắt từng chunk thông qua LLM",
-          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt bằng cách sử dụng công nghệ AI.",
+          "name": "Summarize Each Chunk with LLM",
+          "description": "Tóm tắt từng chunk bằng cách sử dụng LLM với chế độ abstractive nhưng fact-grounded.",
           "tool": "summarize_chunk",
-          "expected_output": "Danh sách các bản tóm tắt đã được tạo ra"
+          "expected_output": "Mỗi bản tóm tắt của chunks"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một bản tổng thể",
-          "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo nên một bản tổng thể.",
+          "name": "Merge Summaries into a Single Summary",
+          "description": "Gộp các bản tóm tắt lại thành một bản summary tổng thể.",
           "tool": "merge_summaries",
-          "expected_output": "Bản tóm tắt đã được gộp"
+          "expected_output": "Một bản summary cuối cùng"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho bản tổng thể",
-          "description": "Refine_summary để đảm bảo rằng văn phong của đoạn văn mới phù hợp với yêu cầu là news_brief.",
+          "name": "Refine Summary for Style and Clarity",
+          "description": "Tinh chỉnh câu từ cho summary để phù hợp với phong cách news_brief và đảm bảo độ rõ ràng.",
           "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt đã được refinement"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Kiểm chứng tính chính xác của bản tổng thể so với văn bản gốc",
-          "description": "Verify_claim để đảm bảo rằng thông tin trong đoạn văn mới không thay đổi entity và vẫn đúng với nội dung ban đầu.",
-          "tool": "verify_claim",
-          "expected_output": "Dữ liệu kiểm chứng"
+          "expected_output": "Summary cuối cùng được tinh chỉnh"
         }
       ],
-      "total_steps": 5,
-      "notes": "Bước này có thể yêu cầu thêm các bước phụ tùy thuộc vào kết quả của từng bước trước đó."
+      "total_steps": 4,
+      "notes": "Giữ nguyên độ dài output nằm trong khoảng từ 150 đến 250 từ, không vượt quá 20% độ dài input."
     }
   }
 }

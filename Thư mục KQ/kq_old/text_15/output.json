@@ -1,0 +1,24 @@
+{
+  "summary": "",
+  "style": "news_brief",
+  "word_count": 0,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "split_sentences",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": null,
+    "verification": null,
+    "edited_summary": null
+  }
+}

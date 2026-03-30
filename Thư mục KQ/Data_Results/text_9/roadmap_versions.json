@@ -4,35 +4,37 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản gốc thành các câu bằng word_tokenize, sau đó nhóm chúng thành chunks thông qua chunk_text.",
-          "tool": "word_tokenize, chunk_text",
-          "expected_output": "Danh sách các chunks"
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sau đó sử dụng chunk_text để nhóm các câu thành chunks.",
+          "tool": "word_tokenize, sent_tokenize, chunk_text"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt thông tin.",
-          "tool": "summarize_chunk",
-          "expected_output": "Danh sách các bản tóm tắt"
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm. Mỗi bản tóm tắt cần đảm bảo độ dài từ 150 đến 250 từ.",
+          "tool": "summarize_chunk"
         },
         {
           "step_id": "step_3",
           "name": "Gộp nhiều bản tóm tắt lại thành một",
-          "description": "Tổng hợp tất cả bản tóm tắt từ bước 2 bằng merge_summaries.",
-          "tool": "merge_summaries",
-          "expected_output": "Một bản tóm tắt tổng thể"
+          "description": "Dùng merge_summaries để gộp các bản tóm tắt đã được tạo từ từng chunk. Kết quả là một bản tóm tắt tổng thể.",
+          "tool": "merge_summaries"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-          "description": "Refine_summary để đảm bảo văn phong phù hợp với news_brief và không thay đổi entity.",
-          "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt cuối cùng"
+          "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
+          "description": "Dùng refine_summary để tinh chỉnh các đoạn văn trong bản tóm tắt tổng thể, đảm bảo phong cách phù hợp với news_brief.",
+          "tool": "refine_summary"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem các đoạn tóm tắt tổng thể có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh sửa.",
+          "tool": "verify_claim"
         }
       ],
-      "total_steps": 4,
-      "notes": "Đảm bảo độ dài kết quả nằm trong khoảng từ 150 đến 250 từ, không quá 20% so với văn bản gốc."
+      "total_steps": 5,
+      "notes": "Ghi chú: Có thể tùy chỉnh độ dài của chunks và số lượng bản tóm tắt gộp dựa trên yêu cầu."
     }
   }
 }

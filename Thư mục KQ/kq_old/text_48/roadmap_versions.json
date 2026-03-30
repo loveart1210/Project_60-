@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Grouping sentences into chunks",
+          "description": "Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk đã nhóm"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Summarizing each chunk using LLM",
+          "description": "Tạo bản tóm tắt cho từng đoạn ngắn bằng cách sử dụng mô hình lớn (LLM).",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của mỗi chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Combining summaries into one summary",
+          "description": "Gộp các bản tóm tắt thành một bản tổng hợp.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt toàn bộ văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Refining the summary to improve readability and style",
+          "description": "Tinh chỉnh câu từ để tạo ra một bản tổng hợp dễ đọc và phù hợp với phong cách news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng đã được tinh chỉnh"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Verification of claims against the original text",
+          "description": "Kiểm chứng rằng mỗi bản tổng hợp vẫn giữ đúng thông tin và không thay đổi entity so với văn bản gốc.",
+          "tool": "verify_claim",
+          "expected_output": "Danh sách các câu đã được kiểm chứng"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Ghi chú thêm: Cần lưu ý rằng mỗi bước có thể yêu cầu một số lần thực hiện để đạt đến bản tóm tắt cuối cùng."
+    }
+  }
+}

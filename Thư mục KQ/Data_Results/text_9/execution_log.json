@@ -2,61 +2,49 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "chunking",
-    "timestamp": "2026-03-27T18:49:54.533287"
+    "output_summary": "split_sentences",
+    "timestamp": "2026-03-30T02:09:46.679216"
   },
   {
     "step_id": "step_2",
     "status": "completed",
     "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-27T18:51:50.815377"
+    "timestamp": "2026-03-30T02:10:04.123365"
   },
   {
     "step_id": "step_3",
     "status": "completed",
     "output_summary": "merge",
-    "timestamp": "2026-03-27T18:53:19.508812"
-  },
-  {
-    "step_id": "step_3",
-    "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-27T18:54:48.482747"
-  },
-  {
-    "step_id": "step_3",
-    "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-27T18:56:17.602693"
+    "timestamp": "2026-03-30T02:10:53.484939"
   },
   {
     "step_id": "step_4",
     "status": "completed",
     "output_summary": "refine",
-    "timestamp": "2026-03-27T18:57:54.211678"
+    "timestamp": "2026-03-30T02:11:41.979017"
+  },
+  {
+    "step_id": "step_4",
+    "status": "completed",
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T02:12:27.475482"
+  },
+  {
+    "step_id": "step_4",
+    "status": "completed",
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T02:13:12.002645"
   },
   {
     "step_id": "step_5",
     "status": "completed",
     "output_summary": "verify",
-    "timestamp": "2026-03-27T18:59:33.982109"
-  },
-  {
-    "step_id": "step_5",
-    "status": "completed",
-    "output_summary": "verify",
-    "timestamp": "2026-03-27T19:01:20.610132"
-  },
-  {
-    "step_id": "step_5",
-    "status": "completed",
-    "output_summary": "verify",
-    "timestamp": "2026-03-27T19:03:06.971187"
+    "timestamp": "2026-03-30T02:15:06.942317"
   },
   {
     "step_id": "step_6",
     "status": "completed",
     "output_summary": "edit",
-    "timestamp": "2026-03-27T19:04:41.437064"
+    "timestamp": "2026-03-30T02:15:15.995793"
   }
 ]

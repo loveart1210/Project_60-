@@ -1,0 +1,478 @@
+{
+  "session_id": "06c51bdd",
+  "current_phase": "execution",
+  "iteration_count": 1,
+  "roadmap_version": "v1",
+  "last_decision": "finalize",
+  "confidence_score": 0.85,
+  "style": "news_brief",
+  "input_word_count": 454,
+  "created_at": "2026-03-28T01:31:48.512183",
+  "history": [
+    {
+      "agent": "planner",
+      "action": "create_roadmap",
+      "timestamp": "2026-03-28T01:32:44.910149",
+      "result_summary": "Roadmap v1 created",
+      "details": {
+        "version": "v1"
+      }
+    },
+    {
+      "agent": "planner_observation",
+      "action": "analyze_roadmap",
+      "timestamp": "2026-03-28T01:33:35.857079",
+      "result_summary": "Observation for v1 complete"
+    },
+    {
+      "agent": "planner_reflection",
+      "action": "evaluate_roadmap",
+      "timestamp": "2026-03-28T01:33:59.600247",
+      "result_summary": "Decision: finalize (confidence: 0.85)",
+      "details": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước đều có chi tiết cụ thể. Tuy nhiên, roadmap chưa đề cập tới bước xác nhận vị trí thực khách trên toàn thế giới - đây là điểm yếu nhỏ cần sửa."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "timestamp": "2026-03-28T01:33:59.618781",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:34:52.993825",
+      "result_summary": "Observation for step 1 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:35:16.262518",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Chất lượng tốt (factual consistency ≥ 0.8 và coverage completeness ≥ 0.7) nhưng vẫn còn một số thông tin chi tiết về mục tiêu phát triển dài hạn chưa được đề cập đầy đủ."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-28T01:35:51.972890",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:36:36.567392",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:36:59.738505",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa mục tiêu mở cửa hàng.",
+          "reasoning": "Bước hiện tại chưa đạt chất lượng tốt (factual consistency < 0.8 và coverage completeness < 0.7). Độ dài summary không tuân theo yêu cầu."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-28T01:37:35.504661",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:38:20.470144",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:38:43.724022",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa mục tiêu mở cửa hàng.",
+          "reasoning": "Bước hiện tại chưa đạt chất lượng tốt (factual consistency < 0.8 và coverage completeness < 0.7). Độ dài summary không tuân theo yêu cầu."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-28T01:39:19.473114",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:40:04.011193",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:40:27.188946",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa mục tiêu mở cửa hàng.",
+          "reasoning": "Bước hiện tại chưa đạt chất lượng tốt (factual consistency < 0.8 và coverage completeness < 0.7). Độ dài summary không tuân theo yêu cầu."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-28T01:40:52.673324",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:41:34.247759",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:41:59.261219",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin về cải tiến chất lượng phục vụ và hương vị.",
+          "reasoning": "Bước hiện tại đạt mức độ tốt với sự tóm tắt chính xác mục tiêu kinh doanh nhưng thiếu chi tiết từ văn bản gốc như cải thiện chất lượng phục vụ và hương vị. Đây là bước cuối cùng, nên tiếp tục thực thi."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-28T01:42:32.965658",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:43:11.830437",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:43:35.369126",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát đầy đủ thông tin. Tuy nhiên, redundancy score thấp do có thể tóm tắt thêm một số điểm mà không làm trùng lặp nội dung."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-28T01:44:41.406916",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:45:28.414613",
+      "result_summary": "Observation for step 5 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:45:52.693771",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn: Cần bổ sung thêm thông tin mới từ văn bản gốc để tăng tính độc đáo của tóm tắt.",
+          "reasoning": "Bước hiện tại đã đạt chất lượng tốt về độ chính xác và đầy đủ (factual consistency = 0.9, coverage completeness = 0.85), nhưng vẫn cần cải thiện bằng cách thêm thông tin mới từ văn bản gốc để giảm redundancy score."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-28T01:46:15.807647",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:46:55.923239",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:47:20.493107",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về mục tiêu mở cửa hàng năm 2028 và lý giải cho việc chọn cơm niêu Thiên Lý.",
+          "reasoning": "Bước hiện tại chưa đạt chất lượng tốt (factual consistency < 0.8 hoặc coverage completeness < 0.7) và có vấn đề nghiêm trọng cần sửa chữa."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-28T01:47:43.656061",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:48:23.728852",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:48:48.274178",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về mục tiêu mở cửa hàng năm 2028 và lý giải cho việc chọn cơm niêu Thiên Lý.",
+          "reasoning": "Bước hiện tại chưa đạt chất lượng tốt (factual consistency < 0.8 hoặc coverage completeness < 0.7) và có vấn đề nghiêm trọng cần sửa chữa."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-28T01:49:11.252996",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-28T01:49:51.428916",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-28T01:50:15.946115",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về mục tiêu mở cửa hàng năm 2028 và lý giải cho việc chọn cơm niêu Thiên Lý.",
+          "reasoning": "Bước hiện tại chưa đạt chất lượng tốt (factual consistency < 0.8 hoặc coverage completeness < 0.7) và có vấn đề nghiêm trọng cần sửa chữa."
+        }
+      }
+    },
+    {
+      "agent": "manager",
+      "action": "workflow_complete",
+      "timestamp": "2026-03-28T01:50:15.951623",
+      "result_summary": "Hoàn thành toàn bộ workflow"
+    }
+  ],
+  "data_store": {
+    "chunks": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "text": "Cơm niêu vốn là món ăn truyền thống giản dị, mang đậm bản sắc văn hóa Việt Nam từ Bắc chí Nam. Chiếc niêu đất đựng cơm cũng trở thành một phần đặc trưng trong bức tranh ẩm thực nước nhà, được nhiều du khách quốc tế yêu thích. Với mong muốn đưa hương vị cơm niêu đậm bản sắc Việt vươn tầm quốc tế, chạm đến nhiều thực khách nước ngoài trên toàn thế giới, Cơm niêu Thiên Lý không ngừng cải thiện chất lượng phục vụ và hương vị. Về hương vị, nhà hàng cho biết để mỗi thực khách cảm nhận được tinh hoa văn hóa ẩm thực Việt, họ đã thu thập ý kiến, cân đo đong đếm gia vị để cho ra những món ăn hợp khẩu vị đại đa số khách hàng ở cả ba miền. Về nguyên liệu, nhà hàng kiểm tra chất lượng gạo, đảm bảo từng niêu cơm đều có độ chín vừa phải, hạt cơm mềm, nở đều và thoảng hương thơm. Với niêu cơm cháy, mặt đáy phải vàng đều, cho cảm giác giòn rụm khi ăn. Đại diện Cơm niêu Thiên Lý cho biết mỗi niêu cơm đều chứa đựng tâm ý của người nấu. Không chỉ có gạo mà còn giao hòa văn hóa truyền thống với những công thức biến tấu sáng tạo và nguyên liệu tươi ngon. Nhờ đó, mỗi món ăn Việt tại đây có thể hợp với khẩu vị cả những thực khách phương Tây. Cơm niêu Thiên Lý đặt mục tiêu đạt 300 cửa hàng trên toàn quốc vào cuối năm 2028. Đại diện nhà hàng cho biết đây sẽ là bước đệm vững chắc để hiện thực hóa giấc mơ chinh phục thị trường toàn cầu, đưa hương vị Việt Nam vươn xa trên bản đồ ẩm thực thế giới. Ngoài phục vụ món ăn truyền thống, nhà hàng còn là nơi hình thành nên cộng đồng yêu ẩm thực Việt Nam, thông qua mô hình nhượng quyền thương hiệu. Cơm niêu Thiên Lý cho biết đơn vị muốn mở ra cơ hội cho những người đam mê kinh doanh lĩnh vực ẩm thực, cùng chung tay gìn giữ và phát triển nét đẹp văn hóa truyền thống, tạo nên làn sóng ẩm thực Việt. 'Mới đây, chúng tôi có cơ hội đồng hành cùng cuộc thi Miss Grand Vietnam 2024.",
+        "word_count": 279
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          15,
+          16
+        ],
+        "text": "Thông qua cuộc thi, Cơm Niêu Thiên Lý kỳ vọng có thể giúp tôn vinh vẻ đẹp, tài năng của phụ nữ Việt Nam, đồng thời góp phần tạo dấu ấn, mở đường cho hành trình đưa cơm niêu và ẩm thực Việt ra thế giới', đại diện nhà hàng cho biết. Á Hiên",
+        "word_count": 33
+      }
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "summary": "Cơm niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng để tạo ra món ăn phù hợp khẩu vị đa số. Nhà hàng kiểm tra gạo và nguyên liệu tươi ngon, đảm bảo độ chín hạt cơm mềm nở đều. Mục tiêu là mở 300 cửa hàng trên toàn quốc vào năm 2028, đồng thời hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu.",
+        "word_count": 51
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          15,
+          16
+        ],
+        "summary": "Cơm Niêu Thiên Lý kỳ vọng cuộc thi tôn vinh phụ nữ Việt Nam và đưa ẩm thực ra thế giới.",
+        "word_count": 11
+      }
+    ],
+    "merged_summary": "Cơm Niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng. Nhà hàng kiểm tra gạo tươi ngon, mở 300 cửa hàng toàn quốc năm 2028. Mục tiêu là hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu. Cơm Niêu Thiên Lý kỳ vọng cuộc thi tôn vinh phụ nữ và đưa ẩm thực ra thế giới.",
+    "refined_summary": "Cơm Niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng. Nhà hàng kiểm tra gạo tươi ngon, mở 300 cửa hàng toàn quốc năm 2028, hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Cơm Niêu Thiên Lý cải thiện chất lượng phục vụ và hương vị, thu thập ý kiến khách hàng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "source_text": "Chiếc niêu đất đựng cơm cũng trở thành một phần đặc trưng trong bức tranh ẩm thực nước nhà, được nhiều du khách quốc tế yêu thích. Với mong muốn đưa hương vị cơm niêu đậm bản sắc Việt vươn tầm quốc tế, chạm đến nhiều thực khách nước ngoài trên toàn thế giới, Cơm niêu Thiên Lý không ngừng cải thiện chất lượng phục vụ và hương vị."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "Nhà hàng kiểm tra gạo tươi ngon.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "source_text": "Về nguyên liệu, nhà hàng kiểm tra chất lượng gạo, đảm bảo từng niêu cơm đều có độ chín vừa phải, hạt cơm mềm, nở đều và thoảng hương thơm."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "Nhà hàng mở 300 cửa hàng toàn quốc năm 2028.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 10,
+            "source_text": "Cơm niêu Thiên Lý đặt mục tiêu đạt 300 cửa hàng trên toàn quốc vào cuối năm 2028."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "Hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 12,
+            "source_text": "Nhà hàng còn là nơi hình thành nên cộng đồng yêu ẩm thực Việt Nam, thông qua mô hình nhượng quyền thương hiệu."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 5,
+        "claim_text": "",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.85
+      }
+    ],
+    "edited_summary": "Cơm Niêu Thiên Lý nâng cao chất lượng phục vụ và hương vị, thu thập phản hồi khách hàng. Nhà hàng kiểm tra gạo tươi ngon, mở 300 cửa hàng toàn quốc năm 2028, hình thành cộng đồng yêu thích ẩm thực Việt Nam thông qua mô hình nhượng quyền thương hiệu."
+  },
+  "stats": {
+    "planner_loop": 0,
+    "planner_observation_loop": 0,
+    "planner_reflection_loop": 0,
+    "execution_loop": 0,
+    "execution_observation_loop": 0,
+    "execution_reflection_loop": 0,
+    "chunks": 0
+  },
+  "input_text": "Cơm niêu vốn là món ăn truyền thống giản dị, mang đậm bản sắc văn hóa Việt Nam từ Bắc chí Nam. Chiếc niêu đất đựng cơm cũng trở thành một phần đặc trưng trong bức tranh ẩm thực nước nhà, được nhiều du khách quốc tế yêu thích. Với mong muốn đưa hương vị cơm niêu đậm bản sắc Việt vươn tầm quốc tế, chạm đến nhiều thực khách nước ngoài trên toàn thế giới, Cơm niêu Thiên Lý không ngừng cải thiện chất lượng phục vụ và hương vị. Về hương vị, nhà hàng cho biết để mỗi thực khách cảm nhận được tinh hoa văn hóa ẩm thực Việt, họ đã thu thập ý kiến, cân đo đong đếm gia vị để cho ra những món ăn hợp khẩu vị đại đa số khách hàng ở cả ba miền. Về nguyên liệu, nhà hàng kiểm tra chất lượng gạo, đảm bảo từng niêu cơm đều có độ chín vừa phải, hạt cơm mềm, nở đều và thoảng hương thơm. Với niêu cơm cháy, mặt đáy phải vàng đều, cho cảm giác giòn rụm khi ăn. Đại diện Cơm niêu Thiên Lý cho biết mỗi niêu cơm đều chứa đựng tâm ý của người nấu. Không chỉ có gạo mà còn giao hòa văn hóa truyền thống với những công thức biến tấu sáng tạo và nguyên liệu tươi ngon. Nhờ đó, mỗi món ăn Việt tại đây có thể hợp với khẩu vị cả những thực khách phương Tây. Cơm niêu Thiên Lý đặt mục tiêu đạt 300 cửa hàng trên toàn quốc vào cuối năm 2028. Đại diện nhà hàng cho biết đây sẽ là bước đệm vững chắc để hiện thực hóa giấc mơ chinh phục thị trường toàn cầu, đưa hương vị Việt Nam vươn xa trên bản đồ ẩm thực thế giới. Ngoài phục vụ món ăn truyền thống, nhà hàng còn là nơi hình thành nên cộng đồng yêu ẩm thực Việt Nam, thông qua mô hình nhượng quyền thương hiệu. Cơm niêu Thiên Lý cho biết đơn vị muốn mở ra cơ hội cho những người đam mê kinh doanh lĩnh vực ẩm thực, cùng chung tay gìn giữ và phát triển nét đẹp văn hóa truyền thống, tạo nên làn sóng ẩm thực Việt. 'Mới đây, chúng tôi có cơ hội đồng hành cùng cuộc thi Miss Grand Vietnam 2024. Thông qua cuộc thi, Cơm Niêu Thiên Lý kỳ vọng có thể giúp tôn vinh vẻ đẹp, tài năng của phụ nữ Việt Nam, đồng thời góp phần tạo dấu ấn, mở đường cho hành trình đưa cơm niêu và ẩm thực Việt ra thế giới', đại diện nhà hàng cho biết. Á Hiên",
+  "last_updated": "2026-03-28T01:49:11.250491"
+}

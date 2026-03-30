@@ -1,24 +1,208 @@
 {
-  "summary": "",
+  "summary": "Hà Nội, TP HCM và các sân bay khác có nhiều chuyến bay thẳng đến KLCC từ Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet. Thời gian bay khoảng 1-3 giờ; Johor Bahru thu hút điểm du lịch Bukit Bintang, KLCC và Chinatown với ô cho mưa bất chợt, ổ cắm chuyển đổi điện tử, SIM quốc tế và ứng dụng đặt xe công nghệ để chuyến đi thuận tiện hơn.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 54,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Hà Nội, TP HCM và các sân bay khác có nhiều chuyến bay thẳng đến KLCC từ Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 1,
+          "source_text": "Hiện Việt Nam có nhiều chuyển bay thẳng đến Kuala Lumpur từ sân bay Nội Bài, Tân Sơn Nhất, Đà Nẵng, Phú Quốc của các hãng hàng không Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Thời gian bay khoảng 1-3 giờ tùy điểm xuất phát;",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 2,
+          "source_text": "Các chuyến bay thẳng từ Hà Nội sẽ dài khoảng 3 giờ 20 phút và từ Đà Nẵng là 2 giờ 50 phút."
+        },
+        {
+          "sentence_id": 3,
+          "source_text": "Thời gian bay sang Malaysia sẽ khoảng 1 giờ 40 phút."
+        }
+      ],
+      "confidence": 0.9
+    },
+    {
+      "claim_text": "Bukit Bintang, KLCC và Chinatown là điểm du lịch lý tưởng tại Johor Bahru, Malaysia;",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 17,
+          "source_text": "Ngoài việc lên danh sách điểm đến, trong mỗi một chuyến du lịch, việc đặt phòng khách sạn cũng là điều quan trọng."
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "Các điểm vui chơi tại Malaysia cũng phong phú, trải dài khắp đất nước."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "mang ô cho mưa bất chợt, ổ cắm chuyển đổi điện tử, SIM quốc tế và ứng dụng đặt xe công nghệ để chuyến đi thuận tiện hơn.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 21,
+          "source_text": "Du khách có thể tìm đến các khu ẩm thực như Jalan Alor (Kuala Lumpur), Gurney Drive (Penang) hoặc trong các trung tâm mua sắm để thưởng thức các món ăn đa dạng của Malaysia."
+        },
+        {
+          "sentence_id": 20,
+          "source_text": "Bạn có thể tìm đến các khu ẩm thực như Jalan Alor (Kuala Lumpur), Gurney Drive (Penang) hoặc trong các trung tâm mua sắm để thưởng thức các món ăn đa dạng của Malaysia."
+        },
+        {
+          "sentence_id": 21,
+          "source_text": "Du khách có thể thưởng thức các món ăn mang đặc trưng tại quốc gia này như: thịt xiên nướng Satay, bún Laksa, bánh nướng với cà ri Roti Canai, hủ tiếu xào Char Kway Teow, cơm Nasi Lemak , chè Cendol, rau quả trộn Rojak..."
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
-    "verification": null,
-    "edited_summary": null
+    "draft_summary": "Hà Nội, TP HCM và các sân bay khác có nhiều chuyến bay thẳng đến Kuala Lumpur từ Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet. Thời gian bay khoảng 1-3 giờ tùy điểm xuất phát. Bukit Bintang, KLCC và Chinatown là điểm du lịch lý tưởng tại Johor Bahru, Malaysia; mang ô (dù) cho mưa bất chợt, ổ cắm chuyển đổi điện tử, SIM quốc tế và ứng dụng đặt xe công nghệ để chuyến đi thuận tiện hơn.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Hà Nội, TP HCM và các sân bay khác có nhiều chuyến bay thẳng đến KLCC từ Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "Hiện Việt Nam có nhiều chuyển bay thẳng đến Kuala Lumpur từ sân bay Nội Bài, Tân Sơn Nhất, Đà Nẵng, Phú Quốc của các hãng hàng không Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Thời gian bay khoảng 1-3 giờ tùy điểm xuất phát;",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "source_text": "Các chuyến bay thẳng từ Hà Nội sẽ dài khoảng 3 giờ 20 phút và từ Đà Nẵng là 2 giờ 50 phút."
+          },
+          {
+            "sentence_id": 3,
+            "source_text": "Thời gian bay sang Malaysia sẽ khoảng 1 giờ 40 phút."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_text": "Bukit Bintang, KLCC và Chinatown là điểm du lịch lý tưởng tại Johor Bahru, Malaysia;",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 17,
+            "source_text": "Ngoài việc lên danh sách điểm đến, trong mỗi một chuyến du lịch, việc đặt phòng khách sạn cũng là điều quan trọng."
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "Các điểm vui chơi tại Malaysia cũng phong phú, trải dài khắp đất nước."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "mang ô cho mưa bất chợt, ổ cắm chuyển đổi điện tử, SIM quốc tế và ứng dụng đặt xe công nghệ để chuyến đi thuận tiện hơn.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 21,
+            "source_text": "Du khách có thể tìm đến các khu ẩm thực như Jalan Alor (Kuala Lumpur), Gurney Drive (Penang) hoặc trong các trung tâm mua sắm để thưởng thức các món ăn đa dạng của Malaysia."
+          },
+          {
+            "sentence_id": 20,
+            "source_text": "Bạn có thể tìm đến các khu ẩm thực như Jalan Alor (Kuala Lumpur), Gurney Drive (Penang) hoặc trong các trung tâm mua sắm để thưởng thức các món ăn đa dạng của Malaysia."
+          },
+          {
+            "sentence_id": 21,
+            "source_text": "Du khách có thể thưởng thức các món ăn mang đặc trưng tại quốc gia này như: thịt xiên nướng Satay, bún Laksa, bánh nướng với cà ri Roti Canai, hủ tiếu xào Char Kway Teow, cơm Nasi Lemak , chè Cendol, rau quả trộn Rojak..."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Hà Nội, TP HCM và các sân bay khác có nhiều chuyến bay thẳng đến KLCC từ Vietnam Airlines, Malaysia Airlines, AirAsia, Batik Air và Vietjet. Thời gian bay khoảng 1-3 giờ; Johor Bahru thu hút điểm du lịch Bukit Bintang, KLCC và Chinatown với ô cho mưa bất chợt, ổ cắm chuyển đổi điện tử, SIM quốc tế và ứng dụng đặt xe công nghệ để chuyến đi thuận tiện hơn."
   }
 }

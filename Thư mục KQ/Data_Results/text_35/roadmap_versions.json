@@ -4,42 +4,42 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.",
-          "tool": "word_tokenize, sent_tokenize",
-          "expected_output": "Danh sách các chunks chứa từ hoặc câu"
+          "name": "Grouping sentences into chunks",
+          "description": "Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các đoạn nhóm"
         },
         {
           "step_id": "step_2",
-          "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.",
+          "name": "Summarizing each chunk using LLM",
+          "description": "Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.",
           "tool": "summarize_chunk",
-          "expected_output": "Danh sách các bản tóm tắt của chunks"
+          "expected_output": "Bản tóm tắt của mỗi đoạn"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-          "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.",
+          "name": "Merging summaries into a single summary",
+          "description": "Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.",
           "tool": "merge_summaries",
-          "expected_output": "Bản summary tổng thể"
+          "expected_output": "Bản tổng hợp ngắn gọn"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách của summary tổng thể",
-          "description": "Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.",
+          "name": "Refining the summary to improve readability and style",
+          "description": "Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.",
           "tool": "refine_summary",
-          "expected_output": "Bản summary đã được tinh chỉnh"
+          "expected_output": "Bản tổng hợp ngắn gọn và dễ đọc hơn"
         },
         {
           "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-          "description": "Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.",
+          "name": "Verifying the claims against original text for accuracy and relevance",
+          "description": "Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.",
           "tool": "verify_claim",
-          "expected_output": "Danh sách các câu đã được kiểm chứng"
+          "expected_output": "Bản tổng hợp đã được kiểm tra và chuẩn hóa"
         }
       ],
       "total_steps": 5,
-      "notes": "Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc."
+      "notes": "Giữ độ dài dưới 20% so với văn bản gốc."
     }
   }
 }

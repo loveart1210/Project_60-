@@ -1,18 +1,18 @@
 {
-  "session_id": "81081fea",
+  "session_id": "6eb83d23",
   "current_phase": "execution",
-  "iteration_count": 2,
-  "roadmap_version": "v2",
+  "iteration_count": 1,
+  "roadmap_version": "v1",
   "last_decision": "finalize",
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 555,
-  "created_at": "2026-03-27T18:00:40.020558",
+  "created_at": "2026-03-30T01:36:50.623062",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T18:01:42.269187",
+      "timestamp": "2026-03-30T01:37:19.267105",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,45 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T18:02:43.773000",
+      "timestamp": "2026-03-30T01:37:53.784585",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T18:03:11.597959",
-      "result_summary": "Decision: revise (confidence: 0.85)",
-      "details": {
-        "reflection": {
-          "coverage_score": 0.85,
-          "specificity_score": 0.72,
-          "hallucination_risk": "low",
-          "tool_utilization": "adequate",
-          "decision": "revise",
-          "revision_instructions": "Nâng cao rõ ràng cách tạo chunks từ văn bản gốc trong roadmap và thêm bước kiểm chứng thông tin về mức giá vé cáp treo Fansipan.",
-          "reasoning": "Mặc dù đã bao quát hầu hết ý chính của văn bản gốc, nhưng roadmap thiếu một số chi tiết cần thiết như cách tách chunk cụ thể. Ngoài ra, có rủi ro hallucination nếu dữ liệu đầu vào không chính xác."
-        }
-      }
-    },
-    {
-      "agent": "planner",
-      "action": "create_roadmap",
-      "timestamp": "2026-03-27T18:04:08.473503",
-      "result_summary": "Roadmap v2 created",
-      "details": {
-        "version": "v2"
-      }
-    },
-    {
-      "agent": "planner_observation",
-      "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T18:05:13.516419",
-      "result_summary": "Observation for v2 complete"
-    },
-    {
-      "agent": "planner_reflection",
-      "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T18:05:41.956108",
+      "timestamp": "2026-03-30T01:38:03.312740",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -69,26 +37,61 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát được nội dung chính của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không phát hiện rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác định giá vé cáp treo Fansipan Sa Pa từ đoạn văn gốc để hoàn thiện hơn."
+          "reasoning": "Roadmap đã bao quát đầy đủ nội dung văn bản gốc và các bước chi tiết cụ thể. Tuy nhiên, cần bổ sung thêm bước để tách câu thành sentences trước khi tiến hành chunking."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T18:05:41.959613",
+      "action": "chunking",
+      "timestamp": "2026-03-30T01:38:03.386844",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T01:38:28.624800",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T18:06:30.491634",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T01:39:01.412642",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T18:06:51.364077",
+      "timestamp": "2026-03-30T01:39:15.473918",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.85,
+          "coverage_completeness": 0.7,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung thông tin về ưu đãi và chương trình kích cầu du lịch tại Sa Pa. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng vẫn còn thiếu một số chi tiết quan trọng, dẫn đến độ bao quát chưa đủ."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T01:39:38.919000",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:40:02.302262",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:40:12.164451",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -97,109 +100,191 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi đã tách các đoạn văn thành nhiều đoạn nhỏ, giữ nguyên nội dung chính và đạt chất lượng tốt (factual consistency = 0.9). Đây là bước cuối cùng nên tiếp tục đến bước kế tiếp."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output tóm tắt không chứa fact mới hoặc bị thiếu từ văn bản gốc, chính xác với nội dung đã được tổng hợp.",
+          "reasoning": "Lý do quyết định: Bước thực thi đạt chất lượng tốt (factual consistency = 0.9 và coverage completeness = 0.85), đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T01:40:30.561703",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:40:54.462343",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:41:05.747065",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng cần bổ sung chi tiết về các ưu đãi cụ thể tại Sa Pa từ Công ty Cáp treo Fansipan Sa Pa, Lào Cai. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng còn thiếu chi tiết về các ưu đãi cụ thể và cần bổ sung thêm thông tin để đảm bảo độ bao quát."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T01:41:24.837056",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:42:06.846860",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:42:20.927032",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã lược bỏ một số chi tiết cụ thể như giảm giá vé cho du khách Việt Nam, vườn đá Tả Phìn và vườn hồng Mộng Mơ miễn phí vé. Execution Agent cần bổ sung thêm thông tin này vào tóm tắt.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9) nhưng còn thiếu một số chi tiết cụ thể, dẫn đến redundancy score thấp hơn."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T01:45:58.487933",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T01:46:12.918672",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T01:46:33.952034",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T01:46:45.698850",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa thêm thông tin mới từ văn bản gốc, cần bổ sung thêm fact hoặc content mới. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Quality assessment đánh giá Output đạt chất lượng tốt nhưng factual accuracy chỉ ở mức độ vừa phải (Output không chứa fact mới từ văn bản gốc). Bước tiếp theo cần bổ sung thêm thông tin."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T18:06:51.373093",
+      "timestamp": "2026-03-30T01:46:45.703006",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
+    "chunks": [
       {
-        "sentence_id": 1,
-        "text": "Ngày 29/10, tại Khu du lịch Sun World Fansipan Legend, Hiệp hội Du lịch tỉnh Lào Cai công bố chương trình kích cầu du lịch lớn nhất năm với chủ đề 'Chạm Sa Pa - Chạm những tầng mây', diễn ra từ 2/11 đến 30/12."
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "text": "Ngày 29/10, tại Khu du lịch Sun World Fansipan Legend, Hiệp hội Du lịch tỉnh Lào Cai công bố chương trình kích cầu du lịch lớn nhất năm với chủ đề 'Chạm Sa Pa - Chạm những tầng mây', diễn ra từ 2/11 đến 30/12. Trong thời gian này, 130 doanh nghiệp tại Sa Pa sẽ cung cấp nhiều ưu đãi lên đến 50% và cam kết đảm bảo chất lượng dịch vụ. Theo đó, Công ty Cáp treo Fansipan Sa Pa (Khu du lịch Sun World Fansipan Legend) áp dụng đồng giá vé cáp treo hai chiều Fansipan chỉ còn 550. 000 đồng cho du khách Việt Nam. Mức giá này giảm 30% so với giá gốc. Du khách có thể khám phá đỉnh Fansipan, chiêm ngưỡng kiến trúc tâm linh và tham gia các hoạt động văn hóa của 7 dân tộc thiểu số Tây Bắc tại Bản Mây. Nhiều điểm du lịch khác tại Sa Pa cũng miễn phí vé tham quan và cung cấp ưu đãi hấp dẫn. Trong đó, vườn đá Tả Phìn và vườn hồng Mộng Mơ miễn phí vé, Khu du lịch Cát Cát miễn phí trải nghiệm ẩm thực Tây Bắc cùng các hoạt động vẽ sáp ong, xe lanh, dệt vải... với bà con dân bản. Các khách sạn như Chaulong Sapa, Amazing Sapa, Vườn Sa Pa, Arista Sa Pa và Le Bordeaux Sapa áp dụng giảm giá phòng trực tiếp tới 50%. Hotel de la Coupole và Lady Hill Sapa Resort có nhiều ưu đãi về dịch vụ ăn uống, spa. Một số nhà xe như Inter Bus Lines và Eco Sa Pa cũng giảm giá vé xe khứ hồi đến 30%, cung cấp đa dạng hình thức di chuyển từ xe limousine đến xe lớn. Ông Phạm Cao Vỹ, đại diện Hiệp hội Du lịch tỉnh Lào Cai nhấn mạnh sự cần thiết của việc kích cầu du lịch để phục hồi ngành sau ảnh hưởng nặng nề của bão lũ. Ông kêu gọi tất cả doanh nghiệp du lịch trên địa bàn tham gia nhằm tạo sức bật cho du lịch Sa Pa phát triển mạnh mẽ vào giai đoạn cuối năm 2024. Ông Nguyễn Xuân Chiến, Phó chủ tịch Sun Group Vùng Miền Bắc, cho biết trước đây chương trình kích cầu 'Đến Sa Pa - Bay giữa mùa hoa' thành công ngoài mong đợi. 'Lần này, thông qua chính sách ưu đãi sâu, chúng tôi hy vọng thu hút đông đảo du khách đến Sa Pa để khám phá vẻ đẹp độc đáo của mùa mây', ông Chiến nói.",
+        "word_count": 291
       },
       {
-        "sentence_id": 2,
-        "text": "Trong thời gian này, 130 doanh nghiệp tại Sa Pa sẽ cung cấp nhiều ưu đãi lên đến 50% và cam kết đảm bảo chất lượng dịch vụ."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Theo đó, Công ty Cáp treo Fansipan Sa Pa (Khu du lịch Sun World Fansipan Legend) áp dụng đồng giá vé cáp treo hai chiều Fansipan chỉ còn 550."
-      },
-      {
-        "sentence_id": 4,
-        "text": "000 đồng cho du khách Việt Nam."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Mức giá này giảm 30% so với giá gốc."
-      },
-      {
-        "sentence_id": 6,
-        "text": "Du khách có thể khám phá đỉnh Fansipan, chiêm ngưỡng kiến trúc tâm linh và tham gia các hoạt động văn hóa của 7 dân tộc thiểu số Tây Bắc tại Bản Mây."
-      },
-      {
-        "sentence_id": 7,
-        "text": "Nhiều điểm du lịch khác tại Sa Pa cũng miễn phí vé tham quan và cung cấp ưu đãi hấp dẫn."
-      },
-      {
-        "sentence_id": 8,
-        "text": "Trong đó, vườn đá Tả Phìn và vườn hồng Mộng Mơ miễn phí vé, Khu du lịch Cát Cát miễn phí trải nghiệm ẩm thực Tây Bắc cùng các hoạt động vẽ sáp ong, xe lanh, dệt vải..."
-      },
-      {
-        "sentence_id": 9,
-        "text": "với bà con dân bản."
-      },
-      {
-        "sentence_id": 10,
-        "text": "Các khách sạn như Chaulong Sapa, Amazing Sapa, Vườn Sa Pa, Arista Sa Pa và Le Bordeaux Sapa áp dụng giảm giá phòng trực tiếp tới 50%."
-      },
-      {
-        "sentence_id": 11,
-        "text": "Hotel de la Coupole và Lady Hill Sapa Resort có nhiều ưu đãi về dịch vụ ăn uống, spa."
-      },
-      {
-        "sentence_id": 12,
-        "text": "Một số nhà xe như Inter Bus Lines và Eco Sa Pa cũng giảm giá vé xe khứ hồi đến 30%, cung cấp đa dạng hình thức di chuyển từ xe limousine đến xe lớn."
-      },
-      {
-        "sentence_id": 13,
-        "text": "Ông Phạm Cao Vỹ, đại diện Hiệp hội Du lịch tỉnh Lào Cai nhấn mạnh sự cần thiết của việc kích cầu du lịch để phục hồi ngành sau ảnh hưởng nặng nề của bão lũ."
-      },
-      {
-        "sentence_id": 14,
-        "text": "Ông kêu gọi tất cả doanh nghiệp du lịch trên địa bàn tham gia nhằm tạo sức bật cho du lịch Sa Pa phát triển mạnh mẽ vào giai đoạn cuối năm 2024."
-      },
-      {
-        "sentence_id": 15,
-        "text": "Ông Nguyễn Xuân Chiến, Phó chủ tịch Sun Group Vùng Miền Bắc, cho biết trước đây chương trình kích cầu 'Đến Sa Pa - Bay giữa mùa hoa' thành công ngoài mong đợi."
-      },
-      {
-        "sentence_id": 16,
-        "text": "'Lần này, thông qua chính sách ưu đãi sâu, chúng tôi hy vọng thu hút đông đảo du khách đến Sa Pa để khám phá vẻ đẹp độc đáo của mùa mây', ông Chiến nói."
-      },
-      {
-        "sentence_id": 17,
-        "text": "Ngoài chính sách ưu đãi sâu, tỉnh Lào Cai và thị xã Sa Pa tổ chức nhiều sự kiện văn hóa đặc sắc nhằm mang đến trải nghiệm độc đáo cho du khách."
-      },
-      {
-        "sentence_id": 18,
-        "text": "Các hoạt động bao gồm lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí."
-      },
-      {
-        "sentence_id": 19,
-        "text": "Đặc biệt là sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên được tổ chức tại Sun World Fansipan Legend."
-      },
-      {
-        "sentence_id": 20,
-        "text": "Sa Pa đang trong mùa mây - thời điểm lý tưởng để vui chơi ngoài trời."
-      },
-      {
-        "sentence_id": 21,
-        "text": "Ban tổ chức kỳ vọng chương trình kích cầu sẽ tăng sức hút của Sa Pa và củng cố vị thế là điểm đến hàng đầu miền Bắc."
-      },
-      {
-        "sentence_id": 22,
-        "text": "Thanh Thư"
+        "chunk_id": 2,
+        "sentence_ids": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "text": "Ngoài chính sách ưu đãi sâu, tỉnh Lào Cai và thị xã Sa Pa tổ chức nhiều sự kiện văn hóa đặc sắc nhằm mang đến trải nghiệm độc đáo cho du khách. Các hoạt động bao gồm lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí. Đặc biệt là sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên được tổ chức tại Sun World Fansipan Legend. Sa Pa đang trong mùa mây - thời điểm lý tưởng để vui chơi ngoài trời. Ban tổ chức kỳ vọng chương trình kích cầu sẽ tăng sức hút của Sa Pa và củng cố vị thế là điểm đến hàng đầu miền Bắc. Thanh Thư",
+        "word_count": 80
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé xuống còn 550.000 đồng, Hiệp hội Du lịch tỉnh Lào Cai tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' từ 2/11 đến 30/12 với nhiều ưu đãi lên tới 50% cho hơn 130 doanh nghiệp tại Sa Pa.",
+        "word_count": 38
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "summary": "Ngoài chính sách ưu đãi, Lào Cai và Sa Pa tổ chức lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí. Sun World Fansipan Legend với sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên tại đây tăng sức hút du lịch mùa mây của Sa Pa.",
+        "word_count": 38
+      }
+    ],
+    "merged_summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé xuống còn 550.000 đồng, Lào Cai và Sa Pa tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' từ 2/11 đến 30/12 với nhiều ưu đãi lên tới 50% cho hơn 130 doanh nghiệp tại Sa Pa. Ngoài chính sách ưu đãi, Lào Cai và Sa Pa tổ chức lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí cùng sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên tại đây tăng sức hút du lịch mùa mây của Sa Pa.",
+    "refined_summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé cáp treo xuống còn 550.000 đồng, Lào Cai và Sa Pa tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' từ 2/11 đến 30/12 với nhiều ưu đãi lên tới 50% cho hơn 130 doanh nghiệp tại Sa Pa.",
+    "edited_summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé từ 550.000 đồng xuống còn 387.000 đồng, Lào Cai và Sa Pa tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' với ưu đãi lên tới 50% cho hơn 130 doanh nghiệp từ 2/11 đến 30/12."
   },
   "stats": {
     "planner_loop": 0,
@@ -211,5 +296,5 @@
     "chunks": 0
   },
   "input_text": "Ngày 29/10, tại Khu du lịch Sun World Fansipan Legend, Hiệp hội Du lịch tỉnh Lào Cai công bố chương trình kích cầu du lịch lớn nhất năm với chủ đề 'Chạm Sa Pa - Chạm những tầng mây', diễn ra từ 2/11 đến 30/12. Trong thời gian này, 130 doanh nghiệp tại Sa Pa sẽ cung cấp nhiều ưu đãi lên đến 50% và cam kết đảm bảo chất lượng dịch vụ. Theo đó, Công ty Cáp treo Fansipan Sa Pa (Khu du lịch Sun World Fansipan Legend) áp dụng đồng giá vé cáp treo hai chiều Fansipan chỉ còn 550.000 đồng cho du khách Việt Nam. Mức giá này giảm 30% so với giá gốc. Du khách có thể khám phá đỉnh Fansipan, chiêm ngưỡng kiến trúc tâm linh và tham gia các hoạt động văn hóa của 7 dân tộc thiểu số Tây Bắc tại Bản Mây. Nhiều điểm du lịch khác tại Sa Pa cũng miễn phí vé tham quan và cung cấp ưu đãi hấp dẫn. Trong đó, vườn đá Tả Phìn và vườn hồng Mộng Mơ miễn phí vé, Khu du lịch Cát Cát miễn phí trải nghiệm ẩm thực Tây Bắc cùng các hoạt động vẽ sáp ong, xe lanh, dệt vải... với bà con dân bản. Các khách sạn như Chaulong Sapa, Amazing Sapa, Vườn Sa Pa, Arista Sa Pa và Le Bordeaux Sapa áp dụng giảm giá phòng trực tiếp tới 50%. Hotel de la Coupole và Lady Hill Sapa Resort có nhiều ưu đãi về dịch vụ ăn uống, spa. Một số nhà xe như Inter Bus Lines và Eco Sa Pa cũng giảm giá vé xe khứ hồi đến 30%, cung cấp đa dạng hình thức di chuyển từ xe limousine đến xe lớn. Ông Phạm Cao Vỹ, đại diện Hiệp hội Du lịch tỉnh Lào Cai nhấn mạnh sự cần thiết của việc kích cầu du lịch để phục hồi ngành sau ảnh hưởng nặng nề của bão lũ. Ông kêu gọi tất cả doanh nghiệp du lịch trên địa bàn tham gia nhằm tạo sức bật cho du lịch Sa Pa phát triển mạnh mẽ vào giai đoạn cuối năm 2024. Ông Nguyễn Xuân Chiến, Phó chủ tịch Sun Group Vùng Miền Bắc, cho biết trước đây chương trình kích cầu 'Đến Sa Pa - Bay giữa mùa hoa' thành công ngoài mong đợi. 'Lần này, thông qua chính sách ưu đãi sâu, chúng tôi hy vọng thu hút đông đảo du khách đến Sa Pa để khám phá vẻ đẹp độc đáo của mùa mây', ông Chiến nói. Ngoài chính sách ưu đãi sâu, tỉnh Lào Cai và thị xã Sa Pa tổ chức nhiều sự kiện văn hóa đặc sắc nhằm mang đến trải nghiệm độc đáo cho du khách. Các hoạt động bao gồm lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí. Đặc biệt là sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên được tổ chức tại Sun World Fansipan Legend. Sa Pa đang trong mùa mây - thời điểm lý tưởng để vui chơi ngoài trời. Ban tổ chức kỳ vọng chương trình kích cầu sẽ tăng sức hút của Sa Pa và củng cố vị thế là điểm đến hàng đầu miền Bắc. Thanh Thư",
-  "last_updated": "2026-03-27T18:05:41.958614"
+  "last_updated": "2026-03-30T01:46:12.913408"
 }

@@ -1,0 +1,480 @@
+{
+  "session_id": "a9fa3036",
+  "current_phase": "execution",
+  "iteration_count": 1,
+  "roadmap_version": "v1",
+  "last_decision": "finalize",
+  "confidence_score": 0.85,
+  "style": "news_brief",
+  "input_word_count": 507,
+  "created_at": "2026-03-27T23:17:38.039575",
+  "history": [
+    {
+      "agent": "planner",
+      "action": "create_roadmap",
+      "timestamp": "2026-03-27T23:18:39.346489",
+      "result_summary": "Roadmap v1 created",
+      "details": {
+        "version": "v1"
+      }
+    },
+    {
+      "agent": "planner_observation",
+      "action": "analyze_roadmap",
+      "timestamp": "2026-03-27T23:19:44.218919",
+      "result_summary": "Observation for v1 complete"
+    },
+    {
+      "agent": "planner_reflection",
+      "action": "evaluate_roadmap",
+      "timestamp": "2026-03-27T23:20:13.982263",
+      "result_summary": "Decision: finalize (confidence: 0.85)",
+      "details": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap hiện tại bao gồm các bước chính liên quan đến việc tóm tắt văn bản gốc với mức độ bao quát tốt (coverage_score 0.85) và cụ thể, khả thi cho từng bước (specificity_score 0.75). Hallucination risk được đánh giá là low và roadmap tận dụng tool 'chunk_text' trong bước 1, đủ để tổng hợp bản tóm tắt cuối cùng."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "timestamp": "2026-03-27T23:20:14.002897",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:21:01.038164",
+      "result_summary": "Observation for step 1 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:21:24.448135",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn: Cần bổ sung dữ liệu bị thiếu ở đầu và cuối chunk thứ hai.",
+          "reasoning": "Bước hiện tại vẫn đảm bảo chất lượng tốt về độ chính xác thông tin (factual ≥ 0.8) và bao quát nội dung văn bản gốc (coverage ≥ 0.7), nhưng có vấn đề nghiêm trọng liên quan đến độ hoàn chỉnh của output."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "timestamp": "2026-03-27T23:21:24.471729",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:22:10.847995",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:22:32.217262",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại có chất lượng tốt về factual consistency và coverage completeness nhưng vẫn còn vấn đề nhỏ về redundancy score và độ dài đoạn text bị cắt bớt ở end of chunk 2."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-27T23:23:07.757147",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:23:52.862064",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:24:17.350135",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Thông tin về lễ hội Korea Travel Festa và Summer KDay cần được bổ sung vào summary.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng vẫn còn thiếu một số thông tin quan trọng, đặc biệt là chi tiết về hai sự kiện văn hóa Hàn Quốc. Điều này ảnh hưởng đến độ chính xác và bao quát của tóm tắt."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-27T23:24:52.817655",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:25:37.923404",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:26:02.392701",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Thông tin về lễ hội Korea Travel Festa và Summer KDay cần được bổ sung vào summary.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng vẫn còn thiếu một số thông tin quan trọng, đặc biệt là chi tiết về hai sự kiện văn hóa Hàn Quốc. Điều này ảnh hưởng đến độ chính xác và bao quát của tóm tắt."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-27T23:26:37.888303",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:27:22.820265",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:27:47.244262",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Thông tin về lễ hội Korea Travel Festa và Summer KDay cần được bổ sung vào summary.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt nhưng vẫn còn thiếu một số thông tin quan trọng, đặc biệt là chi tiết về hai sự kiện văn hóa Hàn Quốc. Điều này ảnh hưởng đến độ chính xác và bao quát của tóm tắt."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T23:28:10.731017",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:28:46.333294",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:29:08.501593",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin số lượng khách tham dự.",
+          "reasoning": "Bước hiện tại đã hoàn thành tốt với mức độ nhất quán và bao quát cao nhưng có thể cải thiện bằng cách thêm chi tiết về số lượng khách tham dự."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-27T23:29:41.568852",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:30:19.003598",
+      "result_summary": "Observation for step 5 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:30:43.674456",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về địa điểm tổ chức Summer K-Day.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán gần 100%, bao quát đầy đủ thông tin và không có sự trùng lặp đáng kể. Tuy nhiên, một vấn đề nhỏ liên quan đến chi tiết địa điểm cần được chỉnh sửa để phù hợp hơn."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-27T23:31:32.496768",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:32:13.796649",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:32:35.565960",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin chi tiết về Summer K-Day.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao và bao quát đủ thông tin nhưng vẫn thiếu một số chi tiết cụ thể."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-27T23:32:57.593134",
+      "result_summary": "Step 7 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:33:36.576673",
+      "result_summary": "Observation for step 7 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:34:00.068815",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về lễ hội Korea Travel Festa và sự kiện Summer K-Day.",
+          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual consistency < 0.8) và coverage completeness < 0.7 do thiếu các chi tiết địa điểm cụ thể."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-27T23:34:22.333198",
+      "result_summary": "Step 7 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:35:01.250470",
+      "result_summary": "Observation for step 7 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:35:24.619353",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về lễ hội Korea Travel Festa và sự kiện Summer K-Day.",
+          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual consistency < 0.8) và coverage completeness < 0.7 do thiếu các chi tiết địa điểm cụ thể."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-27T23:35:46.693852",
+      "result_summary": "Step 7 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T23:36:25.819310",
+      "result_summary": "Observation for step 7 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T23:36:49.316433",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về lễ hội Korea Travel Festa và sự kiện Summer K-Day.",
+          "reasoning": "Bước hiện tại không đạt chất lượng tốt (factual consistency < 0.8) và coverage completeness < 0.7 do thiếu các chi tiết địa điểm cụ thể."
+        }
+      }
+    },
+    {
+      "agent": "manager",
+      "action": "workflow_complete",
+      "timestamp": "2026-03-27T23:36:49.323946",
+      "result_summary": "Hoàn thành toàn bộ workflow"
+    }
+  ],
+  "data_store": {
+    "chunks": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "text": "Theo thỏa thuận hợp tác ký ngày 25/5, hai bên sẽ tổ chức nhiều hoạt động nhằm góp phần lan tỏa về văn hóa, du lịch. Cụ thể, Tổng cục Du lịch Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast, Vinpearl, Vincom... đến cộng đồng người Hàn tại Việt Nam và người dân tại Hàn Quốc trong tương lai. Ngược lại, Vingroup cùng Tổng cục Du lịch Hàn Quốc thúc đẩy, phát triển mảng khách du lịch khen thưởng tham quan du lịch tại nước này. Trong đó, lễ hội Korea Travel Festa và sự kiện Summer K-Day diễn ra ngày 25-26/5 tại K-Town, công viên VinWonders Wave Park, khu đô thị Vinhomes Ocean Park 2. Đây là sự kiện khởi đầu chuỗi hoạt động hợp tác giữa hai bên trong năm 2024. Korea Travel Festa tập trung vào biểu diễn nghệ thuật Kpop và Vpop, quảng bá sản phẩm dịch vụ - du lịch dành cho cộng đồng Hàn Quốc, người hâm mộ làn sóng Hallyu. Còn Summer K-Day sẽ đưa ra các hoạt động vui chơi trải nghiệm chuẩn Hàn. Chuỗi hoạt động văn hóa sẽ tiếp tục được Tổng cục Du lịch Hàn Quốc và Vingroup phối hợp nhân rộng trên toàn quốc thời gian tới. Phát biểu tại sự kiện, ông Lee Hak Ju, Phó tổng cục trưởng Tổng cục Du lịch Hàn Quốc, cho biết hai quốc gia đã thiết lập quan hệ ngoại giao vào năm 1992, đạt được thành quả hợp tác trên nhiều lĩnh vực. Giao lưu nhân dân diễn ra rất sôi động, số lượng du khách giữa hai nước vượt mức bốn triệu lượt chỉ riêng trong năm 2023. Thông qua thỏa thuận hợp tác với Vingroup, hai bên có mục tiêu chung về mở rộng giao lưu và thúc đẩy hơn nữa hợp tác du lịch, trao đổi văn hóa. Ông Nguyễn Việt Quang, Phó Chủ tịch Hội đồng Quản trị kiêm Tổng giám đốc Tập đoàn Vingroup cho biết sẽ triển khai đồng loạt sự kiện văn hóa, hoạt động trải nghiệm và loạt dịch vụ, hướng tới khách hàng, cư dân Hàn Quốc đồng thời kiện toàn sản phẩm, phục vụ tốt hơn cho cộng đồng. Theo đại diện Vinhomes, dấu ấn Hàn Quốc đã tồn tại, thể hiện khá rõ nét tại một số khu đô thị Vinhomes từ khi đi vào hoạt động. Những địa điểm này thường xuyên thu hút người Hàn tại Việt Nam hoặc người Việt yêu thích văn hóa Hàn Quốc.",
+        "word_count": 283
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          16,
+          17,
+          18
+        ],
+        "text": "Ví dụ 'phố Hàn' K-Town tại Vinhomes Ocean Park 2, công viên văn hóa K-Park tại Vinhomes Royal Island, trường học quốc tế KGS tại Vinhomes Ocean Park 1, Vinhomes Grand Park... Vingroup và các thương hiệu cùng hệ sinh thái thường xuyên tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực mang đậm phong vị 'xứ sở kim chi', thu hút hàng chục nghìn khách tham dự như như lễ hội K-Day in K-Town, K-Food Fair, K-Festival in Grand Park... Văn Hà",
+        "word_count": 59
+      }
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "summary": "Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast... đến người Hàn tại Việt Nam và ngược lại. Hai bên tổ chức lễ hội Korea Travel Festa và Summer K-Day để thúc đẩy du lịch khen thưởng tham quan, mở rộng giao lưu văn hóa giữa hai nước.",
+        "word_count": 32
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          16,
+          17,
+          18
+        ],
+        "summary": "Vingroup và các thương hiệu cùng hệ sinh thái thường xuyên tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực tại K-Town, K-Park, Grand Park thu hút hàng chục nghìn khách tham dự.",
+        "word_count": 23
+      }
+    ],
+    "merged_summary": "Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast... đến người Hàn tại Việt Nam và ngược lại thông qua lễ hội Korea Travel Festa và Summer K-Day. Vingroup tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực thu hút hàng chục nghìn khách tham dự tại các địa điểm như K-Town, K-Park, Grand Park.",
+    "refined_summary": "Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast... đến người Hàn tại Việt Nam và ngược lại thông qua lễ hội Korea Travel Festa và Summer K-Day. Vingroup tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực thu hút hàng chục nghìn khách tham dự tại các địa điểm như K-Town, Grand Park.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast... đến người Hàn tại Việt Nam và ngược lại thông qua lễ hội Korea Travel Festa và Summer K-Day.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "source_text": "Trong đó, lễ hội Korea Travel Festa và sự kiện Summer K-Day diễn ra ngày 25-26/5 tại K-Town, công viên VinWonders Wave Park, khu đô thị Vinhomes Ocean Park 2."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "Vingroup tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực thu hút hàng chục nghìn khách tham dự tại các địa điểm như K-Town, Grand Park.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 17,
+            "source_text": "[...] Vingroup và các thương hiệu cùng hệ sinh thái thường xuyên tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực mang đậm phong vị 'xứ sở kim chi', thu hút hàng chục nghìn khách tham dự như như lễ hội K-Day in K-Town, K-Food Fair, K-Festival in Grand Park...]"
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast... đến người Hàn tại Việt Nam và ngược lại thông qua lễ hội Korea Travel Festa và Summer K-Day. Vingroup tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực thu hút hàng chục nghìn khách tham dự tại các địa điểm như Grand Park và K-Town."
+  },
+  "stats": {
+    "planner_loop": 0,
+    "planner_observation_loop": 0,
+    "planner_reflection_loop": 0,
+    "execution_loop": 0,
+    "execution_observation_loop": 0,
+    "execution_reflection_loop": 0,
+    "chunks": 0
+  },
+  "input_text": "Theo thỏa thuận hợp tác ký ngày 25/5, hai bên sẽ tổ chức nhiều hoạt động nhằm góp phần lan tỏa về văn hóa, du lịch. Cụ thể, Tổng cục Du lịch Hàn Quốc hỗ trợ giới thiệu thương hiệu Vinhomes, VinFast, Vinpearl, Vincom... đến cộng đồng người Hàn tại Việt Nam và người dân tại Hàn Quốc trong tương lai. Ngược lại, Vingroup cùng Tổng cục Du lịch Hàn Quốc thúc đẩy, phát triển mảng khách du lịch khen thưởng tham quan du lịch tại nước này. Trong đó, lễ hội Korea Travel Festa và sự kiện Summer K-Day diễn ra ngày 25-26/5 tại K-Town, công viên VinWonders Wave Park, khu đô thị Vinhomes Ocean Park 2. Đây là sự kiện khởi đầu chuỗi hoạt động hợp tác giữa hai bên trong năm 2024. Korea Travel Festa tập trung vào biểu diễn nghệ thuật Kpop và Vpop, quảng bá sản phẩm dịch vụ - du lịch dành cho cộng đồng Hàn Quốc, người hâm mộ làn sóng Hallyu. Còn Summer K-Day sẽ đưa ra các hoạt động vui chơi trải nghiệm chuẩn Hàn. Chuỗi hoạt động văn hóa sẽ tiếp tục được Tổng cục Du lịch Hàn Quốc và Vingroup phối hợp nhân rộng trên toàn quốc thời gian tới. Phát biểu tại sự kiện, ông Lee Hak Ju, Phó tổng cục trưởng Tổng cục Du lịch Hàn Quốc, cho biết hai quốc gia đã thiết lập quan hệ ngoại giao vào năm 1992, đạt được thành quả hợp tác trên nhiều lĩnh vực. Giao lưu nhân dân diễn ra rất sôi động, số lượng du khách giữa hai nước vượt mức bốn triệu lượt chỉ riêng trong năm 2023. Thông qua thỏa thuận hợp tác với Vingroup, hai bên có mục tiêu chung về mở rộng giao lưu và thúc đẩy hơn nữa hợp tác du lịch, trao đổi văn hóa. Ông Nguyễn Việt Quang, Phó Chủ tịch Hội đồng Quản trị kiêm Tổng giám đốc Tập đoàn Vingroup cho biết sẽ triển khai đồng loạt sự kiện văn hóa, hoạt động trải nghiệm và loạt dịch vụ, hướng tới khách hàng, cư dân Hàn Quốc đồng thời kiện toàn sản phẩm, phục vụ tốt hơn cho cộng đồng. Theo đại diện Vinhomes, dấu ấn Hàn Quốc đã tồn tại, thể hiện khá rõ nét tại một số khu đô thị Vinhomes từ khi đi vào hoạt động. Những địa điểm này thường xuyên thu hút người Hàn tại Việt Nam hoặc người Việt yêu thích văn hóa Hàn Quốc. Ví dụ 'phố Hàn' K-Town tại Vinhomes Ocean Park 2, công viên văn hóa K-Park tại Vinhomes Royal Island, trường học quốc tế KGS tại Vinhomes Ocean Park 1, Vinhomes Grand Park... Vingroup và các thương hiệu cùng hệ sinh thái thường xuyên tổ chức nhiều hoạt động giải trí, nghệ thuật, ẩm thực mang đậm phong vị 'xứ sở kim chi', thu hút hàng chục nghìn khách tham dự như như lễ hội K-Day in K-Town, K-Food Fair, K-Festival in Grand Park... Văn Hà",
+  "last_updated": "2026-03-27T23:35:46.692852"
+}

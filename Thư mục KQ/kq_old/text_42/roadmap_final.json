@@ -1,0 +1,50 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành đoạn (chunk)",
+        "description": "Dùng word_tokenize để tách văn bản tiếng Việt thành các đoạn.",
+        "tool": "word_tokenize",
+        "expected_output": "Mảng chuỗi chứa các đoạn text"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Nhóm đoạn thành chunks (chunking)",
+        "description": "Dùng chunk_text để nhóm các đoạn tách ra thành chunks phù hợp.",
+        "tool": "chunk_text",
+        "expected_output": "Mảng chuỗi chứa các chunks text"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Tóm tắt từng chunk (summarize_chunk)",
+        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk bằng LLM.",
+        "tool": "summarize_chunk",
+        "expected_output": "Mảng chuỗi chứa các bản tóm tắt của chunks"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Gộp nhiều bản tóm tắt lại (merge_summaries)",
+        "description": "Dùng merge_summaries để gộp các bản tóm tắt thành một.",
+        "tool": "merge_summaries",
+        "expected_output": "Chuỗi text tổng hợp của tất cả chunks đã được tóm tắt"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Tinh chỉnh câu từ cho summary (refine_summary)",
+        "description": "Dùng refine_summary để tinh chỉnh các đoạn văn bản tổng hợp.",
+        "tool": "refine_summary",
+        "expected_output": "Chuỗi text đã được refinement"
+      },
+      {
+        "step_id": "step_6",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+        "description": "Dùng verify_claim để kiểm tra độ chính xác của summary so với văn bản gốc.",
+        "tool": "verify_claim",
+        "expected_output": "Mô tả kết quả kiểm chứng"
+      }
+    ],
+    "total_steps": 6,
+    "notes": "Bước xác định entity trong từng đoạn (chunk) đã được cập nhật vào bước Tách văn bản thành đoạn (chunk)"
+  }
+}

@@ -1,16 +1,16 @@
 {
-  "summary": "794.000 đồng khách sạn 5 sao trong nước; 1.858 triệu đồng Hàn Quốc, 1.146 triệu đồng Nhật Bản; vé China Southern Airlines Thâm Quyến 2.819 triệu đồng, Vietravel từ 2.667-2.682 triệu đồng; T'way Air và Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'; Traveloka hoàn tiền 100%, linh hoạt thanh toán...",
+  "summary": "Tham gia Epic Sale, Ninh Dương Lan Ngọc mong lan tỏa du lịch thông minh. Traveloka hợp tác áp dụng ưu đãi 50% cho sản phẩm toàn cầu; vé nội địa từ 781.925 đồng đến 3.682 triệu đồng, khách sạn giá từ 794.000 đồng đến 1.858 triệu đồng. Sun World và Sea Life Bangkok Ocean World áp dụng 'mua 1 tặng 1'; Traveloka giới thiệu hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt.",
   "style": "news_brief",
-  "word_count": 44,
+  "word_count": 51,
   "trace": [
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "split_sentences",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành các chunk nhỏ hơn",
+      "evidence": "Step 1: Xác định các chunk chính trong văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -27,50 +27,50 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản summary tổng hợp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản summary tổng hợp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản summary tổng hợp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
       }
     },
     {
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng lại khuyến mại hoặc ưu đãi trong Epic Sale 2024",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc để đảm bảo fidelity",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -84,11 +84,115 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Tham gia Epic Sale, Ninh Dương Lan Ngọc mong lan tỏa du lịch thông minh.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 2
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Traveloka hợp tác áp dụng ưu đãi 50% cho sản phẩm toàn cầu;",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 6
+        }
+      ],
+      "confidence": 0.98
+    },
+    {
+      "claim_text": "Vé nội địa từ 781.925 đồng đến 3.682 triệu đồng, khách sạn giá từ 794.000 đồng đến 1.858 triệu đồng.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 17,
+          "source_text": "Trong đó, vé nội địa Vietravel giá chỉ từ 781."
+        },
+        {
+          "sentence_id": 20
+        }
+      ],
+      "confidence": 0.96
+    },
+    {
+      "claim_text": "'Sun World và Sea Life Bangkok Ocean World áp dụng 'mua 1 tặng 1'; Traveloka giới thiệu hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 22
+        }
+      ],
+      "confidence": 0.97
+    },
+    {
+      "claim_text": "",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.85
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "781.925 đồng vé Vietravel, 2.819 triệu China Southern Airlines Thâm Quyến; T'way Air Hàn Quốc và Nhật Bản từ 2.667-2.682 triệu đồng. Khách sạn 5 sao trong nước giá 794.000 đồng, Hàn Quốc 1.858 triệu, Nhật Bản 1.146 triệu đồng. Sun World, The Amazing Bay và thủy cung Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'. Traveloka hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt...",
-    "verification": null,
-    "edited_summary": "794.000 đồng khách sạn 5 sao trong nước; 1.858 triệu đồng Hàn Quốc, 1.146 triệu đồng Nhật Bản; vé China Southern Airlines Thâm Quyến 2.819 triệu đồng, Vietravel từ 2.667-2.682 triệu đồng; T'way Air và Sea Life Bangkok Ocean World có ưu đãi 'mua 1 tặng 1'; Traveloka hoàn tiền 100%, linh hoạt thanh toán..."
+    "draft_summary": "Tham gia Epic Sale, Ninh Dương Lan Ngọc mong lan tỏa du lịch thông minh. Traveloka hợp tác áp dụng ưu đãi 50% cho sản phẩm toàn cầu; vé nội địa từ 781.925 đồng đến 3.682 triệu đồng, khách sạn giá từ 794.000 đồng đến 1.858 triệu đồng. Sun World và Sea Life Bangkok Ocean World áp dụng 'mua 1 tặng 1'; Traveloka giới thiệu hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Tham gia Epic Sale, Ninh Dương Lan Ngọc mong lan tỏa du lịch thông minh.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 2
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Traveloka hợp tác áp dụng ưu đãi 50% cho sản phẩm toàn cầu;",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 6
+          }
+        ],
+        "confidence": 0.98
+      },
+      {
+        "claim_text": "Vé nội địa từ 781.925 đồng đến 3.682 triệu đồng, khách sạn giá từ 794.000 đồng đến 1.858 triệu đồng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 17,
+            "source_text": "Trong đó, vé nội địa Vietravel giá chỉ từ 781."
+          },
+          {
+            "sentence_id": 20
+          }
+        ],
+        "confidence": 0.96
+      },
+      {
+        "claim_text": "'Sun World và Sea Life Bangkok Ocean World áp dụng 'mua 1 tặng 1'; Traveloka giới thiệu hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 22
+          }
+        ],
+        "confidence": 0.97
+      },
+      {
+        "claim_text": "",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.85
+      }
+    ],
+    "edited_summary": "Tham gia Epic Sale, Ninh Dương Lan Ngọc mong lan tỏa du lịch thông minh. Traveloka hợp tác áp dụng ưu đãi 50% cho sản phẩm toàn cầu; vé nội địa từ 781.925 đồng đến 3.682 triệu đồng, khách sạn giá từ 794.000 đồng đến 1.858 triệu đồng. Sun World và Sea Life Bangkok Ocean World áp dụng 'mua 1 tặng 1'; Traveloka giới thiệu hoàn tiền 100%, thay đổi lịch trình, thanh toán linh hoạt."
   }
 }

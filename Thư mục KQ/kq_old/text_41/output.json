@@ -1,0 +1,74 @@
+{
+  "summary": "Nhà hàng CoCo Grill kể câu chuyện ẩm thực qua lửa, khói và tro. Lửa là nguồn cảm hứng của bếp trưởng Võ Thành Vương, điều khiển giống như nhạc trưởng dàn nhạc. Khai vị nhẹ nhàng nướng thịt thượng hạng tại 'lửa', sau đó tẩm ướp bằng hương thơm đặc trưng từ gỗ quý tạo nên 'khói' và kết màn với tráng miệng độc đáo. Nguyên liệu địa phương đảm bảo an toàn vệ sinh, chất lượng; tôn vinh nghệ thuật nướng, là điểm đến đáng thử tại Sài Gòn với trải nghiệm đặc sắc nâng tầm ẩm thực Việt Nam trên bản đồ quốc tế.",
+  "style": "news_brief",
+  "word_count": 75,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Grouping chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarizing chunks (news_brief)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gathering summaries (merge_summaries)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refining summary (refine_summary)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Verification (verify_claim)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Nhà hàng CoCo Grill kể câu chuyện ẩm thực qua chớm, lửa, khói và tro. Lửa là nguồn cảm hứng của bếp trưởng Võ Thành Vương, điều khiển giống như nhạc trưởng dàn nhạc. Nhà hàng phục vụ món khai vị nhẹ nhàng, nướng thịt thượng hạng tại 'lửa', sau đó tẩm ướp bằng hương thơm đặc trưng từ gỗ quý tạo nên 'khói' và kết màn với tráng miệng độc đáo. Tất cả nguyên liệu địa phương đảm bảo an toàn vệ sinh và chất lượng, tôn vinh nghệ thuật nướng và vị thế là điểm đến ẩm thực đáng thử tại Sài Gòn với những trải nghiệm đặc sắc, nâng tầm ẩm thực Việt Nam trên bản đồ quốc tế.",
+    "verification": null,
+    "edited_summary": "Nhà hàng CoCo Grill kể câu chuyện ẩm thực qua lửa, khói và tro. Lửa là nguồn cảm hứng của bếp trưởng Võ Thành Vương, điều khiển giống như nhạc trưởng dàn nhạc. Khai vị nhẹ nhàng nướng thịt thượng hạng tại 'lửa', sau đó tẩm ướp bằng hương thơm đặc trưng từ gỗ quý tạo nên 'khói' và kết màn với tráng miệng độc đáo. Nguyên liệu địa phương đảm bảo an toàn vệ sinh, chất lượng; tôn vinh nghệ thuật nướng, là điểm đến đáng thử tại Sài Gòn với trải nghiệm đặc sắc nâng tầm ẩm thực Việt Nam trên bản đồ quốc tế."
+  }
+}

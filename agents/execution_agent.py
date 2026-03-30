@@ -114,6 +114,18 @@ class ExecutionAgent(BaseAgent):
     # Step implementations
     # ------------------------------------------------------------------
 
+    @staticmethod
+    def _get_retry_feedback_block(context: Dict[str, Any]) -> str:
+        """Build a prompt block with feedback from previous retry, if any."""
+        feedback = context.get("retry_feedback", "")
+        if not feedback:
+            return ""
+        return f"""
+### ⚠️ Phản hồi từ lần thử trước (BẮT BUỘC khắc phục)
+{feedback}
+Hãy đặc biệt chú ý sửa các vấn đề trên trong lần thử này.
+"""
+
     def _step_split_sentences(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """Split input text into sentences with IDs."""
         sentences = vn_tools.split_sentences(context["input_text"])
@@ -190,12 +202,11 @@ Trả về JSON:
         """Summarize each chunk individually using the 3B summarizer model."""
         chunks = context.get("chunks")
         if not chunks:
-            return {
-                "step_id": context["current_step"]["step_id"],
-                "action": "chunk_summarize",
-                "status": "failed",
-                "error": "No chunks available. Run chunking step first.",
-            }
+            # Tự động khắc phục nếu Planner Agent quên xếp task 'chunking'
+            sentences = context.get("sentences")
+            if not sentences:
+                sentences = vn_tools.split_sentences(context["input_text"])
+            chunks = vn_tools.chunk_text(sentences)
 
         compression = vn_tools.compute_compression_target(
             vn_tools.count_words(context["input_text"])
@@ -212,8 +223,9 @@ Trả về JSON:
         chunk_summaries = []
         for chunk in chunks:
             criteria = self._get_professional_criteria_prompt(f"khoảng {words_per_chunk} từ")
+            retry_block = self._get_retry_feedback_block(context)
             prompt = f"""{criteria}
-
+{retry_block}
 ### Văn bản gốc cần tóm tắt (chunk {chunk['chunk_id']}):
 {chunk['text']}
 
@@ -260,12 +272,13 @@ Trả về JSON:
 
         target_len = f"{compression['min_words']}\u2013{compression['max_words']} t\u1eeb"
         criteria = self._get_professional_criteria_prompt(target_len)
+        retry_block = self._get_retry_feedback_block(context)
         
         prompt = f"""{criteria}
         
 ### Phong cách bổ sung
 {style_instruction}
-
+{retry_block}
 ### Các đoạn tóm tắt cần gộp
 {combined}
 
@@ -302,12 +315,13 @@ Trả về JSON:
 
         target_len = f"{compression['min_words']}\u2013{compression['max_words']} t\u1eeb"
         criteria = self._get_professional_criteria_prompt(target_len)
+        retry_block = self._get_retry_feedback_block(context)
 
         prompt = f"""{criteria}
 
 ### Phong cách bổ sung
 {style_instruction}
-
+{retry_block}
 ### Bản tóm tắt cần tinh chỉnh
 {merged}
 
@@ -433,12 +447,14 @@ Hãy chỉ trả về JSON."""
 {failed_str}
 """
 
+        retry_block = self._get_retry_feedback_block(context)
+
         prompt = f"""{criteria}
 
 ### Phong cách bổ sung
 {style_instruction}
 {failed_block}
-
+{retry_block}
 ### Bản tóm tắt cần hiệu chỉnh
 {summary}
 

@@ -3,41 +3,34 @@
     "tasks": [
       {
         "step_id": "step_1",
-        "name": "Tách văn bản thành câu và nhóm thành chunks",
-        "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tạo ra các chunk phù hợp với thông tin quan trọng.",
-        "tool": null,
-        "expected_output": "Một danh sách gồm nhiều chunks"
+        "name": "Chunking văn bản gốc",
+        "description": "Nhóm các câu thành chunks dựa trên ý chính và ngữ cảnh.",
+        "tool": "chunk_text",
+        "expected_output": "Danh sách các chunk"
       },
       {
         "step_id": "step_2",
         "name": "Tóm tắt từng chunk bằng LLM",
-        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên thông tin chính.",
+        "description": "Gọi API để tóm tắt mỗi chunk thông qua mô hình lớn.",
         "tool": "summarize_chunk",
-        "expected_output": "Một bản tóm tắt cho mỗi chunk"
+        "expected_output": "Bản tóm tắt của mỗi chunk"
       },
       {
         "step_id": "step_3",
-        "name": "Gộp các bản tóm tắt thành một văn bản tổng thể",
-        "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt lại với nhau tạo ra một bản tổng hợp.",
+        "name": "Gộp các bản tóm tắt lại thành một bản tổng thể",
+        "description": "Tổng hợp tất cả các bản tóm tắt để tạo ra bản tổng quan.",
         "tool": "merge_summaries",
-        "expected_output": "Một bản tóm tắt tổng quan"
+        "expected_output": "Bản tóm tắt tổng thể"
       },
       {
         "step_id": "step_4",
-        "name": "Tinh chỉnh phong cách cho văn bản tổng thể",
-        "description": "Dùng refine_summary để tinh chỉnh và điều chỉnh ngôn ngữ của bản tổng hợp.",
+        "name": "Refine và chỉnh sửa phong cách của bản tổng thể",
+        "description": "Tinh chỉnh các câu từ để phù hợp với phong cách news_brief, đồng thời không thay đổi thông tin chính.",
         "tool": "refine_summary",
-        "expected_output": "Một bản tóm tắt với phong cách news_brief"
-      },
-      {
-        "step_id": "step_5",
-        "name": "Kiểm chứng mệnh đề trong văn bản tổng thể",
-        "description": "Dùng verify_claim để kiểm tra xem thông tin đã được giữ lại và không thay đổi entity.",
-        "tool": "verify_claim",
-        "expected_output": "Thông báo về việc các mệnh đề của văn bản gốc vẫn đúng sau khi tóm tắt"
+        "expected_output": "Bản tóm tắt cuối cùng"
       }
     ],
-    "total_steps": 5,
-    "notes": "Giữ độ dài tổng thể từ 150 đến 250 từ, không quá 20% so với input."
+    "total_steps": 4,
+    "notes": "Đảm bảo kiểm chứng các mệnh đề trong bản tổng thể với văn bản gốc để đảm bảo tính fact-grounded."
   }
 }

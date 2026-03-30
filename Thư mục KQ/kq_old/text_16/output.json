@@ -1,0 +1,114 @@
+{
+  "summary": "Phụ nữ đã kín chỗ tại Camp Château, lâu đài Quercy ở tây nam Pháp với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling mong muốn mở rộng trại hè để giúp phụ nữ có cơ hội thư giãn và hồi phục sức khỏe tinh thần, thể chất hơn. Camp Château tổ chức các hoạt động như làm nến, yoga và nằm bên hồ bơi, thu hút sự tham gia của hầu hết khách hàng. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Lượng khách tăng nhưng giá 2.178 euro cho kỳ nghỉ không tính đưa đón sân bay hay dịch vụ massage vẫn giữ ổn định để nhiều người có thể tham gia.",
+  "style": "news_brief",
+  "word_count": 90,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt mỗi chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách và độ dài summary tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề của summary với văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Phụ nữ đã kín chỗ tại Camp Château, lâu đài Quercy ở tây nam Pháp với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling mong muốn mở rộng trại hè để giúp phụ nữ có cơ hội thư giãn và hồi phục sức khỏe tinh thần, thể chất hơn. Camp Château tổ chức các hoạt động như làm nến, yoga và nằm bên hồ bơi, thu hút sự tham gia của hầu hết khách hàng. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Lượng khách tăng nhưng giá 2.178 euro cho kỳ nghỉ không tính đưa đón sân bay hay dịch vụ massage vẫn giữ ổn định để nhiều người có thể tham gia.",
+    "verification": null,
+    "edited_summary": "Phụ nữ đã kín chỗ tại Camp Château, lâu đài Quercy ở tây nam Pháp với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling mong muốn mở rộng trại hè để giúp phụ nữ có cơ hội thư giãn và hồi phục sức khỏe tinh thần, thể chất hơn. Camp Château tổ chức các hoạt động như làm nến, yoga và nằm bên hồ bơi, thu hút sự tham gia của hầu hết khách hàng. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Lượng khách tăng nhưng giá 2.178 euro cho kỳ nghỉ không tính đưa đón sân bay hay dịch vụ massage vẫn giữ ổn định để nhiều người có thể tham gia."
+  }
+}

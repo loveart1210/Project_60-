@@ -1,16 +1,16 @@
 {
-  "summary": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm. Nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice. Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo từ Epicurious Garden đến Mount Coot-tha Botanic Gardens nổi tiếng thiên nhiên. Vietjet cung cấp đường bay thẳng TP HCM-Brisbane trong 9 giờ cùng loạt dịch vụ tiện ích và chương trình ưu đãi đặc biệt nhân dịp đón hành khách thứ 200 triệu.",
+  "summary": "Brisbane, thủ phủ Queensland với khí hậu ôn hòa quanh năm và nhiều công viên vườn thực vật nổi tiếng. Hội chợ Riverside Sunday Market hút khách nhờ gian hàng thủ công, trái cây tươi và ẩm thực độc đáo. Mount Coot-tha Botanic Gardens mở cửa từ năm 1976 là vườn nhiệt đới lớn ở Brisbane cho picnic và chạy bộ. Vietjet cung cấp đường bay TP HCM-Brisbane trong 9 giờ với dịch vụ tiện ích ưu đãi.",
   "style": "news_brief",
-  "word_count": 77,
+  "word_count": 55,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -27,37 +27,17 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng quan",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho đoạn văn tóm tắt",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách của tổng hợp",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -67,156 +47,28 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (nếu cần)",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
     }
   ],
-  "verification_report": [
-    {
-      "claim_id": 1,
-      "claim_text": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm.",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 2
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_text": "Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice.",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 3
-        },
-        {
-          "sentence_id": 9
-        },
-        {
-          "sentence_id": 12
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_text": "Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo từ Epicurious Garden đến Mount Coot-tha Botanic Gardens nổi tiếng thiên nhiên.",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 15
-        },
-        {
-          "sentence_id": 20
-        }
-      ],
-      "confidence": 0.95
-    },
-    {
-      "claim_text": "Vietjet cung cấp đường bay thẳng TP HCM-Brisbane trong 9 giờ cùng loạt dịch vụ tiện ích và chương trình ưu đãi đặc biệt nhân dịp đón hành khách thứ 200 triệu.",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 13
-        },
-        {
-          "sentence_id": 18
-        }
-      ],
-      "confidence": 0.95
-    }
-  ],
+  "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm. Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice. Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo từ Epicurious Garden đến Mount Coot-tha Botanic Gardens nổi tiếng thiên nhiên. Vietjet cung cấp đường bay thẳng TP HCM-Brisbane trong 9 giờ cùng loạt dịch vụ tiện ích và chương trình ưu đãi đặc biệt nhân dịp đón hành khách thứ 200 triệu.",
-    "verification": [
-      {
-        "claim_id": 1,
-        "claim_text": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm.",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 2
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_text": "Thành phố có nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice.",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 3
-          },
-          {
-            "sentence_id": 9
-          },
-          {
-            "sentence_id": 12
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_text": "Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo từ Epicurious Garden đến Mount Coot-tha Botanic Gardens nổi tiếng thiên nhiên.",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 15
-          },
-          {
-            "sentence_id": 20
-          }
-        ],
-        "confidence": 0.95
-      },
-      {
-        "claim_text": "Vietjet cung cấp đường bay thẳng TP HCM-Brisbane trong 9 giờ cùng loạt dịch vụ tiện ích và chương trình ưu đãi đặc biệt nhân dịp đón hành khách thứ 200 triệu.",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 13
-          },
-          {
-            "sentence_id": 18
-          }
-        ],
-        "confidence": 0.95
-      }
-    ],
-    "edited_summary": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm. Nhiều công viên và vườn thực vật nổi tiếng như South Bank Parklands, Roma Street Parkland và Brisbane City Botanic Gardens bảo tồn hàng nghìn loài cây quý hiếm trên trục đường Alice. Hội chợ Riverside Sunday Market hút du khách với gian hàng thủ công, trái cây tươi và ẩm thực độc đáo từ Epicurious Garden đến Mount Coot-tha Botanic Gardens nổi tiếng thiên nhiên. Vietjet cung cấp đường bay thẳng TP HCM-Brisbane trong 9 giờ cùng loạt dịch vụ tiện ích và chương trình ưu đãi đặc biệt nhân dịp đón hành khách thứ 200 triệu."
+    "draft_summary": "Brisbane, thành phố lớn thứ ba của Australia với khí hậu ôn hòa quanh năm và nhiều công viên vườn thực vật nổi tiếng. Hội chợ Riverside Sunday Market hút khách nhờ gian hàng thủ công, trái cây tươi và ẩm thực độc đáo. Mount Coot-tha Botanic Gardens mở cửa từ năm 1976 là vườn nhiệt đới lớn ở Brisbane cho picnic và chạy bộ. Vietjet cung cấp đường bay TP HCM-Brisbane trong 9 giờ với dịch vụ tiện ích ưu đãi.",
+    "verification": null,
+    "edited_summary": "Brisbane, thủ phủ Queensland với khí hậu ôn hòa quanh năm và nhiều công viên vườn thực vật nổi tiếng. Hội chợ Riverside Sunday Market hút khách nhờ gian hàng thủ công, trái cây tươi và ẩm thực độc đáo. Mount Coot-tha Botanic Gardens mở cửa từ năm 1976 là vườn nhiệt đới lớn ở Brisbane cho picnic và chạy bộ. Vietjet cung cấp đường bay TP HCM-Brisbane trong 9 giờ với dịch vụ tiện ích ưu đãi."
   }
 }

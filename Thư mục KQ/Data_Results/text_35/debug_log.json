@@ -1,77 +1,77 @@
 {
-  "generated_at": "2026-03-27T23:40:30.364690",
-  "total_entries": 62,
+  "generated_at": "2026-03-30T04:32:32.727920",
+  "total_entries": 91,
   "none_count": 0,
   "logs": [
     {
-      "timestamp": "2026-03-27T23:37:54.436869",
+      "timestamp": "2026-03-30T04:27:26.511149",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 336 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.\",\n        \"tool\": \"word_tokenize, sent_tokenize\",\n        \"expected_output\": \"Danh sách các chunks chứa từ hoặc câu\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt của chunks\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một summary tổng thể\",\n        \"description\": \"Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản summary tổng thể\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách của summary tổng thể\",\n        \"description\": \"Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản summary đã được tinh chỉnh\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc\",\n        \"description\": \"Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Danh sách các câu đã được kiểm chứng\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.\",\n        \"tool\": \"chunk_text\",\n        \"expected_output\": \"Danh sách các đoạn nhóm\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Summarizing each chunk using LLM\",\n        \"description\": \"Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Bản tóm tắt của mỗi đoạn\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Merging summaries into a single summary\",\n        \"description\": \"Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tổng hợp ngắn gọn\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Refining the summary to improve readability and style\",\n        \"description\": \"Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tổng hợp ngắn gọn và dễ đọc hơn\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Verifying the claims against original text for accuracy and relevance\",\n        \"description\": \"Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Bản tổng hợp đã được kiểm tra và chuẩn hóa\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài dưới 20% so với văn bản gốc.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:37:54.436869",
+      "timestamp": "2026-03-30T04:27:26.511149",
       "step_name": "Planner Agent._call_llm",
       "agent_name": "Planner Agent",
       "phase": "agent_llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 336 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.\",\n        \"tool\": \"word_tokenize, sent_tokenize\",\n        \"expected_output\": \"Danh sách các chunks chứa từ hoặc câu\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt của chunks\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một summary tổng thể\",\n        \"description\": \"Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản summary tổng thể\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách của summary tổng thể\",\n        \"description\": \"Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản summary đã được tinh chỉnh\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc\",\n        \"description\": \"Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Danh sách các câu đã được kiểm chứng\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.\",\n        \"tool\": \"chunk_text\",\n        \"expected_output\": \"Danh sách các đoạn nhóm\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Summarizing each chunk using LLM\",\n        \"description\": \"Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Bản tóm tắt của mỗi đoạn\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Merging summaries into a single summary\",\n        \"description\": \"Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tổng hợp ngắn gọn\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Refining the summary to improve readability and style\",\n        \"description\": \"Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tổng hợp ngắn gọn và dễ đọc hơn\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Verifying the claims against original text for accuracy and relevance\",\n        \"description\": \"Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Bản tổng hợp đã được kiểm tra và chuẩn hóa\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Giữ độ dài dưới 20% so với văn bản gốc.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:37:54.436869",
+      "timestamp": "2026-03-30T04:27:26.511149",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản tiếng Việt thành các câu bằng ",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn (chunks) thông qua ch",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.",
-              "tool": "word_tokenize, sent_tokenize",
-              "expected_output": "Danh sách các chunks chứa từ hoặc câu"
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các đoạn nhóm"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.",
+              "name": "Summarizing each chunk using LLM",
+              "description": "Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.",
               "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt của chunks"
+              "expected_output": "Bản tóm tắt của mỗi đoạn"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-              "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.",
+              "name": "Merging summaries into a single summary",
+              "description": "Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.",
               "tool": "merge_summaries",
-              "expected_output": "Bản summary tổng thể"
+              "expected_output": "Bản tổng hợp ngắn gọn"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách của summary tổng thể",
-              "description": "Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.",
+              "name": "Refining the summary to improve readability and style",
+              "description": "Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.",
               "tool": "refine_summary",
-              "expected_output": "Bản summary đã được tinh chỉnh"
+              "expected_output": "Bản tổng hợp ngắn gọn và dễ đọc hơn"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-              "description": "Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.",
+              "name": "Verifying the claims against original text for accuracy and relevance",
+              "description": "Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.",
               "tool": "verify_claim",
-              "expected_output": "Danh sách các câu đã được kiểm chứng"
+              "expected_output": "Bản tổng hợp đã được kiểm tra và chuẩn hóa"
             }
           ],
           "total_steps": 5,
-          "notes": "Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc."
+          "notes": "Giữ độ dài dưới 20% so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -79,52 +79,52 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:37:54.436869",
+      "timestamp": "2026-03-30T04:27:26.511149",
       "step_name": "Planner Agent._call_llm_json",
       "agent_name": "Planner Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=1811",
+      "input_summary": "raw_len=1642",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.",
-              "tool": "word_tokenize, sent_tokenize",
-              "expected_output": "Danh sách các chunks chứa từ hoặc câu"
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các đoạn nhóm"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.",
+              "name": "Summarizing each chunk using LLM",
+              "description": "Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.",
               "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt của chunks"
+              "expected_output": "Bản tóm tắt của mỗi đoạn"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-              "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.",
+              "name": "Merging summaries into a single summary",
+              "description": "Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.",
               "tool": "merge_summaries",
-              "expected_output": "Bản summary tổng thể"
+              "expected_output": "Bản tổng hợp ngắn gọn"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách của summary tổng thể",
-              "description": "Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.",
+              "name": "Refining the summary to improve readability and style",
+              "description": "Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.",
               "tool": "refine_summary",
-              "expected_output": "Bản summary đã được tinh chỉnh"
+              "expected_output": "Bản tổng hợp ngắn gọn và dễ đọc hơn"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-              "description": "Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.",
+              "name": "Verifying the claims against original text for accuracy and relevance",
+              "description": "Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.",
               "tool": "verify_claim",
-              "expected_output": "Danh sách các câu đã được kiểm chứng"
+              "expected_output": "Bản tổng hợp đã được kiểm tra và chuẩn hóa"
             }
           ],
           "total_steps": 5,
-          "notes": "Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc."
+          "notes": "Giữ độ dài dưới 20% so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -132,7 +132,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:37:54.437869",
+      "timestamp": "2026-03-30T04:27:26.511149",
       "step_name": "planner_agent.run",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -142,42 +142,42 @@
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.",
-              "tool": "word_tokenize, sent_tokenize",
-              "expected_output": "Danh sách các chunks chứa từ hoặc câu"
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các đoạn nhóm"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.",
+              "name": "Summarizing each chunk using LLM",
+              "description": "Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.",
               "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt của chunks"
+              "expected_output": "Bản tóm tắt của mỗi đoạn"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-              "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.",
+              "name": "Merging summaries into a single summary",
+              "description": "Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.",
               "tool": "merge_summaries",
-              "expected_output": "Bản summary tổng thể"
+              "expected_output": "Bản tổng hợp ngắn gọn"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách của summary tổng thể",
-              "description": "Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.",
+              "name": "Refining the summary to improve readability and style",
+              "description": "Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.",
               "tool": "refine_summary",
-              "expected_output": "Bản summary đã được tinh chỉnh"
+              "expected_output": "Bản tổng hợp ngắn gọn và dễ đọc hơn"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-              "description": "Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.",
+              "name": "Verifying the claims against original text for accuracy and relevance",
+              "description": "Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.",
               "tool": "verify_claim",
-              "expected_output": "Danh sách các câu đã được kiểm chứng"
+              "expected_output": "Bản tổng hợp đã được kiểm tra và chuẩn hóa"
             }
           ],
           "total_steps": 5,
-          "notes": "Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc."
+          "notes": "Giữ độ dài dưới 20% so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -185,7 +185,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:37:54.437869",
+      "timestamp": "2026-03-30T04:27:26.511149",
       "step_name": "planning_iter1_planner",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -195,42 +195,42 @@
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại thành chunks thông qua sent_tokenize.",
-              "tool": "word_tokenize, sent_tokenize",
-              "expected_output": "Danh sách các chunks chứa từ hoặc câu"
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn (chunks) thông qua chunk_text tool.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các đoạn nhóm"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi chunk vào summarization model để tóm tắt thông tin chính.",
+              "name": "Summarizing each chunk using LLM",
+              "description": "Tóm tắt từng đoạn bằng cách sử dụng summarize_chunk tool.",
               "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt của chunks"
+              "expected_output": "Bản tóm tắt của mỗi đoạn"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-              "description": "Tổng hợp tất cả những bản tóm tắt đã được tạo ra để tạo nên một summary toàn bộ.",
+              "name": "Merging summaries into a single summary",
+              "description": "Gộp các bản tóm tắt lại thành một bản tổng hợp bằng cách sử dụng merge_summaries tool.",
               "tool": "merge_summaries",
-              "expected_output": "Bản summary tổng thể"
+              "expected_output": "Bản tổng hợp ngắn gọn"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách của summary tổng thể",
-              "description": "Sửa đổi và điều chỉnh cấu trúc, từ vựng để đảm bảo rằng summary có một ngữ cảnh phù hợp với văn bản gốc.",
+              "name": "Refining the summary to improve readability and style",
+              "description": "Tinh chỉnh bản tóm tắt bằng cách sử dụng refine_summary tool.",
               "tool": "refine_summary",
-              "expected_output": "Bản summary đã được tinh chỉnh"
+              "expected_output": "Bản tổng hợp ngắn gọn và dễ đọc hơn"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-              "description": "Sử dụng verify_claim để đảm bảo rằng thông tin chính từ văn bản gốc vẫn tồn tại và không thay đổi.",
+              "name": "Verifying the claims against original text for accuracy and relevance",
+              "description": "Kiểm chứng các tuyên bố trong bản tóm tắt với văn bản gốc bằng cách sử dụng verify_claim tool.",
               "tool": "verify_claim",
-              "expected_output": "Danh sách các câu đã được kiểm chứng"
+              "expected_output": "Bản tổng hợp đã được kiểm tra và chuẩn hóa"
             }
           ],
           "total_steps": 5,
-          "notes": "Giữ độ dài summary trong khoảng 150-250 từ, không vượt quá 20% của văn bản gốc."
+          "notes": "Giữ độ dài dưới 20% so với văn bản gốc."
         }
       },
       "output_type": "dict",
@@ -238,93 +238,163 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:38:55.923194",
+      "timestamp": "2026-03-30T04:27:42.432915",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, từ việc tách và nhóm chunk đến tạo summary tổng thể. Tuy nhiên, roadmap không đề cập tới bước xác nhận cảm hứng hoặc nguyên liệu địa phương.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu) chi tiết bằng cách sử dụng word_tokenize. Bước 2 (tóm tắt từng chunk) dùng summarization model và merge_summaries để tổng hợp summary, nhưng không có chi tiết về lựa chọn model cụ thể hoặc số lượng chunks cần tóm tắt. Bước 3 (gộp nhiều bản tóm tắt lại thành một summary tổng thể), bước 4 (tinh chỉnh phong cách của summary) và bước 5 (kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc) đều chi tiết.\",\n    \"hallucination_risk_analysis\": \"Bước 3 có rủi ro hallucination vì không xác định rõ số lượng chunks cần tóm tắt. Bước 4 cũng có rủi ro nếu chỉnh sửa quá nhiều, làm thay đổi thông tin chính từ văn bản gốc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và summarization model một cách hợp lý. Tuy nhiên, roadmap không đề cập đến chunk_text cụ thể hoặc số lượng chunks cần tóm tắt.\",\n    \"missing_steps\": [\"Bước xác nhận cảm hứng hoặc nguyên liệu địa phương\"],\n    \"strengths\": [\n      \"Roadmap chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể\",\n      \"Tận dụng tool word_tokenize, summarization model một cách hợp lý\"\n    ],\n    \"weaknesses\": [\n      \"Bước",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summaries). Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự phù hợp giữa summary với original text bằng verify_claim tool.\",\n    \"specificity_analysis\": \"Các bước trong roadmap đều có chi tiết cụ thể. Bước 1-4 liên quan trực tiếp đến quá trình tách và tạo tóm tắt văn bản. Tuy nhiên, không đề cập đến việc kiểm tra tính chính xác của summary so với original text bằng verify_claim tool.\",\n    \"hallucination_risk_analysis\": \"Không có bước nào trong roadmap có thể dẫn tới hallucinations vì tất cả đều liên quan trực tiếp đến quá trình xử lý và tạo tóm tắt văn bản mà không đưa ra bất kỳ tuyên bố mới hay giả thuyết không xác định.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như chunk_text, summarize_chunk. Tuy nhiên, roadmap thiếu verify_claim tool để kiểm tra tính chính xác của summary so với original text.\",\n    \"missing_steps\": [\"step_5: Verifying the claims against original text for accuracy and relevance\"],\n    \"strengths\": [\n      \"Roadmap bao quát được tất cả các bước cần thiết trong quá trình tạo tóm tắt văn bản.\"\n    ],\n    \"weaknesses\": [\n      \"Lack of verify_claim tool to ensure that summaries are accurate.\",\n      \"Missing step 5: Verifying the claims against original text for accuracy and relevance\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:38:55.923194",
+      "timestamp": "2026-03-30T04:27:42.432915",
       "step_name": "Planner-Observation Agent._call_llm",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản tiếng Việt thành ",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, từ việc tách và nhóm chunk đến tạo summary tổng thể. Tuy nhiên, roadmap không đề cập tới bước xác nhận cảm hứng hoặc nguyên liệu địa phương.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu) chi tiết bằng cách sử dụng word_tokenize. Bước 2 (tóm tắt từng chunk) dùng summarization model và merge_summaries để tổng hợp summary, nhưng không có chi tiết về lựa chọn model cụ thể hoặc số lượng chunks cần tóm tắt. Bước 3 (gộp nhiều bản tóm tắt lại thành một summary tổng thể), bước 4 (tinh chỉnh phong cách của summary) và bước 5 (kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc) đều chi tiết.\",\n    \"hallucination_risk_analysis\": \"Bước 3 có rủi ro hallucination vì không xác định rõ số lượng chunks cần tóm tắt. Bước 4 cũng có rủi ro nếu chỉnh sửa quá nhiều, làm thay đổi thông tin chính từ văn bản gốc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và summarization model một cách hợp lý. Tuy nhiên, roadmap không đề cập đến chunk_text cụ thể hoặc số lượng chunks cần tóm tắt.\",\n    \"missing_steps\": [\"Bước xác nhận cảm hứng hoặc nguyên liệu địa phương\"],\n    \"strengths\": [\n      \"Roadmap chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể\",\n      \"Tận dụng tool word_tokenize, summarization model một cách hợp lý\"\n    ],\n    \"weaknesses\": [\n      \"Bước",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn (chunks)",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summaries). Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự phù hợp giữa summary với original text bằng verify_claim tool.\",\n    \"specificity_analysis\": \"Các bước trong roadmap đều có chi tiết cụ thể. Bước 1-4 liên quan trực tiếp đến quá trình tách và tạo tóm tắt văn bản. Tuy nhiên, không đề cập đến việc kiểm tra tính chính xác của summary so với original text bằng verify_claim tool.\",\n    \"hallucination_risk_analysis\": \"Không có bước nào trong roadmap có thể dẫn tới hallucinations vì tất cả đều liên quan trực tiếp đến quá trình xử lý và tạo tóm tắt văn bản mà không đưa ra bất kỳ tuyên bố mới hay giả thuyết không xác định.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như chunk_text, summarize_chunk. Tuy nhiên, roadmap thiếu verify_claim tool để kiểm tra tính chính xác của summary so với original text.\",\n    \"missing_steps\": [\"step_5: Verifying the claims against original text for accuracy and relevance\"],\n    \"strengths\": [\n      \"Roadmap bao quát được tất cả các bước cần thiết trong quá trình tạo tóm tắt văn bản.\"\n    ],\n    \"weaknesses\": [\n      \"Lack of verify_claim tool to ensure that summaries are accurate.\",\n      \"Missing step 5: Verifying the claims against original text for accuracy and relevance\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:38:55.924195",
-      "step_name": "Planner-Observation Agent._call_llm_json",
-      "agent_name": "Planner-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=1437",
+      "timestamp": "2026-03-30T04:27:42.432915",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summ",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, từ việc tách và nhóm chunk đến tạo summary tổng thể. Tuy nhiên, roadmap không đề cập tới bước xác nhận cảm hứng hoặc nguyên liệu địa phương.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu) chi tiết bằng cách sử dụng word_tokenize. Bước 2 (tóm tắt từng chunk) dùng summarization model và merge_summaries để tổng hợp summary, nhưng không có chi tiết về lựa chọn model cụ thể hoặc số lượng chunks cần tóm tắt. Bước 3 (gộp nhiều bản tóm tắt lại thành một summary tổng thể), bước 4 (tinh chỉnh phong cách của summary) và bước 5 (kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc) đều chi tiết.\",\n    \"hallucination_risk_analysis\": \"Bước 3 có rủi ro hallucination vì không xác định rõ số lượng chunks cần tóm tắt. Bước 4 cũng có rủi ro nếu chỉnh sửa quá nhiều, làm thay đổi thông tin chính từ văn bản gốc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và summarization model một cách hợp lý. Tuy nhiên, roadmap không đề cập đến chunk_text cụ thể hoặc số lượng chunks cần tóm tắt.\",\n    \"missing_steps\": [\"Bước xác nhận cảm hứng hoặc nguyên liệu địa phương\"],\n    \"strengths\": [\n      \"Roadmap chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể\",\n      \"Tận dụng tool word_tokenize, summarization model một cách hợp lý\"\n    ],\n    \"weaknesses\": [\n      \"Bước",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summaries). Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự phù hợp giữa summary với original text bằng verify_claim tool.",
+          "specificity_analysis": "Các bước trong roadmap đều có chi tiết cụ thể. Bước 1-4 liên quan trực tiếp đến quá trình tách và tạo tóm tắt văn bản. Tuy nhiên, không đề cập đến việc kiểm tra tính chính xác của summary so với original text bằng verify_claim tool.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap có thể dẫn tới hallucinations vì tất cả đều liên quan trực tiếp đến quá trình xử lý và tạo tóm tắt văn bản mà không đưa ra bất kỳ tuyên bố mới hay giả thuyết không xác định.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như chunk_text, summarize_chunk. Tuy nhiên, roadmap thiếu verify_claim tool để kiểm tra tính chính xác của summary so với original text.",
+          "missing_steps": [
+            "step_5: Verifying the claims against original text for accuracy and relevance"
+          ],
+          "strengths": [
+            "Roadmap bao quát được tất cả các bước cần thiết trong quá trình tạo tóm tắt văn bản."
+          ],
+          "weaknesses": [
+            "Lack of verify_claim tool to ensure that summaries are accurate.",
+            "Missing step 5: Verifying the claims against original text for accuracy and relevance"
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
-      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+      "error": null
     },
     {
-      "timestamp": "2026-03-27T23:38:55.924195",
+      "timestamp": "2026-03-30T04:27:42.432915",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1461",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summaries). Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự phù hợp giữa summary với original text bằng verify_claim tool.",
+          "specificity_analysis": "Các bước trong roadmap đều có chi tiết cụ thể. Bước 1-4 liên quan trực tiếp đến quá trình tách và tạo tóm tắt văn bản. Tuy nhiên, không đề cập đến việc kiểm tra tính chính xác của summary so với original text bằng verify_claim tool.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap có thể dẫn tới hallucinations vì tất cả đều liên quan trực tiếp đến quá trình xử lý và tạo tóm tắt văn bản mà không đưa ra bất kỳ tuyên bố mới hay giả thuyết không xác định.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như chunk_text, summarize_chunk. Tuy nhiên, roadmap thiếu verify_claim tool để kiểm tra tính chính xác của summary so với original text.",
+          "missing_steps": [
+            "step_5: Verifying the claims against original text for accuracy and relevance"
+          ],
+          "strengths": [
+            "Roadmap bao quát được tất cả các bước cần thiết trong quá trình tạo tóm tắt văn bản."
+          ],
+          "weaknesses": [
+            "Lack of verify_claim tool to ensure that summaries are accurate.",
+            "Missing step 5: Verifying the claims against original text for accuracy and relevance"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:27:42.432915",
       "step_name": "planner_observation_agent.run",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_type=dict",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, từ việc tách và nhóm chunk đến tạo summary tổng thể. Tuy nhiên, roadmap không đề cập tới bước xác nhận cảm hứng hoặc nguyên liệu địa phương.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu) chi tiết bằng cách sử dụng word_tokenize. Bước 2 (tóm tắt từng chunk) dùng summarization model và merge_summaries để tổng hợp summary, nhưng không có chi tiết về lựa chọn model cụ thể hoặc số lượng chunks cần tóm tắt. Bước 3 (gộp nhiều bản tóm tắt lại thành một summary tổng thể), bước 4 (tinh chỉnh phong cách của summary) và bước 5 (kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc) đều chi tiết.\",\n    \"hallucination_risk_analysis\": \"Bước 3 có rủi ro hallucination vì không xác định rõ số lượng chunks cần tóm tắt. Bước 4 cũng có rủi ro nếu chỉnh sửa quá nhiều, làm thay đổi thông tin chính từ văn bản gốc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và summarization model một cách hợp lý. Tuy nhiên, roadmap không đề cập đến chunk_text cụ thể hoặc số lượng chunks cần tóm tắt.\",\n    \"missing_steps\": [\"Bước xác nhận cảm hứng hoặc nguyên liệu địa phương\"],\n    \"strengths\": [\n      \"Roadmap chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể\",\n      \"Tận dụng tool word_tokenize, summarization model một cách hợp lý\"\n    ],\n    \"weaknesses\": [\n      \"Bước",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summaries). Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự phù hợp giữa summary với original text bằng verify_claim tool.",
+          "specificity_analysis": "Các bước trong roadmap đều có chi tiết cụ thể. Bước 1-4 liên quan trực tiếp đến quá trình tách và tạo tóm tắt văn bản. Tuy nhiên, không đề cập đến việc kiểm tra tính chính xác của summary so với original text bằng verify_claim tool.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap có thể dẫn tới hallucinations vì tất cả đều liên quan trực tiếp đến quá trình xử lý và tạo tóm tắt văn bản mà không đưa ra bất kỳ tuyên bố mới hay giả thuyết không xác định.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như chunk_text, summarize_chunk. Tuy nhiên, roadmap thiếu verify_claim tool để kiểm tra tính chính xác của summary so với original text.",
+          "missing_steps": [
+            "step_5: Verifying the claims against original text for accuracy and relevance"
+          ],
+          "strengths": [
+            "Roadmap bao quát được tất cả các bước cần thiết trong quá trình tạo tóm tắt văn bản."
+          ],
+          "weaknesses": [
+            "Lack of verify_claim tool to ensure that summaries are accurate.",
+            "Missing step 5: Verifying the claims against original text for accuracy and relevance"
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:38:55.924195",
+      "timestamp": "2026-03-30T04:27:42.432915",
       "step_name": "planning_iter1_observation",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_keys=['roadmap']",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát nội dung chính của văn bản gốc, từ việc tách và nhóm chunk đến tạo summary tổng thể. Tuy nhiên, roadmap không đề cập tới bước xác nhận cảm hứng hoặc nguyên liệu địa phương.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu) chi tiết bằng cách sử dụng word_tokenize. Bước 2 (tóm tắt từng chunk) dùng summarization model và merge_summaries để tổng hợp summary, nhưng không có chi tiết về lựa chọn model cụ thể hoặc số lượng chunks cần tóm tắt. Bước 3 (gộp nhiều bản tóm tắt lại thành một summary tổng thể), bước 4 (tinh chỉnh phong cách của summary) và bước 5 (kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc) đều chi tiết.\",\n    \"hallucination_risk_analysis\": \"Bước 3 có rủi ro hallucination vì không xác định rõ số lượng chunks cần tóm tắt. Bước 4 cũng có rủi ro nếu chỉnh sửa quá nhiều, làm thay đổi thông tin chính từ văn bản gốc.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và summarization model một cách hợp lý. Tuy nhiên, roadmap không đề cập đến chunk_text cụ thể hoặc số lượng chunks cần tóm tắt.\",\n    \"missing_steps\": [\"Bước xác nhận cảm hứng hoặc nguyên liệu địa phương\"],\n    \"strengths\": [\n      \"Roadmap chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể\",\n      \"Tận dụng tool word_tokenize, summarization model một cách hợp lý\"\n    ],\n    \"weaknesses\": [\n      \"Bước",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_chunk) và kết hợp lại (merge_summaries). Tuy nhiên, roadmap không đề cập đến việc kiểm chứng sự phù hợp giữa summary với original text bằng verify_claim tool.",
+          "specificity_analysis": "Các bước trong roadmap đều có chi tiết cụ thể. Bước 1-4 liên quan trực tiếp đến quá trình tách và tạo tóm tắt văn bản. Tuy nhiên, không đề cập đến việc kiểm tra tính chính xác của summary so với original text bằng verify_claim tool.",
+          "hallucination_risk_analysis": "Không có bước nào trong roadmap có thể dẫn tới hallucinations vì tất cả đều liên quan trực tiếp đến quá trình xử lý và tạo tóm tắt văn bản mà không đưa ra bất kỳ tuyên bố mới hay giả thuyết không xác định.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như chunk_text, summarize_chunk. Tuy nhiên, roadmap thiếu verify_claim tool để kiểm tra tính chính xác của summary so với original text.",
+          "missing_steps": [
+            "step_5: Verifying the claims against original text for accuracy and relevance"
+          ],
+          "strengths": [
+            "Roadmap bao quát được tất cả các bước cần thiết trong quá trình tạo tóm tắt văn bản."
+          ],
+          "weaknesses": [
+            "Lack of verify_claim tool to ensure that summaries are accurate.",
+            "Missing step 5: Verifying the claims against original text for accuracy and relevance"
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.433532",
+      "timestamp": "2026-03-30T04:27:48.693864",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"observation\\\": {\\n    \\\"",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát nội dung chính của văn bản gốc và chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể. Tuy nhiên, roadmap không đề cập đến bước xác nhận cảm hứng hoặc nguyên liệu địa phương nên cần thêm vào để đảm bảo toàn diện hơn.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao qu",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát được các bước chính trong quá trình tạo tóm tắt văn bản, với mức độ cụ thể và khả thi tương đối. Tuy nhiên, roadmap thiếu một bước kiểm tra tính chính xác của summary so với original text bằng verify_claim tool, điều này ảnh hưởng đến chất lượng tổng thể nhưng không làm giảm đáng kể hiệu suất.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.433532",
+      "timestamp": "2026-03-30T04:27:48.693864",
       "step_name": "Planner-Reflection Agent._call_llm",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"observation\\\": {\\n    \\\"coverage_analysis\\\": \\\"Roadmap bao quát nội dung chính của văn bản gốc, từ việc tách và nhóm chunk đ",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát nội dung chính của văn bản gốc và chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể. Tuy nhiên, roadmap không đề cập đến bước xác nhận cảm hứng hoặc nguyên liệu địa phương nên cần thêm vào để đảm bảo toàn diện hơn.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được các bước chính trong văn bản gốc, như việc tách đoạn (chunk_text), tạo tóm tắt (summarize_ch",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát được các bước chính trong quá trình tạo tóm tắt văn bản, với mức độ cụ thể và khả thi tương đối. Tuy nhiên, roadmap thiếu một bước kiểm tra tính chính xác của summary so với original text bằng verify_claim tool, điều này ảnh hưởng đến chất lượng tổng thể nhưng không làm giảm đáng kể hiệu suất.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.433532",
+      "timestamp": "2026-03-30T04:27:48.693864",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -337,7 +407,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản gốc và chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể. Tuy nhiên, roadmap không đề cập đến bước xác nhận cảm hứng hoặc nguyên liệu địa phương nên cần thêm vào để đảm bảo toàn diện hơn."
+          "reasoning": "Roadmap bao quát được các bước chính trong quá trình tạo tóm tắt văn bản, với mức độ cụ thể và khả thi tương đối. Tuy nhiên, roadmap thiếu một bước kiểm tra tính chính xác của summary so với original text bằng verify_claim tool, điều này ảnh hưởng đến chất lượng tổng thể nhưng không làm giảm đáng kể hiệu suất."
         }
       },
       "output_type": "dict",
@@ -345,11 +415,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.433532",
+      "timestamp": "2026-03-30T04:27:48.693864",
       "step_name": "Planner-Reflection Agent._call_llm_json",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=500",
+      "input_summary": "raw_len=557",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -358,7 +428,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản gốc và chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể. Tuy nhiên, roadmap không đề cập đến bước xác nhận cảm hứng hoặc nguyên liệu địa phương nên cần thêm vào để đảm bảo toàn diện hơn."
+          "reasoning": "Roadmap bao quát được các bước chính trong quá trình tạo tóm tắt văn bản, với mức độ cụ thể và khả thi tương đối. Tuy nhiên, roadmap thiếu một bước kiểm tra tính chính xác của summary so với original text bằng verify_claim tool, điều này ảnh hưởng đến chất lượng tổng thể nhưng không làm giảm đáng kể hiệu suất."
         }
       },
       "output_type": "dict",
@@ -366,7 +436,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.433532",
+      "timestamp": "2026-03-30T04:27:48.693864",
       "step_name": "planner_reflection_agent.run",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -379,7 +449,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản gốc và chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể. Tuy nhiên, roadmap không đề cập đến bước xác nhận cảm hứng hoặc nguyên liệu địa phương nên cần thêm vào để đảm bảo toàn diện hơn."
+          "reasoning": "Roadmap bao quát được các bước chính trong quá trình tạo tóm tắt văn bản, với mức độ cụ thể và khả thi tương đối. Tuy nhiên, roadmap thiếu một bước kiểm tra tính chính xác của summary so với original text bằng verify_claim tool, điều này ảnh hưởng đến chất lượng tổng thể nhưng không làm giảm đáng kể hiệu suất."
         }
       },
       "output_type": "dict",
@@ -387,11 +457,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.433532",
+      "timestamp": "2026-03-30T04:27:48.693864",
       "step_name": "planning_iter1_reflection",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
-      "input_summary": "observation_keys=['raw_response', '_parse_error']",
+      "input_summary": "observation_keys=['observation']",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -400,7 +470,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát nội dung chính của văn bản gốc và chi tiết về các bước từ việc tách và nhóm chunk tới tạo summary tổng thể. Tuy nhiên, roadmap không đề cập đến bước xác nhận cảm hứng hoặc nguyên liệu địa phương nên cần thêm vào để đảm bảo toàn diện hơn."
+          "reasoning": "Roadmap bao quát được các bước chính trong quá trình tạo tóm tắt văn bản, với mức độ cụ thể và khả thi tương đối. Tuy nhiên, roadmap thiếu một bước kiểm tra tính chính xác của summary so với original text bằng verify_claim tool, điều này ảnh hưởng đến chất lượng tổng thể nhưng không làm giảm đáng kể hiệu suất."
         }
       },
       "output_type": "dict",
@@ -408,121 +478,57 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.436555",
+      "timestamp": "2026-03-30T04:27:48.716333",
       "step_name": "execution_agent.run.step_1",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm chunk'",
+      "input_summary": "step_id=step_1, step_name='Grouping sentences into chunks'",
       "output_data": {
         "step_id": "step_1",
-        "action": "split_sentences",
-        "sentences": [
+        "action": "chunking",
+        "chunks": [
           {
-            "sentence_id": 1,
-            "text": "Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí."
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "text": "Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí. Tại đây, bếp trưởng Phi Công sẽ mời bếp trưởng Sĩ Toàn trở lại, kết hợp cùng anh cho một trải nghiệm mới. Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàu xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùm xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất). 'Việt Nam sở hữu khí hậu nhiệt đới cùng thổ nhưỡng giàu dưỡng chất, ẩm thực luôn có giá trị đa tầng về dinh dưỡng, đa dạng về hương vị, cùng những cảm giác tươi ngon đặc biệt. Do đó, tôi dễ dàng tìm kiếm và nghiên cứu được những nguyên liệu mới mẻ, hương vị khác nhau của mỗi vùng miền', bếp trưởng Phi Công chia sẻ. Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn. Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách. Giá Wine Pairing là 800. 000 đồng mỗi thực khách. Ngoài ra, Barson còn có Cocktails Pairing cũng 800. 000 đồng hoặc Mocktails Pairing (không cồn) với giá 450. 000 đồng. Số lượng chỗ ngồi được giới hạn tại Barson trong ba đêm tiệc, từ 23 đến 25/5. Thực khách có thể đặt bàn ngay để hưởng ưu đãi Early Bird của chương trình lên đến 15%, hoặc nhận các ưu đãi khi là thành viên của Marriott Bonvoy (10%) hay chủ thẻ VPBank (lên đến 20%). Chuỗi sự kiện ẩm thực bàn tiệc của bếp trưởng 'Pause + Savour' được Le Méridien Saigon khởi động từ cuối tháng 4, với bếp trưởng khách mời đầu tiên đến từ khách sạn Le Méridien Myeongdong Seoul (Hàn Quốc).",
+            "word_count": 287
           },
           {
-            "sentence_id": 2,
-            "text": "Tại đây, bếp trưởng Phi Công sẽ mời bếp trưởng Sĩ Toàn trở lại, kết hợp cùng anh cho một trải nghiệm mới."
-          },
-          {
-            "sentence_id": 3,
-            "text": "Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàu xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùm xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất)."
-          },
-          {
-            "sentence_id": 4,
-            "text": "'Việt Nam sở hữu khí hậu nhiệt đới cùng thổ nhưỡng giàu dưỡng chất, ẩm thực luôn có giá trị đa tầng về dinh dưỡng, đa dạng về hương vị, cùng những cảm giác tươi ngon đặc biệt."
-          },
-          {
-            "sentence_id": 5,
-            "text": "Do đó, tôi dễ dàng tìm kiếm và nghiên cứu được những nguyên liệu mới mẻ, hương vị khác nhau của mỗi vùng miền', bếp trưởng Phi Công chia sẻ."
-          },
-          {
-            "sentence_id": 6,
-            "text": "Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn."
-          },
-          {
-            "sentence_id": 7,
-            "text": "Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách."
-          },
-          {
-            "sentence_id": 8,
-            "text": "Giá Wine Pairing là 800."
-          },
-          {
-            "sentence_id": 9,
-            "text": "000 đồng mỗi thực khách."
-          },
-          {
-            "sentence_id": 10,
-            "text": "Ngoài ra, Barson còn có Cocktails Pairing cũng 800."
-          },
-          {
-            "sentence_id": 11,
-            "text": "000 đồng hoặc Mocktails Pairing (không cồn) với giá 450."
-          },
-          {
-            "sentence_id": 12,
-            "text": "000 đồng."
-          },
-          {
-            "sentence_id": 13,
-            "text": "Số lượng chỗ ngồi được giới hạn tại Barson trong ba đêm tiệc, từ 23 đến 25/5."
-          },
-          {
-            "sentence_id": 14,
-            "text": "Thực khách có thể đặt bàn ngay để hưởng ưu đãi Early Bird của chương trình lên đến 15%, hoặc nhận các ưu đãi khi là thành viên của Marriott Bonvoy (10%) hay chủ thẻ VPBank (lên đến 20%)."
-          },
-          {
-            "sentence_id": 15,
-            "text": "Chuỗi sự kiện ẩm thực bàn tiệc của bếp trưởng 'Pause + Savour' được Le Méridien Saigon khởi động từ cuối tháng 4, với bếp trưởng khách mời đầu tiên đến từ khách sạn Le Méridien Myeongdong Seoul (Hàn Quốc)."
-          },
-          {
-            "sentence_id": 16,
-            "text": "Bếp trưởng người Hàn này mang đến nhiều hoạt động ấn tượng cho thực khách, khi tạo ra hành trình ẩm thực kết nối văn hóa và hương vị đa quốc gia, đánh thức các giác quan với những nguyên liệu và kỹ thuật chế biến độc đáo."
-          },
-          {
-            "sentence_id": 17,
-            "text": "Thanh Thư Le Méridien SaigonĐịa chỉ: 3C Tôn Đức Thắng, quận 1, TP HCMEmail: Lemeridien."
-          },
-          {
-            "sentence_id": 18,
-            "text": "Saigon@lemeridien."
-          },
-          {
-            "sentence_id": 19,
-            "text": "comĐiện thoại: 028 6263 6688Website:www."
-          },
-          {
-            "sentence_id": 20,
-            "text": "lemeridiensaigon."
-          },
-          {
-            "sentence_id": 21,
-            "text": "comFanpage:www."
-          },
-          {
-            "sentence_id": 22,
-            "text": "facebook."
-          },
-          {
-            "sentence_id": 23,
-            "text": "com/LeMeridienSaigonFanpage Barson:www."
-          },
-          {
-            "sentence_id": 24,
-            "text": "facebook."
-          },
-          {
-            "sentence_id": 25,
-            "text": "com/Barson."
-          },
-          {
-            "sentence_id": 26,
-            "text": "sgn"
+            "chunk_id": 2,
+            "sentence_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ],
+            "text": "Bếp trưởng người Hàn này mang đến nhiều hoạt động ấn tượng cho thực khách, khi tạo ra hành trình ẩm thực kết nối văn hóa và hương vị đa quốc gia, đánh thức các giác quan với những nguyên liệu và kỹ thuật chế biến độc đáo. Thanh Thư Le Méridien SaigonĐịa chỉ: 3C Tôn Đức Thắng, quận 1, TP HCMEmail: Lemeridien. Saigon@lemeridien. comĐiện thoại: 028 6263 6688Website:www. lemeridiensaigon. comFanpage:www. facebook. com/LeMeridienSaigonFanpage Barson:www. facebook. com/Barson. sgn",
+            "word_count": 61
           }
         ],
-        "sentence_count": 26,
+        "chunk_count": 2,
         "status": "completed"
       },
       "output_type": "dict",
@@ -530,121 +536,57 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:39:22.436555",
-      "step_name": "exec_step1_Tách văn bản thành câu và nhóm chunk",
+      "timestamp": "2026-03-30T04:27:48.716333",
+      "step_name": "exec_step1_Grouping sentences into chunks",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_1, attempt=1",
       "output_data": {
         "step_id": "step_1",
-        "action": "split_sentences",
-        "sentences": [
+        "action": "chunking",
+        "chunks": [
           {
-            "sentence_id": 1,
-            "text": "Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí."
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "text": "Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí. Tại đây, bếp trưởng Phi Công sẽ mời bếp trưởng Sĩ Toàn trở lại, kết hợp cùng anh cho một trải nghiệm mới. Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàu xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùm xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất). 'Việt Nam sở hữu khí hậu nhiệt đới cùng thổ nhưỡng giàu dưỡng chất, ẩm thực luôn có giá trị đa tầng về dinh dưỡng, đa dạng về hương vị, cùng những cảm giác tươi ngon đặc biệt. Do đó, tôi dễ dàng tìm kiếm và nghiên cứu được những nguyên liệu mới mẻ, hương vị khác nhau của mỗi vùng miền', bếp trưởng Phi Công chia sẻ. Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn. Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách. Giá Wine Pairing là 800. 000 đồng mỗi thực khách. Ngoài ra, Barson còn có Cocktails Pairing cũng 800. 000 đồng hoặc Mocktails Pairing (không cồn) với giá 450. 000 đồng. Số lượng chỗ ngồi được giới hạn tại Barson trong ba đêm tiệc, từ 23 đến 25/5. Thực khách có thể đặt bàn ngay để hưởng ưu đãi Early Bird của chương trình lên đến 15%, hoặc nhận các ưu đãi khi là thành viên của Marriott Bonvoy (10%) hay chủ thẻ VPBank (lên đến 20%). Chuỗi sự kiện ẩm thực bàn tiệc của bếp trưởng 'Pause + Savour' được Le Méridien Saigon khởi động từ cuối tháng 4, với bếp trưởng khách mời đầu tiên đến từ khách sạn Le Méridien Myeongdong Seoul (Hàn Quốc).",
+            "word_count": 287
           },
           {
-            "sentence_id": 2,
-            "text": "Tại đây, bếp trưởng Phi Công sẽ mời bếp trưởng Sĩ Toàn trở lại, kết hợp cùng anh cho một trải nghiệm mới."
-          },
-          {
-            "sentence_id": 3,
-            "text": "Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàu xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùm xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất)."
-          },
-          {
-            "sentence_id": 4,
-            "text": "'Việt Nam sở hữu khí hậu nhiệt đới cùng thổ nhưỡng giàu dưỡng chất, ẩm thực luôn có giá trị đa tầng về dinh dưỡng, đa dạng về hương vị, cùng những cảm giác tươi ngon đặc biệt."
-          },
-          {
-            "sentence_id": 5,
-            "text": "Do đó, tôi dễ dàng tìm kiếm và nghiên cứu được những nguyên liệu mới mẻ, hương vị khác nhau của mỗi vùng miền', bếp trưởng Phi Công chia sẻ."
-          },
-          {
-            "sentence_id": 6,
-            "text": "Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn."
-          },
-          {
-            "sentence_id": 7,
-            "text": "Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách."
-          },
-          {
-            "sentence_id": 8,
-            "text": "Giá Wine Pairing là 800."
-          },
-          {
-            "sentence_id": 9,
-            "text": "000 đồng mỗi thực khách."
-          },
-          {
-            "sentence_id": 10,
-            "text": "Ngoài ra, Barson còn có Cocktails Pairing cũng 800."
-          },
-          {
-            "sentence_id": 11,
-            "text": "000 đồng hoặc Mocktails Pairing (không cồn) với giá 450."
-          },
-          {
-            "sentence_id": 12,
-            "text": "000 đồng."
-          },
-          {
-            "sentence_id": 13,
-            "text": "Số lượng chỗ ngồi được giới hạn tại Barson trong ba đêm tiệc, từ 23 đến 25/5."
-          },
-          {
-            "sentence_id": 14,
-            "text": "Thực khách có thể đặt bàn ngay để hưởng ưu đãi Early Bird của chương trình lên đến 15%, hoặc nhận các ưu đãi khi là thành viên của Marriott Bonvoy (10%) hay chủ thẻ VPBank (lên đến 20%)."
-          },
-          {
-            "sentence_id": 15,
-            "text": "Chuỗi sự kiện ẩm thực bàn tiệc của bếp trưởng 'Pause + Savour' được Le Méridien Saigon khởi động từ cuối tháng 4, với bếp trưởng khách mời đầu tiên đến từ khách sạn Le Méridien Myeongdong Seoul (Hàn Quốc)."
-          },
-          {
-            "sentence_id": 16,
-            "text": "Bếp trưởng người Hàn này mang đến nhiều hoạt động ấn tượng cho thực khách, khi tạo ra hành trình ẩm thực kết nối văn hóa và hương vị đa quốc gia, đánh thức các giác quan với những nguyên liệu và kỹ thuật chế biến độc đáo."
-          },
-          {
-            "sentence_id": 17,
-            "text": "Thanh Thư Le Méridien SaigonĐịa chỉ: 3C Tôn Đức Thắng, quận 1, TP HCMEmail: Lemeridien."
-          },
-          {
-            "sentence_id": 18,
-            "text": "Saigon@lemeridien."
-          },
-          {
-            "sentence_id": 19,
-            "text": "comĐiện thoại: 028 6263 6688Website:www."
-          },
-          {
-            "sentence_id": 20,
-            "text": "lemeridiensaigon."
-          },
-          {
-            "sentence_id": 21,
-            "text": "comFanpage:www."
-          },
-          {
-            "sentence_id": 22,
-            "text": "facebook."
-          },
-          {
-            "sentence_id": 23,
-            "text": "com/LeMeridienSaigonFanpage Barson:www."
-          },
-          {
-            "sentence_id": 24,
-            "text": "facebook."
-          },
-          {
-            "sentence_id": 25,
-            "text": "com/Barson."
-          },
-          {
-            "sentence_id": 26,
-            "text": "sgn"
+            "chunk_id": 2,
+            "sentence_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ],
+            "text": "Bếp trưởng người Hàn này mang đến nhiều hoạt động ấn tượng cho thực khách, khi tạo ra hành trình ẩm thực kết nối văn hóa và hương vị đa quốc gia, đánh thức các giác quan với những nguyên liệu và kỹ thuật chế biến độc đáo. Thanh Thư Le Méridien SaigonĐịa chỉ: 3C Tôn Đức Thắng, quận 1, TP HCMEmail: Lemeridien. Saigon@lemeridien. comĐiện thoại: 028 6263 6688Website:www. lemeridiensaigon. comFanpage:www. facebook. com/LeMeridienSaigonFanpage Barson:www. facebook. com/Barson. sgn",
+            "word_count": 61
           }
         ],
-        "sentence_count": 26,
+        "chunk_count": 2,
         "status": "completed"
       },
       "output_type": "dict",
@@ -652,42 +594,202 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:09.819270",
+      "timestamp": "2026-03-30T04:27:59.139099",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt giữ được cấu trúc và nội dung chính của đoạn văn bản.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tách câu thành công, chứa đầy đủ thông tin từ văn bản gốc với độ chính xác cao.\"\n  }\n}\n```",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Bếp trưởng Phi Công và Sĩ Toàn giới thiệu thực đơn sáu món mới tại Barson, lấy cảm hứng từ đất, nước, lửa và khí, với giá Wine Pairing 800. 000 đồng/người.",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:09.819270",
+      "timestamp": "2026-03-30T04:27:59.139099",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 33 từ\n        -",
+      "output_data": "Bếp trưởng Phi Công và Sĩ Toàn giới thiệu thực đơn sáu món mới tại Barson, lấy cảm hứng từ đất, nước, lửa và khí, với giá Wine Pairing 800. 000 đồng/người.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:00.603044",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia độc đáo với nhiều hoạt động hấp dẫn, kết nối văn hóa và hương vị.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:00.604059",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 33 từ\n        -",
+      "output_data": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia độc đáo với nhiều hoạt động hấp dẫn, kết nối văn hóa và hương vị.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:00.605059",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Summarizing each chunk using LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "summary": "Bếp trưởng Phi Công và Sĩ Toàn giới thiệu thực đơn sáu món mới tại Barson, lấy cảm hứng từ đất, nước, lửa và khí, với giá Wine Pairing 800. 000 đồng/người.",
+            "word_count": 28
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ],
+            "summary": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia độc đáo với nhiều hoạt động hấp dẫn, kết nối văn hóa và hương vị.",
+            "word_count": 15
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:00.605059",
+      "step_name": "exec_step2_Summarizing each chunk using LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "summary": "Bếp trưởng Phi Công và Sĩ Toàn giới thiệu thực đơn sáu món mới tại Barson, lấy cảm hứng từ đất, nước, lửa và khí, với giá Wine Pairing 800. 000 đồng/người.",
+            "word_count": 28
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ],
+            "summary": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia độc đáo với nhiều hoạt động hấp dẫn, kết nối văn hóa và hương vị.",
+            "word_count": 15
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:15.834493",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Tóm tắt đạt chất lượng tốt. Tuy nhiên, một số chi tiết cụ thể bị lược bỏ trong quá trình chia nhỏ đoạn văn và tổng hợp.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt hai phần của văn bản gốc thành các chunk với tiêu đề ngắn gọn và nội dung chính từ mỗi đoạn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:15.835463",
       "step_name": "Execution-Observation Agent._call_llm",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt giữ được cấu trúc và nội dung chính của đoạn văn bản.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tách câu thành công, chứa đầy đủ thông tin từ văn bản gốc với độ chính xác cao.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Tóm tắt đạt chất lượng tốt. Tuy nhiên, một số chi tiết cụ thể bị lược bỏ trong quá trình chia nhỏ đoạn văn và tổng hợp.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt hai phần của văn bản gốc thành các chunk với tiêu đề ngắn gọn và nội dung chính từ mỗi đoạn.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:09.819270",
+      "timestamp": "2026-03-30T04:28:15.835463",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có trong văn bản gốc.\",\n    \"completio",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.\",",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được cấu trúc và nội dung chính của đoạn văn bản.",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Tuy nhiên, một số chi tiết cụ thể bị lược bỏ trong quá trình chia nhỏ đoạn văn và tổng hợp.",
           "issues_found": [],
-          "summary": "Bước thực thi tách câu thành công, chứa đầy đủ thông tin từ văn bản gốc với độ chính xác cao."
+          "summary": "Output tóm tắt hai phần của văn bản gốc thành các chunk với tiêu đề ngắn gọn và nội dung chính từ mỗi đoạn."
         }
       },
       "output_type": "dict",
@@ -695,20 +797,20 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:09.819270",
+      "timestamp": "2026-03-30T04:28:15.835463",
       "step_name": "Execution-Observation Agent._call_llm_json",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=485",
+      "input_summary": "raw_len=545",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được cấu trúc và nội dung chính của đoạn văn bản.",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Tuy nhiên, một số chi tiết cụ thể bị lược bỏ trong quá trình chia nhỏ đoạn văn và tổng hợp.",
           "issues_found": [],
-          "summary": "Bước thực thi tách câu thành công, chứa đầy đủ thông tin từ văn bản gốc với độ chính xác cao."
+          "summary": "Output tóm tắt hai phần của văn bản gốc thành các chunk với tiêu đề ngắn gọn và nội dung chính từ mỗi đoạn."
         }
       },
       "output_type": "dict",
@@ -716,20 +818,20 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:09.819270",
+      "timestamp": "2026-03-30T04:28:15.835463",
       "step_name": "execution_observation_agent.run",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=split_sentences",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được cấu trúc và nội dung chính của đoạn văn bản.",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Tuy nhiên, một số chi tiết cụ thể bị lược bỏ trong quá trình chia nhỏ đoạn văn và tổng hợp.",
           "issues_found": [],
-          "summary": "Bước thực thi tách câu thành công, chứa đầy đủ thông tin từ văn bản gốc với độ chính xác cao."
+          "summary": "Output tóm tắt hai phần của văn bản gốc thành các chunk với tiêu đề ngắn gọn và nội dung chính từ mỗi đoạn."
         }
       },
       "output_type": "dict",
@@ -737,20 +839,20 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:09.819270",
-      "step_name": "exec_step1_observation",
+      "timestamp": "2026-03-30T04:28:15.835463",
+      "step_name": "exec_step2_observation",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=split_sentences",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output chính xác, không chứa fact không có trong văn bản gốc.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output tóm tắt không chứa fact mới, chỉ giữ nguyên thông tin từ văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được cấu trúc và nội dung chính của đoạn văn bản.",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Tuy nhiên, một số chi tiết cụ thể bị lược bỏ trong quá trình chia nhỏ đoạn văn và tổng hợp.",
           "issues_found": [],
-          "summary": "Bước thực thi tách câu thành công, chứa đầy đủ thông tin từ văn bản gốc với độ chính xác cao."
+          "summary": "Output tóm tắt hai phần của văn bản gốc thành các chunk với tiêu đề ngắn gọn và nội dung chính từ mỗi đoạn."
         }
       },
       "output_type": "dict",
@@ -758,29 +860,29 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.351175",
+      "timestamp": "2026-03-30T04:28:24.654860",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước thực thi tách câu đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, không có vấn đề nào cần sửa. Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao (factual consistency = 0.9) và bao quát đầy đủ thông tin (coverage completeness = 0.85). Mặc dù có một số chi tiết cụ thể bị lược bỏ, nhưng tổng kết vẫn đảm bảo đúng yêu cầu về độ dài và không chứa lỗi.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.351175",
+      "timestamp": "2026-03-30T04:28:24.654860",
       "step_name": "Execution-Reflection Agent._call_llm",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output chính xác, không chứa fact không có tr",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước thực thi tách câu đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, không có vấn đề nào cần sửa. Đây là bước cuối cùng nên tiếp tục tiến trình.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa fact mới, chỉ giữ n",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao (factual consistency = 0.9) và bao quát đầy đủ thông tin (coverage completeness = 0.85). Mặc dù có một số chi tiết cụ thể bị lược bỏ, nhưng tổng kết vẫn đảm bảo đúng yêu cầu về độ dài và không chứa lỗi.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.351175",
+      "timestamp": "2026-03-30T04:28:24.654860",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -792,8 +894,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi tách câu đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, không có vấn đề nào cần sửa. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao (factual consistency = 0.9) và bao quát đầy đủ thông tin (coverage completeness = 0.85). Mặc dù có một số chi tiết cụ thể bị lược bỏ, nhưng tổng kết vẫn đảm bảo đúng yêu cầu về độ dài và không chứa lỗi."
         }
       },
       "output_type": "dict",
@@ -801,11 +903,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.351175",
+      "timestamp": "2026-03-30T04:28:24.654860",
       "step_name": "Execution-Reflection Agent._call_llm_json",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=433",
+      "input_summary": "raw_len=682",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -813,8 +915,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi tách câu đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, không có vấn đề nào cần sửa. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao (factual consistency = 0.9) và bao quát đầy đủ thông tin (coverage completeness = 0.85). Mặc dù có một số chi tiết cụ thể bị lược bỏ, nhưng tổng kết vẫn đảm bảo đúng yêu cầu về độ dài và không chứa lỗi."
         }
       },
       "output_type": "dict",
@@ -822,11 +924,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.351175",
+      "timestamp": "2026-03-30T04:28:24.654860",
       "step_name": "execution_reflection_agent.run",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step=1/6",
+      "input_summary": "step=2/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -834,8 +936,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi tách câu đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, không có vấn đề nào cần sửa. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao (factual consistency = 0.9) và bao quát đầy đủ thông tin (coverage completeness = 0.85). Mặc dù có một số chi tiết cụ thể bị lược bỏ, nhưng tổng kết vẫn đảm bảo đúng yêu cầu về độ dài và không chứa lỗi."
         }
       },
       "output_type": "dict",
@@ -843,11 +945,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.351175",
-      "step_name": "exec_step1_reflection",
+      "timestamp": "2026-03-30T04:28:24.654860",
+      "step_name": "exec_step2_reflection",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, step=1/6",
+      "input_summary": "step_id=step_2, step=2/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -855,8 +957,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi tách câu đã đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc, không có vấn đề nào cần sửa. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao (factual consistency = 0.9) và bao quát đầy đủ thông tin (coverage completeness = 0.85). Mặc dù có một số chi tiết cụ thể bị lược bỏ, nhưng tổng kết vẫn đảm bảo đúng yêu cầu về độ dài và không chứa lỗi."
         }
       },
       "output_type": "dict",
@@ -864,391 +966,635 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.353176",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
+      "timestamp": "2026-03-30T04:28:32.979363",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia tại Barson với sáu món mới lấy cảm hứng từ đất, nước, lửa và khí, giá Wine Pairing 800. 000 đồng/người.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.353176",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "timestamp": "2026-03-30T04:28:32.979363",
+      "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=1",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 67–67 từ\n        - Giữ",
+      "output_data": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia tại Barson với sáu món mới lấy cảm hứng từ đất, nước, lửa và khí, giá Wine Pairing 800. 000 đồng/người.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.354175",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.354175",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=2",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.354175",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.354175",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=3",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.354175",
+      "timestamp": "2026-03-30T04:28:32.981889",
       "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary tổng thể'",
+      "input_summary": "step_id=step_3, step_name='Merging summaries into a single summary'",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia tại Barson với sáu món mới lấy cảm hứng từ đất, nước, lửa và khí, giá Wine Pairing 800. 000 đồng/người.",
+        "word_count": 27,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.354175",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
+      "timestamp": "2026-03-30T04:28:32.981889",
+      "step_name": "exec_step3_Merging summaries into a single summary",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, attempt=1",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia tại Barson với sáu món mới lấy cảm hứng từ đất, nước, lửa và khí, giá Wine Pairing 800. 000 đồng/người.",
+        "word_count": 27,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.355175",
-      "step_name": "execution_agent.run.step_3",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary tổng thể'",
+      "timestamp": "2026-03-30T04:28:46.937186",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Hàn Quốc mang đến trải nghiệ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, nội dung chính xác và ngắn gọn phù hợp với yêu cầu của phong cách news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tóm tắt hoàn thành đầy đủ. Output giữ nguyên thông tin chính từ văn bản gốc mà không thêm bất kỳ thông tin mới hoặc sai sót nào.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:46.937186",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia tại Barson với sáu món mới lấy cảm hứng từ đất, nước, lửa và khí, giá Wine Pai",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, nội dung chính xác và ngắn gọn phù hợp với yêu cầu của phong cách news_brief.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tóm tắt hoàn thành đầy đủ. Output giữ nguyên thông tin chính từ văn bản gốc mà không thêm bất kỳ thông tin mới hoặc sai sót nào.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:46.937186",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.\",\n    \"c",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, nội dung chính xác và ngắn gọn phù hợp với yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đầy đủ. Output giữ nguyên thông tin chính từ văn bản gốc mà không thêm bất kỳ thông tin mới hoặc sai sót nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.355175",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, attempt=2",
+      "timestamp": "2026-03-30T04:28:46.937186",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=558",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, nội dung chính xác và ngắn gọn phù hợp với yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đầy đủ. Output giữ nguyên thông tin chính từ văn bản gốc mà không thêm bất kỳ thông tin mới hoặc sai sót nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.355175",
-      "step_name": "execution_agent.run.step_3",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:28:46.937186",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary tổng thể'",
+      "input_summary": "step_id=step_3, action=merge",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, nội dung chính xác và ngắn gọn phù hợp với yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đầy đủ. Output giữ nguyên thông tin chính từ văn bản gốc mà không thêm bất kỳ thông tin mới hoặc sai sót nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.355175",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary tổng thể",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:28:46.937186",
+      "step_name": "exec_step3_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, attempt=3",
+      "input_summary": "step_id=step_3, action=merge",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai sót so với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt, nội dung chính xác và ngắn gọn phù hợp với yêu cầu của phong cách news_brief.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đầy đủ. Output giữ nguyên thông tin chính từ văn bản gốc mà không thêm bất kỳ thông tin mới hoặc sai sót nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.356174",
+      "timestamp": "2026-03-30T04:28:55.447048",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output tóm tắt đạt chất lượng tốt nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần kiểm tra lại toàn bộ quá trình thực thi để đảm bảo không còn bất kỳ vấn đề nào.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt, nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:55.447048",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ thông tin mới hoặc sai",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output tóm tắt đạt chất lượng tốt nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần kiểm tra lại toàn bộ quá trình thực thi để đảm bảo không còn bất kỳ vấn đề nào.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt, nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:55.447048",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output tóm tắt đạt chất lượng tốt nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần kiểm tra lại toàn bộ quá trình thực thi để đảm bảo không còn bất kỳ vấn đề nào.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt, nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:55.447048",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=691",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output tóm tắt đạt chất lượng tốt nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần kiểm tra lại toàn bộ quá trình thực thi để đảm bảo không còn bất kỳ vấn đề nào.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt, nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:55.447048",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output tóm tắt đạt chất lượng tốt nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần kiểm tra lại toàn bộ quá trình thực thi để đảm bảo không còn bất kỳ vấn đề nào.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt, nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:28:55.447048",
+      "step_name": "exec_step3_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output tóm tắt đạt chất lượng tốt nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần kiểm tra lại toàn bộ quá trình thực thi để đảm bảo không còn bất kỳ vấn đề nào.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt, nhưng vẫn có thể bổ sung thêm chi tiết về cách xử lý các lỗi nhỏ trong 'issues_found' và 'quality_assessment'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:06.569198",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:06.569198",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 67–67 từ\n        - Giữ",
+      "output_data": "Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:06.569198",
       "step_name": "execution_agent.run.step_4",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách của summary tổng thể'",
+      "input_summary": "step_id=step_4, step_name='Refining the summary to improve readability and style'",
       "output_data": {
         "step_id": "step_4",
         "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "refined_summary": "Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+        "word_count": 25,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.356174",
-      "step_name": "exec_step4_Tinh chỉnh phong cách của summary tổng thể",
+      "timestamp": "2026-03-30T04:29:06.570741",
+      "step_name": "exec_step4_Refining the summary to improve readability and style",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_4, attempt=1",
       "output_data": {
         "step_id": "step_4",
         "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "refined_summary": "Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+        "word_count": 25,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.356174",
-      "step_name": "execution_agent.run.step_4",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách của summary tổng thể'",
+      "timestamp": "2026-03-30T04:29:24.967274",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Wine Pairing 800.000 đồng/",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Không có thông tin chính xác khác không phù hợp với văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn, chính xác về thông tin chủ đề.\",\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing' giá 800.000 đồng/người tại Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:24.967274",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Không có thông tin chính xác khác không phù hợp với văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn, chính xác về thông tin chủ đề.\",\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing' giá 800.000 đồng/người tại Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:24.967274",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm ",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Không có thông tin chính xác khác không phù hợp với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn, chính xác về thông tin chủ đề.",
+          "issues_found": [],
+          "summary": "'Wine Pairing' giá 800.000 đồng/người tại Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn chính xác."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.357174",
-      "step_name": "exec_step4_Tinh chỉnh phong cách của summary tổng thể",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, attempt=2",
+      "timestamp": "2026-03-30T04:29:24.967274",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=841",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Không có thông tin chính xác khác không phù hợp với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn, chính xác về thông tin chủ đề.",
+          "issues_found": [],
+          "summary": "'Wine Pairing' giá 800.000 đồng/người tại Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn chính xác."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.357174",
-      "step_name": "execution_agent.run.step_4",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:29:24.967274",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách của summary tổng thể'",
+      "input_summary": "step_id=step_4, action=refine",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Không có thông tin chính xác khác không phù hợp với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn, chính xác về thông tin chủ đề.",
+          "issues_found": [],
+          "summary": "'Wine Pairing' giá 800.000 đồng/người tại Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn chính xác."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.357174",
-      "step_name": "exec_step4_Tinh chỉnh phong cách của summary tổng thể",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:29:24.967274",
+      "step_name": "exec_step4_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, attempt=3",
+      "input_summary": "step_id=step_4, action=refine",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Không có thông tin chính xác khác không phù hợp với văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "'Wine Pairing' giá 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn, chính xác về thông tin chủ đề.",
+          "issues_found": [],
+          "summary": "'Wine Pairing' giá 800.000 đồng/người tại Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'. Tóm tắt ngắn gọn chính xác."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.358174",
+      "timestamp": "2026-03-30T04:29:33.963449",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found' và 'quality_assessment'. Tuy nhiên, cần thêm chi tiết về thông tin đất, nước, lửa và khí để đảm bảo độ bao quát. Execution Agent nên bổ sung các ví dụ hoặc nguồn chính xác cho mỗi yếu tố.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), đây là bước cuối cùng và không có vấn đề nghiêm trọng.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:33.963449",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"'Wine Pairing' giá 800.000 đồng/người, Barson mang đến",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found' và 'quality_assessment'. Tuy nhiên, cần thêm chi tiết về thông tin đất, nước, lửa và khí để đảm bảo độ bao quát. Execution Agent nên bổ sung các ví dụ hoặc nguồn chính xác cho mỗi yếu tố.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), đây là bước cuối cùng và không có vấn đề nghiêm trọng.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:33.963449",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found' và 'quality_assessment'. Tuy nhiên, cần thêm chi tiết về thông tin đất, nước, lửa và khí để đảm bảo độ bao quát. Execution Agent nên bổ sung các ví dụ hoặc nguồn chính xác cho mỗi yếu tố.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), đây là bước cuối cùng và không có vấn đề nghiêm trọng."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:33.963449",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=626",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found' và 'quality_assessment'. Tuy nhiên, cần thêm chi tiết về thông tin đất, nước, lửa và khí để đảm bảo độ bao quát. Execution Agent nên bổ sung các ví dụ hoặc nguồn chính xác cho mỗi yếu tố.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), đây là bước cuối cùng và không có vấn đề nghiêm trọng."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:33.963449",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found' và 'quality_assessment'. Tuy nhiên, cần thêm chi tiết về thông tin đất, nước, lửa và khí để đảm bảo độ bao quát. Execution Agent nên bổ sung các ví dụ hoặc nguồn chính xác cho mỗi yếu tố.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), đây là bước cuối cùng và không có vấn đề nghiêm trọng."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:29:33.963449",
+      "step_name": "exec_step4_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found' và 'quality_assessment'. Tuy nhiên, cần thêm chi tiết về thông tin đất, nước, lửa và khí để đảm bảo độ bao quát. Execution Agent nên bổ sung các ví dụ hoặc nguồn chính xác cho mỗi yếu tố.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), đây là bước cuối cùng và không có vấn đề nghiêm trọng."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:01.691583",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nWine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 1,\n          \"source_text\": \"[1] Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí.\"\n        },\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"[3] Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàу xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùм xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất).\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"[6] Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Wine Pairing được tổ chức tại Barson với giá 800.000 đồng/người.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"[7] Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"[8] Giá Wine Pairing là 800.000 đồng mỗi thực khách.\"\n        }\n      ],\n      \"confidence\": 1\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Pause + Savour' hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n  …",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:01.691583",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nWine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.\n\n### Văn bản gốc (v",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 1,\n          \"source_text\": \"[1] Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí.\"\n        },\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"[3] Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàу xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùм xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất).\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"[6] Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Wine Pairing được tổ chức tại Barson với giá 800.000 đồng/người.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"[7] Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"[8] Giá Wine Pairing là 800.000 đồng mỗi thực khách.\"\n        }\n      ],\n      \"confidence\": 1\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Pause + Savour' hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n  …",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:01.693654",
+      "step_name": "Execution Agent._call_llm_json",
+      "agent_name": "Execution Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=7162",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 1,\n          \"source_text\": \"[1] Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí.\"\n        },\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"[3] Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàу xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùм xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất).\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"[6] Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Wine Pairing được tổ chức tại Barson với giá 800.000 đồng/người.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"[7] Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"[8] Giá Wine Pairing là 800.000 đồng mỗi thực khách.\"\n        }\n      ],\n      \"confidence\": 1\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Pause + Savour' hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n  …",
+        "_parse_error": true
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "timestamp": "2026-03-30T04:32:01.693654",
       "step_name": "execution_agent.run.step_5",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc'",
+      "input_summary": "step_id=step_5, step_name='Verifying the claims against original text for accuracy and relevance'",
       "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 1,\n          \"source_text\": \"[1] Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí.\"\n        },\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"[3] Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàу xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùм xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất).\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"[6] Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Wine Pairing được tổ chức tại Barson với giá 800.000 đồng/người.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"[7] Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"[8] Giá Wine Pairing là 800.000 đồng mỗi thực khách.\"\n        }\n      ],\n      \"confidence\": 1\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Pause + Savour' hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n  …",
+        "_parse_error": true,
         "step_id": "step_5",
         "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.358174",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
+      "timestamp": "2026-03-30T04:32:01.693654",
+      "step_name": "exec_step5_Verifying the claims against original text for accuracy and relevance",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_5, attempt=1",
       "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Wine Pairing 800.000 đồng/người, Barson mang đến trải nghiệm sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 1,\n          \"source_text\": \"[1] Tiếp nối thành công của chương 1 được triển khai cuối tháng 4 vừa qua, chương 2 của chuỗi sự kiện 'Pause + Savour' đưa thực khách về hành trình khởi nguồn nguyên bản, lấy cảm hứng từ: đất, nước, lửa và khí.\"\n        },\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"[3] Theo đó, hai người sẽ sáng tạo thực đơn sáu món: bánh tart cá ngừ đất sét Cao Lanh (đất), hàу xốt ớt xanh nitơ lỏng (nước), bồ câu xông khói gỗ cherry và bánh mỳ bơ tôm hùm (khí), tôm hùм xốt ớt (lửa), bò Wagyu (lửa), bánh mousse trà bá tước (đất).\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"[6] Bên cạnh việc lấy cảm hứng từ nguyên liệu địa phương, tôn vinh tài năng Việt, chuỗi sự kiện 'Pause + Savour' còn hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Wine Pairing được tổ chức tại Barson với giá 800.000 đồng/người.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 7,\n          \"source_text\": \"[7] Song hành cùng bếp trưởng Sĩ Toàn và bếp trưởng Phi Công là Head Sommelier Huyền Hà - người giám tuyển thực đơn rượu vang kết hợp từng nguyên liệu món ăn, nhằm nâng tầm vị giác của thực khách.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"[8] Giá Wine Pairing là 800.000 đồng mỗi thực khách.\"\n        }\n      ],\n      \"confidence\": 1\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"'Pause + Savour' hướng đến tạo ra những kỷ niệm vui và khoảnh khắc tận hưởng cuộc sống trọn vẹn.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n  …",
+        "_parse_error": true,
         "step_id": "step_5",
         "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.359174",
-      "step_name": "execution_agent.run.step_5",
+      "timestamp": "2026-03-30T04:32:09.437382",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:09.438387",
+      "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc'",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 67–67 từ\n        - Giữ",
+      "output_data": "Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.359174",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, attempt=2",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.359174",
-      "step_name": "execution_agent.run.step_5",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc'",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.359174",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề trong summary tổng thể so với văn bản gốc",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, attempt=3",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:40:30.360175",
+      "timestamp": "2026-03-30T04:32:09.439386",
       "step_name": "execution_agent.run.step_6",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -1256,15 +1602,16 @@
       "output_data": {
         "step_id": "step_6",
         "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "edited_summary": "Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+        "word_count": 23,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.360175",
+      "timestamp": "2026-03-30T04:32:09.439386",
       "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -1272,93 +1619,250 @@
       "output_data": {
         "step_id": "step_6",
         "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "edited_summary": "Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
+        "word_count": 23,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.361174",
-      "step_name": "execution_agent.run.step_6",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "timestamp": "2026-03-30T04:32:24.817488",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Wine Pairing 800.000 đồng/ngư",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' không có bất kỳ thông tin chính xác nào khác ngoài giá Wine Pairing và nội dung của Barson.',\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.',\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:24.818601",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause +",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' không có bất kỳ thông tin chính xác nào khác ngoài giá Wine Pairing và nội dung của Barson.',\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.',\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:24.818601",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=904",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "raw_response": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' không có bất kỳ thông tin chính xác nào khác ngoài giá Wine Pairing và nội dung của Barson.',\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.',\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.\"\n  }\n}\n```",
+        "_parse_error": true
       },
       "output_type": "dict",
       "is_none": false,
-      "error": null
+      "error": "JSON parse failed: Invalid control character at: line 5 column 260 (char 337)"
     },
     {
-      "timestamp": "2026-03-27T23:40:30.361174",
-      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:32:24.818601",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, attempt=2",
+      "input_summary": "step_id=step_6, action=edit",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "raw_response": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' không có bất kỳ thông tin chính xác nào khác ngoài giá Wine Pairing và nội dung của Barson.',\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.',\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.\"\n  }\n}\n```",
+        "_parse_error": true
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.361174",
-      "step_name": "execution_agent.run.step_6",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:32:24.818601",
+      "step_name": "exec_step6_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "input_summary": "step_id=step_6, action=edit",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "raw_response": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' không có bất kỳ thông tin chính xác nào khác ngoài giá Wine Pairing và nội dung của Barson.',\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.',\n    \"issues_found\": [],\n    \"summary\": \"'Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.' là một tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc.\"\n  }\n}\n```",
+        "_parse_error": true
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.361174",
-      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T04:32:32.722867",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"execution_observation\\",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên cần bổ sung thêm chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'. Ghi rõ Execution Agent cần tổng hợp các lỗi từ quality_assessment.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên còn thiếu chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:32.722867",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"execution_observation\\\": {\\n    \\\"step_id\\\": \\\"step_6\\\",\\n    \\\"action\\\": \\\"edit\\\",\\n    \\\"factual_accuracy\\\": \\\"'Wine Pai",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên cần bổ sung thêm chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'. Ghi rõ Execution Agent cần tổng hợp các lỗi từ quality_assessment.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên còn thiếu chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:32.722867",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên cần bổ sung thêm chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'. Ghi rõ Execution Agent cần tổng hợp các lỗi từ quality_assessment.",
+          "reasoning": "Lý do quyết định dựa trên observation: Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên còn thiếu chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:32.722867",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=697",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên cần bổ sung thêm chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'. Ghi rõ Execution Agent cần tổng hợp các lỗi từ quality_assessment.",
+          "reasoning": "Lý do quyết định dựa trên observation: Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên còn thiếu chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:32.722867",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, attempt=3",
+      "input_summary": "step=6/6",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên cần bổ sung thêm chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'. Ghi rõ Execution Agent cần tổng hợp các lỗi từ quality_assessment.",
+          "reasoning": "Lý do quyết định dựa trên observation: Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên còn thiếu chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:40:30.364690",
+      "timestamp": "2026-03-30T04:32:32.722867",
+      "step_name": "exec_step6_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên cần bổ sung thêm chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'. Ghi rõ Execution Agent cần tổng hợp các lỗi từ quality_assessment.",
+          "reasoning": "Lý do quyết định dựa trên observation: Tóm tắt ngắn gọn nhưng vẫn giữ được thông tin chính xác của văn bản gốc, tuy nhiên còn thiếu chi tiết về nội dung sáu món mới và chuỗi sự kiện 'Pause + Savour'."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:32:32.727381",
       "step_name": "workflow_complete",
       "agent_name": "Manager Agent",
       "phase": "workflow",
       "input_summary": "",
       "output_data": {
-        "summary": "",
+        "summary": "Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'.",
         "style": "news_brief",
-        "word_count": 0,
+        "word_count": 23,
         "trace": [
           {
             "agent": "execution",
-            "action": "split_sentences",
+            "action": "chunking",
             "step_id": "step_1",
-            "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+            "evidence": "Step 1: Grouping sentences into chunks",
+            "reflection_scores": {
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "chunk_summarize",
+            "step_id": "step_2",
+            "evidence": "Step 2: Summarizing each chunk using LLM",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "merge",
+            "step_id": "step_3",
+            "evidence": "Step 3: Merging summaries into a single summary",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "refine",
+            "step_id": "step_4",
+            "evidence": "Step 4: Refining the summary to improve readability and style",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "verify",
+            "step_id": "step_5",
+            "evidence": "Step 5: Verifying the claims against original text for accuracy and relevance",
+            "reflection_scores": {
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "edit",
+            "step_id": "step_6",
+            "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
             "reflection_scores": {
               "factual_consistency": 0.9,
               "coverage_completeness": 0.85
@@ -1368,9 +1872,9 @@
         "verification_report": null,
         "intermediate_outputs": {
           "outline": null,
-          "draft_summary": null,
+          "draft_summary": "Hàn Quốc mang đến trải nghiệm ẩm thực đa quốc gia tại Barson với sáu món mới lấy cảm hứng từ đất, nước, lửa và khí, giá Wine Pairing 800. 000 đồng/người.",
           "verification": null,
-          "edited_summary": null
+          "edited_summary": "Wine Pairing 800.000 đồng/người; Barson giới thiệu sáu món mới lấy cảm hứng từ đất, nước, lửa và khí trong chuỗi sự kiện 'Pause + Savour'."
         }
       },
       "output_type": "dict",

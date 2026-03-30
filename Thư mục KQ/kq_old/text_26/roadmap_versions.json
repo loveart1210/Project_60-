@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung, chia các chunk phù hợp.",
+          "tool": null,
+          "expected_output": "Một danh sách chứa nhiều đoạn văn được phân chia thành chunks hợp lý"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk. Kết quả sẽ là các bản summary ngắn gọn.",
+          "tool": "summarize_chunk",
+          "expected_output": "Một danh sách chứa nhiều đoạn văn được tóm tắt"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp tất cả các bản summary lại thành một bản tổng hợp",
+          "description": "Dùng merge_summaries để gộp các bản summary đã tạo ra. Kết quả sẽ là một bài tóm tắt toàn bộ văn bản.",
+          "tool": "merge_summaries",
+          "expected_output": "Một đoạn văn ngắn gọn và thông tin đầy đủ về Fleur de Lys Hotel Quy Nhon"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho tổng hợp tóm tắt",
+          "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo văn bản vẫn giữ nguyên thông tin nhưng có thể diễn giải lại.",
+          "tool": "refine_summary",
+          "expected_output": "Một đoạn văn ngắn gọn và thông tin đầy đủ về Fleur de Lys Hotel Quy Nhon với phong cách news_brief"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng bản tóm tắt bằng verify_claim",
+          "description": "Dùng verify_claim để kiểm tra xem thông tin trong đoạn văn tổng hợp có chính xác không so với văn bản gốc.",
+          "tool": "verify_claim",
+          "expected_output": "Một báo cáo về độ chính xác của đoạn văn đã tổng kết"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Đảm bảo mỗi bước đều được thực hiện một cách cẩn thận để đảm bảo chất lượng cuối cùng."
+    }
+  }
+}

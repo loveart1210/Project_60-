@@ -1,5 +1,5 @@
 {
-  "session_id": "ab7761bb",
+  "session_id": "ea83689e",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 696,
-  "created_at": "2026-03-28T01:50:19.775786",
+  "created_at": "2026-03-30T05:36:45.620036",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-28T01:51:21.854723",
+      "timestamp": "2026-03-30T05:37:13.733678",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-28T01:52:13.174870",
+      "timestamp": "2026-03-30T05:37:36.121342",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-28T01:52:35.872955",
+      "timestamp": "2026-03-30T05:37:42.594648",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát được tất cả ý chính của văn bản gốc với mức độ chi tiết và khả thi phù hợp. Chỉ thiếu bước kiểm chứng mệnh đề vs văn bản gốc (verify_claim), nhưng điểm yếu này không ảnh hưởng nhiều đến tổng thể roadmap."
+          "reasoning": "Roadmap bao gồm các bước chính cần thiết và có mức độ cụ thể tương đối, nhưng thiếu việc kiểm tra thông tin summary so với văn bản gốc. Tuy nhiên, điểm yếu này không đủ lớn để yêu cầu sửa đổi roadmap."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-28T01:52:35.874955",
+      "action": "chunking",
+      "timestamp": "2026-03-30T05:37:42.623513",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T05:37:56.415359",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-28T01:53:31.002736",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T05:38:15.142904",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-28T01:53:56.650336",
+      "timestamp": "2026-03-30T05:38:24.178813",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,181 +71,227 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần bổ sung các thông tin về cá cơm mờm khô rim và hoàn chỉnh đoạn tóm tắt.",
-          "reasoning": "Bước thực thi có độ chính xác cao với mức độ nhất quán gần như 100%, tuy nhiên vẫn còn một số thiếu sót trong bao quát thông tin. Đây là bước cuối cùng, nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung thông tin về giá cả của hai món ăn nổi tiếng Quy Nhơn: Gỏi ốc giấy và Cá cơm mờm khô rim. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation là chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng vẫn cần thêm thông tin về giá cả để hoàn thiện hơn."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T05:38:36.437931",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:38:53.397993",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:39:02.370098",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đã lược bỏ nhiều chi tiết về cách chế biến và giá cả của các món ăn, cần bổ sung thêm thông tin này vào output để đảm bảo độ bao quát. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt (factual consistency = 0.9) và coverage completeness = 0.85, nhưng vẫn còn thiếu chi tiết về cách chế biến và giá cả của các món ăn nên cần tiếp tục thực hiện bước kế tiếp."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T05:39:17.911542",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:39:32.524539",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:39:41.219938",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng không bao quát đầy đủ thông tin về các món ăn nổi tiếng ở Quy Nhơn và có thể bổ sung thêm chi tiết. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt (factual consistency = 0.9, coverage completeness = 0.85) nhưng chưa bao quát đầy đủ thông tin về các món ăn nổi tiếng ở Quy Nhơn và có thể bổ sung thêm chi tiết."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T05:42:04.686723",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T05:42:14.265460",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T05:42:28.213494",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T05:42:34.685292",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output lược bỏ một số chi tiết từ văn bản gốc như vị trí của đầm Trà Ổ và giá bán cá chình mun, cần bổ sung những thông tin này. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: chất lượng tốt nhưng có một số chi tiết bị lược bỏ từ văn bản gốc."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-28T01:53:56.658936",
+      "timestamp": "2026-03-30T05:42:34.689374",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
+    "chunks": [
       {
-        "sentence_id": 1,
-        "text": "Thành phố biển Quy Nhơn không chỉ nổi tiếng với vẻ đẹp tự nhiên mà còn hấp dẫn du khách bởi nền ẩm thực phong phú và đa dạng."
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "text": "Thành phố biển Quy Nhơn không chỉ nổi tiếng với vẻ đẹp tự nhiên mà còn hấp dẫn du khách bởi nền ẩm thực phong phú và đa dạng. Với những ai yêu thích khám phá hương vị mới lạ, Quy Nhơn là điểm đến lý tưởng. Dưới đây là những món ăn du khách không nên bỏ qua khi đến thăm thành phố biển xinh đẹp này. Gỏi ốc giấy Gỏi ốc giấy là một trong những món ăn đặc trưng của Quy Nhơn, mang hương vị thanh mát. Ốc giấy còn gọi là ốc giấm - một loại ốc có vỏ mỏng, dày và ngọt thịt. Để chế biến món ăn này, người đầu bếp sẽ hấp chín ốc, tách vỏ và thái miếng vừa ăn. Ốc được trộn cùng rau sống, đu đủ bào sợi, cà rốt, hành tím, đậu phộng, rau thơm và các loại gia vị. Sốt trộn gỏi được làm từ nước mắm chua ngọt pha cùng ớt và chanh, tạo nên hương vị đậm đà, chua cay. Món này thường được người địa phương sử dụng làm món khai vị nhằm kích thích vị giác. Gỏi được bán ở các quán hải sản, có giá dao động từ 25. 000 đến 80. 000 đồng một đĩa, tùy số lượng. Du khách có thể tìm mua ốc giấy tươi ở các chợ trong tỉnh với mức 120. 000 đến 160. 000 đồng một kg. Cá cơm mờm khô rim Cá cơm mờm khô rim là món ăn dân dã, được nhiều gia đình Việt và du khách yêu thích. Cá mờm là loại cá có kích thước rất nhỏ, thân hình thuôn dài, dẹp hai bên, màu trắng, dát ánh bạc. Cá sau khi phơi khô sẽ được mang rửa sạch, rim cùng với đường, nước mắm, tỏi và ớt. Độ dai ngọt của thịt cá kết hợp với vị cay ngọt ngọt tạo nên một món ăn đậm đà và tốn cơm. Không chỉ là món 'lai rai' phổ biến ở quán nhậu, nhiều du khách cũng chọn món ăn này để làm quà khi đi du lịch Quy Nhơn. Cá được bán ở cửa hàng chuyên đặc sản hoặc có thể tìm mua ở một số chợ trong các làng chài.",
+        "word_count": 299
       },
       {
-        "sentence_id": 2,
-        "text": "Với những ai yêu thích khám phá hương vị mới lạ, Quy Nhơn là điểm đến lý tưởng."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Dưới đây là những món ăn du khách không nên bỏ qua khi đến thăm thành phố biển xinh đẹp này."
-      },
-      {
-        "sentence_id": 4,
-        "text": "Gỏi ốc giấy Gỏi ốc giấy là một trong những món ăn đặc trưng của Quy Nhơn, mang hương vị thanh mát."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Ốc giấy còn gọi là ốc giấm - một loại ốc có vỏ mỏng, dày và ngọt thịt."
-      },
-      {
-        "sentence_id": 6,
-        "text": "Để chế biến món ăn này, người đầu bếp sẽ hấp chín ốc, tách vỏ và thái miếng vừa ăn."
-      },
-      {
-        "sentence_id": 7,
-        "text": "Ốc được trộn cùng rau sống, đu đủ bào sợi, cà rốt, hành tím, đậu phộng, rau thơm và các loại gia vị."
-      },
-      {
-        "sentence_id": 8,
-        "text": "Sốt trộn gỏi được làm từ nước mắm chua ngọt pha cùng ớt và chanh, tạo nên hương vị đậm đà, chua cay."
-      },
-      {
-        "sentence_id": 9,
-        "text": "Món này thường được người địa phương sử dụng làm món khai vị nhằm kích thích vị giác."
-      },
-      {
-        "sentence_id": 10,
-        "text": "Gỏi được bán ở các quán hải sản, có giá dao động từ 25."
-      },
-      {
-        "sentence_id": 11,
-        "text": "000 đến 80."
-      },
-      {
-        "sentence_id": 12,
-        "text": "000 đồng một đĩa, tùy số lượng."
-      },
-      {
-        "sentence_id": 13,
-        "text": "Du khách có thể tìm mua ốc giấy tươi ở các chợ trong tỉnh với mức 120."
-      },
-      {
-        "sentence_id": 14,
-        "text": "000 đến 160."
-      },
-      {
-        "sentence_id": 15,
-        "text": "000 đồng một kg."
-      },
-      {
-        "sentence_id": 16,
-        "text": "Cá cơm mờm khô rim Cá cơm mờm khô rim là món ăn dân dã, được nhiều gia đình Việt và du khách yêu thích."
-      },
-      {
-        "sentence_id": 17,
-        "text": "Cá mờm là loại cá có kích thước rất nhỏ, thân hình thuôn dài, dẹp hai bên, màu trắng, dát ánh bạc."
-      },
-      {
-        "sentence_id": 18,
-        "text": "Cá sau khi phơi khô sẽ được mang rửa sạch, rim cùng với đường, nước mắm, tỏi và ớt."
-      },
-      {
-        "sentence_id": 19,
-        "text": "Độ dai ngọt của thịt cá kết hợp với vị cay ngọt ngọt tạo nên một món ăn đậm đà và tốn cơm."
-      },
-      {
-        "sentence_id": 20,
-        "text": "Không chỉ là món 'lai rai' phổ biến ở quán nhậu, nhiều du khách cũng chọn món ăn này để làm quà khi đi du lịch Quy Nhơn."
-      },
-      {
-        "sentence_id": 21,
-        "text": "Cá được bán ở cửa hàng chuyên đặc sản hoặc có thể tìm mua ở một số chợ trong các làng chài."
-      },
-      {
-        "sentence_id": 22,
-        "text": "Cá chình mun Châu Trúc Cá chình mun là loại cá nước ngọt, thuộc họ nhà lươn, chạch nhưng kích thước lớn."
-      },
-      {
-        "sentence_id": 23,
-        "text": "Thịt cá chắc, có vị béo."
-      },
-      {
-        "sentence_id": 24,
-        "text": "Cá chỉ có ở đầm Trà Ổ hay còn gọi là đầm Châu Trúc thuộc huyện Phù Mỹ (tỉnh Bình Định)."
-      },
-      {
-        "sentence_id": 25,
-        "text": "Trung bình, chình mun Châu Trúc dài gần 1 mét, kích thước tương đương bắp đùi người trưởng thành."
-      },
-      {
-        "sentence_id": 26,
-        "text": "Những con nuôi lâu năm còn lớn hơn."
-      },
-      {
-        "sentence_id": 27,
-        "text": "Đây là nguyên liệu chính cho nhiều món đặc sản tại Quy Nhơn."
-      },
-      {
-        "sentence_id": 28,
-        "text": "Cá thường được chế biến thành các dạng như nướng, hấp gừng, xào lăn hay cháo cá chình."
-      },
-      {
-        "sentence_id": 29,
-        "text": "Không chỉ hấp dẫn bởi hương vị thơm ngon, cá chình mun còn giàu dinh dưỡng, có nhiều dưỡng chất tốt cho sức khỏe."
-      },
-      {
-        "sentence_id": 30,
-        "text": "Bò chua Tây Sơn Bò chua Tây là đặc sản của vùng đất Bình Định."
-      },
-      {
-        "sentence_id": 31,
-        "text": "Thịt bò làm món này được tuyển chọn kỹ lưỡng, sau đó làm sạch, lọc hết phần lõi gân, cắt miếng mỏng vừa ăn."
-      },
-      {
-        "sentence_id": 32,
-        "text": "Thịt sau khi sơ chế được ướp đều với nước mắm, nước đường thắng lên để nguội và các loại gia vị riềng, tỏi, ớt, hạt tiêu."
-      },
-      {
-        "sentence_id": 33,
-        "text": "Đầu bếp sẽ cho hỗn hợp vào hũ, đậy nắp kín, để từ 5 đến 7 ngày cho lên men tự nhiên."
-      },
-      {
-        "sentence_id": 34,
-        "text": "Món ăn có vị chua thanh, ngọt dịu và cay nồng, thường được ăn kèm với rau sống và cuốn bánh tráng."
-      },
-      {
-        "sentence_id": 35,
-        "text": "Đây là món ăn không thể bỏ qua khi du lịch Quy Nhơn, đặc biệt đối với những ai yêu thích hương vị chua cay đậm đà."
-      },
-      {
-        "sentence_id": 36,
-        "text": "Ở Bình Định, chỉ có một số quán có món ăn này."
-      },
-      {
-        "sentence_id": 37,
-        "text": "Quán Hoa An (đường bờ kè, thị trấn Phú Phong) là một trong những quán được nhiều thực khách lui tới."
-      },
-      {
-        "sentence_id": 38,
-        "text": "Bò chua Tây Sơn đang được bán với mức giá khoảng 240."
-      },
-      {
-        "sentence_id": 39,
-        "text": "000 đồng cho một hũ 700 gam."
-      },
-      {
-        "sentence_id": 40,
-        "text": "Nhung Nhung"
+        "chunk_id": 2,
+        "sentence_ids": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "text": "Cá chình mun Châu Trúc Cá chình mun là loại cá nước ngọt, thuộc họ nhà lươn, chạch nhưng kích thước lớn. Thịt cá chắc, có vị béo. Cá chỉ có ở đầm Trà Ổ hay còn gọi là đầm Châu Trúc thuộc huyện Phù Mỹ (tỉnh Bình Định). Trung bình, chình mun Châu Trúc dài gần 1 mét, kích thước tương đương bắp đùi người trưởng thành. Những con nuôi lâu năm còn lớn hơn. Đây là nguyên liệu chính cho nhiều món đặc sản tại Quy Nhơn. Cá thường được chế biến thành các dạng như nướng, hấp gừng, xào lăn hay cháo cá chình. Không chỉ hấp dẫn bởi hương vị thơm ngon, cá chình mun còn giàu dinh dưỡng, có nhiều dưỡng chất tốt cho sức khỏe. Bò chua Tây Sơn Bò chua Tây là đặc sản của vùng đất Bình Định. Thịt bò làm món này được tuyển chọn kỹ lưỡng, sau đó làm sạch, lọc hết phần lõi gân, cắt miếng mỏng vừa ăn. Thịt sau khi sơ chế được ướp đều với nước mắm, nước đường thắng lên để nguội và các loại gia vị riềng, tỏi, ớt, hạt tiêu. Đầu bếp sẽ cho hỗn hợp vào hũ, đậy nắp kín, để từ 5 đến 7 ngày cho lên men tự nhiên. Món ăn có vị chua thanh, ngọt dịu và cay nồng, thường được ăn kèm với rau sống và cuốn bánh tráng. Đây là món ăn không thể bỏ qua khi du lịch Quy Nhơn, đặc biệt đối với những ai yêu thích hương vị chua cay đậm đà. Ở Bình Định, chỉ có một số quán có món ăn này. Quán Hoa An (đường bờ kè, thị trấn Phú Phong) là một trong những quán được nhiều thực khách lui tới. Bò chua Tây Sơn đang được bán với mức giá khoảng 240. 000 đồng cho một hũ 700 gam. Nhung Nhung",
+        "word_count": 252
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "summary": "Gỏi ốc giấy và cá cơm mờm khô rim là hai món ăn nổi tiếng của Quy Nhơn, hấp dẫn du khách nhờ hương vị đặc trưng.",
+        "word_count": 20
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "summary": "Cá chình mun là loại cá nước ngọt lớn, thịt chắc thơm ngon chỉ có ở đầm Trà Ổ (huyện Phù Mỹ, Bình Định). Cá thường được chế biến nướng, hấp gừng hoặc xào. Bò chua Tây Sơn từ Bình Định nổi tiếng với hương vị chua thanh và cay dịu, dùng nước mắm, đường để làm men tự nhiên trong khoảng 5-7 ngày. Món ăn này chỉ có ở một số quán như Quán Hoa An (đường bờ kè).",
+        "word_count": 63
+      }
+    ],
+    "merged_summary": "Gỏi ốc giấy và cá cơm mờm khô rim là hai món ăn nổi tiếng của Quy Nhơn, hấp dẫn du khách nhờ hương vị đặc trưng. Cá chình mun, loại cá nước ngọt lớn với thịt chắc thơm ngon chỉ có ở đầm Trà Ổ (huyện Phù Mỹ, Bình Định), thường được chế biến nướng, hấp gừng atau xào. Bò chua Tây Sơn từ Bình Định nổi tiếng với hương vị chua thanh và cay dịu, dùng nước mắm, đường để làm men tự nhiên trong khoảng 5-7 ngày, chỉ có ở một số quán như Quán Hoa An (đường bờ kè).",
+    "refined_summary": "Gỏi ốc giấy và cá cơm mờm khô rim là hai món ăn nổi tiếng của Quy Nhơn, hấp dẫn du khách nhờ hương vị đặc trưng. Cá chình mun - loại cá nước ngọt lớn với thịt chắc thơm ngon chỉ có ở đầm Trà Ổ (huyện Phù Mỹ, Bình Định) thường được chế biến nướng hoặc rim cùng đường và tỏi. Món ăn này tạo nên một hương vị đậm đà và tốn cơm, thích hợp làm món lặn 'lai rai' tại quán nhậu hay quà tặng du khách khi đến Quy Nhơn.",
+    "edited_summary": "Gỏi ốc giấy và cá cơm mờm khô rim nổi tiếng ở Quy Nhơn, với hương vị đặc trưng. Cá chình mun - loại cá nước ngọt lớn có thịt chắc thơm ngon chỉ tìm thấy tại đầm Trà Ổ (huyện Phù Mỹ) được rim cùng đường và tỏi tạo nên một mùi vị đậm đà tốn cơm thích hợp làm món lặn 'lai rai' hoặc quà tặng du khách."
   },
   "stats": {
     "planner_loop": 0,
@@ -251,5 +303,5 @@
     "chunks": 0
   },
   "input_text": "Thành phố biển Quy Nhơn không chỉ nổi tiếng với vẻ đẹp tự nhiên mà còn hấp dẫn du khách bởi nền ẩm thực phong phú và đa dạng. Với những ai yêu thích khám phá hương vị mới lạ, Quy Nhơn là điểm đến lý tưởng. Dưới đây là những món ăn du khách không nên bỏ qua khi đến thăm thành phố biển xinh đẹp này. Gỏi ốc giấy Gỏi ốc giấy là một trong những món ăn đặc trưng của Quy Nhơn, mang hương vị thanh mát. Ốc giấy còn gọi là ốc giấm - một loại ốc có vỏ mỏng, dày và ngọt thịt. Để chế biến món ăn này, người đầu bếp sẽ hấp chín ốc, tách vỏ và thái miếng vừa ăn. Ốc được trộn cùng rau sống, đu đủ bào sợi, cà rốt, hành tím, đậu phộng, rau thơm và các loại gia vị. Sốt trộn gỏi được làm từ nước mắm chua ngọt pha cùng ớt và chanh, tạo nên hương vị đậm đà, chua cay. Món này thường được người địa phương sử dụng làm món khai vị nhằm kích thích vị giác. Gỏi được bán ở các quán hải sản, có giá dao động từ 25.000 đến 80.000 đồng một đĩa, tùy số lượng. Du khách có thể tìm mua ốc giấy tươi ở các chợ trong tỉnh với mức 120.000 đến 160.000 đồng một kg. Cá cơm mờm khô rim Cá cơm mờm khô rim là món ăn dân dã, được nhiều gia đình Việt và du khách yêu thích. Cá mờm là loại cá có kích thước rất nhỏ, thân hình thuôn dài, dẹp hai bên, màu trắng, dát ánh bạc. Cá sau khi phơi khô sẽ được mang rửa sạch, rim cùng với đường, nước mắm, tỏi và ớt. Độ dai ngọt của thịt cá kết hợp với vị cay ngọt ngọt tạo nên một món ăn đậm đà và tốn cơm. Không chỉ là món 'lai rai' phổ biến ở quán nhậu, nhiều du khách cũng chọn món ăn này để làm quà khi đi du lịch Quy Nhơn. Cá được bán ở cửa hàng chuyên đặc sản hoặc có thể tìm mua ở một số chợ trong các làng chài. Cá chình mun Châu Trúc Cá chình mun là loại cá nước ngọt, thuộc họ nhà lươn, chạch nhưng kích thước lớn. Thịt cá chắc, có vị béo. Cá chỉ có ở đầm Trà Ổ hay còn gọi là đầm Châu Trúc thuộc huyện Phù Mỹ (tỉnh Bình Định). Trung bình, chình mun Châu Trúc dài gần 1 mét, kích thước tương đương bắp đùi người trưởng thành. Những con nuôi lâu năm còn lớn hơn. Đây là nguyên liệu chính cho nhiều món đặc sản tại Quy Nhơn. Cá thường được chế biến thành các dạng như nướng, hấp gừng, xào lăn hay cháo cá chình. Không chỉ hấp dẫn bởi hương vị thơm ngon, cá chình mun còn giàu dinh dưỡng, có nhiều dưỡng chất tốt cho sức khỏe. Bò chua Tây Sơn Bò chua Tây là đặc sản của vùng đất Bình Định. Thịt bò làm món này được tuyển chọn kỹ lưỡng, sau đó làm sạch, lọc hết phần lõi gân, cắt miếng mỏng vừa ăn. Thịt sau khi sơ chế được ướp đều với nước mắm, nước đường thắng lên để nguội và các loại gia vị riềng, tỏi, ớt, hạt tiêu. Đầu bếp sẽ cho hỗn hợp vào hũ, đậy nắp kín, để từ 5 đến 7 ngày cho lên men tự nhiên. Món ăn có vị chua thanh, ngọt dịu và cay nồng, thường được ăn kèm với rau sống và cuốn bánh tráng. Đây là món ăn không thể bỏ qua khi du lịch Quy Nhơn, đặc biệt đối với những ai yêu thích hương vị chua cay đậm đà. Ở Bình Định, chỉ có một số quán có món ăn này. Quán Hoa An (đường bờ kè, thị trấn Phú Phong) là một trong những quán được nhiều thực khách lui tới. Bò chua Tây Sơn đang được bán với mức giá khoảng 240.000 đồng cho một hũ 700 gam. Nhung Nhung",
-  "last_updated": "2026-03-28T01:52:35.874955"
+  "last_updated": "2026-03-30T05:42:14.263460"
 }

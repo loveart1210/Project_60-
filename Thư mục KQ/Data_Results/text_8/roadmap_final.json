@@ -4,33 +4,35 @@
       {
         "step_id": "step_1",
         "name": "Tách văn bản thành câu và nhóm thành chunks",
-        "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên cấu trúc tự nhiên của văn bản, nhóm những câu liên quan vào một chunk.",
-        "tool": "word_tokenize(sent_tokenize('Văn bản gốc'))",
-        "expected_output": "Một danh sách chunks chứa các đoạn văn tương ứng"
+        "description": "Sử dụng sent_tokenize để tách văn bản thành các câu, sau đó sử dụng chunk_text để nhóm những câu liên quan vào một chunk.",
+        "tool": "sent_tokenize, chunk_text"
       },
       {
         "step_id": "step_2",
         "name": "Tóm tắt từng chunk bằng LLM",
-        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1. Sử dụng abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG thay đổi entity). Các đoạn tóm tắt nên ngắn gọn và chính xác.",
-        "tool": "summarize_chunk('Chunks sau khi nhóm')",
-        "expected_output": "Một danh sách bản tóm tắt mỗi chunk"
+        "description": "Sử dụng summarize_chunk để tóm tắt mỗi chunk đã nhóm được từ bước trước. Mỗi bản tóm tắt nên ngắn gọn và chính xác.",
+        "tool": "summarize_chunk"
       },
       {
         "step_id": "step_3",
-        "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
-        "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 vào một bản tổng hợp. Tinh chỉnh phong cách của bản tổng hợp.",
-        "tool": "merge_summaries('Bản tóm tắt mỗi chunk')",
-        "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+        "name": "Gộp nhiều bản tóm tắt lại thành một",
+        "description": "Sử dụng merge_summaries để gộp các bản tóm tắt đã được tạo từ bước trước, kết hợp chúng vào một bản tổng thể.",
+        "tool": "merge_summaries"
       },
       {
         "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách cho bản tổng thể",
+        "description": "Sử dụng refine_summary để tinh chỉnh văn phong của bản tổng thể, đảm bảo phù hợp với yêu cầu là news_brief.",
+        "tool": "refine_summary"
+      },
+      {
+        "step_id": "step_5",
         "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-        "description": "Dùng verify_claim để kiểm tra xem các thông tin trong bản tổng hợp đã đúng với nội dung của văn bản gốc hay chưa. Nếu có sự khác biệt, cần chỉnh sửa.",
-        "tool": "verify_claim('Bản tóm tắt cuối cùng', 'Văn bản gốc')",
-        "expected_output": "Một đoạn văn ngắn gọn và chính xác"
+        "description": "Sử dụng verify_claim để kiểm tra xem các bản tóm tắt đã tạo có giữ đúng thông tin quan trọng từ văn bản gốc không.",
+        "tool": "verify_claim"
       }
     ],
-    "total_steps": 4,
-    "notes": "Ghi chú thêm nếu cần thiết"
+    "total_steps": 5,
+    "notes": "Bắt đầu quá trình bằng việc sử dụng sent_tokenize và chunk_text để phân chia văn bản thành các phần phù hợp."
   }
 }

@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm chunk",
+          "description": "Tách văn bản gốc thành các đoạn ngắn (chunk) thông qua việc sử dụng sent_tokenize. Mỗi chunk sẽ chứa một số câu liên quan.",
+          "tool": "sent_tokenize, chunk_text",
+          "expected_output": "Một danh sách gồm nhiều chunks, mỗi chunk là một nhóm các câu có mối liên kết với nhau."
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarization để tóm tắt nội dung của từng chunk. Kết quả sẽ được đưa vào bước tiếp theo.",
+          "tool": "summarize_chunk",
+          "expected_output": "Một bản tóm tắt ngắn gọn và chính xác cho mỗi chunk."
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một bài viết tổng quát",
+          "description": "Tổng hợp tất cả các bản tóm tắt từ bước 2 để tạo ra một bài viết ngắn gọn và chính xác về thông tin chủ yếu của văn bản gốc.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản tóm tắt tổng quát dài khoảng 150-250 từ, không quá 20% độ dài input."
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách của bài viết tổng hợp",
+          "description": "Dùng refine_summary để tinh chỉnh câu văn cho phù hợp với tiêu chuẩn news_brief và không thay đổi entity.",
+          "tool": "refine_summary",
+          "expected_output": "Một bản tóm tắt đã được refinement, vẫn giữ nguyên thông tin nhưng có phong cách viết rõ ràng hơn."
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng các mệnh đề trong bài tổng hợp với văn bản gốc",
+          "description": "Dùng verify_claim để kiểm tra xem tất cả những gì đã được tóm tắt có đúng với thông tin từ văn bản gốc hay không.",
+          "tool": "verify_claim",
+          "expected_output": "Một báo cáo về việc các mệnh đề trong bài tổng hợp đã được xác thực và phù hợp với thông tin của văn bản gốc."
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Ghi chú thêm: Các bước này cần được kiểm tra lại sau khi hoàn thành để đảm bảo rằng tất cả thông tin quan trọng đều được giữ lại, đồng thời phong cách viết phù hợp với tiêu chuẩn news_brief."
+    }
+  }
+}

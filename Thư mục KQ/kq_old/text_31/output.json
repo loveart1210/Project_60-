@@ -1,0 +1,200 @@
+{
+  "summary": "Roger Federer khoe bãi biển Hong Kong, cầu Vàng Đà Nẵng và Hội An về đêm sau chuyến châu Á từ đầu năm; người hâm mộ ngưỡng mộ cuộc sống tự do của anh sau khi giải nghệ.",
+  "style": "news_brief",
+  "word_count": 28,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt mỗi chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp tất cả các bản summary lại thành một bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng hợp tóm tắt",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng các mệnh đề trong tổng hợp tóm tắt với văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Roger Federer khoe hình ở bãi biển nhiệt đới Hong Kong, cầu Vàng Đà Nẵng và sông Thu Bồn Hội An về đêm sau chuyến du lịch châu Á từ đầu năm.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3,
+          "source_text": "Trong bộ ảnh đăng tải, Roger khoe hình bơi ở một bãi biển nhiệt đ热带, check in cảng Victoria ở Hong Kong, chụp hình cầu Vàng ở Đà Nẵng và sông Thu Bồn ở Hội An về đêm."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "Người hâm mộ ngưỡng mộ cuộc sống tự do của anh sau khi giải nghệ quần vợt.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 7,
+          "source_text": "mong chờ những chuyến đi kế tiếp của anh."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "Roger Federer là một trong những tay vợt vĩ đại nhất lịch sử làng quần vợt khi giành tổng cộng 20 danh hiệu Grand Slam trong sự nghiệp trước khi giải nghệ vào tháng 9/2022.",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.8
+    },
+    {
+      "claim_id": 4,
+      "claim_text": "Roger Federer khoe hình ở bãi biển nhiệt đới Hong Kong, cầu Vàng Đà Nẵng và sông Thu Bồn Hội An về đêm sau chuyến du lịch châu Á từ đầu năm.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3,
+          "source_text": "Trong bộ ảnh đăng tải, Roger khoe hình bơi ở một bãi biển nhiệt đ热带, check in cảng Victoria ở Hong Kong, chụp hình cầu Vàng ở Đà Nẵng và sông Thu Bồn ở Hội An về đêm."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 5,
+      "claim_text": "Người hâm mộ ngưỡng mộ cuộc sống tận hưởng tự do của Federer sau khi giải nghệ và mong chờ những chuyến đi kế tiếp của anh.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 7,
+          "source_text": "mong chờ những chuyến đi kế tiếp của anh."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 6,
+      "claim_text": "Roger Federer là một trong những tay vợt vĩ đại nhất lịch sử làng quần vợt khi giành tổng cộng 20 danh hiệu Grand Slam trong sự nghiệp trước khi giải nghệ vào tháng 9/2022.",
+      "status": "fail",
+      "evidence": [],
+      "confidence": 0.8
+    }
+  ],
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Roger Federer khoe hình ở bãi biển nhiệt đ热带 Hong Kong, cầu Vàng Đà Nẵng và sông Thu Bồn Hội An về đêm sau chuyến du lịch châu Á từ đầu năm. Người hâm mộ ngưỡng mộ cuộc sống tự do của anh sau khi giải nghệ quần vợt.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Roger Federer khoe hình ở bãi biển nhiệt đới Hong Kong, cầu Vàng Đà Nẵng và sông Thu Bồn Hội An về đêm sau chuyến du lịch châu Á từ đầu năm.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "source_text": "Trong bộ ảnh đăng tải, Roger khoe hình bơi ở một bãi biển nhiệt đ热带, check in cảng Victoria ở Hong Kong, chụp hình cầu Vàng ở Đà Nẵng và sông Thu Bồn ở Hội An về đêm."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "Người hâm mộ ngưỡng mộ cuộc sống tự do của anh sau khi giải nghệ quần vợt.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "source_text": "mong chờ những chuyến đi kế tiếp của anh."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "Roger Federer là một trong những tay vợt vĩ đại nhất lịch sử làng quần vợt khi giành tổng cộng 20 danh hiệu Grand Slam trong sự nghiệp trước khi giải nghệ vào tháng 9/2022.",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.8
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "Roger Federer khoe hình ở bãi biển nhiệt đới Hong Kong, cầu Vàng Đà Nẵng và sông Thu Bồn Hội An về đêm sau chuyến du lịch châu Á từ đầu năm.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "source_text": "Trong bộ ảnh đăng tải, Roger khoe hình bơi ở một bãi biển nhiệt đ热带, check in cảng Victoria ở Hong Kong, chụp hình cầu Vàng ở Đà Nẵng và sông Thu Bồn ở Hội An về đêm."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 5,
+        "claim_text": "Người hâm mộ ngưỡng mộ cuộc sống tận hưởng tự do của Federer sau khi giải nghệ và mong chờ những chuyến đi kế tiếp của anh.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "source_text": "mong chờ những chuyến đi kế tiếp của anh."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 6,
+        "claim_text": "Roger Federer là một trong những tay vợt vĩ đại nhất lịch sử làng quần vợt khi giành tổng cộng 20 danh hiệu Grand Slam trong sự nghiệp trước khi giải nghệ vào tháng 9/2022.",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.8
+      }
+    ],
+    "edited_summary": "Roger Federer khoe bãi biển Hong Kong, cầu Vàng Đà Nẵng và Hội An về đêm sau chuyến châu Á từ đầu năm; người hâm mộ ngưỡng mộ cuộc sống tự do của anh sau khi giải nghệ."
+  }
+}

@@ -4,42 +4,42 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Dùng word_tokenize để tách từ, sent_tokenize để tách câu. Dựa trên nội dung, nhóm các câu thành một hoặc nhiều chunks phù hợp.",
-          "tool": null,
-          "expected_output": "Một số chunks như: 'Hội chợ cũng là nơi quy tụ... khách tham quan', 'Gian hàng của Sở Du lịch TP HCM diễn ra... kích cầu du lịch', ..."
+          "name": "Group Sentences into Chunks",
+          "description": "Tách văn bản gốc thành các đoạn (chunks) thông qua việc sử dụng chunk_text.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunks tóm tắt"
         },
         {
           "step_id": "step_2",
-          "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã nhóm được.",
+          "name": "Summarize Each Chunk with LLM",
+          "description": "Tạo bản tóm tắt cho từng chunk thông qua việc sử dụng summarize_chunk.",
           "tool": "summarize_chunk",
-          "expected_output": "Một bản tóm tắt ngắn gọn cho mỗi chunk, ví dụ: 'Hội chợ thu hút hơn 3.000 người mua và gần 12.000 khách tham quan từ nhiều quốc gia.'"
+          "expected_output": "Bản tóm tắt của mỗi chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp các bản tóm tắt thành một bản tổng thể",
-          "description": "Dùng merge_summaries để gộp tất cả những bản tóm tắt đã được tạo ra.",
+          "name": "Merge Summaries into One Summary",
+          "description": "Gộp các bản tóm tắt thành một summary tổng thể thông qua việc sử dụng merge_summaries.",
           "tool": "merge_summaries",
-          "expected_output": "Một bản tóm tắt toàn bộ văn bản với độ dài khoảng 150-250 từ."
+          "expected_output": "Bản tóm tắt cuối cùng của văn bản"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho tổng thể",
-          "description": "Dùng refine_summary để tinh chỉnh câu từ và ngữ cảnh của toàn bộ bản tóm tắt.",
+          "name": "Refine Summary for Clarity and Style",
+          "description": "Tinh chỉnh câu từ cho summary tổng thể để đảm bảo độ rõ ràng và phong cách thông qua việc sử dụng refine_summary.",
           "tool": "refine_summary",
-          "expected_output": "Một bản tóm tắt hoàn thiện với độ dài khoảng 150-250 từ, phù hợp phong cách news_brief."
+          "expected_output": "Bản tóm tắt cuối cùng được tinh chỉnh"
         },
         {
           "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-          "description": "Dùng verify_claim để kiểm tra xem các thông tin trong tóm tắt đã đúng với nội dung của văn bản gốc.",
+          "name": "Verify Claims Against Original Text",
+          "description": "Kiểm chứng các mệnh đề trong summary tổng thể với văn bản gốc thông qua việc sử dụng verify_claim.",
           "tool": "verify_claim",
-          "expected_output": "Một báo cáo xác nhận độ chính xác của từng đoạn tóm tắt."
+          "expected_output": "Bản tóm tắt đã được kiểm chứng"
         }
       ],
       "total_steps": 5,
-      "notes": "Ghi chú thêm"
+      "notes": "Ghi chú thêm về roadmap nếu cần."
     }
   }
 }

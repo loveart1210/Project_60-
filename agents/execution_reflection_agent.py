@@ -59,7 +59,7 @@ Chấm điểm kết quả thực thi (thang 0.0 – 1.0):
 ### Quy tắc quyết định
 - Nếu chất lượng tốt VÀ đây là bước cuối → "finish"
 - Nếu chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7) → "next_step"
-- Nếu có vấn đề nghiêm trọng → "retry" + giải thích cần sửa gì
+- Nếu có vấn đề nghiêm trọng (factual < 0.8 hoặc coverage < 0.7 hoặc có lỗi trong issues_found) → "retry". BẮT BUỘC phải điền thông tin vào "feedback". 
 
 ### Yêu cầu output
 Trả về đúng định dạng JSON bên dưới (không bao gồm markdown ```json):
@@ -71,8 +71,8 @@ Trả về đúng định dạng JSON bên dưới (không bao gồm markdown ``
     "redundancy_score": 0.1,
     "length_compliance": true,
     "decision": "next_step",
-    "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-    "reasoning": "Lý do quyết định"
+    "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+    "reasoning": "Lý do quyết định dựa trên observation"
   }}
 }}
 ```

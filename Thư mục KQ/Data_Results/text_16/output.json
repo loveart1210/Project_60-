@@ -1,43 +1,23 @@
 {
-  "summary": "Phụ nữ đã kín chỗ tại Camp Château, lâu đài Quercy ở tây nam Pháp với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling mong muốn mở rộng trại hè để giúp phụ nữ có cơ hội thư giãn và hồi phục sức khỏe tinh thần, thể chất hơn. Camp Château tổ chức các hoạt động như làm nến, yoga và nằm bên hồ bơi, thu hút sự tham gia của hầu hết khách hàng. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Lượng khách tăng nhưng giá 2.178 euro cho kỳ nghỉ không tính đưa đón sân bay hay dịch vụ massage vẫn giữ ổn định để nhiều người có thể tham gia.",
+  "summary": "CEO Philippa Girling cảm thấy vui mừng nhưng tiếc nuối khi Camp Château, lâu đài cổ ở Quercy, tây nam Pháp năm nay đã kín chỗ với 11.000 người đăng ký cho mùa hè 2025. Du khách sẽ phải đợi đến tận 20 năm mới được nghỉ dưỡng tại đây do tổ chức các hoạt động như yoga và cưỡi ngựa trong kỳ nghỉ kéo dài sáu ngày năm đêm cho 50 người mỗi đợt, với giá 2.178 euro bao gồm ăn ở, vui chơi nhưng không tính đưa đón sân bay và dịch vụ massage.",
   "style": "news_brief",
-  "word_count": 90,
+  "word_count": 76,
   "trace": [
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "identify_key_points",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Xác định ý chính cần giữ lại",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
       "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt mỗi chunk bằng LLM",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -47,68 +27,275 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary tổng thể",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
       }
     },
     {
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách và độ dài summary tổng thể",
+      "evidence": "Step 4: Refine summary bằng cách chỉnh sửa câu từ và phong cách",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine summary bằng cách chỉnh sửa câu từ và phong cách",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine summary bằng cách chỉnh sửa câu từ và phong cách",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
       }
     },
     {
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề của summary với văn bản gốc",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
       }
     }
   ],
   "verification_report": null,
   "intermediate_outputs": {
-    "outline": null,
-    "draft_summary": "Phụ nữ đã kín chỗ tại Camp Château, lâu đài Quercy ở tây nam Pháp với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling mong muốn mở rộng trại hè để giúp phụ nữ có cơ hội thư giãn và hồi phục sức khỏe tinh thần, thể chất hơn. Camp Château tổ chức các hoạt động như làm nến, yoga và nằm bên hồ bơi, thu hút sự tham gia của hầu hết khách hàng. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Lượng khách tăng nhưng giá 2.178 euro cho kỳ nghỉ không tính đưa đón sân bay hay dịch vụ massage vẫn giữ ổn định để nhiều người có thể tham gia.",
+    "outline": [
+      {
+        "point_id": 1,
+        "content": "Đi dạo trong khuôn viên lâu đài của Philippa Girling vào một buổi tối mùa hè năm 2023, cô cảm thấy nhẹ nhõm khi nghe tiếng cười du khách nữ.",
+        "source_sentence_ids": [
+          1
+        ],
+        "entities": [
+          "Philippa Girling",
+          "lâu đài"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 2,
+        "content": "CEO Camp Château, nơi tổ chức trại hè dành riêng cho phụ nữ, mong muốn tạo ra tiếng cười.",
+        "source_sentence_ids": [
+          2
+        ],
+        "entities": [
+          "Camp Château",
+          "CEO"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 3,
+        "content": "Danh sách khách đăng ký đến nghỉ dưỡng tại lâu đài cổ nằm trên đỉnh đồi ở vùng Quercy, tây nam nước Pháp năm nay đã kín chỗ.",
+        "source_sentence_ids": [
+          3
+        ],
+        "entities": [
+          "lâu đài",
+          "Quercy"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 4,
+        "content": "Lượng khách chờ cho mùa hè 2025 đã lên đến 11.000 người.",
+        "source_sentence_ids": [
+          4,
+          5
+        ],
+        "entities": [
+          "mùa hè 2025",
+          "lượt"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 5,
+        "content": "Philippa rất vui khi được mọi người yêu thích dịch vụ nhưng cảm thấy tiếc cho những người trong danh sách chờ.",
+        "source_sentence_ids": [
+          6
+        ],
+        "entities": [
+          "Philippa",
+          "dịch vụ"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 6,
+        "content": "Cô đang xem xét để mở rộng trại hè, giúp nhiều du khách nữ có thể sử dụng dịch vụ hơn.",
+        "source_sentence_ids": [
+          7
+        ],
+        "entities": [
+          "trại hè"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 7,
+        "content": "Mục đích tồn tại của Camp Château rất đơn giản: mang đến cho phụ nữ trải nghiệm vui vẻ.",
+        "source_sentence_ids": [
+          8
+        ],
+        "entities": [
+          "Camp Château"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 8,
+        "content": "Philippa từng làm 30 năm trong ngành ngân hàng nên thấu hiểu áp lực mà phụ nữ ngày nay phải đối mặt.",
+        "source_sentence_ids": [
+          9
+        ],
+        "entities": [
+          "philippa",
+          "ngành ngân hàng"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 9,
+        "content": "Do đó, cô cùng các đồng sáng lập tạo ra Camp Château để giúp các khách hàng nữ của mình thư giãn và mang lại cho họ sự chăm sóc sức khỏe tinh thần và thể chất.",
+        "source_sentence_ids": [
+          10
+        ],
+        "entities": [
+          "philippa",
+          "ngành ngân hàng"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 10,
+        "content": "Kỳ nghỉ trong trại hè kéo dài sáu ngày năm đêm với nhiều hoạt động để hội viên tham gia như làm nến, nếm thử phô mai, cưỡi ngựa, yoga.",
+        "source_sentence_ids": [
+          11
+        ],
+        "entities": [
+          "trại hè"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 11,
+        "content": "Những người phụ nữ đều rất hòa đồng. Họ nằm giường tầng trong các căn phòng tại lâu đài hoặc trong lều dành cho hai người.",
+        "source_sentence_ids": [
+          16,
+          24
+        ],
+        "entities": [
+          "phụ nữ"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 12,
+        "content": "Toàn bộ thiết kế của Camp Château đều hướng tới mục đích giúp mọi người có thể gặp gỡ và trò chuyện nhiều hơn một cách tự nhiên nhất.",
+        "source_sentence_ids": [
+          19
+        ],
+        "entities": [
+          "Camp Château"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 13,
+        "content": "Chương trình trại hè này là trao cho phụ nữ quyền tự quyết, làm mọi thứ họ muốn và chỉ cần đối xử tử tế với nhau.",
+        "source_sentence_ids": [
+          20
+        ],
+        "entities": [
+          "trại hè"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 14,
+        "content": "Có thêm các khách đến từ Andorra, Canada, Ai Cập, Anh và Nigeria.",
+        "source_sentence_ids": [
+          23
+        ],
+        "entities": [
+          "Andorra",
+          "Canada"
+        ],
+        "importance": "high"
+      },
+      {
+        "point_id": 15,
+        "content": "Càng ngày, lượng khách đăng ký càng đông. Nhưng Philippa nói sẽ không tăng giá vì muốn nhiều người có thể tiếp cận trải nghiệm này thay vì hướng tới tệp khách nhà giàu.",
+        "source_sentence_ids": [
+          30
+        ],
+        "entities": [
+          "philippa",
+          "tổng quan"
+        ],
+        "importance": "high"
+      }
+    ],
+    "draft_summary": "Du khách nữ lưu trú tại Camp Château, lâu đài cổ ở Quercy, tây nam Pháp năm nay đã kín chỗ với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling cảm thấy vui mừng nhưng tiếc nuối vì nhiều du khách sẽ phải đợi đến tận 20 năm mới được nghỉ dưỡng tại đây. Camp Château tổ chức các hoạt động như làm nến, yoga, cưỡi ngựa và nằm bên hồ bơi trong kỳ nghỉ kéo dài sáu ngày năm đêm cho 50 người mỗi đợt đón khách. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Camp Château tổ chức các hoạt động như làm nến, yoga, cưỡi ngựa và nằm bên hồ bơi trong kỳ nghỉ kéo dài sáu ngày năm đêm cho 50 người mỗi đợt đón khách. Giá 2.178 euro cho kỳ nghỉ bao gồm ăn ở, vui chơi nhưng không tính đưa đón sân bay và dịch vụ massage.",
     "verification": null,
-    "edited_summary": "Phụ nữ đã kín chỗ tại Camp Château, lâu đài Quercy ở tây nam Pháp với 11.000 người đăng ký cho mùa hè 2025. CEO Philippa Girling mong muốn mở rộng trại hè để giúp phụ nữ có cơ hội thư giãn và hồi phục sức khỏe tinh thần, thể chất hơn. Camp Château tổ chức các hoạt động như làm nến, yoga và nằm bên hồ bơi, thu hút sự tham gia của hầu hết khách hàng. Girling nhận thấy 'phụ nữ khi ở bên nhau thật tuyệt vời'. Lượng khách tăng nhưng giá 2.178 euro cho kỳ nghỉ không tính đưa đón sân bay hay dịch vụ massage vẫn giữ ổn định để nhiều người có thể tham gia."
+    "edited_summary": "CEO Philippa Girling cảm thấy vui mừng nhưng tiếc nuối khi Camp Château, lâu đài cổ ở Quercy, tây nam Pháp năm nay đã kín chỗ với 11.000 người đăng ký cho mùa hè 2025. Du khách sẽ phải đợi đến tận 20 năm mới được nghỉ dưỡng tại đây do tổ chức các hoạt động như yoga và cưỡi ngựa trong kỳ nghỉ kéo dài sáu ngày năm đêm cho 50 người mỗi đợt, với giá 2.178 euro bao gồm ăn ở, vui chơi nhưng không tính đưa đón sân bay và dịch vụ massage."
   }
 }

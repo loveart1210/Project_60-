@@ -1,5 +1,5 @@
 {
-  "session_id": "c9694487",
+  "session_id": "9ab6a4fb",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 537,
-  "created_at": "2026-03-27T20:02:23.576274",
+  "created_at": "2026-03-30T02:43:12.242733",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T20:03:34.459995",
+      "timestamp": "2026-03-30T02:43:37.191988",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T20:04:31.254595",
+      "timestamp": "2026-03-30T02:44:02.372111",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T20:04:56.772976",
+      "timestamp": "2026-03-30T02:44:10.563529",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,90 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc với coverage score đạt 0.85 và specificity score là 0.75, đồng thời hallucination risk được đánh giá là low. Mặc dù roadmap thiếu bước kiểm chứng mệnh đề với văn bản gốc nhưng không ảnh hưởng đáng kể đến tổng thể."
+          "reasoning": "Roadmap bao gồm các bước chính cần thiết cho việc tổng hợp và tinh chỉnh nội dung, đồng thời tận dụng công nghệ hiện đại. Mặc dù chưa đề cập đến bước verify_claim (kiểm chứng độ chính xác của tóm tắt) nhưng điểm yếu này không ảnh hưởng nghiêm trọng vì nó có thể được kiểm soát bởi người dùng hoặc hệ thống. Bước refinement cũng cần thêm hướng dẫn chi tiết."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T20:04:56.775978",
+      "action": "chunking",
+      "timestamp": "2026-03-30T02:44:10.586614",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T02:44:23.286455",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T20:05:40.860954",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T02:44:39.299722",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T20:06:01.219957",
+      "timestamp": "2026-03-30T02:44:47.269318",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung ngữ cảnh cho 'đoàn thanh niên đánh giá cao tính kết nối với thiên nhiên ở Lithuania', sửa 'Lithuania được Steffan đánh giá cao về tính cởi mở, hào phóng và tử tế' để có ngữ cảnh. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước thực thi tóm tắt đã hoàn thành nhưng chất lượng chưa đạt yêu cầu (factual consistency < 0.8). Nên thử lại bước hiện tại."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T02:45:00.088684",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:45:23.034135",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:45:31.755615",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: Mặc dù summary chính xác nhưng độ dài vượt quá yêu cầu (redundancy_score = 0.2). Cần thêm thông tin về lỗi và cách khắc phục."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T02:45:45.381661",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:46:02.976844",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:46:11.327227",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,97 +129,261 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt và không chứa thêm thông tin mới so với văn bản gốc, đồng thời đạt mức độ bao quát chấp nhận được. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng vẫn còn một số vấn đề cần bổ sung như: không có thông tin chi tiết về đánh giá quốc gia hạnh phúc nhất thế giới cho người trẻ (gen Z) và tính cởi mở của Lithuania. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation là chất lượng tốt nhưng vẫn còn một số vấn đề cần bổ sung, đặc biệt về chi tiết thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T02:46:21.581285",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:46:34.806586",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:46:41.240968",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt nhưng chỉ tập trung vào một phần nhỏ thông tin trong báo cáo hạnh phúc thế giới mà không phản ánh toàn bộ cuộc điều tra."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T02:46:51.652442",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:47:06.304239",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:47:14.219943",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output thiếu chi tiết cụ thể từ văn bản gốc về Lithuania, đặc biệt là thông tin từng đoạn trong văn bản gốc. Execution Agent cần bổ sung thêm các chi tiết này.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán factual cao và bao quát completeness cũng chấp nhận được. Tuy nhiên, output thiếu một số chi tiết cụ thể từ văn bản gốc nên không đủ đầy đủ."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T02:47:26.492986",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:47:42.387833",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:47:51.301312",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa bất kỳ fact nào từ văn bản gốc nhưng vẫn giữ được tinh thần chính của đoạn văn. Tuy nhiên, cần bổ sung thêm thông tin về khó khăn mà Lithuania phải đối mặt và cụ thể hóa hơn về sự cởi mở, hào phóng và tử tế của dân Lithuania.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng không chứa bất kỳ fact nào từ văn bản gốc. Tuy nhiên, cần bổ sung thêm thông tin để đảm bảo độ bao quát."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T02:48:14.323850",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T02:48:24.210053",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:48:40.283033",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:48:48.442667",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt ý chính và cảm nhận cá nhân của người sáng tạo nội dung, thiếu sự nhất quán về fact từ văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm các facts cụ thể như Lithuania là quốc gia hạnh phúc nhất cho gen Z.",
+          "reasoning": "Chất lượng tốt nhưng vẫn còn thiếu một số facts quan trọng để đảm bảo độ chính xác và bao quát của tóm tắt."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T20:06:01.228469",
+      "timestamp": "2026-03-30T02:48:48.446177",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
+    "chunks": [
       {
-        "sentence_id": 1,
-        "text": "Theo Báo cáo Hạnh phúc Thế giới (World Happiness Report) 2024 của Liên Hợp Quốc công bố hồi tháng 3, Lithuania là quốc gia 'hạnh phúc nhất thế giới dành cho những người dưới 30 tuổi (gen Z)'."
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "text": "Theo Báo cáo Hạnh phúc Thế giới (World Happiness Report) 2024 của Liên Hợp Quốc công bố hồi tháng 3, Lithuania là quốc gia 'hạnh phúc nhất thế giới dành cho những người dưới 30 tuổi (gen Z)'. Hai nhà sáng tạo nội dung Ammar Kandil và Staffan Taylor đến từ Yes Theory, kênh truyền thông nổi tiếng của Canada, quyết định đến thủ đô Vilnius để tìm hiểu xem liệu báo cáo có nói đúng. Khi hạ cánh xuống Vilnius, Amma và Staffan bắt đầu nói chuyện với người dân địa phương. Hầu hết người trẻ đều đồng ý quốc gia họ đang sống là nơi tốt nhờ 'đồ ăn tuyệt vời, người dân thân thiện, nhiều cơ hội nghề nghiệp và nền kinh tế đang phát triển'. Nhiều người trong số đó cho rằng các khó khăn mà thế hệ trước chịu đựng đã dạy thế hệ trẻ ngày nay cách tận hưởng cuộc sống trong từng khoảnh khắc và 'tìm thấy vẻ đẹp trong những điều giản dị'. Để thu hút nhiều người trẻ đến nói chuyện hơn, Amma và Staffan đã tổ chức một buổi gặp gỡ. Tại sự kiện, những người tham dự lần lượt bày tỏ quan điểm. 'Sau một năm sống tại Mỹ, tôi đánh giá cao cuộc sống ở Lithuania vì tính kết nối với thiên nhiên', một thanh niên chia sẻ. Người này nói thêm du khách có thể dễ dàng tiếp cận một hồ nước hay khu rừng tại Lithuania và chiêm ngưỡng khung cảnh thiên nhiên tuyệt đẹp ở đó. 'Lithuania chưa bao giờ tốt như hiện nay', một phụ nữ trẻ khác thừa nhận. Khi nói về hạnh phúc, một người dân địa phương cho biết dù người trẻ sống ở đất nước này 'khá vui vẻ' nhưng không có nghĩa họ không phải đối mặt với nhiều vấn đề, áp lực cuộc sống. Sau buổi gặp gỡ, Ammar và Staffan dành phần còn lại của chuyến đi để giao lưu với người dân địa phương, ghé thăm các điểm du lịch như nhà tù cũ Lukiškės giờ là địa điểm văn hóa và tượng đài Hill of Crosses. 'Đây là một trong những trải nghiệm du lịch hạnh phúc nhất tôi từng có', Ammar, người từng đi khắp thế giới, chia sẻ với độc giả trên kênh Yes Theory khi đang tham gia một bữa tiệc tối.",
+        "word_count": 299
       },
       {
-        "sentence_id": 2,
-        "text": "Hai nhà sáng tạo nội dung Ammar Kandil và Staffan Taylor đến từ Yes Theory, kênh truyền thông nổi tiếng của Canada, quyết định đến thủ đô Vilnius để tìm hiểu xem liệu báo cáo có nói đúng."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Khi hạ cánh xuống Vilnius, Amma và Staffan bắt đầu nói chuyện với người dân địa phương."
-      },
-      {
-        "sentence_id": 4,
-        "text": "Hầu hết người trẻ đều đồng ý quốc gia họ đang sống là nơi tốt nhờ 'đồ ăn tuyệt vời, người dân thân thiện, nhiều cơ hội nghề nghiệp và nền kinh tế đang phát triển'."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Nhiều người trong số đó cho rằng các khó khăn mà thế hệ trước chịu đựng đã dạy thế hệ trẻ ngày nay cách tận hưởng cuộc sống trong từng khoảnh khắc và 'tìm thấy vẻ đẹp trong những điều giản dị'."
-      },
-      {
-        "sentence_id": 6,
-        "text": "Để thu hút nhiều người trẻ đến nói chuyện hơn, Amma và Staffan đã tổ chức một buổi gặp gỡ."
-      },
-      {
-        "sentence_id": 7,
-        "text": "Tại sự kiện, những người tham dự lần lượt bày tỏ quan điểm."
-      },
-      {
-        "sentence_id": 8,
-        "text": "'Sau một năm sống tại Mỹ, tôi đánh giá cao cuộc sống ở Lithuania vì tính kết nối với thiên nhiên', một thanh niên chia sẻ."
-      },
-      {
-        "sentence_id": 9,
-        "text": "Người này nói thêm du khách có thể dễ dàng tiếp cận một hồ nước hay khu rừng tại Lithuania và chiêm ngưỡng khung cảnh thiên nhiên tuyệt đẹp ở đó."
-      },
-      {
-        "sentence_id": 10,
-        "text": "'Lithuania chưa bao giờ tốt như hiện nay', một phụ nữ trẻ khác thừa nhận."
-      },
-      {
-        "sentence_id": 11,
-        "text": "Khi nói về hạnh phúc, một người dân địa phương cho biết dù người trẻ sống ở đất nước này 'khá vui vẻ' nhưng không có nghĩa họ không phải đối mặt với nhiều vấn đề, áp lực cuộc sống."
-      },
-      {
-        "sentence_id": 12,
-        "text": "Sau buổi gặp gỡ, Ammar và Staffan dành phần còn lại của chuyến đi để giao lưu với người dân địa phương, ghé thăm các điểm du lịch như nhà tù cũ Lukiškės giờ là địa điểm văn hóa và tượng đài Hill of Crosses."
-      },
-      {
-        "sentence_id": 13,
-        "text": "'Đây là một trong những trải nghiệm du lịch hạnh phúc nhất tôi từng có', Ammar, người từng đi khắp thế giới, chia sẻ với độc giả trên kênh Yes Theory khi đang tham gia một bữa tiệc tối."
-      },
-      {
-        "sentence_id": 14,
-        "text": "Steffan đồng tình khi nhận định Lithuania chắc chắn là một trong những quốc gia cởi mở, hào phóng, tử tế nhất mà anh từng đến."
-      },
-      {
-        "sentence_id": 15,
-        "text": "Video của hai du khách đến từ Canada đã thu hút gần một triệu lượt xem và bình luận chỉ sau vài ngày đăng tải."
-      },
-      {
-        "sentence_id": 16,
-        "text": "Một người từng đến Vilnius học theo diện trao đổi sinh viên chia sẻ thời gian ở Liathuania là quãng thời gian hạnh phúc nhất của mình."
-      },
-      {
-        "sentence_id": 17,
-        "text": "'Cảm ơn Liathuania đã chào đón tôi', người này nói."
-      },
-      {
-        "sentence_id": 18,
-        "text": "'Tình yêu, sự sáng tạo và lòng tốt có thể giúp chúng ta vượt qua quá khứ đen tối, biến tiêu cực thành ánh sáng và giúp đỡ người khác', một người dân địa phương bày tỏ sau khi xem video của Ammar và Steffan."
-      },
-      {
-        "sentence_id": 19,
-        "text": "Anh Minh(TheoYes Theory, DM)"
+        "chunk_id": 2,
+        "sentence_ids": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "text": "Steffan đồng tình khi nhận định Lithuania chắc chắn là một trong những quốc gia cởi mở, hào phóng, tử tế nhất mà anh từng đến. Video của hai du khách đến từ Canada đã thu hút gần một triệu lượt xem và bình luận chỉ sau vài ngày đăng tải. Một người từng đến Vilnius học theo diện trao đổi sinh viên chia sẻ thời gian ở Liathuania là quãng thời gian hạnh phúc nhất của mình. 'Cảm ơn Liathuania đã chào đón tôi', người này nói. 'Tình yêu, sự sáng tạo và lòng tốt có thể giúp chúng ta vượt qua quá khứ đen tối, biến tiêu cực thành ánh sáng và giúp đỡ người khác', một người dân địa phương bày tỏ sau khi xem video của Ammar và Steffan. Anh Minh(TheoYes Theory, DM)",
+        "word_count": 104
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "summary": "Lithuania được đánh giá là quốc gia hạnh phúc nhất thế giới dành cho người trẻ (gen Z), với nhiều cơ hội nghề nghiệp, nền kinh tế phát triển và môi trường sống thân thiện. Tuy nhiên, cuộc sống vẫn có những khó khăn cần đối mặt.",
+        "word_count": 33
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "summary": "Lithuania được đánh giá là quốc gia cởi mở, hào phóng và tử tế. Video về hai du khách Canada thu hút gần một triệu lượt xem chỉ sau vài ngày đăng tải. Một người học sinh trao đổi sinh viên ở Vilnius nói rằng thời gian ở Lithuania là hạnh phúc nhất của mình.",
+        "word_count": 41
+      }
+    ],
+    "merged_summary": "Lithuania được đánh giá là quốc gia hạnh phúc nhất thế giới cho người trẻ, với cơ hội nghề nghiệp và nền kinh tế phát triển. Tuy nhiên, cuộc sống vẫn có khó khăn cần đối mặt (Chunk 1). Lithuania nổi tiếng vì cởi mở, hào phóng và tử tế; video về du khách Canada thu hút gần một triệu lượt xem chỉ sau vài ngày đăng tải (Chunk 2).",
+    "refined_summary": "Lithuania được đánh giá là quốc gia hạnh phúc nhất thế giới cho người trẻ, với cơ hội nghề nghiệp và nền kinh tế phát triển. Tuy nhiên, cuộc sống vẫn có khó khăn cần đối mặt. Lithuania nổi tiếng vì cởi mở, hào phóng và tử tế; video về du khách Canada thu hút gần một triệu lượt xem chỉ sau vài ngày đăng tải.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Lithuania được đánh giá là quốc gia hạnh phúc nhất thế giới cho người trẻ, với cơ hội nghề nghiệp và nền kinh tế phát triển.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Tuy nhiên, cuộc sống vẫn có khó khăn cần đối mặt.",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.85
+      },
+      {
+        "claim_text": "Lithuania nổi tiếng vì cởi mở, hào phóng và tử tế;",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "'Steffan đồng tình khi nhận định Lithuania chắc chắn là một trong những quốc gia cởi mở, hào phóng, tử tế nhất mà anh từng đến.'"
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "video về du khách Canada thu hút gần một triệu lượt xem chỉ sau vài ngày đăng tải.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 16,
+            "source_text": "'Tình yêu, sự sáng tạo và lòng tốt có thể giúp chúng ta vượt qua quá khứ đen tối, biến tiêu cực thành ánh sáng và giúp đỡ người khác', một người dân địa phương bày tỏ sau khi xem video của Ammar và Steffan."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.85
+      }
+    ],
+    "edited_summary": "Lithuania được đánh giá là quốc gia hạnh phúc nhất thế giới cho người trẻ, với cơ hội nghề nghiệp và nền kinh tế phát triển. Tuy nhiên, cuộc sống vẫn có khó khăn cần đối mặt; nổi tiếng vì cởi mở, hào phóng và tử tế; video về du khách Canada thu hút gần một triệu lượt xem chỉ sau vài ngày đăng tải."
   },
   "stats": {
     "planner_loop": 0,
@@ -167,5 +395,5 @@
     "chunks": 0
   },
   "input_text": "Theo Báo cáo Hạnh phúc Thế giới (World Happiness Report) 2024 của Liên Hợp Quốc công bố hồi tháng 3, Lithuania là quốc gia 'hạnh phúc nhất thế giới dành cho những người dưới 30 tuổi (gen Z)'. Hai nhà sáng tạo nội dung Ammar Kandil và Staffan Taylor đến từ Yes Theory, kênh truyền thông nổi tiếng của Canada, quyết định đến thủ đô Vilnius để tìm hiểu xem liệu báo cáo có nói đúng. Khi hạ cánh xuống Vilnius, Amma và Staffan bắt đầu nói chuyện với người dân địa phương. Hầu hết người trẻ đều đồng ý quốc gia họ đang sống là nơi tốt nhờ 'đồ ăn tuyệt vời, người dân thân thiện, nhiều cơ hội nghề nghiệp và nền kinh tế đang phát triển'. Nhiều người trong số đó cho rằng các khó khăn mà thế hệ trước chịu đựng đã dạy thế hệ trẻ ngày nay cách tận hưởng cuộc sống trong từng khoảnh khắc và 'tìm thấy vẻ đẹp trong những điều giản dị'. Để thu hút nhiều người trẻ đến nói chuyện hơn, Amma và Staffan đã tổ chức một buổi gặp gỡ. Tại sự kiện, những người tham dự lần lượt bày tỏ quan điểm. 'Sau một năm sống tại Mỹ, tôi đánh giá cao cuộc sống ở Lithuania vì tính kết nối với thiên nhiên', một thanh niên chia sẻ. Người này nói thêm du khách có thể dễ dàng tiếp cận một hồ nước hay khu rừng tại Lithuania và chiêm ngưỡng khung cảnh thiên nhiên tuyệt đẹp ở đó. 'Lithuania chưa bao giờ tốt như hiện nay', một phụ nữ trẻ khác thừa nhận. Khi nói về hạnh phúc, một người dân địa phương cho biết dù người trẻ sống ở đất nước này 'khá vui vẻ' nhưng không có nghĩa họ không phải đối mặt với nhiều vấn đề, áp lực cuộc sống. Sau buổi gặp gỡ, Ammar và Staffan dành phần còn lại của chuyến đi để giao lưu với người dân địa phương, ghé thăm các điểm du lịch như nhà tù cũ Lukiškės giờ là địa điểm văn hóa và tượng đài Hill of Crosses. 'Đây là một trong những trải nghiệm du lịch hạnh phúc nhất tôi từng có', Ammar, người từng đi khắp thế giới, chia sẻ với độc giả trên kênh Yes Theory khi đang tham gia một bữa tiệc tối. Steffan đồng tình khi nhận định Lithuania chắc chắn là một trong những quốc gia cởi mở, hào phóng, tử tế nhất mà anh từng đến. Video của hai du khách đến từ Canada đã thu hút gần một triệu lượt xem và bình luận chỉ sau vài ngày đăng tải. Một người từng đến Vilnius học theo diện trao đổi sinh viên chia sẻ thời gian ở Liathuania là quãng thời gian hạnh phúc nhất của mình. 'Cảm ơn Liathuania đã chào đón tôi', người này nói. 'Tình yêu, sự sáng tạo và lòng tốt có thể giúp chúng ta vượt qua quá khứ đen tối, biến tiêu cực thành ánh sáng và giúp đỡ người khác', một người dân địa phương bày tỏ sau khi xem video của Ammar và Steffan. Anh Minh(TheoYes Theory, DM)",
-  "last_updated": "2026-03-27T20:04:56.774978"
+  "last_updated": "2026-03-30T02:48:24.207896"
 }

@@ -1,0 +1,52 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Chunking văn bản gốc",
+          "description": "Nhóm các câu thành chunks dựa trên ý chính và liên kết chặt chẽ.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách chunks"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tối thiểu hóa độ dài chunks",
+          "description": "Thu gọn các chunk bằng cách lược bỏ thông tin không cần thiết nhưng vẫn giữ nguyên ý chính.",
+          "tool": "",
+          "expected_output": "Danh sách chunks tối ưu"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Tóm tắt từng chunk với LLM",
+          "description": "Gửi các chunk được thu gọn đến LLM để nhận về bản tóm tắt.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách bản tóm tắt"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Gộp nhiều bản tóm tắt lại thành một",
+          "description": "Tổng hợp các bản tóm tắt từ LLM để tạo ra bản tổng kết.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tổng kết"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Tinh chỉnh phong cách và độ dài của bản tổng kết",
+          "description": "Chỉnh sửa lại văn phong cho phù hợp với tiêu chuẩn news_brief, đồng thời kiểm soát độ dài dưới 20% so với input.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt final"
+        },
+        {
+          "step_id": "step_6",
+          "name": "Kiểm chứng bản tổng kết",
+          "description": "Dùng verify_claim để kiểm tra xem thông tin trong bản tổng kết vẫn đúng với văn bản gốc.",
+          "tool": "verify_claim",
+          "expected_output": "Bản tóm tắt final đã được xác thực"
+        }
+      ],
+      "total_steps": 6,
+      "notes": "Ghi chú thêm nếu cần."
+    }
+  }
+}
