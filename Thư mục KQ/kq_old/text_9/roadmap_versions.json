@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm chunk",
+          "description": "Tách văn bản gốc thành các câu bằng word_tokenize, sau đó nhóm chúng thành chunks thông qua chunk_text.",
+          "tool": "word_tokenize, chunk_text",
+          "expected_output": "Danh sách các chunks"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt thông tin.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách các bản tóm tắt"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp nhiều bản tóm tắt lại thành một",
+          "description": "Tổng hợp tất cả bản tóm tắt từ bước 2 bằng merge_summaries.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản tóm tắt tổng thể"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
+          "description": "Refine_summary để đảm bảo văn phong phù hợp với news_brief và không thay đổi entity.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Đảm bảo độ dài kết quả nằm trong khoảng từ 150 đến 250 từ, không quá 20% so với văn bản gốc."
+    }
+  }
+}

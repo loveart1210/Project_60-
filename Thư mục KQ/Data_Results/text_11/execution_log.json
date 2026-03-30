@@ -2,61 +2,43 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T19:11:32.397521"
-  },
-  {
-    "step_id": "step_1",
-    "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T19:12:57.195140"
-  },
-  {
-    "step_id": "step_1",
-    "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T19:14:22.323376"
+    "output_summary": "chunking",
+    "timestamp": "2026-03-30T02:24:59.307685"
   },
   {
     "step_id": "step_2",
     "status": "completed",
-    "output_summary": "chunking",
-    "timestamp": "2026-03-27T19:15:46.241091"
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-30T02:25:19.327990"
   },
   {
     "step_id": "step_3",
     "status": "completed",
-    "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-27T19:17:53.844242"
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T02:26:04.441103"
   },
   {
     "step_id": "step_4",
     "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-27T19:19:26.018162"
-  },
-  {
-    "step_id": "step_4",
-    "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-27T19:20:59.399823"
-  },
-  {
-    "step_id": "step_4",
-    "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-27T19:22:33.402861"
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T02:26:44.025676"
   },
   {
     "step_id": "step_5",
     "status": "completed",
-    "output_summary": "refine",
-    "timestamp": "2026-03-27T19:24:19.648710"
+    "output_summary": "verify",
+    "timestamp": "2026-03-30T02:27:28.499427"
   },
   {
     "step_id": "step_6",
     "status": "completed",
     "output_summary": "edit",
-    "timestamp": "2026-03-27T19:25:41.052018"
+    "timestamp": "2026-03-30T02:27:38.542235"
+  },
+  {
+    "step_id": "step_6",
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-30T02:28:27.824097"
   }
 ]

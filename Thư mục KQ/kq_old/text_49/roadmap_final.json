@@ -1,0 +1,38 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Tách văn bản tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm những câu liên quan về món ăn cùng nhau tạo thành chunks.",
+        "tool": "word_tokenize, sent_tokenize, chunk_text"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk sử dụng LLM",
+        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm từ bước 1.",
+        "tool": "summarize_chunk"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn hơn",
+        "description": "Dùng merge_summaries để gộp các bản tóm tắt từ bước 2 trở thành một summary tổng thể.",
+        "tool": "merge_summaries"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh câu từ cho summary lớn hơn",
+        "description": "Dùng refine_summary để điều chỉnh và tinh chỉnh các câu trong summary lớn hơn sao cho phù hợp với phong cách news_brief.",
+        "tool": "refine_summary"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+        "description": "Dùng verify_claim để kiểm tra xem summary đã tinh chỉnh có giữ đúng thông tin chính từ văn bản gốc hay không.",
+        "tool": "verify_claim"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Lưu ý: Mỗi bước cần được thực hiện một cách cẩn thận và liên kết chặt chẽ với các bước trước để đảm bảo độ chính xác của summary."
+  }
+}

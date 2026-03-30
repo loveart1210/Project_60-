@@ -1,5 +1,5 @@
 {
-  "session_id": "d9ec9622",
+  "session_id": "c5e9f31b",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 359,
-  "created_at": "2026-03-27T19:05:45.838473",
+  "created_at": "2026-03-30T02:15:45.603514",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T19:06:37.539176",
+      "timestamp": "2026-03-30T02:16:10.968510",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T19:07:28.453321",
+      "timestamp": "2026-03-30T02:16:44.601011",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T19:07:53.139019",
+      "timestamp": "2026-03-30T02:16:55.163039",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,26 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát được chủ đề chính của văn bản gốc với điểm coverage là 0.85 và specificity đạt khoảng 0.75, đủ để đảm bảo khả năng phân tích hiệu quả mà không có rủi ro hallucination đáng kể."
+          "reasoning": "Roadmap đã tập trung vào việc tạo summary chính xác và ngắn gọn, tận dụng các tool phù hợp. Mặc dù có một số bước thiếu chi tiết về chương trình hoạt động cụ thể trong diễn đàn năm nay nhưng tổng thể roadmap vẫn đảm bảo độ bao quát (coverage) và khả thi (specificity). Hallucination risk được đánh giá là low."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T19:07:53.143071",
+      "action": "chunking",
+      "timestamp": "2026-03-30T02:16:55.180173",
       "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T02:17:06.768108",
+      "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T19:08:43.905001",
-      "result_summary": "Observation for step 1 complete"
+      "timestamp": "2026-03-30T02:17:22.366059",
+      "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:09:10.002968",
+      "timestamp": "2026-03-30T02:17:30.792042",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -65,81 +71,279 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Thông tin bổ sung về quy mô và hoạt động của diễn đàn nên được chú thích rõ ràng.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ nhất quán cao (factual consistency = 0.9) và bao quát tương đối đầy đủ (coverage completeness = 0.85). Tuy nhiên, redundancy score thấp do có một số thông tin bổ sung gây nhầm lẫn nếu không được chú thích rõ ràng."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc. Tuyệt đối cần bổ sung các thông tin quan trọng mà đoạn văn bản gốc chưa đề cập đến.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt nhưng vẫn còn thiếu một số thông tin quan trọng từ văn bản gốc, nên tiếp tục bước hiện tại."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T02:17:41.568252",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:17:54.490184",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:18:01.211220",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung thông tin về khách tham dự, danh sách hoạt động cụ thể. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Qua phân tích, độ chính xác của tóm tắt là tương đối tốt nhưng vẫn còn thiếu một số chi tiết quan trọng và có mức độ trùng lặp cao."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T02:18:11.365048",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:18:28.890279",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:18:38.201375",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Chất lượng tốt về factual consistency (0.8) nhưng coverage completeness thấp (0.75). Độ chính xác của tóm tắt cao và độ trùng lặp cũng chấp nhận được. Tuy nhiên, thiếu một số chi tiết quan trọng như quy mô khách tham dự và danh sách các hoạt động cụ thể."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-30T02:18:48.532640",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:19:03.846352",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:19:12.386849",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung về lượng khách tham dự, hoạt động cụ thể tại sự kiện. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual < 0.8 và coverage < 0.7). Độ chính xác của tóm tắt vẫn còn cao nhưng cần bổ sung thêm chi tiết."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-30T02:19:24.910776",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:19:38.356292",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:19:46.332706",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt đúng ngữ cảnh và thông tin chính từ văn bản gốc, nhưng độ ngắn gọn có thể làm mất một số chi tiết quan trọng. Ghi rõ Execution Agent cần bổ sung các chi tiết cụ thể bị lược bỏ.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9 và coverage completeness = 0.85), đây không phải bước cuối cùng, nên tiếp tục thực hiện."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T02:21:44.723435",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T02:21:54.136108",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:22:13.823955",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:22:23.964251",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung số lượng khách tham quan chính xác, sửa lại cấu trúc summary để đảm bảo độ ngắn gọn phù hợp với loại tóm tắt news_brief. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7), có vấn đề nghiêm trọng về độ ngắn gọn của summary."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T02:22:35.263907",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:22:55.211296",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:23:05.355502",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung số lượng khách tham quan chính xác, sửa lại cấu trúc summary để đảm bảo độ ngắn gọn phù hợp với loại tóm tắt news_brief. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7), có vấn đề nghiêm trọng về độ ngắn gọn của summary."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T02:23:16.690761",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:23:36.579754",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:23:46.717524",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung số lượng khách tham quan chính xác, sửa lại cấu trúc summary để đảm bảo độ ngắn gọn phù hợp với loại tóm tắt news_brief. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7), có vấn đề nghiêm trọng về độ ngắn gọn của summary."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T19:09:10.012980",
+      "timestamp": "2026-03-30T02:23:46.721525",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
+    "chunks": [
       {
-        "sentence_id": 1,
-        "text": "Diễn đàn năm nay là sự kiện trọng điểm do UBND tỉnh Kiên Giang phối hợp Bộ Nông nghiệp và Phát triển nông thôn tổ chức."
-      },
-      {
-        "sentence_id": 2,
-        "text": "Công ty Cổ phần Truyền Thông Vương Hậu (TP HCM) là đơn vị phụ trách tổ chức."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Với chủ đề 'Liên kết cùng phát triển - Kiên Giang 2024', diễn đàn hướng đến tăng cường hợp tác, liên kết giữa các tỉnh, thành phố trong vùng Đồng bằng sông Cửu Long với các Bộ, ngành Trung ương, các địa phương khác trên cả nước."
-      },
-      {
-        "sentence_id": 4,
-        "text": "Từ đó, các bên có thêm cơ sở đẩy mạnh, phát huy tiềm năng về sản phẩm OCOP của vùng."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Đến nay, đã có trên 35 tỉnh, thành phố đăng ký tham gia diễn đàn cùng hơn 300 nhà đầu tư đến tìm hiểu cơ hội, xúc tiến hợp tác kinh doanh."
-      },
-      {
-        "sentence_id": 6,
-        "text": "Diễn đàn dự kiến thu hút khoảng 50."
-      },
-      {
-        "sentence_id": 7,
-        "text": "000-100."
-      },
-      {
-        "sentence_id": 8,
-        "text": "000 khách tham quan suốt thời gian diễn ra."
-      },
-      {
-        "sentence_id": 9,
-        "text": "Hơn 320 gian hàng từ các tỉnh ĐBSCL và cả nước sẽ cùng trưng bày, giới thiệu các sản phẩm OCOP tiêu biểu, công nghiệp nông thôn, đặc sản địa phương."
-      },
-      {
-        "sentence_id": 10,
-        "text": "Ngoài chương trình chính, sự kiện còn bao gồm chuỗi hoạt động khác như: triển lãm sản phẩm OCOP; hội thi 'Sản phẩm OCOP tiêu biểu ĐBSCL 2024'; các hội nghị, hội thảo, ký kết biên bản hợp tác..."
-      },
-      {
-        "sentence_id": 11,
-        "text": "Đặc biệt, khách tham dự còn được tìm hiểu quy trình sản xuất nước mắm truyền thống Phú Quốc, một trong những đặc sản nổi tiếng của Kiên Giang."
-      },
-      {
-        "sentence_id": 12,
-        "text": "Buổi tối, diễn dàn có các chương trình ca nhạc với sự góp mặt của các ca sĩ, nghệ sĩ nổi tiếng."
-      },
-      {
-        "sentence_id": 13,
-        "text": "Diễn đàn kết nối sản phẩm OCOP là sự kiện thường niên do Bộ Nông nghiệp và Phát triển nông thôn phối hợp UBND các tỉnh, thành phố vùng Đồng bằng sông Cửu Long tổ chức quy mô cấp vùng."
-      },
-      {
-        "sentence_id": 14,
-        "text": "Đây vừa là nơi giao lưu, kết nối kinh doanh, vừa là cơ hội để các sản phẩm này vươn ra thế giới, góp phần phát triển kinh tế nông nghiệp, xây dựng nông thôn mới bền vững."
-      },
-      {
-        "sentence_id": 15,
-        "text": "Á Hiên"
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "text": "Diễn đàn năm nay là sự kiện trọng điểm do UBND tỉnh Kiên Giang phối hợp Bộ Nông nghiệp và Phát triển nông thôn tổ chức. Công ty Cổ phần Truyền Thông Vương Hậu (TP HCM) là đơn vị phụ trách tổ chức. Với chủ đề 'Liên kết cùng phát triển - Kiên Giang 2024', diễn đàn hướng đến tăng cường hợp tác, liên kết giữa các tỉnh, thành phố trong vùng Đồng bằng sông Cửu Long với các Bộ, ngành Trung ương, các địa phương khác trên cả nước. Từ đó, các bên có thêm cơ sở đẩy mạnh, phát huy tiềm năng về sản phẩm OCOP của vùng. Đến nay, đã có trên 35 tỉnh, thành phố đăng ký tham gia diễn đàn cùng hơn 300 nhà đầu tư đến tìm hiểu cơ hội, xúc tiến hợp tác kinh doanh. Diễn đàn dự kiến thu hút khoảng 50. 000-100. 000 khách tham quan suốt thời gian diễn ra. Hơn 320 gian hàng từ các tỉnh ĐBSCL và cả nước sẽ cùng trưng bày, giới thiệu các sản phẩm OCOP tiêu biểu, công nghiệp nông thôn, đặc sản địa phương. Ngoài chương trình chính, sự kiện còn bao gồm chuỗi hoạt động khác như: triển lãm sản phẩm OCOP; hội thi 'Sản phẩm OCOP tiêu biểu ĐBSCL 2024'; các hội nghị, hội thảo, ký kết biên bản hợp tác... Đặc biệt, khách tham dự còn được tìm hiểu quy trình sản xuất nước mắm truyền thống Phú Quốc, một trong những đặc sản nổi tiếng của Kiên Giang. Buổi tối, diễn dàn có các chương trình ca nhạc với sự góp mặt của các ca sĩ, nghệ sĩ nổi tiếng. Diễn đàn kết nối sản phẩm OCOP là sự kiện thường niên do Bộ Nông nghiệp và Phát triển nông thôn phối hợp UBND các tỉnh, thành phố vùng Đồng bằng sông Cửu Long tổ chức quy mô cấp vùng. Đây vừa là nơi giao lưu, kết nối kinh doanh, vừa là cơ hội để các sản phẩm này vươn ra thế giới, góp phần phát triển kinh tế nông nghiệp, xây dựng nông thôn mới bền vững. Á Hiên",
+        "word_count": 237
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "summary": "Liên kết cùng phát triển - Kiên Giang 2024 là sự kiện trọng điểm do UBND tỉnh phối hợp Bộ Nông nghiệp tổ chức, thu hút trên 35 tỉnh/thành phố và hơn 300 nhà đầu tư. Diễn đàn dự kiến thu hút khoảng 100.000 khách tham quan với nhiều hoạt động như triển lãm OCOP, hội thi 'Sản phẩm OCOP tiêu biểu', ký kết hợp tác...",
+        "word_count": 44
+      }
+    ],
+    "merged_summary": "UBND tỉnh Kiên Giang phối hợp Bộ Nông nghiệp tổ chức Liên kết cùng phát triển 2024, thu hút trên 35 tỉnh/thành phố và hơn 300 nhà đầu tư. Diễn đàn dự kiến đón khoảng 100.000 khách tham quan với nhiều hoạt động như triển lãm OCOP, hội thi 'Sản phẩm OCOP tiêu biểu', ký kết hợp tác...",
+    "refined_summary": "UBND tỉnh Kiên Giang phối hợp Bộ Nông nghiệp tổ chức diễn đàn 'Liên kết cùng phát triển - Kiên Giang 2024', thu hút trên 35 tỉnh/thành phố và hơn 300 nhà đầu tư. Diễn đàn dự kiến đón khoảng 100.000 khách tham quan với nhiều hoạt động như triển lãm OCOP, hội thi 'Sản phẩm OCOP tiêu biểu'...",
+    "edited_summary": "UBND tỉnh Kiên Giang phối hợp Bộ Nông nghiệp tổ chức diễn đàn 'Liên kết cùng phát triển - Kiên Giang 2024', thu hút trên 35 tỉnh/thành phố và hơn 300 nhà đầu tư, đón khoảng 100.000 khách tham quan với nhiều hoạt động như triển lãm OCOP, hội thi 'Sản phẩm OCOP tiêu biểu'."
   },
   "stats": {
     "planner_loop": 0,
@@ -151,5 +355,5 @@
     "chunks": 0
   },
   "input_text": "Diễn đàn năm nay là sự kiện trọng điểm do UBND tỉnh Kiên Giang phối hợp Bộ Nông nghiệp và Phát triển nông thôn tổ chức. Công ty Cổ phần Truyền Thông Vương Hậu (TP HCM) là đơn vị phụ trách tổ chức. Với chủ đề 'Liên kết cùng phát triển - Kiên Giang 2024', diễn đàn hướng đến tăng cường hợp tác, liên kết giữa các tỉnh, thành phố trong vùng Đồng bằng sông Cửu Long với các Bộ, ngành Trung ương, các địa phương khác trên cả nước. Từ đó, các bên có thêm cơ sở đẩy mạnh, phát huy tiềm năng về sản phẩm OCOP của vùng. Đến nay, đã có trên 35 tỉnh, thành phố đăng ký tham gia diễn đàn cùng hơn 300 nhà đầu tư đến tìm hiểu cơ hội, xúc tiến hợp tác kinh doanh. Diễn đàn dự kiến thu hút khoảng 50.000-100.000 khách tham quan suốt thời gian diễn ra. Hơn 320 gian hàng từ các tỉnh ĐBSCL và cả nước sẽ cùng trưng bày, giới thiệu các sản phẩm OCOP tiêu biểu, công nghiệp nông thôn, đặc sản địa phương. Ngoài chương trình chính, sự kiện còn bao gồm chuỗi hoạt động khác như: triển lãm sản phẩm OCOP; hội thi 'Sản phẩm OCOP tiêu biểu ĐBSCL 2024'; các hội nghị, hội thảo, ký kết biên bản hợp tác... Đặc biệt, khách tham dự còn được tìm hiểu quy trình sản xuất nước mắm truyền thống Phú Quốc, một trong những đặc sản nổi tiếng của Kiên Giang. Buổi tối, diễn dàn có các chương trình ca nhạc với sự góp mặt của các ca sĩ, nghệ sĩ nổi tiếng. Diễn đàn kết nối sản phẩm OCOP là sự kiện thường niên do Bộ Nông nghiệp và Phát triển nông thôn phối hợp UBND các tỉnh, thành phố vùng Đồng bằng sông Cửu Long tổ chức quy mô cấp vùng. Đây vừa là nơi giao lưu, kết nối kinh doanh, vừa là cơ hội để các sản phẩm này vươn ra thế giới, góp phần phát triển kinh tế nông nghiệp, xây dựng nông thôn mới bền vững. Á Hiên",
-  "last_updated": "2026-03-27T19:07:53.142066"
+  "last_updated": "2026-03-30T02:23:16.689252"
 }

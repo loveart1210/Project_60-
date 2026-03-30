@@ -63,7 +63,7 @@ Trả về JSON:
     "factual_accuracy": "Phân tích chi tiết...",
     "completion_status": "complete/incomplete",
     "quality_assessment": "Đánh giá chi tiết...",
-    "issues_found": ["vấn đề 1", "vấn đề 2"],
+    "issues_found": ["Nêu KHÔNG CÓ vấn đề ghi rỗng []", "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"],
     "summary": "Tóm tắt ngắn gọn kết quả phân tích"
   }}
 }}

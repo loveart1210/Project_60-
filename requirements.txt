@@ -79,3 +79,4 @@ underthesea==9.2.11
 underthesea_core==3.3.0
 urllib3
 wcwidth
+llama-cpp-python>=0.2.78

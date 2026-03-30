@@ -1,0 +1,84 @@
+{
+  "summary": "Thịt cua lông Thượng Hải mềm ngọt, hấp trong hỗn hợp giấm gạo và nước tương. Món ăn nổi tiếng với hương vị đậm đà từ sốt vàng cam đặc trưng của gạch và thịt cua; được thưởng thức cùng cơm khi đến thành phố này.",
+  "style": "news_brief",
+  "word_count": 34,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Tách văn bản thành đoạn (chunk)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_2",
+      "evidence": "Step 2: Nhóm đoạn thành chunks (chunking)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_3",
+      "evidence": "Step 3: Tóm tắt từng chunk (summarize_chunk)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_4",
+      "evidence": "Step 4: Gộp nhiều bản tóm tắt lại (merge_summaries)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_5",
+      "evidence": "Step 5: Tinh chỉnh câu từ cho summary (refine_summary)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_6",
+      "evidence": "Step 6: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_7",
+      "evidence": "Step 7: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Cua lông Thượng Hải hấp nguyên con, mảng lông đen trên chi và thịt chắc mềm. Giá trị dinh dưỡng cao nhưng giá thành đắt đỏ; thường ăn nóng sau khi hấp trong hỗn hợp giấm gạo và nước tương, phủ gừng thái lát hoặc chế biến với mì. Mì cua Thượng Hải có vị đậm đà từ sốt, màu vàng cam đặc trưng của gạch và thịt cua. Béo ngậy thơm vừa đủ; được khuyên 'phải thử' khi đến Thượng Hải, cũng thưởng thức với cơm.",
+    "verification": null,
+    "edited_summary": "Thịt cua lông Thượng Hải mềm ngọt, hấp trong hỗn hợp giấm gạo và nước tương. Món ăn nổi tiếng với hương vị đậm đà từ sốt vàng cam đặc trưng của gạch và thịt cua; được thưởng thức cùng cơm khi đến thành phố này."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm chunk",
+        "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sau đó sử dụng sent_tokenize để tạo ra các đoạn văn. Nhóm những đoạn văn có liên quan vào một chunk.",
+        "tool": "word_tokenize(sent_tokenize(Thanh Thư)) -> chunk_text"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt từng chunk bằng LLM",
+        "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được nhóm.",
+        "tool": "summarize_chunk(chunk_text)",
+        "expected_output": "Một bản tóm tắt ngắn gọn nhưng vẫn giữ nguyên ý chính của các đoạn văn"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp nhiều bản tóm tắt lại thành một",
+        "description": "Dùng merge_summaries để gộp tất cả những bản tóm tắt đã được tạo ra.",
+        "tool": "merge_summaries(summarize_chunk(chunk_text))",
+        "expected_output": "Một bản tóm tắt tổng thể của văn bản gốc"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
+        "description": "Dùng refine_summary để tinh chỉnh và điều chỉnh lại phong cách, ngữ cảnh phù hợp với tiêu chí news_brief.",
+        "tool": "refine_summary(merge_summaries(summarize_chunk(chunk_text)))",
+        "expected_output": "Một bản tóm tắt tổng thể ngắn gọn nhưng vẫn giữ nguyên ý chính của văn bản gốc"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+        "description": "Dùng verify_claim để kiểm tra lại các thông tin đã được tóm tắt xem có đúng với nội dung gốc không.",
+        "tool": "verify_claim(refine_summary(merge_summaries(summarize_chunk(chunk_text))))"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Ghi chú thêm: Đảm bảo độ dài của bản tóm tắt nằm trong khoảng từ 150 đến 250 từ, không quá 20% so với văn bản gốc."
+  }
+}

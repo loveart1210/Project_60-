@@ -4,37 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản gốc tiếng Việt thành các câu, sau đó nhóm chúng lại thành chunks phù hợp với thông tin chính.",
-          "tool": "sent_tokenize, chunk_text"
+          "name": "Xác định chunks chính",
+          "description": "Tách văn bản gốc thành các chunk thông qua word_tokenize và sent_tokenize, sau đó nhóm lại những đoạn liên quan về lễ Quốc khánh Malaysia.",
+          "tool": null,
+          "expected_output": "Danh sách các chunk đã xác định"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng LLM để tóm tắt mỗi chunk đã nhóm được. Kết quả này sẽ là bản tóm tắt sơ bộ.",
-          "tool": "summarize_chunk"
+          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt thông tin một cách abstractive nhưng fact-grounded.",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của mỗi chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một",
-          "description": "Tổng hợp các bản tóm tắt từ bước 2 để tạo ra bản tóm tắt tổng thể.",
-          "tool": "merge_summaries"
+          "name": "Gộp các bản tóm tắt lại thành summary tổng thể",
+          "description": "Tổng hợp tất cả bản tóm tắt từ từng chunk để tạo ra một bản tóm tắt toàn bộ lễ Quốc khánh Malaysia.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt tổng thể về lễ Quốc khánh Malaysia"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
-          "description": "Refine và điều chỉnh các đoạn văn để đảm bảo phong cách phù hợp với yêu cầu.",
-          "tool": "refine_summary"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-          "description": "Verify rằng thông tin chính trong bản tóm tắt vẫn đúng và không thay đổi entity từ văn bản gốc.",
-          "tool": "verify_claim"
+          "name": "Tinh chỉnh phong cách bản summary tổng thể",
+          "description": "Refine_summary để đảm bảo rằng văn phong của summary phù hợp với yêu cầu là news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt final về lễ Quốc khánh Malaysia"
         }
       ],
-      "total_steps": 5,
-      "notes": "Lưu ý kiểm tra độ dài cuối cùng của bản tóm tắt để đảm bảo nằm trong khoảng yêu cầu (150–250 từ, không quá 20% độ dài input)"
+      "total_steps": 4,
+      "notes": "Lưu ý kiểm chứng mệnh đề trong mỗi bước bằng verify_claim để đảm bảo accuracy."
     }
   }
 }

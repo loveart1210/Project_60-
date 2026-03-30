@@ -1,13 +1,73 @@
 {
-  "summary": "",
+  "summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé từ 550.000 đồng xuống còn 387.000 đồng, Lào Cai và Sa Pa tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' với ưu đãi lên tới 50% cho hơn 130 doanh nghiệp từ 2/11 đến 30/12.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 37,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Chunking văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.85,
+        "coverage_completeness": 0.7
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách văn bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -17,8 +77,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé xuống còn 550.000 đồng, Lào Cai và Sa Pa tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' từ 2/11 đến 30/12 với nhiều ưu đãi lên tới 50% cho hơn 130 doanh nghiệp tại Sa Pa. Ngoài chính sách ưu đãi, Lào Cai và Sa Pa tổ chức lễ hội truyền thống, triển lãm nghệ thuật, thể thao và giải trí cùng sự kiện ánh sáng 3D Mapping và lễ hội hoa sen đá lần đầu tiên tại đây tăng sức hút du lịch mùa mây của Sa Pa.",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Công ty Cáp treo Fansipan Sa Pa giảm giá vé từ 550.000 đồng xuống còn 387.000 đồng, Lào Cai và Sa Pa tổ chức chương trình kích cầu du lịch 'Chạm Sa Pa - Chạm những tầng mây' với ưu đãi lên tới 50% cho hơn 130 doanh nghiệp từ 2/11 đến 30/12."
   }
 }

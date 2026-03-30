@@ -4,42 +4,42 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Nhóm các chunk dựa trên nội dung đồng nhất.",
-          "tool": "word_tokenize(sent_tokenize)",
-          "expected_output": "Một danh sách chứa các chunks đã nhóm"
+          "name": "Chunking văn bản gốc",
+          "description": "Nhóm các câu thành chunks dựa trên ý chính và liên kết ngữ cảnh.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk dựa trên nội dung.",
-          "tool": "summarize_chunk(chunk_text)",
-          "expected_output": "Một danh sách chứa các bản tóm tắt của chunks"
+          "description": "Gọi API của LLM để tóm tắt mỗi chunk đã được nhóm.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách các bản tóm tắt"
         },
         {
           "step_id": "step_3",
           "name": "Gộp nhiều bản tóm tắt lại thành một",
-          "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt đã được tạo ra.",
-          "tool": "merge_summaries(summarize_chunk(chunk_text))",
+          "description": "Tổng hợp tất cả các bản tóm tắt đã được tạo ra.",
+          "tool": "merge_summaries",
           "expected_output": "Một bản tóm tắt tổng thể"
         },
         {
           "step_id": "step_4",
           "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
-          "description": "Dùng refine_summary để tinh chỉnh các đoạn văn trong bản tóm tắt đã được tạo ra.",
-          "tool": "refine_summary(merge_summaries(summarize_chunk(chunk_text)))",
-          "expected_output": "Một bản tóm tắt tổng thể với câu từ được tinh chỉnh"
+          "description": "Refine và điều chỉnh ngữ cảnh, phong cách của bản tóm tắt.",
+          "tool": "refine_summary",
+          "expected_output": "Một bản tóm tắt tổng thể đã được refinement"
         },
         {
           "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-          "description": "Dùng verify_claim để kiểm tra xem các đoạn trong bản tóm tắt có chính xác không so với văn bản gốc.",
-          "tool": "verify_claim(refine_summary(merge_summaries(summarize_chunk(chunk_text))))",
-          "expected_output": "Một báo cáo về độ chính xác của bản tóm tắt"
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+          "description": "Sử dụng verify_claim để kiểm tra độ chính xác của bản tóm tắt so với văn bản gốc.",
+          "tool": "verify_claim",
+          "expected_output": "Danh sách các câu cần thêm hoặc chỉnh sửa"
         }
       ],
       "total_steps": 5,
-      "notes": "Ghi chú thêm nếu cần thiết"
+      "notes": "Lưu ý: Có thể cần thực hiện một số bước lại nếu kiểm chứng không hoàn toàn chính xác."
     }
   }
 }

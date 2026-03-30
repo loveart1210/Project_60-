@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Tách văn bản thành câu và nhóm thành chunks",
+        "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, nhóm chúng lại với nhau tạo nên một chunk.",
+        "tool": null,
+        "expected_output": "Một danh sách chứa chunks đã được xác định"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Tóm tắt mỗi chunk bằng LLM",
+        "description": "Dùng summarize_chunk để tóm tắt từng chunk vừa tạo. Mỗi bản summary sẽ mô tả chính xác ý nghĩa của chunk mà không thay đổi entity.",
+        "tool": "summarize_chunk",
+        "expected_output": "Một danh sách chứa các bản tóm tắt đã được tạo"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Gộp tất cả các bản summary lại thành một bản tổng hợp",
+        "description": "Dùng merge_summaries để gộp toàn bộ các bản summary vừa tạo vào với nhau. Kết quả này sẽ là bản tóm tắt cuối cùng của văn bản.",
+        "tool": "merge_summaries",
+        "expected_output": "Một đoạn văn ngắn gọn mô tả chính xác nội dung gốc"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Tinh chỉnh phong cách cho tổng hợp tóm tắt",
+        "description": "Dùng refine_summary để tinh chỉnh các câu từ của bản summary cuối cùng, đảm bảo rằng văn phong phù hợp với yêu cầu news_brief.",
+        "tool": "refine_summary",
+        "expected_output": "Một đoạn văn ngắn gọn và thông tin đầy đủ nhưng vẫn giữ được phong cách concise"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Kiểm chứng các mệnh đề trong tổng hợp tóm tắt với văn bản gốc",
+        "description": "Dùng verify_claim để kiểm tra xem tất cả thông tin và ý chính đã được giữ lại từ văn bản gốc.",
+        "tool": "verify_claim",
+        "expected_output": "Một báo cáo xác nhận rằng các mệnh đề trong tổng hợp tóm tắt đều đúng với nội dung của văn bản gốc"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Ghi chú thêm: Mỗi bước cần đảm bảo độ chính xác và ngắn gọn, không quá 20% so với input."
+  }
+}

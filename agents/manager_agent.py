@@ -276,6 +276,7 @@ class ManagerAgent(BaseAgent):
             print(f"\n--- Execution step {step_idx}/{total_steps}: {task.get('name', 'unknown')} ---")
 
             retries = 0
+            retry_feedback = ""  # Feedback from Reflection Agent for retry attempts
             while retries <= config.MAX_EXECUTION_RETRIES:
                 # Execute step
                 print(f"  [Execution] Running step (attempt {retries + 1}) ...")
@@ -283,6 +284,7 @@ class ManagerAgent(BaseAgent):
                     **base_context,
                     "current_step": task,
                     "failed_steps": self.session.get_failed_steps(),
+                    "retry_feedback": retry_feedback,  # Pass reflection feedback
                     **state,
                 }
                 step_output = self.executor.run(exec_ctx)
@@ -325,50 +327,58 @@ class ManagerAgent(BaseAgent):
                 # Resting GPU after potentially heavy summarization before next reasoning
                 self.llm.unload()
 
-                # Observation
-                print(f"  [Exec-Observation] Analyzing output ...")
-                self.llm.load_agent_model()
-                obs = self.exec_obs.run({
-                    "step_output": step_output,
-                    "input_text": base_context["input_text"],
-                    "style": base_context["style"],
-                })
-                debug.log_step(
-                    step_name=f"exec_step{step_idx}_observation",
-                    agent_name="Execution-Observation Agent",
-                    phase="execution",
-                    input_summary=f"step_id={step_id}, action={step_output.get('action')}",
-                    output_data=obs,
-                )
-                self.session.add_history(
-                    "execution_observation", "analyze_step",
-                    f"Observation for step {step_idx} complete",
-                )
-                print(f"  [Exec-Observation] Analysis complete ✓")
+                action_name = step_output.get("action", "")
+                purely_analytical_actions = ["split_sentences", "chunking", "identify_key_points", "verify"]
+                
+                if action_name in purely_analytical_actions:
+                    print(f"  [Auto-Skip] Bỏ qua Observation & Reflection cho thao tác: {action_name}")
+                    decision = "next_step"
+                    reflection = {"decision": "next_step", "feedback": "", "factual_consistency": 1.0, "coverage_completeness": 1.0}
+                else:
+                    # Observation
+                    print(f"  [Exec-Observation] Analyzing output ...")
+                    self.llm.load_agent_model()
+                    obs = self.exec_obs.run({
+                        "step_output": step_output,
+                        "input_text": base_context["input_text"],
+                        "style": base_context["style"],
+                    })
+                    debug.log_step(
+                        step_name=f"exec_step{step_idx}_observation",
+                        agent_name="Execution-Observation Agent",
+                        phase="execution",
+                        input_summary=f"step_id={step_id}, action={step_output.get('action')}",
+                        output_data=obs,
+                    )
+                    self.session.add_history(
+                        "execution_observation", "analyze_step",
+                        f"Observation for step {step_idx} complete",
+                    )
+                    print(f"  [Exec-Observation] Analysis complete ✓")
 
-                # Reflection
-                print(f"  [Exec-Reflection] Evaluating ...")
-                ref_result = self.exec_ref.run({
-                    "observation": obs,
-                    "current_step_idx": step_idx,
-                    "total_steps": total_steps,
-                })
-                debug.log_step(
-                    step_name=f"exec_step{step_idx}_reflection",
-                    agent_name="Execution-Reflection Agent",
-                    phase="execution",
-                    input_summary=f"step_id={step_id}, step={step_idx}/{total_steps}",
-                    output_data=ref_result,
-                )
-                reflection = ref_result.get("execution_reflection", ref_result)
-                decision = reflection.get("decision", "next_step")
+                    # Reflection
+                    print(f"  [Exec-Reflection] Evaluating ...")
+                    ref_result = self.exec_ref.run({
+                        "observation": obs,
+                        "current_step_idx": step_idx,
+                        "total_steps": total_steps,
+                    })
+                    debug.log_step(
+                        step_name=f"exec_step{step_idx}_reflection",
+                        agent_name="Execution-Reflection Agent",
+                        phase="execution",
+                        input_summary=f"step_id={step_id}, step={step_idx}/{total_steps}",
+                        output_data=ref_result,
+                    )
+                    reflection = ref_result.get("execution_reflection", ref_result)
+                    decision = reflection.get("decision", "next_step")
 
-                self.session.add_history(
-                    "execution_reflection", "evaluate_step",
-                    f"Decision: {decision}",
-                    {"reflection": reflection},
-                )
-                print(f"  [Exec-Reflection] Decision: {decision}")
+                    self.session.add_history(
+                        "execution_reflection", "evaluate_step",
+                        f"Decision: {decision}",
+                        {"reflection": reflection},
+                    )
+                    print(f"  [Exec-Reflection] Decision: {decision}")
 
                 # Build trace entry
                 trace.append({
@@ -384,7 +394,11 @@ class ManagerAgent(BaseAgent):
 
                 if decision == "retry":
                     retries += 1
+                    # Capture feedback so ExecutionAgent knows what to fix
+                    retry_feedback = reflection.get("feedback", "")
                     print(f"  🔄 Retrying step {step_idx} (attempt {retries + 1})")
+                    if retry_feedback:
+                        print(f"  📝 Feedback: {retry_feedback[:120]}")
                     continue
                 elif decision == "finish":
                     print(f"\n  ✅ Execution finished (decided by Reflection)")

@@ -1,0 +1,74 @@
+{
+  "summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+  "style": "news_brief",
+  "word_count": 42,
+  "trace": [
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "step_id": "step_1",
+      "evidence": "Step 1: Grouping sentences into chunks",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarize each chunk with LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Merge summaries into one summary",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine the summary to improve readability and style",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Verify the claims in summary against original text",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    }
+  ],
+  "verification_report": null,
+  "intermediate_outputs": {
+    "outline": null,
+    "draft_summary": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+    "verification": null,
+    "edited_summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng."
+  }
+}

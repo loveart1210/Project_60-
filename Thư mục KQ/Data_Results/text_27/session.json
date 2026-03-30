@@ -1,5 +1,5 @@
 {
-  "session_id": "87fc85c6",
+  "session_id": "8e5f731d",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 524,
-  "created_at": "2026-03-27T22:20:58.275756",
+  "created_at": "2026-03-30T03:45:07.485885",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T22:21:53.339636",
+      "timestamp": "2026-03-30T03:45:28.933620",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T22:22:53.967722",
+      "timestamp": "2026-03-30T03:45:57.684499",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T22:23:20.654171",
+      "timestamp": "2026-03-30T03:46:06.143401",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,55 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về cách thực thi từng bước được cung cấp đầy đủ. Tuy nhiên, roadmap cần thêm thông tin cụ thể như việc tách văn bản thành các câu và xử lý nước thải sinh hoạt để đảm bảo tính khả thi và tránh hallucination."
+          "reasoning": "Roadmap bao gồm tất cả ý chính của văn bản gốc và có bước chi tiết để tóm tắt từng đoạn text, nhưng cần thêm giới thiệu về trải nghiệm ẩm thực độc đáo tại Topas Ecolodge và sự kiện giải chạy địa hình Vietnam Mountain Marathon. Việc tận dụng các tool hiện có một cách hợp lý cũng giúp roadmap trở nên đầy đủ hơn."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T22:23:20.657405",
+      "action": "chunking",
+      "timestamp": "2026-03-30T03:46:06.166967",
       "result_summary": "Step 1 completed"
     },
     {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:24:10.333237",
-      "result_summary": "Observation for step 1 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:24:33.615529",
-      "result_summary": "Decision: next_step",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước hiện tại đã đảm bảo mức độ nhất quán với văn bản gốc và bao quát đầy đủ nội dung chính nhưng vẫn có một số chi tiết bị cắt bỏ trong quá trình tách câu nhỏ hơn. Đây là bước cuối cùng nên tiếp tục thực thi."
-        }
-      }
-    },
-    {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T22:24:33.617033",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T03:46:18.851874",
       "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:25:18.653884",
+      "timestamp": "2026-03-30T03:46:34.896425",
       "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:25:39.398019",
+      "timestamp": "2026-03-30T03:46:45.139091",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -94,114 +71,56 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước thực thi đã hoàn thành tốt với mức độ nhất quán fact cao và bao quát đầy đủ thông tin, tuy nhiên vẫn có một số lượng nhỏ trùng lặp nhẹ. Đây là bước cuối cùng nên tiếp tục tiến trình."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output tóm tắt ngắn gọn và tập trung vào các điểm chính của văn bản gốc như cảnh đẹp Sapa, nhiều hoạt động du lịch và ẩm thực đa dạng cùng với việc hỗ trợ cộng đồng địa phương. Tuy nhiên, chất lượng output đạt tốt nhưng vẫn cần bổ sung chi tiết hơn về thông tin cụ thể từ văn bản gốc để đảm bảo độ nhất quán (ví dụ: 'Topas Ecolodge tọa lạc trên đỉnh đồi có vị thế và tầm nhìn bao quát, chinh phục du khách bởi vẻ đẹp thiên nhiên hoang sơ.') hoặc cung cấp thêm chi tiết về ẩm thực độc đáo tại Tây Bắc Việt Nam. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt và bao quát đầy đủ thông tin chính từ văn bản gốc, nhưng vẫn cần bổ sung chi tiết hơn về các điểm cụ thể để đảm bảo độ nhất quán với nguồn."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T22:25:39.400529",
+      "action": "merge",
+      "timestamp": "2026-03-30T03:46:55.296483",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:26:29.100887",
+      "timestamp": "2026-03-30T03:47:12.016665",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:26:52.370381",
-      "result_summary": "Decision: retry",
+      "timestamp": "2026-03-30T03:47:22.068418",
+      "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
           "factual_consistency": 0.9,
           "coverage_completeness": 0.85,
           "redundancy_score": 0.1,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "Cần cắt giảm độ dài của các đoạn văn để đảm bảo đầy đủ thông tin và dễ đọc hơn.",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt về factual consistency (đạt 0.9) nhưng coverage completeness chưa đạt yêu cầu vì có một số đoạn bị cắt bớt, gây khó khăn cho việc đọc toàn bộ thông tin."
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung về nỗ lực phát triển du lịch bền vững, hoạt động trải nghiệm đa dạng của Topas Ecolodge. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: mặc dù Output đạt chất lượng tốt với mức độ nhất quán và bao quát tương đối cao nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc, đặc biệt là về phát triển bền vững và hoạt động trải nghiệm của Topas Ecolodge. Vì vậy, tiếp tục bước hiện tại để bổ sung thông tin cần thiết."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T22:26:52.374383",
-      "result_summary": "Step 3 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:27:40.921899",
-      "result_summary": "Observation for step 3 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:28:04.175893",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "Cần cắt giảm độ dài của các đoạn văn để đảm bảo đầy đủ thông tin và dễ đọc hơn.",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt về factual consistency (đạt 0.9) nhưng coverage completeness chưa đạt yêu cầu vì có một số đoạn bị cắt bớt, gây khó khăn cho việc đọc toàn bộ thông tin."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T22:28:04.179401",
-      "result_summary": "Step 3 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T22:28:52.787625",
-      "result_summary": "Observation for step 3 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:29:16.105354",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "Cần cắt giảm độ dài của các đoạn văn để đảm bảo đầy đủ thông tin và dễ đọc hơn.",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt về factual consistency (đạt 0.9) nhưng coverage completeness chưa đạt yêu cầu vì có một số đoạn bị cắt bớt, gây khó khăn cho việc đọc toàn bộ thông tin."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T22:29:16.109353",
+      "action": "refine",
+      "timestamp": "2026-03-30T03:47:35.740427",
       "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T22:30:04.939154",
+      "timestamp": "2026-03-30T03:47:49.726795",
       "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T22:30:27.664876",
+      "timestamp": "2026-03-30T03:47:58.742382",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -210,101 +129,277 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước hiện tại đã hoàn thành với độ chính xác cao và bao quát tốt nhưng chưa đạt chất lượng hoàn hảo do việc tách câu đơn giản không mang tính định hướng. Đây là bước cuối cùng nên tiếp tục."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không có thông tin mới hoặc sai sót so với văn bản gốc, nhưng vẫn còn thiếu một số điểm quan trọng từ đoạn văn. Ghi rõ Execution Agent cần bổ sung các điểm sau: 1) [Điểm này], 2) [Điểm khác]. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation là chất lượng tốt (factual ≥ 0.8, coverage ≥ 0.7), nhưng đây vẫn chưa phải bước cuối cùng và còn thiếu một số điểm quan trọng cần bổ sung."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T03:48:46.307474",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T03:48:55.743310",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T03:49:13.015707",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T03:49:21.359696",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' и 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: chất lượng chưa đạt yêu cầu (factual < 0.8 và coverage < 0.7), có vấn đề nghiêm trọng trong việc bao quát thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T03:49:32.150421",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T03:49:54.439648",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T03:50:04.373949",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' и 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: chất lượng chưa đạt yêu cầu (factual < 0.8 và coverage < 0.7), có vấn đề nghiêm trọng trong việc bao quát thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T03:50:15.159762",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T03:50:37.332177",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T03:50:47.243173",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' и 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định: chất lượng chưa đạt yêu cầu (factual < 0.8 và coverage < 0.7), có vấn đề nghiêm trọng trong việc bao quát thông tin."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T22:30:27.669465",
+      "timestamp": "2026-03-30T03:50:47.251146",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
+    "chunks": [
       {
-        "sentence_id": 1,
-        "text": "National Geographickhen ngợi khung cảnh hùng vĩ của núi non Sapa, nơi khu nghỉ dưỡng này tọa lạc."
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "text": "National Geographickhen ngợi khung cảnh hùng vĩ của núi non Sapa, nơi khu nghỉ dưỡng này tọa lạc. Cam kết hỗ trợ cộng đồng địa phương của khu nghỉ dưỡng nhằm mang đến cho du khách trải nghiệm đích thực ở trung tâm Vườn quốc gia Hoàng Liên Sơn, Sa Pa, cũng được tổ chức đánh giá cao. Topas Ecolodge tọa lạc trên đỉnh đồi có vị thế và tầm nhìn bao quát, chinh phục du khách bởi vẻ đẹp thiên nhiên hoang sơ. Ẩn mình giữa những dãy núi trùng điệp, mỗi bungalow tại đây được thiết kế tỉ mỉ từ vật liệu truyền thống với phong cách Bắc Âu và tầm nhìn toàn cảnh núi rừng. Tổ chức này còn đề cập đến những nỗ lực phát triển du lịch bền vững của Topas Ecolodge. Theo họ, khu nghỉ dưỡng giúp giảm tác động đến môi trường thông qua các hệ thống làm nóng nước bể bơi thân thiện với môi trường. Hệ thống xử lý nước thải sinh hoạt cũng được thiết kế để giảm tiêu thụ các loại nhựa sử dụng một lần... Khu nghỉ dưỡng chú trọng hỗ trợ cộng đồng địa phương và tuyển dụng người dân bản địa. Người chưa có kinh nghiệm sẽ được đào tạo các kỹ năng trong ngành nhà hàng, khách sạn, giúp họ mở rộng cơ hội nghề nghiệp. Trong phần giới thiệu về Topas Ecolodge,National Geographicnhắc đến trải nghiệm ẩm thực độc đáo tại Tây Bắc Việt Nam. Du khách có thể thưởng thức ẩm thực được chế biến chuyên nghiệp bởi đội ngũ đầu bếp hàng đầu tại Việt Nam và Đan Mạch. Những món ăn kết hợp hài hòa giữa hương vị địa phương và quốc tế. Bạn có thể chọn giữa nhà hàng 360 với tầm nhìn toàn cảnh núi rừng hoặc nhà hàng Stilt House ấm cúng ngay trung tâm khu nghỉ dưỡng. Ngoài ẩm thực và cơ sở vật chất, Topas Ecolodge còn có những hoạt động trải nghiệm đa dạng: trekking qua thung lũng ruộng bậc thang, thăm những ngôi làng ẩn sâu trong núi, tìm hiểu văn hóa truyền thống của đồng bào dân tộc thiểu số hay thăm chợ phiên bản địa... Ngoài ra, giải chạy địa hình lâu đời nhất Việt Nam - Vietnam Mountain Marathon diễn ra hàng năm sắp tới cũng là cơ hội lý tưởng để du khách vừa thử thách bản thân, vừa thư giãn, ngắm cảnh. Topas Ecolodge là khu vực về đích của giải chạy năm nay, dự kiến thu hút hơn 5. 000 vận động viên chạy địa hình vào tháng 9.",
+        "word_count": 294
       },
       {
-        "sentence_id": 2,
-        "text": "Cam kết hỗ trợ cộng đồng địa phương của khu nghỉ dưỡng nhằm mang đến cho du khách trải nghiệm đích thực ở trung tâm Vườn quốc gia Hoàng Liên Sơn, Sa Pa, cũng được tổ chức đánh giá cao."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Topas Ecolodge tọa lạc trên đỉnh đồi có vị thế và tầm nhìn bao quát, chinh phục du khách bởi vẻ đẹp thiên nhiên hoang sơ."
-      },
-      {
-        "sentence_id": 4,
-        "text": "Ẩn mình giữa những dãy núi trùng điệp, mỗi bungalow tại đây được thiết kế tỉ mỉ từ vật liệu truyền thống với phong cách Bắc Âu và tầm nhìn toàn cảnh núi rừng."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Tổ chức này còn đề cập đến những nỗ lực phát triển du lịch bền vững của Topas Ecolodge."
-      },
-      {
-        "sentence_id": 6,
-        "text": "Theo họ, khu nghỉ dưỡng giúp giảm tác động đến môi trường thông qua các hệ thống làm nóng nước bể bơi thân thiện với môi trường."
-      },
-      {
-        "sentence_id": 7,
-        "text": "Hệ thống xử lý nước thải sinh hoạt cũng được thiết kế để giảm tiêu thụ các loại nhựa sử dụng một lần..."
-      },
-      {
-        "sentence_id": 8,
-        "text": "Khu nghỉ dưỡng chú trọng hỗ trợ cộng đồng địa phương và tuyển dụng người dân bản địa."
-      },
-      {
-        "sentence_id": 9,
-        "text": "Người chưa có kinh nghiệm sẽ được đào tạo các kỹ năng trong ngành nhà hàng, khách sạn, giúp họ mở rộng cơ hội nghề nghiệp."
-      },
-      {
-        "sentence_id": 10,
-        "text": "Trong phần giới thiệu về Topas Ecolodge,National Geographicnhắc đến trải nghiệm ẩm thực độc đáo tại Tây Bắc Việt Nam."
-      },
-      {
-        "sentence_id": 11,
-        "text": "Du khách có thể thưởng thức ẩm thực được chế biến chuyên nghiệp bởi đội ngũ đầu bếp hàng đầu tại Việt Nam và Đan Mạch."
-      },
-      {
-        "sentence_id": 12,
-        "text": "Những món ăn kết hợp hài hòa giữa hương vị địa phương và quốc tế."
-      },
-      {
-        "sentence_id": 13,
-        "text": "Bạn có thể chọn giữa nhà hàng 360 với tầm nhìn toàn cảnh núi rừng hoặc nhà hàng Stilt House ấm cúng ngay trung tâm khu nghỉ dưỡng."
-      },
-      {
-        "sentence_id": 14,
-        "text": "Ngoài ẩm thực và cơ sở vật chất, Topas Ecolodge còn có những hoạt động trải nghiệm đa dạng: trekking qua thung lũng ruộng bậc thang, thăm những ngôi làng ẩn sâu trong núi, tìm hiểu văn hóa truyền thống của đồng bào dân tộc thiểu số hay thăm chợ phiên bản địa..."
-      },
-      {
-        "sentence_id": 15,
-        "text": "Ngoài ra, giải chạy địa hình lâu đời nhất Việt Nam - Vietnam Mountain Marathon diễn ra hàng năm sắp tới cũng là cơ hội lý tưởng để du khách vừa thử thách bản thân, vừa thư giãn, ngắm cảnh."
-      },
-      {
-        "sentence_id": 16,
-        "text": "Topas Ecolodge là khu vực về đích của giải chạy năm nay, dự kiến thu hút hơn 5."
-      },
-      {
-        "sentence_id": 17,
-        "text": "000 vận động viên chạy địa hình vào tháng 9."
-      },
-      {
-        "sentence_id": 18,
-        "text": "Với sự kết hợp giữa cảnh quan đẹp mắt của Sa Pa, các hoạt động khám phá, nghỉ dưỡng đa dạng và ẩm thực phong phú, Topas Ecolodge hứa hẹn mang đến trải nghiệm đáng nhớ."
-      },
-      {
-        "sentence_id": 19,
-        "text": "Trước đó, khu nghỉ dưỡng nhiều lần được tổ chức này giới thiệu trong các danh sách khác như: 21 địa điểm phải trải nghiệm nếu quan tâm đến hành tinh năm 2017 và Những khu nghỉ dưỡng độc đáo nhất trên thế giới năm 2018."
-      },
-      {
-        "sentence_id": 20,
-        "text": "Á Hiên"
+        "chunk_id": 2,
+        "sentence_ids": [
+          18,
+          19,
+          20
+        ],
+        "text": "Với sự kết hợp giữa cảnh quan đẹp mắt của Sa Pa, các hoạt động khám phá, nghỉ dưỡng đa dạng và ẩm thực phong phú, Topas Ecolodge hứa hẹn mang đến trải nghiệm đáng nhớ. Trước đó, khu nghỉ dưỡng nhiều lần được tổ chức này giới thiệu trong các danh sách khác như: 21 địa điểm phải trải nghiệm nếu quan tâm đến hành tinh năm 2017 và Những khu nghỉ dưỡng độc đáo nhất trên thế giới năm 2018. Á Hiên",
+        "word_count": 60
       }
-    ]
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "summary": "National Geographickhen ngợi Sapa với cảnh núi non hùng vĩ, Topas Ecolodge hỗ trợ cộng đồng địa phương và phát triển bền vững. Bungalow thiết kế truyền thống Bắc Âu, tầm nhìn toàn cảnh, ẩm thực độc đáo kết hợp hương vị địa phương và quốc tế, trekking, marathon địa hình...",
+        "word_count": 31
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          18,
+          19,
+          20
+        ],
+        "summary": "Sa Pa với cảnh quan đẹp mắt, nhiều hoạt động khám phá và nghỉ dưỡng đa dạng cùng ẩm thực phong phú hứa hẹn mang lại trải nghiệm đáng nhớ cho khách. Topas Ecolodge thường xuyên được giới thiệu trong các danh sách nổi tiếng như: 21 địa điểm phải thử năm 2017 và Những khu nghỉ dưỡng độc đáo nhất năm 2018. Á Hiên",
+        "word_count": 45
+      }
+    ],
+    "merged_summary": "National Geographickhen ngợi Sapa với cảnh núi non hùng vĩ, Topas Ecolodge hỗ trợ cộng đồng địa phương và phát triển bền vững. Bungalow thiết kế truyền thống Bắc Âu, tầm nhìn toàn cảnh, ẩm thực độc đáo kết hợp hương vị địa phương và quốc tế, trekking, marathon địa hình... Á Hiên",
+    "refined_summary": "Topas Ecolodge, khu nghỉ dưỡng tọa lạc trên đỉnh đồi với tầm nhìn toàn cảnh núi rừng Sapa, hỗ trợ cộng đồng địa phương thông qua việc tuyển dụng người dân bản địa và đào tạo kỹ năng. Khu nghỉ dưỡng chú trọng phát triển du lịch bền vững bằng cách giảm tác động đến môi trường và sử dụng hệ thống làm nóng nước thân thiện với môi trường. Ẩm thực độc đáo kết hợp hương vị địa phương và quốc tế, trải nghiệm trekking qua thung lũng ruộng bậc thang, thăm chợ phiên bản địa...",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Topas Ecolodge, khu nghỉ dưỡng tọa lạc trên đỉnh đồi với tầm nhìn toàn cảnh núi rừng Sapa",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "source_text": "Topas Ecolodge tọa lạc trên đỉnh đồi có vị thế và tầm nhìn bao quát, chinh phục du khách bởi vẻ đẹp thiên nhiên hoang sơ."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "hỗ trợ cộng đồng địa phương thông qua việc tuyển dụng người dân bản địa và đào tạo kỹ năng",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 8,
+            "source_text": "Khu nghỉ dưỡng chú trọng hỗ trợ cộng đồng địa phương và tuyển dụng người dân bản địa."
+          },
+          {
+            "sentence_id": 9,
+            "source_text": "Người chưa có kinh nghiệm sẽ được đào tạo các kỹ năng trong ngành nhà hàng, khách sạn, giúp họ mở rộng cơ hội nghề nghiệp."
+          }
+        ],
+        "confidence": 0.85
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "chú trọng phát triển du lịch bền vững bằng cách giảm tác động đến môi trường và sử dụng hệ thống làm nóng nước thân thiện với môi trường",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "source_text": "Theo họ, khu nghỉ dưỡng giúp giảm tác động đến môi trường thông qua các hệ thống làm nóng nước bể bơi thân thiện với môi trường."
+          },
+          {
+            "sentence_id": 5,
+            "source_text": "Tổ chức này còn đề cập đến những nỗ lực phát triển du lịch bền vững của Topas Ecolodge."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "Ẩm thực độc đáo kết hợp hương vị địa phương và quốc tế",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 12,
+            "source_text": "Những món ăn kết hợp hài hòa giữa hương vị địa phương và quốc tế."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 5,
+        "claim_text": "trải nghiệm trekking qua thung lũng ruộng bậc thang, thăm chợ phiên bản địa...",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "Trong phần giới thiệu về Topas Ecolodge,National Geographicnhắc đến trải nghiệm ẩm thực độc đáo tại Tây Bắc Việt Nam."
+          },
+          {
+            "sentence_id": 13,
+            "source_text": "Bạn có thể chọn giữa nhà hàng 360 với tầm nhìn toàn cảnh núi rừng hoặc nhà hàng Stilt House ấm cúng ngay trung tâm khu nghỉ dưỡng."
+          }
+        ],
+        "confidence": 0.9
+      },
+      {
+        "claim_id": 6,
+        "claim_text": "giải chạy địa hình lâu đời nhất Việt Nam - Vietnam Mountain Marathon diễn ra hàng năm sắp tới cũng là cơ hội lý tưởng để du khách vừa thử thách bản thân, vừa thư giãn, ngắm cảnh",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 18,
+            "source_text": "Trong phần giới thiệu về Topas Ecolodge,National Geographicnhắc đến trải nghiệm ẩm thực độc đáo tại Tây Bắc Việt Nam."
+          },
+          {
+            "sentence_id": 19,
+            "source_text": "Á Hiên"
+          }
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "edited_summary": "Topas Ecolodge, khu nghỉ dưỡng trên đỉnh đồi Sapa với tầm nhìn toàn cảnh núi rừng, hỗ trợ cộng đồng địa phương thông qua tuyển dụng và đào tạo người dân bản địa. Du lịch bền vững được phát triển bằng cách giảm tác động môi trường và sử dụng hệ thống làm nóng nước thân thiện. Ẩm thực độc đáo kết hợp hương vị địa phương và quốc tế; trải nghiệm trekking thung lũng ruộng bậc thang, thăm chợ phiên bản địa..."
   },
   "stats": {
     "planner_loop": 0,
@@ -316,5 +411,5 @@
     "chunks": 0
   },
   "input_text": "National Geographickhen ngợi khung cảnh hùng vĩ của núi non Sapa, nơi khu nghỉ dưỡng này tọa lạc. Cam kết hỗ trợ cộng đồng địa phương của khu nghỉ dưỡng nhằm mang đến cho du khách trải nghiệm đích thực ở trung tâm Vườn quốc gia Hoàng Liên Sơn, Sa Pa, cũng được tổ chức đánh giá cao. Topas Ecolodge tọa lạc trên đỉnh đồi có vị thế và tầm nhìn bao quát, chinh phục du khách bởi vẻ đẹp thiên nhiên hoang sơ. Ẩn mình giữa những dãy núi trùng điệp, mỗi bungalow tại đây được thiết kế tỉ mỉ từ vật liệu truyền thống với phong cách Bắc Âu và tầm nhìn toàn cảnh núi rừng. Tổ chức này còn đề cập đến những nỗ lực phát triển du lịch bền vững của Topas Ecolodge. Theo họ, khu nghỉ dưỡng giúp giảm tác động đến môi trường thông qua các hệ thống làm nóng nước bể bơi thân thiện với môi trường. Hệ thống xử lý nước thải sinh hoạt cũng được thiết kế để giảm tiêu thụ các loại nhựa sử dụng một lần... Khu nghỉ dưỡng chú trọng hỗ trợ cộng đồng địa phương và tuyển dụng người dân bản địa. Người chưa có kinh nghiệm sẽ được đào tạo các kỹ năng trong ngành nhà hàng, khách sạn, giúp họ mở rộng cơ hội nghề nghiệp. Trong phần giới thiệu về Topas Ecolodge,National Geographicnhắc đến trải nghiệm ẩm thực độc đáo tại Tây Bắc Việt Nam. Du khách có thể thưởng thức ẩm thực được chế biến chuyên nghiệp bởi đội ngũ đầu bếp hàng đầu tại Việt Nam và Đan Mạch. Những món ăn kết hợp hài hòa giữa hương vị địa phương và quốc tế. Bạn có thể chọn giữa nhà hàng 360 với tầm nhìn toàn cảnh núi rừng hoặc nhà hàng Stilt House ấm cúng ngay trung tâm khu nghỉ dưỡng. Ngoài ẩm thực và cơ sở vật chất, Topas Ecolodge còn có những hoạt động trải nghiệm đa dạng: trekking qua thung lũng ruộng bậc thang, thăm những ngôi làng ẩn sâu trong núi, tìm hiểu văn hóa truyền thống của đồng bào dân tộc thiểu số hay thăm chợ phiên bản địa... Ngoài ra, giải chạy địa hình lâu đời nhất Việt Nam - Vietnam Mountain Marathon diễn ra hàng năm sắp tới cũng là cơ hội lý tưởng để du khách vừa thử thách bản thân, vừa thư giãn, ngắm cảnh. Topas Ecolodge là khu vực về đích của giải chạy năm nay, dự kiến thu hút hơn 5.000 vận động viên chạy địa hình vào tháng 9. Với sự kết hợp giữa cảnh quan đẹp mắt của Sa Pa, các hoạt động khám phá, nghỉ dưỡng đa dạng và ẩm thực phong phú, Topas Ecolodge hứa hẹn mang đến trải nghiệm đáng nhớ. Trước đó, khu nghỉ dưỡng nhiều lần được tổ chức này giới thiệu trong các danh sách khác như: 21 địa điểm phải trải nghiệm nếu quan tâm đến hành tinh năm 2017 và Những khu nghỉ dưỡng độc đáo nhất trên thế giới năm 2018. Á Hiên",
-  "last_updated": "2026-03-27T22:29:16.107353"
+  "last_updated": "2026-03-30T03:50:15.157252"
 }

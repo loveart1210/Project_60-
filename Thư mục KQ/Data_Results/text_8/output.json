@@ -1,13 +1,63 @@
 {
-  "summary": "",
+  "summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 40,
   "trace": [
     {
       "agent": "execution",
       "action": "split_sentences",
       "step_id": "step_1",
       "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -17,8 +67,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Việt Nam xếp thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024 với điểm số 89, đứng sau Thái Lan và Nhật Bản. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ; lượng khách nước ngoài tăng trưởng từ 2019 đến nay dự kiến đón hơn 17 triệu lượt năm 2024. Condé Nast Traveler, tạp chí du lịch uy tín với ý kiến độc giả quốc tế, bình chọn Việt Nam trong bảng xếp hạng Readers' Choice Awards.",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Việt Nam đứng thứ 15 trong bảng xếp hạng quốc gia tốt nhất thế giới năm 2024, với điểm số 89. Du khách đến Việt Nam bởi vẻ đẹp mộc mạc và quyến rũ, lượng khách nước ngoài tăng trưởng từ 2019 với mục tiêu đón 17-18 triệu lượt vào năm 2024."
   }
 }

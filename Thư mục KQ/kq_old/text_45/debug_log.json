@@ -1,0 +1,2375 @@
+{
+  "generated_at": "2026-03-28T01:16:06.378751",
+  "total_entries": 116,
+  "none_count": 0,
+  "logs": [
+    {
+      "timestamp": "2026-03-28T01:04:39.572356",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 356 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.\",\n        \"tool\": \"chunk_text\",\n        \"expected_output\": \"Danh sách các chunk đã được nhóm\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Summarize each chunk with LLM\",\n        \"description\": \"Tạo bản tóm tắt cho từng đoạn ngắn bằng công cụ lớn (LLM).\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt đã được tạo\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Merge summaries into one summary\",\n        \"description\": \"Gộp tất cả các bản tóm tắt thành một bản tổng hợp.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tóm tắt toàn bộ văn bản\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Refine the summary to improve readability and style\",\n        \"description\": \"Tinh chỉnh câu từ và phong cách của tổng hợp để phù hợp hơn với yêu cầu.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tóm tắt đã được cải thiện\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Verify the claims in summary against original text\",\n        \"description\": \"Kiểm tra lại các tuyên bố trong tổng hợp với văn bản gốc để đảm bảo chính xác.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Danh sách các tuyên bố đã được kiểm chứng\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Ghi chú: Có thể cần thêm bước tùy thuộc vào độ dài và cấu trúc của văn bản.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:04:39.572356",
+      "step_name": "Planner Agent._call_llm",
+      "agent_name": "Planner Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 356 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.\",\n        \"tool\": \"chunk_text\",\n        \"expected_output\": \"Danh sách các chunk đã được nhóm\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Summarize each chunk with LLM\",\n        \"description\": \"Tạo bản tóm tắt cho từng đoạn ngắn bằng công cụ lớn (LLM).\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt đã được tạo\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Merge summaries into one summary\",\n        \"description\": \"Gộp tất cả các bản tóm tắt thành một bản tổng hợp.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tóm tắt toàn bộ văn bản\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Refine the summary to improve readability and style\",\n        \"description\": \"Tinh chỉnh câu từ và phong cách của tổng hợp để phù hợp hơn với yêu cầu.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tóm tắt đã được cải thiện\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Verify the claims in summary against original text\",\n        \"description\": \"Kiểm tra lại các tuyên bố trong tổng hợp với văn bản gốc để đảm bảo chính xác.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Danh sách các tuyên bố đã được kiểm chứng\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Ghi chú: Có thể cần thêm bước tùy thuộc vào độ dài và cấu trúc của văn bản.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:04:39.572356",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn ngắn (chunks) để dễ d",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các chunk đã được nhóm"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Summarize each chunk with LLM",
+              "description": "Tạo bản tóm tắt cho từng đoạn ngắn bằng công cụ lớn (LLM).",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Merge summaries into one summary",
+              "description": "Gộp tất cả các bản tóm tắt thành một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt toàn bộ văn bản"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Refine the summary to improve readability and style",
+              "description": "Tinh chỉnh câu từ và phong cách của tổng hợp để phù hợp hơn với yêu cầu.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được cải thiện"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Verify the claims in summary against original text",
+              "description": "Kiểm tra lại các tuyên bố trong tổng hợp với văn bản gốc để đảm bảo chính xác.",
+              "tool": "verify_claim",
+              "expected_output": "Danh sách các tuyên bố đã được kiểm chứng"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú: Có thể cần thêm bước tùy thuộc vào độ dài và cấu trúc của văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:04:39.572356",
+      "step_name": "Planner Agent._call_llm_json",
+      "agent_name": "Planner Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1626",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các chunk đã được nhóm"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Summarize each chunk with LLM",
+              "description": "Tạo bản tóm tắt cho từng đoạn ngắn bằng công cụ lớn (LLM).",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Merge summaries into one summary",
+              "description": "Gộp tất cả các bản tóm tắt thành một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt toàn bộ văn bản"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Refine the summary to improve readability and style",
+              "description": "Tinh chỉnh câu từ và phong cách của tổng hợp để phù hợp hơn với yêu cầu.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được cải thiện"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Verify the claims in summary against original text",
+              "description": "Kiểm tra lại các tuyên bố trong tổng hợp với văn bản gốc để đảm bảo chính xác.",
+              "tool": "verify_claim",
+              "expected_output": "Danh sách các tuyên bố đã được kiểm chứng"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú: Có thể cần thêm bước tùy thuộc vào độ dài và cấu trúc của văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:04:39.572356",
+      "step_name": "planner_agent.run",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "word_count=356, style=news_brief",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các chunk đã được nhóm"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Summarize each chunk with LLM",
+              "description": "Tạo bản tóm tắt cho từng đoạn ngắn bằng công cụ lớn (LLM).",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Merge summaries into one summary",
+              "description": "Gộp tất cả các bản tóm tắt thành một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt toàn bộ văn bản"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Refine the summary to improve readability and style",
+              "description": "Tinh chỉnh câu từ và phong cách của tổng hợp để phù hợp hơn với yêu cầu.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được cải thiện"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Verify the claims in summary against original text",
+              "description": "Kiểm tra lại các tuyên bố trong tổng hợp với văn bản gốc để đảm bảo chính xác.",
+              "tool": "verify_claim",
+              "expected_output": "Danh sách các tuyên bố đã được kiểm chứng"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú: Có thể cần thêm bước tùy thuộc vào độ dài và cấu trúc của văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:04:39.572356",
+      "step_name": "planning_iter1_planner",
+      "agent_name": "Planner Agent",
+      "phase": "planning",
+      "input_summary": "iteration=1, revision=''",
+      "output_data": {
+        "roadmap": {
+          "tasks": [
+            {
+              "step_id": "step_1",
+              "name": "Grouping sentences into chunks",
+              "description": "Tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt.",
+              "tool": "chunk_text",
+              "expected_output": "Danh sách các chunk đã được nhóm"
+            },
+            {
+              "step_id": "step_2",
+              "name": "Summarize each chunk with LLM",
+              "description": "Tạo bản tóm tắt cho từng đoạn ngắn bằng công cụ lớn (LLM).",
+              "tool": "summarize_chunk",
+              "expected_output": "Danh sách các bản tóm tắt đã được tạo"
+            },
+            {
+              "step_id": "step_3",
+              "name": "Merge summaries into one summary",
+              "description": "Gộp tất cả các bản tóm tắt thành một bản tổng hợp.",
+              "tool": "merge_summaries",
+              "expected_output": "Bản tóm tắt toàn bộ văn bản"
+            },
+            {
+              "step_id": "step_4",
+              "name": "Refine the summary to improve readability and style",
+              "description": "Tinh chỉnh câu từ và phong cách của tổng hợp để phù hợp hơn với yêu cầu.",
+              "tool": "refine_summary",
+              "expected_output": "Bản tóm tắt đã được cải thiện"
+            },
+            {
+              "step_id": "step_5",
+              "name": "Verify the claims in summary against original text",
+              "description": "Kiểm tra lại các tuyên bố trong tổng hợp với văn bản gốc để đảm bảo chính xác.",
+              "tool": "verify_claim",
+              "expected_output": "Danh sách các tuyên bố đã được kiểm chứng"
+            }
+          ],
+          "total_steps": 5,
+          "notes": "Ghi chú: Có thể cần thêm bước tùy thuộc vào độ dài và cấu trúc của văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:05:40.256677",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các bản tóm tắt. Tuy nhiên, roadmap không đề cập tới bước xác minh lại thông tin chi tiết trong quá trình làm việc.\",\n    \"specificity_analysis\": \"Các bước có đủ chi tiết để thực thi: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn), merge_summaries (gộp tất cả các bản tóm tắt thành một tổng hợp). Tuy nhiên, roadmap không đề cập đến việc xác minh lại thông tin chi tiết trong quá trình làm việc.\",\n    \"hallucination_risk_analysis\": \"Không có bước nào tiềm ẩn rủi ro hallucination. Các công cụ được sử dụng đều phù hợp với mục đích của từng bước.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool có sẵn một cách hợp lý: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn). Tuy nhiên, roadmap không đề cập đến việc sử dụng word_tokenize và sent_tokenize để phân chia văn bản.\",\n    \"missing_steps\": [\"Xác minh lại thông tin chi tiết trong quá trình làm việc\"],\n    \"strengths\": [\n      \"Roadmap bao quát đầy đủ nội dung của văn bản gốc\",\n      \"Có bước cụ thể để thực hiện từng công đoạn\"\n    ],\n    \"weaknesses\": [\n      \"Không đề cập đến xác minh lại thông tin chi tiết trong quá trình làm việc\",\n      \"Tidak sử dụng word_tokenize và sent_tokenize cho phân chia văn bản\"\n    ]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:05:40.256677",
+      "step_name": "Planner-Observation Agent._call_llm",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping sentences into chunks\",\n        \"description\": \"Tách văn bản thành các đoạn ngắn (ch",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các bản tóm tắt. Tuy nhiên, roadmap không đề cập tới bước xác minh lại thông tin chi tiết trong quá trình làm việc.\",\n    \"specificity_analysis\": \"Các bước có đủ chi tiết để thực thi: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn), merge_summaries (gộp tất cả các bản tóm tắt thành một tổng hợp). Tuy nhiên, roadmap không đề cập đến việc xác minh lại thông tin chi tiết trong quá trình làm việc.\",\n    \"hallucination_risk_analysis\": \"Không có bước nào tiềm ẩn rủi ro hallucination. Các công cụ được sử dụng đều phù hợp với mục đích của từng bước.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool có sẵn một cách hợp lý: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn). Tuy nhiên, roadmap không đề cập đến việc sử dụng word_tokenize và sent_tokenize để phân chia văn bản.\",\n    \"missing_steps\": [\"Xác minh lại thông tin chi tiết trong quá trình làm việc\"],\n    \"strengths\": [\n      \"Roadmap bao quát đầy đủ nội dung của văn bản gốc\",\n      \"Có bước cụ thể để thực hiện từng công đoạn\"\n    ],\n    \"weaknesses\": [\n      \"Không đề cập đến xác minh lại thông tin chi tiết trong quá trình làm việc\",\n      \"Tidak sử dụng word_tokenize và sent_tokenize cho phân chia văn bản\"\n    ]\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:05:40.256677",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các bản tóm tắt. Tuy nhiên, roadmap không đề cập tới bước xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn), merge_summaries (gộp tất cả các bản tóm tắt thành một tổng hợp). Tuy nhiên, roadmap không đề cập đến việc xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "hallucination_risk_analysis": "Không có bước nào tiềm ẩn rủi ro hallucination. Các công cụ được sử dụng đều phù hợp với mục đích của từng bước.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn). Tuy nhiên, roadmap không đề cập đến việc sử dụng word_tokenize và sent_tokenize để phân chia văn bản.",
+          "missing_steps": [
+            "Xác minh lại thông tin chi tiết trong quá trình làm việc"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Có bước cụ thể để thực hiện từng công đoạn"
+          ],
+          "weaknesses": [
+            "Không đề cập đến xác minh lại thông tin chi tiết trong quá trình làm việc",
+            "Tidak sử dụng word_tokenize và sent_tokenize cho phân chia văn bản"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:05:40.256677",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1485",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các bản tóm tắt. Tuy nhiên, roadmap không đề cập tới bước xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn), merge_summaries (gộp tất cả các bản tóm tắt thành một tổng hợp). Tuy nhiên, roadmap không đề cập đến việc xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "hallucination_risk_analysis": "Không có bước nào tiềm ẩn rủi ro hallucination. Các công cụ được sử dụng đều phù hợp với mục đích của từng bước.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn). Tuy nhiên, roadmap không đề cập đến việc sử dụng word_tokenize và sent_tokenize để phân chia văn bản.",
+          "missing_steps": [
+            "Xác minh lại thông tin chi tiết trong quá trình làm việc"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Có bước cụ thể để thực hiện từng công đoạn"
+          ],
+          "weaknesses": [
+            "Không đề cập đến xác minh lại thông tin chi tiết trong quá trình làm việc",
+            "Tidak sử dụng word_tokenize và sent_tokenize cho phân chia văn bản"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:05:40.256677",
+      "step_name": "planner_observation_agent.run",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_type=dict",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các bản tóm tắt. Tuy nhiên, roadmap không đề cập tới bước xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn), merge_summaries (gộp tất cả các bản tóm tắt thành một tổng hợp). Tuy nhiên, roadmap không đề cập đến việc xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "hallucination_risk_analysis": "Không có bước nào tiềm ẩn rủi ro hallucination. Các công cụ được sử dụng đều phù hợp với mục đích của từng bước.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn). Tuy nhiên, roadmap không đề cập đến việc sử dụng word_tokenize và sent_tokenize để phân chia văn bản.",
+          "missing_steps": [
+            "Xác minh lại thông tin chi tiết trong quá trình làm việc"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Có bước cụ thể để thực hiện từng công đoạn"
+          ],
+          "weaknesses": [
+            "Không đề cập đến xác minh lại thông tin chi tiết trong quá trình làm việc",
+            "Tidak sử dụng word_tokenize và sent_tokenize cho phân chia văn bản"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:05:40.256677",
+      "step_name": "planning_iter1_observation",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "planning",
+      "input_summary": "roadmap_keys=['roadmap']",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm tắt đến tạo và gộp tổng hợp các bản tóm tắt. Tuy nhiên, roadmap không đề cập tới bước xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "specificity_analysis": "Các bước có đủ chi tiết để thực thi: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn), merge_summaries (gộp tất cả các bản tóm tắt thành một tổng hợp). Tuy nhiên, roadmap không đề cập đến việc xác minh lại thông tin chi tiết trong quá trình làm việc.",
+          "hallucination_risk_analysis": "Không có bước nào tiềm ẩn rủi ro hallucination. Các công cụ được sử dụng đều phù hợp với mục đích của từng bước.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool có sẵn một cách hợp lý: chunk_text (tách văn bản thành chunks), summarize_chunk (tạo bản tóm tắt cho từng đoạn ngắn). Tuy nhiên, roadmap không đề cập đến việc sử dụng word_tokenize và sent_tokenize để phân chia văn bản.",
+          "missing_steps": [
+            "Xác minh lại thông tin chi tiết trong quá trình làm việc"
+          ],
+          "strengths": [
+            "Roadmap bao quát đầy đủ nội dung của văn bản gốc",
+            "Có bước cụ thể để thực hiện từng công đoạn"
+          ],
+          "weaknesses": [
+            "Không đề cập đến xác minh lại thông tin chi tiết trong quá trình làm việc",
+            "Tidak sử dụng word_tokenize và sent_tokenize cho phân chia văn bản"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.095626",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao qu",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát đầy đủ nội dung của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không có rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác minh lại thông tin chi tiết trong quá trình làm việc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.095626",
+      "step_name": "Planner-Reflection Agent._call_llm",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát tất cả ý chính của văn bản gốc, từ việc tách văn bản thành các đoạn ngắn (chunks) để dễ dàng tóm ",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát đầy đủ nội dung của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không có rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác minh lại thông tin chi tiết trong quá trình làm việc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.095626",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_in",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát đầy đủ nội dung của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không có rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác minh lại thông tin chi tiết trong quá trình làm việc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.095626",
+      "step_name": "Planner-Reflection Agent._call_llm_json",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=491",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát đầy đủ nội dung của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không có rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác minh lại thông tin chi tiết trong quá trình làm việc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.095626",
+      "step_name": "planner_reflection_agent.run",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_type=dict",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát đầy đủ nội dung của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không có rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác minh lại thông tin chi tiết trong quá trình làm việc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.096629",
+      "step_name": "planning_iter1_reflection",
+      "agent_name": "Planner-Reflection Agent",
+      "phase": "planning",
+      "input_summary": "observation_keys=['observation']",
+      "output_data": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát đầy đủ nội dung của văn bản gốc với điểm Coverage Score là 0.85 và Specificity Score là 0.75, đồng thời không có rủi ro hallucination. Tuy nhiên, roadmap cần bổ sung bước xác minh lại thông tin chi tiết trong quá trình làm việc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.117661",
+      "step_name": "execution_agent.run.step_1",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step_name='Grouping sentences into chunks'",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "chunking",
+        "chunks": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "text": "Nhà hàng flagship Au Lac Do Brazil Nguyễn Huệ là chi nhánh mới nhất của thương hiệu nướng Churrasco. Từ 2023, chuỗi nhà hàng sáp nhập vào hệ thống IN Dining và có nhiều thay đổi. Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh. Ngoài giữ lại nét đặc trưng của ẩm thực, đơn vị còn chú trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn. Au Lac Do Brazil ra đời năm 2003. Qua hơn 20 năm, thương hiệu thịt nướng gây ấn tượng với không gian, hương vị ẩm thực đậm chất Nam Mỹ cùng đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Sự gia nhập của chuỗi nhà hàng góp phần mang đến màu sắc mới cho hệ sinh thái F&B của IN Dining tại TP HCM. Đây cũng là cột mốc tiếp theo họ đạt được trên hành trình hiện thực hóa mục tiêu đi đầu về mảng kinh doanh, quản lý, vận hành các thương hiệu F&B cao cấp tại Việt Nam. Thông qua trải nghiệm ẩm thực, Au Lac Do Brazil còn muốn tạo sự gắn kết tinh thần và giao thoa văn hóa. Thương hiệu thường xuyên cập nhật, làm mới thực đơn để mỗi bữa ăn là một hành trình khám phá văn hóa khác nhau. Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng. 18 món ăn kèm cho thực khách thoải mái lựa chọn theo khẩu vị, sở thích. Bạn có thể chọn gói buffet, gọi món lẻ trên set menu, a-la-carte, hoặc thưởng thức theo kiểu BBQ Platter (khay nướng thập cẩm 10 món) và Wiggle Skewers (5 xiên nướng tổng hợp), phù hợp với những buổi hội họp nhóm, tiệc tùng. Ngoài ẩm thực, Au Lac Do Brazil còn mang đến nhiều hoạt động giải trí thú vị như trình diễn vũ điệu Samba với các vũ công diện trang phục màu sắc trên nền nhạc Latin sôi động. Phong cách phục vụ Rodízio cũng là điểm nhấn tại đây. Nhân viên phục vụ được gọi là Passador, hay 'the meat cutter' (người cắt thịt), liên tục di chuyển với xiên thịt nướng nóng hổi trên tay.",
+            "word_count": 287
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "text": "Tay còn lại dùng dao bản to thái từng lát thịt trực tiếp tại bàn theo khẩu phần thực khách mong muốn. Với vị trí thuận lợi, ngay điểm trung tâm phố đi bộ Nguyễn Huệ và đường Pasteur, Au Lac Do Brazil mang đến phong cách ẩm thực, thiết kế, hương vị độc đáo đậm chất Nam Mỹ... cho thực khách cảm giác đang dùng bữa trong khu rừng nhiệt đới. Nhà hàng còn góp phần tạo nên không khí lễ hội sôi động ngay trung tâm Sài Gòn, là điểm đến đáng cân nhắc cho những tín đồ ẩm thực. Á Hiên",
+            "word_count": 72
+          }
+        ],
+        "chunk_count": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:07.117661",
+      "step_name": "exec_step1_Grouping sentences into chunks",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, attempt=1",
+      "output_data": {
+        "step_id": "step_1",
+        "action": "chunking",
+        "chunks": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "text": "Nhà hàng flagship Au Lac Do Brazil Nguyễn Huệ là chi nhánh mới nhất của thương hiệu nướng Churrasco. Từ 2023, chuỗi nhà hàng sáp nhập vào hệ thống IN Dining và có nhiều thay đổi. Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh. Ngoài giữ lại nét đặc trưng của ẩm thực, đơn vị còn chú trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn. Au Lac Do Brazil ra đời năm 2003. Qua hơn 20 năm, thương hiệu thịt nướng gây ấn tượng với không gian, hương vị ẩm thực đậm chất Nam Mỹ cùng đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Sự gia nhập của chuỗi nhà hàng góp phần mang đến màu sắc mới cho hệ sinh thái F&B của IN Dining tại TP HCM. Đây cũng là cột mốc tiếp theo họ đạt được trên hành trình hiện thực hóa mục tiêu đi đầu về mảng kinh doanh, quản lý, vận hành các thương hiệu F&B cao cấp tại Việt Nam. Thông qua trải nghiệm ẩm thực, Au Lac Do Brazil còn muốn tạo sự gắn kết tinh thần và giao thoa văn hóa. Thương hiệu thường xuyên cập nhật, làm mới thực đơn để mỗi bữa ăn là một hành trình khám phá văn hóa khác nhau. Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng. 18 món ăn kèm cho thực khách thoải mái lựa chọn theo khẩu vị, sở thích. Bạn có thể chọn gói buffet, gọi món lẻ trên set menu, a-la-carte, hoặc thưởng thức theo kiểu BBQ Platter (khay nướng thập cẩm 10 món) và Wiggle Skewers (5 xiên nướng tổng hợp), phù hợp với những buổi hội họp nhóm, tiệc tùng. Ngoài ẩm thực, Au Lac Do Brazil còn mang đến nhiều hoạt động giải trí thú vị như trình diễn vũ điệu Samba với các vũ công diện trang phục màu sắc trên nền nhạc Latin sôi động. Phong cách phục vụ Rodízio cũng là điểm nhấn tại đây. Nhân viên phục vụ được gọi là Passador, hay 'the meat cutter' (người cắt thịt), liên tục di chuyển với xiên thịt nướng nóng hổi trên tay.",
+            "word_count": 287
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "text": "Tay còn lại dùng dao bản to thái từng lát thịt trực tiếp tại bàn theo khẩu phần thực khách mong muốn. Với vị trí thuận lợi, ngay điểm trung tâm phố đi bộ Nguyễn Huệ và đường Pasteur, Au Lac Do Brazil mang đến phong cách ẩm thực, thiết kế, hương vị độc đáo đậm chất Nam Mỹ... cho thực khách cảm giác đang dùng bữa trong khu rừng nhiệt đới. Nhà hàng còn góp phần tạo nên không khí lễ hội sôi động ngay trung tâm Sài Gòn, là điểm đến đáng cân nhắc cho những tín đồ ẩm thực. Á Hiên",
+            "word_count": 72
+          }
+        ],
+        "chunk_count": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:53.002542",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n     ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Quality tốt, nội dung tóm tắt khớp với đoạn văn gốc và phân chia hợp lý.\",\n    \"issues_found\": [\"Không có lỗi phát hiện\"],\n    \"summary\": \"Output chứa toàn bộ thông tin từ văn bản gốc. Phân tích chi tiết được thực hiện một cách chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:53.003542",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,\n        7,\n    ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Quality tốt, nội dung tóm tắt khớp với đoạn văn gốc và phân chia hợp lý.\",\n    \"issues_found\": [\"Không có lỗi phát hiện\"],\n    \"summary\": \"Output chứa toàn bộ thông tin từ văn bản gốc. Phân tích chi tiết được thực hiện một cách chính xác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:53.003542",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.\",",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.",
+          "completion_status": "complete",
+          "quality_assessment": "Quality tốt, nội dung tóm tắt khớp với đoạn văn gốc và phân chia hợp lý.",
+          "issues_found": [
+            "Không có lỗi phát hiện"
+          ],
+          "summary": "Output chứa toàn bộ thông tin từ văn bản gốc. Phân tích chi tiết được thực hiện một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:53.003542",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=514",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.",
+          "completion_status": "complete",
+          "quality_assessment": "Quality tốt, nội dung tóm tắt khớp với đoạn văn gốc và phân chia hợp lý.",
+          "issues_found": [
+            "Không có lỗi phát hiện"
+          ],
+          "summary": "Output chứa toàn bộ thông tin từ văn bản gốc. Phân tích chi tiết được thực hiện một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:53.003542",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=chunking",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.",
+          "completion_status": "complete",
+          "quality_assessment": "Quality tốt, nội dung tóm tắt khớp với đoạn văn gốc và phân chia hợp lý.",
+          "issues_found": [
+            "Không có lỗi phát hiện"
+          ],
+          "summary": "Output chứa toàn bộ thông tin từ văn bản gốc. Phân tích chi tiết được thực hiện một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:06:53.003542",
+      "step_name": "exec_step1_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, action=chunking",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_1",
+          "action": "chunking",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Các thông tin chính đều được giữ nguyên.",
+          "completion_status": "complete",
+          "quality_assessment": "Quality tốt, nội dung tóm tắt khớp với đoạn văn gốc và phân chia hợp lý.",
+          "issues_found": [
+            "Không có lỗi phát hiện"
+          ],
+          "summary": "Output chứa toàn bộ thông tin từ văn bản gốc. Phân tích chi tiết được thực hiện một cách chính xác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:12.738556",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước hiện tại có chất lượng tốt và đây là bước cuối cùng nên tiếp tục thực thi.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:12.738556",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Các thông",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước hiện tại có chất lượng tốt và đây là bước cuối cùng nên tiếp tục thực thi.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:12.738556",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại có chất lượng tốt và đây là bước cuối cùng nên tiếp tục thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:12.740059",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=372",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại có chất lượng tốt và đây là bước cuối cùng nên tiếp tục thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:12.740059",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại có chất lượng tốt và đây là bước cuối cùng nên tiếp tục thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:12.740059",
+      "step_name": "exec_step1_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_1, step=1/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại có chất lượng tốt và đây là bước cuối cùng nên tiếp tục thực thi."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:43.541430",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Au Lac Do Brazil, nhà hàng flagship của thương hiệu Churrasco IN Dining, tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003, đơn vị mang đậm chất Nam Mỹ với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền, cùng nhiều hoạt động giải trí như trình diễn Samba.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:43.541430",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 35 từ\n        -",
+      "output_data": "Au Lac Do Brazil, nhà hàng flagship của thương hiệu Churrasco IN Dining, tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003, đơn vị mang đậm chất Nam Mỹ với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền, cùng nhiều hoạt động giải trí như trình diễn Samba.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:50.361425",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Tay dùng dao thái thịt tại trung tâm Nguyễn Huệ-Pasteur, Au Lac Do Brazil mang phong cách Nam Mỹ độc đáo cho thực khách cảm giác như đang ở rừng nhiệt đới, góp phần tạo không khí lễ hội sôi động.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:50.361425",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 35 từ\n        -",
+      "output_data": "Tay dùng dao thái thịt tại trung tâm Nguyễn Huệ-Pasteur, Au Lac Do Brazil mang phong cách Nam Mỹ độc đáo cho thực khách cảm giác như đang ở rừng nhiệt đới, góp phần tạo không khí lễ hội sôi động.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:50.363931",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Summarize each chunk with LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "summary": "Au Lac Do Brazil, nhà hàng flagship của thương hiệu Churrasco IN Dining, tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003, đơn vị mang đậm chất Nam Mỹ với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền, cùng nhiều hoạt động giải trí như trình diễn Samba.",
+            "word_count": 43
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "summary": "Tay dùng dao thái thịt tại trung tâm Nguyễn Huệ-Pasteur, Au Lac Do Brazil mang phong cách Nam Mỹ độc đáo cho thực khách cảm giác như đang ở rừng nhiệt đới, góp phần tạo không khí lễ hội sôi động.",
+            "word_count": 27
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:07:50.364933",
+      "step_name": "exec_step2_Summarize each chunk with LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "summary": "Au Lac Do Brazil, nhà hàng flagship của thương hiệu Churrasco IN Dining, tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003, đơn vị mang đậm chất Nam Mỹ với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền, cùng nhiều hoạt động giải trí như trình diễn Samba.",
+            "word_count": 43
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "summary": "Tay dùng dao thái thịt tại trung tâm Nguyễn Huệ-Pasteur, Au Lac Do Brazil mang phong cách Nam Mỹ độc đáo cho thực khách cảm giác như đang ở rừng nhiệt đới, góp phần tạo không khí lễ hội sôi động.",
+            "word_count": 27
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:30.740110",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Đánh giá: Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ các điểm quan trọng trong đoạn văn bản.\",\n    \"issues_found\": [\"Chi tiết về hoạt động giải trí như trình diễn Samba bị lược bỏ\"],\n    \"summary\": \"Output đã tổng hợp thành công hai phần của đoạn văn. Tuy nhiên, một số chi tiết cụ thể về hoạt động giải trí và thực đơn được giữ lại.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:30.740110",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Đánh giá: Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ các điểm quan trọng trong đoạn văn bản.\",\n    \"issues_found\": [\"Chi tiết về hoạt động giải trí như trình diễn Samba bị lược bỏ\"],\n    \"summary\": \"Output đã tổng hợp thành công hai phần của đoạn văn. Tuy nhiên, một số chi tiết cụ thể về hoạt động giải trí và thực đơn được giữ lại.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:30.740110",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.\",\n  ",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.",
+          "completion_status": "complete",
+          "quality_assessment": "Đánh giá: Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ các điểm quan trọng trong đoạn văn bản.",
+          "issues_found": [
+            "Chi tiết về hoạt động giải trí như trình diễn Samba bị lược bỏ"
+          ],
+          "summary": "Output đã tổng hợp thành công hai phần của đoạn văn. Tuy nhiên, một số chi tiết cụ thể về hoạt động giải trí và thực đơn được giữ lại."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:30.740110",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=618",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.",
+          "completion_status": "complete",
+          "quality_assessment": "Đánh giá: Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ các điểm quan trọng trong đoạn văn bản.",
+          "issues_found": [
+            "Chi tiết về hoạt động giải trí như trình diễn Samba bị lược bỏ"
+          ],
+          "summary": "Output đã tổng hợp thành công hai phần của đoạn văn. Tuy nhiên, một số chi tiết cụ thể về hoạt động giải trí và thực đơn được giữ lại."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:30.740110",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.",
+          "completion_status": "complete",
+          "quality_assessment": "Đánh giá: Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ các điểm quan trọng trong đoạn văn bản.",
+          "issues_found": [
+            "Chi tiết về hoạt động giải trí như trình diễn Samba bị lược bỏ"
+          ],
+          "summary": "Output đã tổng hợp thành công hai phần của đoạn văn. Tuy nhiên, một số chi tiết cụ thể về hoạt động giải trí và thực đơn được giữ lại."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:30.740110",
+      "step_name": "exec_step2_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Có một số chi tiết bị lược bỏ.",
+          "completion_status": "complete",
+          "quality_assessment": "Đánh giá: Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ các điểm quan trọng trong đoạn văn bản.",
+          "issues_found": [
+            "Chi tiết về hoạt động giải trí như trình diễn Samba bị lược bỏ"
+          ],
+          "summary": "Output đã tổng hợp thành công hai phần của đoạn văn. Tuy nhiên, một số chi tiết cụ thể về hoạt động giải trí và thực đơn được giữ lại."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:52.891874",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí và thực đơn.\",\n    \"reasoning\": \"Output đạt chất lượng tốt với mức độ nhất quán cao nhưng còn thiếu một số chi tiết quan trọng như hoạt động giải trí Samba và thực đơn ăn uống.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:52.891874",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Có",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí và thực đơn.\",\n    \"reasoning\": \"Output đạt chất lượng tốt với mức độ nhất quán cao nhưng còn thiếu một số chi tiết quan trọng như hoạt động giải trí Samba và thực đơn ăn uống.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:52.891874",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí và thực đơn.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao nhưng còn thiếu một số chi tiết quan trọng như hoạt động giải trí Samba và thực đơn ăn uống."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:52.891874",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=476",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí và thực đơn.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao nhưng còn thiếu một số chi tiết quan trọng như hoạt động giải trí Samba và thực đơn ăn uống."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:52.891874",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=2/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí và thực đơn.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao nhưng còn thiếu một số chi tiết quan trọng như hoạt động giải trí Samba và thực đơn ăn uống."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:08:52.891874",
+      "step_name": "exec_step2_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step=2/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí và thực đơn.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao nhưng còn thiếu một số chi tiết quan trọng như hoạt động giải trí Samba và thực đơn ăn uống."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:17.328555",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:17.328555",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 71–71 từ\n        - Giữ",
+      "output_data": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:17.332554",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Merge summaries into one summary'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "merged_summary": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+        "word_count": 40,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:17.332554",
+      "step_name": "exec_step3_Merge summaries into one summary",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=1",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "merge",
+        "merged_summary": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+        "word_count": 40,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:55.621262",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Au Lac Do Brazil, thương hiệ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.\",\n    \"issues_found\": [\"Chi tiết về các hoạt động giải trí như trình diễn vũ điệu Samba được lược bỏ\"],\n    \"summary\": \"Output tóm tắt thành công thông tin chính từ văn bản gốc với sự tập trung vào thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện và cách phục vụ. Một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:55.621262",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 v",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.\",\n    \"issues_found\": [\"Chi tiết về các hoạt động giải trí như trình diễn vũ điệu Samba được lược bỏ\"],\n    \"summary\": \"Output tóm tắt thành công thông tin chính từ văn bản gốc với sự tập trung vào thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện và cách phục vụ. Một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:55.621262",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.\",\n    \"completion",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.",
+          "issues_found": [
+            "Chi tiết về các hoạt động giải trí như trình diễn vũ điệu Samba được lược bỏ"
+          ],
+          "summary": "Output tóm tắt thành công thông tin chính từ văn bản gốc với sự tập trung vào thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện và cách phục vụ. Một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:55.621262",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=754",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.",
+          "issues_found": [
+            "Chi tiết về các hoạt động giải trí như trình diễn vũ điệu Samba được lược bỏ"
+          ],
+          "summary": "Output tóm tắt thành công thông tin chính từ văn bản gốc với sự tập trung vào thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện và cách phục vụ. Một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:55.621262",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, action=merge",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.",
+          "issues_found": [
+            "Chi tiết về các hoạt động giải trí như trình diễn vũ điệu Samba được lược bỏ"
+          ],
+          "summary": "Output tóm tắt thành công thông tin chính từ văn bản gốc với sự tập trung vào thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện và cách phục vụ. Một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:09:55.621262",
+      "step_name": "exec_step3_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, action=merge",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt nội dung đã có.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary.",
+          "issues_found": [
+            "Chi tiết về các hoạt động giải trí như trình diễn vũ điệu Samba được lược bỏ"
+          ],
+          "summary": "Output tóm tắt thành công thông tin chính từ văn bản gốc với sự tập trung vào thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện và cách phục vụ. Một số chi tiết nhỏ bị cắt bớt trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:18.538994",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí Samba.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần như đầy đủ nhưng có một số chi tiết nhỏ bị lược bỏ trong quá trình tạo summary.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:18.539994",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí Samba.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần như đầy đủ nhưng có một số chi tiết nhỏ bị lược bỏ trong quá trình tạo summary.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:18.539994",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí Samba.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần như đầy đủ nhưng có một số chi tiết nhỏ bị lược bỏ trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:18.539994",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=476",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí Samba.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần như đầy đủ nhưng có một số chi tiết nhỏ bị lược bỏ trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:18.539994",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí Samba.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần như đầy đủ nhưng có một số chi tiết nhỏ bị lược bỏ trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:18.539994",
+      "step_name": "exec_step3_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về hoạt động giải trí Samba.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần như đầy đủ nhưng có một số chi tiết nhỏ bị lược bỏ trong quá trình tạo summary."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:53.187447",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:53.187447",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 71–71 từ\n        - Giữ",
+      "output_data": "Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:53.191960",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Refine the summary to improve readability and style'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "refined_summary": "Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.",
+        "word_count": 44,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:10:53.191960",
+      "step_name": "exec_step4_Refine the summary to improve readability and style",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=1",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "refine",
+        "refined_summary": "Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.",
+        "word_count": 44,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:31.884058",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Au Lac Do Brazil, thương h",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện từ năm 2003 đến nay.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Tóm tắt đạt chất lượng tốt. Văn bản được tổng hợp một cách rõ ràng và ngắn gọn mà không gây hiểu lầm về thông tin chính.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt thương hiệu Au Lac Do Brazil tái cấu trúc toàn diện từ năm 2003, giữ nguyên hình thức phục vụ đa dạng như buffet, à-la-carte. Nhà hàng hiện nay phục vụ 16 loại thịt và hải sản theo công thức Nam Mỹ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:31.884058",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện từ năm 2003 đến nay.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Tóm tắt đạt chất lượng tốt. Văn bản được tổng hợp một cách rõ ràng và ngắn gọn mà không gây hiểu lầm về thông tin chính.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt thương hiệu Au Lac Do Brazil tái cấu trúc toàn diện từ năm 2003, giữ nguyên hình thức phục vụ đa dạng như buffet, à-la-carte. Nhà hàng hiện nay phục vụ 16 loại thịt và hải sản theo công thức Nam Mỹ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:31.884058",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về th",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện từ năm 2003 đến nay.",
+          "completion_status": "complete",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Văn bản được tổng hợp một cách rõ ràng và ngắn gọn mà không gây hiểu lầm về thông tin chính.",
+          "issues_found": [],
+          "summary": "Output tóm tắt thương hiệu Au Lac Do Brazil tái cấu trúc toàn diện từ năm 2003, giữ nguyên hình thức phục vụ đa dạng như buffet, à-la-carte. Nhà hàng hiện nay phục vụ 16 loại thịt và hải sản theo công thức Nam Mỹ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:31.885058",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=725",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện từ năm 2003 đến nay.",
+          "completion_status": "complete",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Văn bản được tổng hợp một cách rõ ràng và ngắn gọn mà không gây hiểu lầm về thông tin chính.",
+          "issues_found": [],
+          "summary": "Output tóm tắt thương hiệu Au Lac Do Brazil tái cấu trúc toàn diện từ năm 2003, giữ nguyên hình thức phục vụ đa dạng như buffet, à-la-carte. Nhà hàng hiện nay phục vụ 16 loại thịt và hải sản theo công thức Nam Mỹ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:31.885058",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, action=refine",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện từ năm 2003 đến nay.",
+          "completion_status": "complete",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Văn bản được tổng hợp một cách rõ ràng và ngắn gọn mà không gây hiểu lầm về thông tin chính.",
+          "issues_found": [],
+          "summary": "Output tóm tắt thương hiệu Au Lac Do Brazil tái cấu trúc toàn diện từ năm 2003, giữ nguyên hình thức phục vụ đa dạng như buffet, à-la-carte. Nhà hàng hiện nay phục vụ 16 loại thịt và hải sản theo công thức Nam Mỹ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:31.885058",
+      "step_name": "exec_step4_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, action=refine",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới so với văn bản gốc. Tóm tắt giữ nguyên thông tin chính về thương hiệu Au Lac Do Brazil, tái cấu trúc toàn diện từ năm 2003 đến nay.",
+          "completion_status": "complete",
+          "quality_assessment": "Tóm tắt đạt chất lượng tốt. Văn bản được tổng hợp một cách rõ ràng và ngắn gọn mà không gây hiểu lầm về thông tin chính.",
+          "issues_found": [],
+          "summary": "Output tóm tắt thương hiệu Au Lac Do Brazil tái cấu trúc toàn diện từ năm 2003, giữ nguyên hình thức phục vụ đa dạng như buffet, à-la-carte. Nhà hàng hiện nay phục vụ 16 loại thịt và hải sản theo công thức Nam Mỹ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:54.943217",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Kết quả tóm tắt đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin chính về thương hiệu Au Lac Do Brazil từ năm 2003 đến nay. Tuy nhiên, đây không phải là bước cuối cùng nên quyết định tiếp tục thực hiện.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:54.943217",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới so với văn bản gốc. Tóm tắt",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Kết quả tóm tắt đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin chính về thương hiệu Au Lac Do Brazil từ năm 2003 đến nay. Tuy nhiên, đây không phải là bước cuối cùng nên quyết định tiếp tục thực hiện.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:54.943217",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả tóm tắt đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin chính về thương hiệu Au Lac Do Brazil từ năm 2003 đến nay. Tuy nhiên, đây không phải là bước cuối cùng nên quyết định tiếp tục thực hiện."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:54.943217",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=469",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả tóm tắt đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin chính về thương hiệu Au Lac Do Brazil từ năm 2003 đến nay. Tuy nhiên, đây không phải là bước cuối cùng nên quyết định tiếp tục thực hiện."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:54.943217",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả tóm tắt đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin chính về thương hiệu Au Lac Do Brazil từ năm 2003 đến nay. Tuy nhiên, đây không phải là bước cuối cùng nên quyết định tiếp tục thực hiện."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:11:54.943217",
+      "step_name": "exec_step4_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "",
+          "reasoning": "Kết quả tóm tắt đạt chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin chính về thương hiệu Au Lac Do Brazil từ năm 2003 đến nay. Tuy nhiên, đây không phải là bước cuối cùng nên quyết định tiếp tục thực hiện."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:13:28.241657",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nAu Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ ki",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Au Lac Do Brazil ra đời năm 2003.\"\n        },\n        {\n          \"sentence_id\": 11,\n          \"source_text\": \"Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.85\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.75\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 5,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.65\n    },\n    {\n      \"claim_id\": 6,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"Qua hơn 20 năm, thương hiệu thịt …",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:13:28.241657",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nAu Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-cart",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Au Lac Do Brazil ra đời năm 2003.\"\n        },\n        {\n          \"sentence_id\": 11,\n          \"source_text\": \"Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.85\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.75\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 5,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.65\n    },\n    {\n      \"claim_id\": 6,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"Qua hơn 20 năm, thương hiệu thịt …",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:13:28.242660",
+      "step_name": "Execution Agent._call_llm_json",
+      "agent_name": "Execution Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=2990",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Au Lac Do Brazil ra đời năm 2003.\"\n        },\n        {\n          \"sentence_id\": 11,\n          \"source_text\": \"Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.85\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.75\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 5,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.65\n    },\n    {\n      \"claim_id\": 6,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"Qua hơn 20 năm, thương hiệu thịt …",
+        "_parse_error": true
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "timestamp": "2026-03-28T01:13:28.242660",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step_name='Verify the claims in summary against original text'",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Au Lac Do Brazil ra đời năm 2003.\"\n        },\n        {\n          \"sentence_id\": 11,\n          \"source_text\": \"Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.85\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.75\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 5,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.65\n    },\n    {\n      \"claim_id\": 6,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"Qua hơn 20 năm, thương hiệu thịt …",
+        "_parse_error": true,
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:13:28.242660",
+      "step_name": "exec_step5_Verify the claims in summary against original text",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, attempt=1",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu... Hiện nhà hàng phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ, tẩm ướp và nướng trực tiếp trên than hồng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Au Lac Do Brazil ra đời năm 2003.\"\n        },\n        {\n          \"sentence_id\": 11,\n          \"source_text\": \"Hiện nhà hàng phục vụ 16 loại thịt và hải sản, tẩm ướp theo công thức độc quyền từ Nam Mỹ, nướng chậm trực tiếp trên than hồng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.85\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.75\n    },\n    {\n      \"claim_id\": 4,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Thương hiệu tái cấu trúc toàn diện từ kiến trúc, nhận diện thương hiệu đến hình ảnh.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 5,\n      \"claim_text\": \"\",\n      \"status\": \"fail\",\n      \"evidence\": [],\n      \"confidence\": 0.65\n    },\n    {\n      \"claim_id\": 6,\n      \"claim_text\": \"\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Nhỏng trọng văn hóa, dịch vụ, thêm vào những nét mới trong hương vị, cách trải nghiệm món ăn.\"\n        },\n        {\n          \"sentence_id\": 6,\n          \"source_text\": \"Qua hơn 20 năm, thương hiệu thịt …",
+        "_parse_error": true,
+        "step_id": "step_5",
+        "action": "verify",
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:18.753893",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"verification_report\\\": [\\n    {\\n      \\\"claim_id\\\": 1,\\n ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Độ chính xác cao với việc giữ nguyên nội dung quan trọng. Tuy nhiên, cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.\",\n    \"issues_found\": [\"Một số thông tin đã được tóm tắt nhưng chưa đầy đủ\"],\n    \"summary\": \"Bước thực thi này hoàn thành tốt, giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng. Tuy nhiên cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:18.754893",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"verification_report\\\": [\\n    {\\n      \\\"claim_id\\\": 1,\\n      \\\"claim_text\\\": \\\"Au Lac Do Brazil, thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Độ chính xác cao với việc giữ nguyên nội dung quan trọng. Tuy nhiên, cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.\",\n    \"issues_found\": [\"Một số thông tin đã được tóm tắt nhưng chưa đầy đủ\"],\n    \"summary\": \"Bước thực thi này hoàn thành tốt, giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng. Tuy nhiên cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:18.754893",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có tron",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác cao với việc giữ nguyên nội dung quan trọng. Tuy nhiên, cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.",
+          "issues_found": [
+            "Một số thông tin đã được tóm tắt nhưng chưa đầy đủ"
+          ],
+          "summary": "Bước thực thi này hoàn thành tốt, giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng. Tuy nhiên cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:18.754893",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=695",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác cao với việc giữ nguyên nội dung quan trọng. Tuy nhiên, cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.",
+          "issues_found": [
+            "Một số thông tin đã được tóm tắt nhưng chưa đầy đủ"
+          ],
+          "summary": "Bước thực thi này hoàn thành tốt, giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng. Tuy nhiên cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:18.754893",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, action=verify",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác cao với việc giữ nguyên nội dung quan trọng. Tuy nhiên, cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.",
+          "issues_found": [
+            "Một số thông tin đã được tóm tắt nhưng chưa đầy đủ"
+          ],
+          "summary": "Bước thực thi này hoàn thành tốt, giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng. Tuy nhiên cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:18.754893",
+      "step_name": "exec_step5_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, action=verify",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_5",
+          "action": "verify",
+          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác cao với việc giữ nguyên nội dung quan trọng. Tuy nhiên, cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn.",
+          "issues_found": [
+            "Một số thông tin đã được tóm tắt nhưng chưa đầy đủ"
+          ],
+          "summary": "Bước thực thi này hoàn thành tốt, giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng. Tuy nhiên cần thêm chi tiết về một số điểm để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:42.765852",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi này đã giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng với độ nhất quán cao (factual consistency = 0.9). Tuy nhiên, có một số điểm chưa đầy đủ nên cần thêm chi tiết để tăng tính toàn diện hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:42.765852",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi này đã giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng với độ nhất quán cao (factual consistency = 0.9). Tuy nhiên, có một số điểm chưa đầy đủ nên cần thêm chi tiết để tăng tính toàn diện hơn.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:42.765852",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi này đã giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng với độ nhất quán cao (factual consistency = 0.9). Tuy nhiên, có một số điểm chưa đầy đủ nên cần thêm chi tiết để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:42.765852",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=529",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi này đã giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng với độ nhất quán cao (factual consistency = 0.9). Tuy nhiên, có một số điểm chưa đầy đủ nên cần thêm chi tiết để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:42.765852",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=5/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi này đã giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng với độ nhất quán cao (factual consistency = 0.9). Tuy nhiên, có một số điểm chưa đầy đủ nên cần thêm chi tiết để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:14:42.765852",
+      "step_name": "exec_step5_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_5, step=5/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi này đã giữ nguyên nội dung chính từ văn bản gốc và xác nhận các thông tin quan trọng với độ nhất quán cao (factual consistency = 0.9). Tuy nhiên, có một số điểm chưa đầy đủ nên cần thêm chi tiết để tăng tính toàn diện hơn."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:06.013545",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:06.013545",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 71–71 từ\n        - Giữ",
+      "output_data": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:06.016050",
+      "step_name": "execution_agent.run.step_6",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "edited_summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+        "word_count": 42,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:06.016050",
+      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, attempt=1",
+      "output_data": {
+        "step_id": "step_6",
+        "action": "edit",
+        "edited_summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+        "word_count": 42,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:43.415939",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Brazil thương hiệu Churrasco ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản chưa thể hiện đầy đủ trong tóm tắt.\",\n    \"issues_found\": [\"Chi tiết về 18 món ăn kèm không thể hiện hoàn toàn trong output\"],\n    \"summary\": \"Output chính xác và đạt chất lượng tốt với nội dung phù hợp yêu cầu news_brief, nhưng một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:43.415939",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức p",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản chưa thể hiện đầy đủ trong tóm tắt.\",\n    \"issues_found\": [\"Chi tiết về 18 món ăn kèm không thể hiện hoàn toàn trong output\"],\n    \"summary\": \"Output chính xác và đạt chất lượng tốt với nội dung phù hợp yêu cầu news_brief, nhưng một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:43.415939",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.\",\n    \"completi",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản chưa thể hiện đầy đủ trong tóm tắt.",
+          "issues_found": [
+            "Chi tiết về 18 món ăn kèm không thể hiện hoàn toàn trong output"
+          ],
+          "summary": "Output chính xác và đạt chất lượng tốt với nội dung phù hợp yêu cầu news_brief, nhưng một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:43.415939",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=714",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản chưa thể hiện đầy đủ trong tóm tắt.",
+          "issues_found": [
+            "Chi tiết về 18 món ăn kèm không thể hiện hoàn toàn trong output"
+          ],
+          "summary": "Output chính xác và đạt chất lượng tốt với nội dung phù hợp yêu cầu news_brief, nhưng một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:43.415939",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, action=edit",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản chưa thể hiện đầy đủ trong tóm tắt.",
+          "issues_found": [
+            "Chi tiết về 18 món ăn kèm không thể hiện hoàn toàn trong output"
+          ],
+          "summary": "Output chính xác và đạt chất lượng tốt với nội dung phù hợp yêu cầu news_brief, nhưng một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:15:43.415939",
+      "step_name": "exec_step6_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, action=edit",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt với độ chính xác về thông tin và cấu trúc phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản chưa thể hiện đầy đủ trong tóm tắt.",
+          "issues_found": [
+            "Chi tiết về 18 món ăn kèm không thể hiện hoàn toàn trong output"
+          ],
+          "summary": "Output chính xác và đạt chất lượng tốt với nội dung phù hợp yêu cầu news_brief, nhưng một số chi tiết kỹ thuật được lược bỏ ở cuối đoạn văn bản."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.372227",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Chi tiết về 18 món ăn kèm cần được bổ sung vào output để đảm bảo độ bao quát.\",\n    \"reasoning\": \"Output đạt chất lượng tốt với mức độ nhất quán cao và nội dung phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật không thể hiện đầy đủ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.372227",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có t",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Chi tiết về 18 món ăn kèm cần được bổ sung vào output để đảm bảo độ bao quát.\",\n    \"reasoning\": \"Output đạt chất lượng tốt với mức độ nhất quán cao và nội dung phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật không thể hiện đầy đủ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.373229",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Chi tiết về 18 món ăn kèm cần được bổ sung vào output để đảm bảo độ bao quát.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao và nội dung phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật không thể hiện đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.373229",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=469",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Chi tiết về 18 món ăn kèm cần được bổ sung vào output để đảm bảo độ bao quát.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao và nội dung phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật không thể hiện đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.373229",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Chi tiết về 18 món ăn kèm cần được bổ sung vào output để đảm bảo độ bao quát.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao và nội dung phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật không thể hiện đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.373229",
+      "step_name": "exec_step6_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Chi tiết về 18 món ăn kèm cần được bổ sung vào output để đảm bảo độ bao quát.",
+          "reasoning": "Output đạt chất lượng tốt với mức độ nhất quán cao và nội dung phù hợp yêu cầu news_brief. Tuy nhiên, một số chi tiết kỹ thuật không thể hiện đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-28T01:16:06.378751",
+      "step_name": "workflow_complete",
+      "agent_name": "Manager Agent",
+      "phase": "workflow",
+      "input_summary": "",
+      "output_data": {
+        "summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+        "style": "news_brief",
+        "word_count": 42,
+        "trace": [
+          {
+            "agent": "execution",
+            "action": "chunking",
+            "step_id": "step_1",
+            "evidence": "Step 1: Grouping sentences into chunks",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "chunk_summarize",
+            "step_id": "step_2",
+            "evidence": "Step 2: Summarize each chunk with LLM",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "merge",
+            "step_id": "step_3",
+            "evidence": "Step 3: Merge summaries into one summary",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "refine",
+            "step_id": "step_4",
+            "evidence": "Step 4: Refine the summary to improve readability and style",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "verify",
+            "step_id": "step_5",
+            "evidence": "Step 5: Verify the claims in summary against original text",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "edit",
+            "step_id": "step_6",
+            "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          }
+        ],
+        "verification_report": null,
+        "intermediate_outputs": {
+          "outline": null,
+          "draft_summary": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+          "verification": null,
+          "edited_summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    }
+  ]
+}

@@ -2,79 +2,49 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:23:20.657405"
+    "output_summary": "chunking",
+    "timestamp": "2026-03-30T03:46:06.166967"
   },
   {
     "step_id": "step_2",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:24:33.617033"
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-30T03:46:18.850883"
   },
   {
     "step_id": "step_3",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:25:39.400529"
-  },
-  {
-    "step_id": "step_3",
-    "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:26:52.373383"
-  },
-  {
-    "step_id": "step_3",
-    "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:28:04.178405"
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T03:46:55.296483"
   },
   {
     "step_id": "step_4",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:29:16.109353"
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T03:47:35.740427"
   },
   {
     "step_id": "step_5",
-    "status": "failed",
-    "output_summary": "No summary available for verification.",
-    "timestamp": "2026-03-27T22:30:27.666875",
-    "error": "No summary available for verification."
-  },
-  {
-    "step_id": "step_5",
-    "status": "failed",
-    "output_summary": "No summary available for verification.",
-    "timestamp": "2026-03-27T22:30:27.666875",
-    "error": "No summary available for verification."
-  },
-  {
-    "step_id": "step_5",
-    "status": "failed",
-    "output_summary": "No summary available for verification.",
-    "timestamp": "2026-03-27T22:30:27.666875",
-    "error": "No summary available for verification."
+    "status": "completed",
+    "output_summary": "verify",
+    "timestamp": "2026-03-30T03:48:46.305970"
   },
   {
     "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T22:30:27.666875",
-    "error": "No summary available for editing."
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-30T03:48:55.741878"
   },
   {
     "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T22:30:27.668461",
-    "error": "No summary available for editing."
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-30T03:49:32.148871"
   },
   {
     "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T22:30:27.668461",
-    "error": "No summary available for editing."
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-30T03:50:15.159258"
   }
 ]

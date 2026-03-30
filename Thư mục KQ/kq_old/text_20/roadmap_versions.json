@@ -1,0 +1,88 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Grouping sentences into chunks",
+          "description": "Tách văn bản thành các đoạn (chunks) phù hợp với thông tin cần tóm tắt.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk đã nhóm"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Summarizing each chunk using LLM",
+          "description": "Tạo bản tóm tắt cho từng đoạn (chunk) thông qua hệ thống AI.",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của mỗi đoạn"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Merging summaries into a single summary",
+          "description": "Gộp các bản tóm tắt thành một bài viết tổng hợp.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt toàn bộ văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Refining the summary to improve readability and style",
+          "description": "Tinh chỉnh và cải thiện phong cách của bài tổng hợp.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt đã được tinh chỉnh"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Verifying the claims against original text for accuracy and relevance",
+          "description": "Kiểm chứng lại các mệnh đề trong bản tổng hợp với văn bản gốc để đảm bảo chính xác và phù hợp.",
+          "tool": "verify_claim",
+          "expected_output": "Danh sách các điểm cần điều chỉnh"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Giữ độ dài summary khoảng từ 150 đến 250 từ, không vượt quá 20% số từ của văn bản gốc."
+    }
+  },
+  "v2": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành các chunk nhỏ hơn",
+          "description": "Dùng word_tokenize để tách văn bản tiếng Việt thành nhiều chunks. Mỗi chunk chứa một ý chính.",
+          "tool": "word_tokenize",
+          "expected_output": "Một danh sách gồm các chunks, mỗi chunk là một đoạn văn ngắn."
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã được tạo. Mỗi bản summary nên giữ nguyên ý chính của chunk mà không thay đổi entity.",
+          "tool": "summarize_chunk",
+          "expected_output": "Một danh sách gồm các bản summary, mỗi summary là một đoạn văn ngắn và abstractive."
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
+          "description": "Dùng merge_summaries để gộp tất cả các bản summary đã tạo thành một bản tổng hợp. Bản tổng hợp nên giữ nguyên phong cách và độ dài tối thiểu 150 từ, không quá 20% độ dài input.",
+          "tool": "merge_summaries",
+          "expected_output": "Một đoạn văn ngắn là bản tóm tắt tổng hợp của toàn bộ văn bản gốc."
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho bản summary tổng hợp",
+          "description": "Dùng refine_summary để tinh chỉnh các câu từ trong đoạn văn ngắn tổng hợp, đảm bảo phù hợp với phong cách news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Một đoạn văn ngắn là bản summary cuối cùng đã được refinement."
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng lại khuyến mại hoặc ưu đãi trong Epic Sale 2024",
+          "description": "Dùng verify_claim để kiểm tra xem các thông tin về khuyến mại, ưu đãi được đưa vào summary có đúng với văn bản gốc hay không. Nếu cần chỉnh sửa thì thực hiện.",
+          "tool": "verify_claim",
+          "expected_output": "Một đoạn văn ngắn là kết quả kiểm chứng và nếu cần chỉnh sửa sẽ được cập nhật."
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Bước này đảm bảo rằng summary tổng hợp giữ nguyên ý chính, fact-grounded nhưng vẫn abstractive. Bổ sung thêm thông tin khuyến mại hoặc ưu đãi trong Epic Sale 2024 là cần thiết để tăng độ chi tiết và giá trị của bản tóm tắt."
+    }
+  }
+}

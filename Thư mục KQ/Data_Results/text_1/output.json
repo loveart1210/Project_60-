@@ -1,53 +1,33 @@
 {
-  "summary": "Regent Hotels & Resorts tổ chức Taste Studio với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, chỉ có 20 khách mời mỗi tối.",
+  "summary": "Dáng hình của biển', sự kiện quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, giới hạn 20 khách mời mỗi tối tại Regent Phú Quốc.",
   "style": "news_brief",
-  "word_count": 23,
+  "word_count": 19,
   "trace": [
     {
       "agent": "execution",
       "action": "split_sentences",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Chunking và Tách Câu",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm Tắt Chunk 1",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "evidence": "Step 3: Merge Summaries",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -55,42 +35,22 @@
     },
     {
       "agent": "execution",
-      "action": "merge",
+      "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
+      "evidence": "Step 4: Refine Summary",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
-      "action": "merge",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
+      "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng bản tổng thể so với văn bản gốc",
+      "evidence": "Step 5: Verification and Correction",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -104,11 +64,63 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Taste Studio của Regent Hotels & Resorts tổ chức sự kiện 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 5
+        }
+      ],
+      "confidence": 0.98
+    },
+    {
+      "claim_text": "Giới hạn 20 khách mời mỗi tối, gồm drip art do Mr. Dripping thực hiện cùng hương vị độc đáo từ Francesco (Milan), Huân Trần và Andy Huỳnh tại Regent Phú Quốc.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 6
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "Một trong số đó là bếp trưởng Francesco đến từ Milan, với 20 năm kinh nghiệm làm việc tại các khách sạn danh tiếng thế giới"
+        }
+      ],
+      "confidence": 0.97
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Regent Hotels & Resorts tổ chức Taste Studio với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, giới hạn 20 khách mời mỗi tối.",
-    "verification": null,
-    "edited_summary": "Regent Hotels & Resorts tổ chức Taste Studio với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, chỉ có 20 khách mời mỗi tối."
+    "draft_summary": "Taste Studio của Regent Hotels & Resorts tổ chức sự kiện với chủ đề 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng. Giới hạn 20 khách mời mỗi tối, gồm drip art do Mr. Dripping thực hiện cùng hương vị độc đáo từ Francesco (Milan), Huân Trần và Andy Huỳnh tại Regent Phú Quốc.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Taste Studio của Regent Hotels & Resorts tổ chức sự kiện 'Dáng hình của biển', quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 5
+          }
+        ],
+        "confidence": 0.98
+      },
+      {
+        "claim_text": "Giới hạn 20 khách mời mỗi tối, gồm drip art do Mr. Dripping thực hiện cùng hương vị độc đáo từ Francesco (Milan), Huân Trần và Andy Huỳnh tại Regent Phú Quốc.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 6
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "Một trong số đó là bếp trưởng Francesco đến từ Milan, với 20 năm kinh nghiệm làm việc tại các khách sạn danh tiếng thế giới"
+          }
+        ],
+        "confidence": 0.97
+      }
+    ],
+    "edited_summary": "Dáng hình của biển', sự kiện quy tụ nhiều đầu bếp và nghệ sĩ nổi tiếng, giới hạn 20 khách mời mỗi tối tại Regent Phú Quốc."
   }
 }

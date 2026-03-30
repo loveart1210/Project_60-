@@ -1,0 +1,53 @@
+[
+  {
+    "step_id": "step_1",
+    "status": "completed",
+    "output_summary": "split_sentences",
+    "timestamp": "2026-03-27T20:39:31.427361"
+  },
+  {
+    "step_id": "step_2",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-27T20:40:43.830955"
+  },
+  {
+    "step_id": "step_3",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-27T20:41:49.284257"
+  },
+  {
+    "step_id": "step_4",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-27T20:42:54.443091"
+  },
+  {
+    "step_id": "step_5",
+    "status": "completed",
+    "output_summary": "chunking",
+    "timestamp": "2026-03-27T20:43:58.378068"
+  },
+  {
+    "step_id": "step_6",
+    "status": "failed",
+    "output_summary": "No summary available for editing.",
+    "timestamp": "2026-03-27T20:45:01.201923",
+    "error": "No summary available for editing."
+  },
+  {
+    "step_id": "step_6",
+    "status": "failed",
+    "output_summary": "No summary available for editing.",
+    "timestamp": "2026-03-27T20:45:01.201923",
+    "error": "No summary available for editing."
+  },
+  {
+    "step_id": "step_6",
+    "status": "failed",
+    "output_summary": "No summary available for editing.",
+    "timestamp": "2026-03-27T20:45:01.201923",
+    "error": "No summary available for editing."
+  }
+]

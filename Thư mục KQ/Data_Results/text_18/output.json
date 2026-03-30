@@ -1,21 +1,21 @@
 {
-  "summary": "",
+  "summary": "62 tuổi Lodo trải nghiệm đan võng tại Cù Lao Chàam, đánh giá kỹ thuật khéo léo của nghệ nhân. Du khách từ Pháp cho rằng vật liệu xanh này bảo vệ môi trường. Festival 'Cù Lao Chàam - mùa ngô đồng đỏ' năm 2024 thu hút đông đảo du khách tham gia lễ hội đan võng truyền thống, sử dụng sợi làm từ vỏ cây ngô đồng sau khi được tách và phơi khô đúng kỹ thuật. Nghệ nhân Huỳnh Thị Út và bà Lê tạo ra loại võng dài 2-6 m bền từ 5-10 năm với giá 5-10 triệu; Ngô đồng gắn liền đời sống Cù Lao Chàam hơn 300 năm, được Bộ Văn hóa công nhận Di sản văn hóa phi vật thể quốc gia hôm 6/8.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 88,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "chunk_summarize",
       "step_id": "step_2",
       "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
@@ -25,7 +25,7 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "merge",
       "step_id": "step_3",
       "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
       "reflection_scores": {
@@ -35,7 +35,7 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "refine",
       "step_id": "step_4",
       "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
       "reflection_scores": {
@@ -45,20 +45,146 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "62 tuổi Lodo trải nghiệm đan võng tại Cù Lao Chàam, đánh giá kỹ thuật khéo léo của nghệ nhân.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 3
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_text": "Du khách từ Pháp cho rằng vật liệu xanh này bảo vệ môi trường.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 4
+        }
+      ],
+      "confidence": 0.98
+    },
+    {
+      "claim_text": "Festival 'Cù Lao Chàam - mùa ngô đồng đỏ' năm 2024 thu hút đông đảo du khách tham gia lễ hội đan võng truyền thống, sử dụng sợi làm từ vỏ cây ngô đồng sau khi được tách và phơi khô đúng kỹ thuật.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 5
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "Sau khi được tách ra từ thân cây, vỏ sẽ được gom lại thành từng bó rồi ngâm nước ở các khe, suối trên đảo như khe Ruộng Chùa, khe Ông Thơ, khe Xóm Mới."
+        },
+        {
+          "sentence_id": 9,
+          "source_text": "Sau một tháng, người thợ đem vỏ về tách chọn lớp bên trong có màu trắng đục, tước từng sợi nhỏ, phơi khô cho đến khi có màu trắng tinh mới có thể bắt tay vào đan võng."
+        }
+      ],
+      "confidence": 0.97
+    },
+    {
+      "claim_text": "Nghệ nhân Huỳnh Thị Út và bà Lê tạo ra loại võng dài 2.6 m bền từ 5-10 năm với giá 5-10 triệu; Ngô đồng gắn liền đời sống Cù Lao Chàam hơn 300 năm, được Bộ Văn hóa công nhận Di sản văn hóa phi vật thể quốc gia hôm 6/8.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 14,
+          "source_text": "Bà Huỳnh Thị Út, 56 tuổi, cùng với bà Lê là hai trong số ít nghệ nhân ở Cù Lao Chàam duy trì nghề đan võng ngô đồng cho biết loại võng này được người xã đảo sáng tạo ra trong quá trình lao động sản xuất."
+        },
+        {
+          "sentence_id": 15,
+          "source_text": "'Để làm ra chiếc võng đẹp, ngoài tước sợi mỏng còn yêu cầu thắt nút các mối mắt võng đều', bà Út nói."
+        },
+        {
+          "sentence_id": 20
+        }
+      ],
+      "confidence": 1.0
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
-    "verification": null,
-    "edited_summary": null
+    "draft_summary": "62 tuổi Lodo trải nghiệm đan võng tại Cù Lao Chàm, đánh giá cao kỹ thuật khéo léu của nghệ nhân. Du lịch từ Pháp cho rằng vật liệu xanh này bảo vệ môi trường. Festival 'Cù Lao Chàm - mùa ngô đồng đỏ' năm 2024 thu hút đông đảo du khách tham gia lễ hội đan võng truyền thống, sử dụng sợi làm từ vỏ cây ngô đồng sau khi được tách và phơi khô đúng kỹ thuật. Nghệ nhân Huỳnh Thị Út và bà Lê đan võng dài 2.6 m bền từ 5-10 năm với giá 5-10 triệu; Ngô đồng gắn liền đời sống Cù Lao Chàm hơn 300 năm, được Bộ Văn hóa công nhận Di sản văn hóa phi vật thể quốc gia hôm 6/8.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "62 tuổi Lodo trải nghiệm đan võng tại Cù Lao Chàam, đánh giá kỹ thuật khéo léo của nghệ nhân.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Du khách từ Pháp cho rằng vật liệu xanh này bảo vệ môi trường.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 4
+          }
+        ],
+        "confidence": 0.98
+      },
+      {
+        "claim_text": "Festival 'Cù Lao Chàam - mùa ngô đồng đỏ' năm 2024 thu hút đông đảo du khách tham gia lễ hội đan võng truyền thống, sử dụng sợi làm từ vỏ cây ngô đồng sau khi được tách và phơi khô đúng kỹ thuật.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 5
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "Sau khi được tách ra từ thân cây, vỏ sẽ được gom lại thành từng bó rồi ngâm nước ở các khe, suối trên đảo như khe Ruộng Chùa, khe Ông Thơ, khe Xóm Mới."
+          },
+          {
+            "sentence_id": 9,
+            "source_text": "Sau một tháng, người thợ đem vỏ về tách chọn lớp bên trong có màu trắng đục, tước từng sợi nhỏ, phơi khô cho đến khi có màu trắng tinh mới có thể bắt tay vào đan võng."
+          }
+        ],
+        "confidence": 0.97
+      },
+      {
+        "claim_text": "Nghệ nhân Huỳnh Thị Út và bà Lê tạo ra loại võng dài 2.6 m bền từ 5-10 năm với giá 5-10 triệu; Ngô đồng gắn liền đời sống Cù Lao Chàam hơn 300 năm, được Bộ Văn hóa công nhận Di sản văn hóa phi vật thể quốc gia hôm 6/8.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "Bà Huỳnh Thị Út, 56 tuổi, cùng với bà Lê là hai trong số ít nghệ nhân ở Cù Lao Chàam duy trì nghề đan võng ngô đồng cho biết loại võng này được người xã đảo sáng tạo ra trong quá trình lao động sản xuất."
+          },
+          {
+            "sentence_id": 15,
+            "source_text": "'Để làm ra chiếc võng đẹp, ngoài tước sợi mỏng còn yêu cầu thắt nút các mối mắt võng đều', bà Út nói."
+          },
+          {
+            "sentence_id": 20
+          }
+        ],
+        "confidence": 1.0
+      }
+    ],
+    "edited_summary": "62 tuổi Lodo trải nghiệm đan võng tại Cù Lao Chàam, đánh giá kỹ thuật khéo léo của nghệ nhân. Du khách từ Pháp cho rằng vật liệu xanh này bảo vệ môi trường. Festival 'Cù Lao Chàam - mùa ngô đồng đỏ' năm 2024 thu hút đông đảo du khách tham gia lễ hội đan võng truyền thống, sử dụng sợi làm từ vỏ cây ngô đồng sau khi được tách và phơi khô đúng kỹ thuật. Nghệ nhân Huỳnh Thị Út và bà Lê tạo ra loại võng dài 2-6 m bền từ 5-10 năm với giá 5-10 triệu; Ngô đồng gắn liền đời sống Cù Lao Chàam hơn 300 năm, được Bộ Văn hóa công nhận Di sản văn hóa phi vật thể quốc gia hôm 6/8."
   }
 }

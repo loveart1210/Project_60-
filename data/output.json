@@ -1,13 +1,63 @@
 {
-  "summary": "",
+  "summary": "Gỏi ốc giấy và cá cơm mờm khô rim nổi tiếng ở Quy Nhơn, với hương vị đặc trưng. Cá chình mun - loại cá nước ngọt lớn có thịt chắc thơm ngon chỉ tìm thấy tại đầm Trà Ổ (huyện Phù Mỹ) được rim cùng đường và tỏi tạo nên một mùi vị đậm đà tốn cơm thích hợp làm món lặn 'lai rai' hoặc quà tặng du khách.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 54,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Grouping sentences into chunks",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarizing each chunk using LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gathering summaries into a single document",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refining the final summary to improve readability and style",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Verifying the accuracy of claims in summary against original text",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -17,8 +67,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Gỏi ốc giấy và cá cơm mờm khô rim là hai món ăn nổi tiếng của Quy Nhơn, hấp dẫn du khách nhờ hương vị đặc trưng. Cá chình mun, loại cá nước ngọt lớn với thịt chắc thơm ngon chỉ có ở đầm Trà Ổ (huyện Phù Mỹ, Bình Định), thường được chế biến nướng, hấp gừng atau xào. Bò chua Tây Sơn từ Bình Định nổi tiếng với hương vị chua thanh và cay dịu, dùng nước mắm, đường để làm men tự nhiên trong khoảng 5-7 ngày, chỉ có ở một số quán như Quán Hoa An (đường bờ kè).",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Gỏi ốc giấy và cá cơm mờm khô rim nổi tiếng ở Quy Nhơn, với hương vị đặc trưng. Cá chình mun - loại cá nước ngọt lớn có thịt chắc thơm ngon chỉ tìm thấy tại đầm Trà Ổ (huyện Phù Mỹ) được rim cùng đường và tỏi tạo nên một mùi vị đậm đà tốn cơm thích hợp làm món lặn 'lai rai' hoặc quà tặng du khách."
   }
 }

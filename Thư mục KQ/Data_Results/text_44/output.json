@@ -1,13 +1,73 @@
 {
-  "summary": "",
+  "summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 101,
   "trace": [
     {
       "agent": "execution",
       "action": "split_sentences",
       "step_id": "step_1",
       "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho summary lớn",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -17,8 +77,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá."
   }
 }

@@ -4,42 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
-          "tool": null,
-          "expected_output": "Mảng chứa danh sách các chunk"
+          "name": "Grouping chunks and summarizing them",
+          "description": "Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.",
+          "tool": "chunk_text, summarize_chunk",
+          "expected_output": "A list of summarized chunks"
         },
         {
           "step_id": "step_2",
-          "name": "Tóm tắt mỗi chunk bằng LLM",
-          "description": "Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.",
-          "tool": "summarize_chunk",
-          "expected_output": "Mảng chứa danh sách các bản tóm tắt"
+          "name": "Merging the summaries",
+          "description": "Use merge_summaries function on all generated summaries to create a single comprehensive summary.",
+          "tool": "merge_summaries",
+          "expected_output": "A final summarized text"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn",
-          "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.",
-          "tool": "merge_summaries",
-          "expected_output": "Summary lớn"
+          "name": "Refining the summary",
+          "description": "Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.",
+          "tool": "refine_summary",
+          "expected_output": "A refined summarized text"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho summary lớn",
-          "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.",
-          "tool": "refine_summary",
-          "expected_output": "Summary đã refinement"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-          "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.",
+          "name": "Verification process",
+          "description": "Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.",
           "tool": "verify_claim",
-          "expected_output": "Summary đã refinement và được verification"
+          "expected_output": "A confirmation that the summary is accurate"
         }
       ],
-      "total_steps": 5,
-      "notes": "Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap."
+      "total_steps": 4,
+      "notes": "Ensure each step follows closely after previous steps to build a coherent roadmap."
     }
   }
 }

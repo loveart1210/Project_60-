@@ -1,74 +1,24 @@
 {
-  "summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
+  "summary": "",
   "style": "news_brief",
-  "word_count": 97,
+  "word_count": 0,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Grouping chunks and summarizing them",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt mỗi chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một summary lớn",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho summary lớn",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
-      "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "edit",
-      "step_id": "step_6",
-      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     }
   ],
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình. Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
+    "draft_summary": null,
     "verification": null,
-    "edited_summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế."
+    "edited_summary": null
   }
 }

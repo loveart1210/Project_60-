@@ -1,77 +1,72 @@
 {
-  "generated_at": "2026-03-28T01:03:39.491456",
-  "total_entries": 62,
+  "generated_at": "2026-03-30T05:12:35.345409",
+  "total_entries": 108,
   "none_count": 0,
   "logs": [
     {
-      "timestamp": "2026-03-28T01:01:15.017418",
+      "timestamp": "2026-03-30T05:06:24.271335",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 577 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.\",\n        \"tool\": \"word_tokenize, sent_tokenize, chunk_text\",\n        \"expected_output\": \"Danh sách chunks chứa các segment của văn bản\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt gộp\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một\",\n        \"description\": \"Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tóm tắt gộp\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tóm tắt gộp\",\n        \"description\": \"Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tóm tắt đã được refinement\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Bản tóm tắt đã được kiểm chứng\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.\",\n        \"tool\": \"word_tokenize, sent_tokenize, chunk_text\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.\",\n        \"tool\": \"summarize_chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một summary lớn\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.\",\n        \"tool\": \"merge_summaries\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho summary lớn\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.\",\n        \"tool\": \"refine_summary\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.\",\n        \"tool\": \"verify_claim\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:01:15.017418",
+      "timestamp": "2026-03-30T05:06:24.271950",
       "step_name": "Planner Agent._call_llm",
       "agent_name": "Planner Agent",
       "phase": "agent_llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 577 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.\",\n        \"tool\": \"word_tokenize, sent_tokenize, chunk_text\",\n        \"expected_output\": \"Danh sách chunks chứa các segment của văn bản\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Danh sách các bản tóm tắt gộp\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một\",\n        \"description\": \"Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Bản tóm tắt gộp\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho bản tóm tắt gộp\",\n        \"description\": \"Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Bản tóm tắt đã được refinement\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc\",\n        \"description\": \"Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Bản tóm tắt đã được kiểm chứng\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.\",\n        \"tool\": \"word_tokenize, sent_tokenize, chunk_text\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt từng chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.\",\n        \"tool\": \"summarize_chunk\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp các bản tóm tắt lại thành một summary lớn\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.\",\n        \"tool\": \"merge_summaries\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho summary lớn\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.\",\n        \"tool\": \"refine_summary\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.\",\n        \"tool\": \"verify_claim\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:01:15.017418",
+      "timestamp": "2026-03-30T05:06:24.271950",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc bằng word_tokenize, sau đó",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Sử dụng word_tokenize để tách từ tiếng Việt",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.",
-              "tool": "word_tokenize, sent_tokenize, chunk_text",
-              "expected_output": "Danh sách chunks chứa các segment của văn bản"
+              "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.",
+              "tool": "word_tokenize, sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.",
-              "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt gộp"
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một",
-              "description": "Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.",
-              "tool": "merge_summaries",
-              "expected_output": "Bản tóm tắt gộp"
+              "name": "Gộp các bản tóm tắt lại thành một summary lớn",
+              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-              "description": "Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.",
-              "tool": "refine_summary",
-              "expected_output": "Bản tóm tắt đã được refinement"
+              "name": "Tinh chỉnh phong cách cho summary lớn",
+              "description": "Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.",
+              "tool": "refine_summary"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.",
-              "tool": "verify_claim",
-              "expected_output": "Bản tóm tắt đã được kiểm chứng"
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+              "description": "Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.",
+              "tool": "verify_claim"
             }
           ],
           "total_steps": 5,
-          "notes": "Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap."
+          "notes": "Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước."
         }
       },
       "output_type": "dict",
@@ -79,52 +74,47 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:01:15.017418",
+      "timestamp": "2026-03-30T05:06:24.271950",
       "step_name": "Planner Agent._call_llm_json",
       "agent_name": "Planner Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=1817",
+      "input_summary": "raw_len=1566",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.",
-              "tool": "word_tokenize, sent_tokenize, chunk_text",
-              "expected_output": "Danh sách chunks chứa các segment của văn bản"
+              "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.",
+              "tool": "word_tokenize, sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.",
-              "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt gộp"
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một",
-              "description": "Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.",
-              "tool": "merge_summaries",
-              "expected_output": "Bản tóm tắt gộp"
+              "name": "Gộp các bản tóm tắt lại thành một summary lớn",
+              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-              "description": "Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.",
-              "tool": "refine_summary",
-              "expected_output": "Bản tóm tắt đã được refinement"
+              "name": "Tinh chỉnh phong cách cho summary lớn",
+              "description": "Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.",
+              "tool": "refine_summary"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.",
-              "tool": "verify_claim",
-              "expected_output": "Bản tóm tắt đã được kiểm chứng"
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+              "description": "Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.",
+              "tool": "verify_claim"
             }
           ],
           "total_steps": 5,
-          "notes": "Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap."
+          "notes": "Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước."
         }
       },
       "output_type": "dict",
@@ -132,7 +122,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:01:15.017418",
+      "timestamp": "2026-03-30T05:06:24.271950",
       "step_name": "planner_agent.run",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -143,41 +133,36 @@
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.",
-              "tool": "word_tokenize, sent_tokenize, chunk_text",
-              "expected_output": "Danh sách chunks chứa các segment của văn bản"
+              "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.",
+              "tool": "word_tokenize, sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.",
-              "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt gộp"
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một",
-              "description": "Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.",
-              "tool": "merge_summaries",
-              "expected_output": "Bản tóm tắt gộp"
+              "name": "Gộp các bản tóm tắt lại thành một summary lớn",
+              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-              "description": "Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.",
-              "tool": "refine_summary",
-              "expected_output": "Bản tóm tắt đã được refinement"
+              "name": "Tinh chỉnh phong cách cho summary lớn",
+              "description": "Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.",
+              "tool": "refine_summary"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.",
-              "tool": "verify_claim",
-              "expected_output": "Bản tóm tắt đã được kiểm chứng"
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+              "description": "Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.",
+              "tool": "verify_claim"
             }
           ],
           "total_steps": 5,
-          "notes": "Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap."
+          "notes": "Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước."
         }
       },
       "output_type": "dict",
@@ -185,7 +170,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:01:15.017418",
+      "timestamp": "2026-03-30T05:06:24.271950",
       "step_name": "planning_iter1_planner",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -196,41 +181,36 @@
             {
               "step_id": "step_1",
               "name": "Tách văn bản thành câu và nhóm chunk",
-              "description": "Tách văn bản gốc bằng word_tokenize, sau đó sử dụng sent_tokenize để tách các đoạn văn. Nhóm các đoạn văn tương tự nhau vào một chunk.",
-              "tool": "word_tokenize, sent_tokenize, chunk_text",
-              "expected_output": "Danh sách chunks chứa các segment của văn bản"
+              "description": "Sử dụng word_tokenize để tách từ tiếng Việt, sent_tokenize để tách câu. Sử dụng chunk_text để nhóm các câu thành chunks.",
+              "tool": "word_tokenize, sent_tokenize, chunk_text"
             },
             {
               "step_id": "step_2",
               "name": "Tóm tắt từng chunk bằng LLM",
-              "description": "Đưa mỗi đoạn trong danh sách chunks vào summarize_chunk để tóm tắt. Mỗi đoạn được tổng hợp thành một bản tóm tắt ngắn gọn.",
-              "tool": "summarize_chunk",
-              "expected_output": "Danh sách các bản tóm tắt gộp"
+              "description": "Dùng summarize_chunk để tóm tắt mỗi chunk được tạo ra từ bước trước. Mỗi bản tóm tắt cần đảm bảo độ dài khoảng 150-250 từ.",
+              "tool": "summarize_chunk"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một",
-              "description": "Tổng hợp tất cả các đoạn tóm tắt từ bước 2 để tạo ra một bản tổng kết dài hơn.",
-              "tool": "merge_summaries",
-              "expected_output": "Bản tóm tắt gộp"
+              "name": "Gộp các bản tóm tắt lại thành một summary lớn",
+              "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2 thành một summary tổng thể.",
+              "tool": "merge_summaries"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-              "description": "Refine_summary để cải thiện ngữ cảnh và phong cách của đoạn văn tổng kết.",
-              "tool": "refine_summary",
-              "expected_output": "Bản tóm tắt đã được refinement"
+              "name": "Tinh chỉnh phong cách cho summary lớn",
+              "description": "Dùng refine_summary để tinh chỉnh câu chữ và ngữ cảnh của summary lớn, đảm bảo phù hợp với style news_brief.",
+              "tool": "refine_summary"
             },
             {
               "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-              "description": "Verify_claim để đảm bảo rằng các thông tin chính trong đoạn tổng kết không thay đổi so với văn bản gốc.",
-              "tool": "verify_claim",
-              "expected_output": "Bản tóm tắt đã được kiểm chứng"
+              "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+              "description": "Dùng verify_claim để kiểm tra xem summary có giữ đúng thông tin từ văn bản gốc không. Nếu cần, chỉnh lại summary.",
+              "tool": "verify_claim"
             }
           ],
           "total_steps": 5,
-          "notes": "Chia nhỏ công việc thành các bước để đảm bảo tính khả thi và hiệu quả của roadmap."
+          "notes": "Nhớ kiểm tra độ dài cuối cùng của summary sau khi hoàn thành tất cả các bước."
         }
       },
       "output_type": "dict",
@@ -238,93 +218,167 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:04.369748",
+      "timestamp": "2026-03-30T05:06:43.246157",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách văn bản thành chunk đến tổng hợp và refinement. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin chi tiết về nguồn gốc lá mơ trong chè 'phân gà'.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản) được mô tả cụ thể bằng word_tokenize và sent_tokenize. Bước 2 (tóm tắt từng chunk) sử dụng summarize_chunk, bước 3 (gộp nhiều bản tóm tắt lại thành một) dùng merge_summaries, bước 4 (tinh chỉnh phong cách cho đoạn tổng kết) có refine_summary. Tuy nhiên, roadmap không mô tả",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu và nhóm chunk) chi tiết đúng với yêu cầu sử dụng word_tokenize, sent_tokenize, chunk_text. Bước 2 (tóm tắt từng chunk bằng LLM), bước 3 (gộp các bản tóm tắt lại thành một summary lớn), bước 4 (tinh chỉnh phong cách cho summary lớn) và bước 5 (kiểm chứng mệnh đề vs văn bản gốc) đều chi tiết về công việc cần làm, nhưng thiếu thông tin cụ thể như tỷ lệ lá mơ với bột gạo.\",\n    \"hallucination_risk_analysis\": \"Không có dấu hiệu của hallucination trong roadmap. Tuy nhiên, nếu không kiểm tra độ dài summary cuối cùng, có khả năng tạo ra một summary quá dài hoặc ngắn so với yêu cầu.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize, sent_tokenize, chunk_text một cách hợp lý để tách và nhóm văn bản. Tuy nhiên, roadmap chưa sử dụng refine_summary cho bước 4 (tinh chỉnh phong cách) vì nó không cần thiết nếu đã có verify_claim.\",\n    \"missing_steps\": [\"Kiểm chứng độ dài cuối cùng của summary\"],\n    \"strengths\": [\n      \"Roadmap chi tiết và hợp lý về quá trình tách, nhóm chunk và tổng hợp summary.\",\n      \"Tận dụng các tool hiện có một cách hiệu quả.\"\n    ],\n    \"weaknesses\": [\n      \"Thiếu bước kiểm tra độ dài cuối cùng của summary để tránh tạo fact không chính xác.\",\n      \"Không sử dụng refine_summary cho bước 4 vì verify_claim đã đảm bảo chất lượng summary.\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:04.369748",
+      "timestamp": "2026-03-30T05:06:43.246157",
       "step_name": "Planner-Observation Agent._call_llm",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Tách văn bản gốc bằng word_tok",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách văn bản thành chunk đến tổng hợp và refinement. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin chi tiết về nguồn gốc lá mơ trong chè 'phân gà'.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản) được mô tả cụ thể bằng word_tokenize và sent_tokenize. Bước 2 (tóm tắt từng chunk) sử dụng summarize_chunk, bước 3 (gộp nhiều bản tóm tắt lại thành một) dùng merge_summaries, bước 4 (tinh chỉnh phong cách cho đoạn tổng kết) có refine_summary. Tuy nhiên, roadmap không mô tả",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm chunk\",\n        \"description\": \"Sử dụng word_tokenize để tách ",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản thành câu và nhóm chunk) chi tiết đúng với yêu cầu sử dụng word_tokenize, sent_tokenize, chunk_text. Bước 2 (tóm tắt từng chunk bằng LLM), bước 3 (gộp các bản tóm tắt lại thành một summary lớn), bước 4 (tinh chỉnh phong cách cho summary lớn) và bước 5 (kiểm chứng mệnh đề vs văn bản gốc) đều chi tiết về công việc cần làm, nhưng thiếu thông tin cụ thể như tỷ lệ lá mơ với bột gạo.\",\n    \"hallucination_risk_analysis\": \"Không có dấu hiệu của hallucination trong roadmap. Tuy nhiên, nếu không kiểm tra độ dài summary cuối cùng, có khả năng tạo ra một summary quá dài hoặc ngắn so với yêu cầu.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize, sent_tokenize, chunk_text một cách hợp lý để tách và nhóm văn bản. Tuy nhiên, roadmap chưa sử dụng refine_summary cho bước 4 (tinh chỉnh phong cách) vì nó không cần thiết nếu đã có verify_claim.\",\n    \"missing_steps\": [\"Kiểm chứng độ dài cuối cùng của summary\"],\n    \"strengths\": [\n      \"Roadmap chi tiết và hợp lý về quá trình tách, nhóm chunk và tổng hợp summary.\",\n      \"Tận dụng các tool hiện có một cách hiệu quả.\"\n    ],\n    \"weaknesses\": [\n      \"Thiếu bước kiểm tra độ dài cuối cùng của summary để tránh tạo fact không chính xác.\",\n      \"Không sử dụng refine_summary cho bước 4 vì verify_claim đã đảm bảo chất lượng summary.\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:04.369748",
-      "step_name": "Planner-Observation Agent._call_llm_json",
-      "agent_name": "Planner-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=595",
+      "timestamp": "2026-03-30T05:06:43.246157",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách văn bản thành chunk đến tổng hợp và refinement. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin chi tiết về nguồn gốc lá mơ trong chè 'phân gà'.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản) được mô tả cụ thể bằng word_tokenize và sent_tokenize. Bước 2 (tóm tắt từng chunk) sử dụng summarize_chunk, bước 3 (gộp nhiều bản tóm tắt lại thành một) dùng merge_summaries, bước 4 (tinh chỉnh phong cách cho đoạn tổng kết) có refine_summary. Tuy nhiên, roadmap không mô tả",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary.",
+          "specificity_analysis": "Bước 1 (tách văn bản thành câu và nhóm chunk) chi tiết đúng với yêu cầu sử dụng word_tokenize, sent_tokenize, chunk_text. Bước 2 (tóm tắt từng chunk bằng LLM), bước 3 (gộp các bản tóm tắt lại thành một summary lớn), bước 4 (tinh chỉnh phong cách cho summary lớn) và bước 5 (kiểm chứng mệnh đề vs văn bản gốc) đều chi tiết về công việc cần làm, nhưng thiếu thông tin cụ thể như tỷ lệ lá mơ với bột gạo.",
+          "hallucination_risk_analysis": "Không có dấu hiệu của hallucination trong roadmap. Tuy nhiên, nếu không kiểm tra độ dài summary cuối cùng, có khả năng tạo ra một summary quá dài hoặc ngắn so với yêu cầu.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize, sent_tokenize, chunk_text một cách hợp lý để tách và nhóm văn bản. Tuy nhiên, roadmap chưa sử dụng refine_summary cho bước 4 (tinh chỉnh phong cách) vì nó không cần thiết nếu đã có verify_claim.",
+          "missing_steps": [
+            "Kiểm chứng độ dài cuối cùng của summary"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và hợp lý về quá trình tách, nhóm chunk và tổng hợp summary.",
+            "Tận dụng các tool hiện có một cách hiệu quả."
+          ],
+          "weaknesses": [
+            "Thiếu bước kiểm tra độ dài cuối cùng của summary để tránh tạo fact không chính xác.",
+            "Không sử dụng refine_summary cho bước 4 vì verify_claim đã đảm bảo chất lượng summary."
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
-      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+      "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:04.369748",
+      "timestamp": "2026-03-30T05:06:43.246157",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1618",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary.",
+          "specificity_analysis": "Bước 1 (tách văn bản thành câu và nhóm chunk) chi tiết đúng với yêu cầu sử dụng word_tokenize, sent_tokenize, chunk_text. Bước 2 (tóm tắt từng chunk bằng LLM), bước 3 (gộp các bản tóm tắt lại thành một summary lớn), bước 4 (tinh chỉnh phong cách cho summary lớn) và bước 5 (kiểm chứng mệnh đề vs văn bản gốc) đều chi tiết về công việc cần làm, nhưng thiếu thông tin cụ thể như tỷ lệ lá mơ với bột gạo.",
+          "hallucination_risk_analysis": "Không có dấu hiệu của hallucination trong roadmap. Tuy nhiên, nếu không kiểm tra độ dài summary cuối cùng, có khả năng tạo ra một summary quá dài hoặc ngắn so với yêu cầu.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize, sent_tokenize, chunk_text một cách hợp lý để tách và nhóm văn bản. Tuy nhiên, roadmap chưa sử dụng refine_summary cho bước 4 (tinh chỉnh phong cách) vì nó không cần thiết nếu đã có verify_claim.",
+          "missing_steps": [
+            "Kiểm chứng độ dài cuối cùng của summary"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và hợp lý về quá trình tách, nhóm chunk và tổng hợp summary.",
+            "Tận dụng các tool hiện có một cách hiệu quả."
+          ],
+          "weaknesses": [
+            "Thiếu bước kiểm tra độ dài cuối cùng của summary để tránh tạo fact không chính xác.",
+            "Không sử dụng refine_summary cho bước 4 vì verify_claim đã đảm bảo chất lượng summary."
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:06:43.246157",
       "step_name": "planner_observation_agent.run",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_type=dict",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách văn bản thành chunk đến tổng hợp và refinement. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin chi tiết về nguồn gốc lá mơ trong chè 'phân gà'.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản) được mô tả cụ thể bằng word_tokenize và sent_tokenize. Bước 2 (tóm tắt từng chunk) sử dụng summarize_chunk, bước 3 (gộp nhiều bản tóm tắt lại thành một) dùng merge_summaries, bước 4 (tinh chỉnh phong cách cho đoạn tổng kết) có refine_summary. Tuy nhiên, roadmap không mô tả",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary.",
+          "specificity_analysis": "Bước 1 (tách văn bản thành câu và nhóm chunk) chi tiết đúng với yêu cầu sử dụng word_tokenize, sent_tokenize, chunk_text. Bước 2 (tóm tắt từng chunk bằng LLM), bước 3 (gộp các bản tóm tắt lại thành một summary lớn), bước 4 (tinh chỉnh phong cách cho summary lớn) và bước 5 (kiểm chứng mệnh đề vs văn bản gốc) đều chi tiết về công việc cần làm, nhưng thiếu thông tin cụ thể như tỷ lệ lá mơ với bột gạo.",
+          "hallucination_risk_analysis": "Không có dấu hiệu của hallucination trong roadmap. Tuy nhiên, nếu không kiểm tra độ dài summary cuối cùng, có khả năng tạo ra một summary quá dài hoặc ngắn so với yêu cầu.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize, sent_tokenize, chunk_text một cách hợp lý để tách và nhóm văn bản. Tuy nhiên, roadmap chưa sử dụng refine_summary cho bước 4 (tinh chỉnh phong cách) vì nó không cần thiết nếu đã có verify_claim.",
+          "missing_steps": [
+            "Kiểm chứng độ dài cuối cùng của summary"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và hợp lý về quá trình tách, nhóm chunk và tổng hợp summary.",
+            "Tận dụng các tool hiện có một cách hiệu quả."
+          ],
+          "weaknesses": [
+            "Thiếu bước kiểm tra độ dài cuối cùng của summary để tránh tạo fact không chính xác.",
+            "Không sử dụng refine_summary cho bước 4 vì verify_claim đã đảm bảo chất lượng summary."
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:04.369748",
+      "timestamp": "2026-03-30T05:06:43.246157",
       "step_name": "planning_iter1_observation",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_keys=['roadmap']",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách văn bản thành chunk đến tổng hợp và refinement. Tuy nhiên, roadmap thiếu bước kiểm chứng thông tin chi tiết về nguồn gốc lá mơ trong chè 'phân gà'.\",\n    \"specificity_analysis\": \"Bước 1 (tách văn bản) được mô tả cụ thể bằng word_tokenize và sent_tokenize. Bước 2 (tóm tắt từng chunk) sử dụng summarize_chunk, bước 3 (gộp nhiều bản tóm tắt lại thành một) dùng merge_summaries, bước 4 (tinh chỉnh phong cách cho đoạn tổng kết) có refine_summary. Tuy nhiên, roadmap không mô tả",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary.",
+          "specificity_analysis": "Bước 1 (tách văn bản thành câu và nhóm chunk) chi tiết đúng với yêu cầu sử dụng word_tokenize, sent_tokenize, chunk_text. Bước 2 (tóm tắt từng chunk bằng LLM), bước 3 (gộp các bản tóm tắt lại thành một summary lớn), bước 4 (tinh chỉnh phong cách cho summary lớn) và bước 5 (kiểm chứng mệnh đề vs văn bản gốc) đều chi tiết về công việc cần làm, nhưng thiếu thông tin cụ thể như tỷ lệ lá mơ với bột gạo.",
+          "hallucination_risk_analysis": "Không có dấu hiệu của hallucination trong roadmap. Tuy nhiên, nếu không kiểm tra độ dài summary cuối cùng, có khả năng tạo ra một summary quá dài hoặc ngắn so với yêu cầu.",
+          "tool_utilization_analysis": "Roadmap tận dụng các tool như word_tokenize, sent_tokenize, chunk_text một cách hợp lý để tách và nhóm văn bản. Tuy nhiên, roadmap chưa sử dụng refine_summary cho bước 4 (tinh chỉnh phong cách) vì nó không cần thiết nếu đã có verify_claim.",
+          "missing_steps": [
+            "Kiểm chứng độ dài cuối cùng của summary"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và hợp lý về quá trình tách, nhóm chunk và tổng hợp summary.",
+            "Tận dụng các tool hiện có một cách hiệu quả."
+          ],
+          "weaknesses": [
+            "Thiếu bước kiểm tra độ dài cuối cùng của summary để tránh tạo fact không chính xác.",
+            "Không sử dụng refine_summary cho bước 4 vì verify_claim đã đảm bảo chất lượng summary."
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.210258",
+      "timestamp": "2026-03-30T05:06:49.158480",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"observation\\\": {\\n    \\\"",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.210258",
+      "timestamp": "2026-03-30T05:06:49.158480",
       "step_name": "Planner-Reflection Agent._call_llm",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"observation\\\": {\\n    \\\"coverage_analysis\\\": \\\"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách văn bản thà",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc tách câu và nhóm chunk đến quá trình tổng hợp summary",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.210258",
+      "timestamp": "2026-03-30T05:06:49.158480",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -337,7 +391,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục."
         }
       },
       "output_type": "dict",
@@ -345,11 +399,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.210258",
+      "timestamp": "2026-03-30T05:06:49.158480",
       "step_name": "Planner-Reflection Agent._call_llm_json",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=465",
+      "input_summary": "raw_len=462",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -358,7 +412,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục."
         }
       },
       "output_type": "dict",
@@ -366,7 +420,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.210258",
+      "timestamp": "2026-03-30T05:06:49.158480",
       "step_name": "planner_reflection_agent.run",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -379,7 +433,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục."
         }
       },
       "output_type": "dict",
@@ -387,11 +441,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.210258",
+      "timestamp": "2026-03-30T05:06:49.158480",
       "step_name": "planning_iter1_reflection",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
-      "input_summary": "observation_keys=['raw_response', '_parse_error']",
+      "input_summary": "observation_keys=['observation']",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -400,7 +454,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể được mô tả. Tuy nhiên, roadmap thiếu chi tiết kiểm chứng nguồn thông tin về lá mơ trong chè 'phân gà', dẫn đến mức độ specificity thấp hơn mong đợi."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và chi tiết về các bước cần thực hiện. Tuy nhiên, roadmap thiếu bước kiểm chứng độ dài cuối cùng của summary, dẫn đến rủi ro hallucination nếu không được khắc phục."
         }
       },
       "output_type": "dict",
@@ -408,7 +462,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.213774",
+      "timestamp": "2026-03-30T05:06:49.160886",
       "step_name": "execution_agent.run.step_1",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -570,7 +624,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:02:26.213774",
+      "timestamp": "2026-03-30T05:06:49.160886",
       "step_name": "exec_step1_Tách văn bản thành câu và nhóm chunk",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -732,44 +786,224 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:17.382428",
+      "timestamp": "2026-03-30T05:07:02.926262",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số thông tin chi tiết.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tuy nhiên, nó chỉ bao gồm các câu đơn và chưa tổng hợp lại thành đoạn văn ngắn gọn.\",\n    \"issues_found\": [\"Thông tin chi tiết bị mất trong quá trình tóm tắt\"],\n    \"summary\": \"Bước thực thi đã hoàn thành việc chia sentences nhưng thiếu một số thông tin chi tiết từ văn bản gốc. Output đạt chất lượng tốt, chỉ bao gồm các câu đơn và chưa tổng hợp lại.\"\n  }\n}\n```",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Nhi Trương cho biết món đặc trưng người Hoa Phòng Thành gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị.",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:17.382428",
+      "timestamp": "2026-03-30T05:07:02.926262",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 57 từ\n        -",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Nhi Trương cho biết món đặc trưng người Hoa Phòng Thành gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:07:11.591538",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Lá mơ rửa sạch xay với gạo rồi thêm bột năng hấp nguội cắt thành sợi đen rắc lớp khô chống dính. Chè 'phân gà' tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:07:11.591538",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 57 từ\n        -",
+      "output_data": "Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Lá mơ rửa sạch xay với gạo rồi thêm bột năng hấp nguội cắt thành sợi đen rắc lớp khô chống dính. Chè 'phân gà' tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:07:11.595862",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Nhi Trương cho biết món đặc trưng người Hoa Phòng Thành gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị.",
+            "word_count": 80
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "summary": "Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Lá mơ rửa sạch xay với gạo rồi thêm bột năng hấp nguội cắt thành sợi đen rắc lớp khô chống dính. Chè 'phân gà' tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+            "word_count": 99
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:07:11.595862",
+      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=1",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "chunk_summarize",
+        "chunk_summaries": [
+          {
+            "chunk_id": 1,
+            "sentence_ids": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Nhi Trương cho biết món đặc trưng người Hoa Phòng Thành gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị.",
+            "word_count": 80
+          },
+          {
+            "chunk_id": 2,
+            "sentence_ids": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "summary": "Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Lá mơ rửa sạch xay với gạo rồi thêm bột năng hấp nguội cắt thành sợi đen rắc lớp khô chống dính. Chè 'phân gà' tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+            "word_count": 99
+          }
+        ],
+        "total_chunks": 2,
+        "status": "completed"
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:07:31.556573",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Độ chính xác và độ tin cậy của summary là cao. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng hoặc không thể tìm thấy ở văn bản gốc nên cần thêm thông tin để hoàn thiện.\",\n    \"issues_found\": [\"Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu\"],\n    \"summary\": \"Output tóm tắt thành công hai đoạn văn của văn bản gốc. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng nên cần thêm thông tin để hoàn thiện.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:07:31.556573",
       "step_name": "Execution-Observation Agent._call_llm",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"split_sentences\",\n  \"sentences\": [\n    {\n      \"sentence_id\": 1,\n      \"text\": \"Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số thông tin chi tiết.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tuy nhiên, nó chỉ bao gồm các câu đơn và chưa tổng hợp lại thành đoạn văn ngắn gọn.\",\n    \"issues_found\": [\"Thông tin chi tiết bị mất trong quá trình tóm tắt\"],\n    \"summary\": \"Bước thực thi đã hoàn thành việc chia sentences nhưng thiếu một số thông tin chi tiết từ văn bản gốc. Output đạt chất lượng tốt, chỉ bao gồm các câu đơn và chưa tổng hợp lại.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Độ chính xác và độ tin cậy của summary là cao. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng hoặc không thể tìm thấy ở văn bản gốc nên cần thêm thông tin để hoàn thiện.\",\n    \"issues_found\": [\"Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu\"],\n    \"summary\": \"Output tóm tắt thành công hai đoạn văn của văn bản gốc. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng nên cần thêm thông tin để hoàn thiện.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:17.382428",
+      "timestamp": "2026-03-30T05:07:31.556573",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số ",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\"",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số thông tin chi tiết.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, nó chỉ bao gồm các câu đơn và chưa tổng hợp lại thành đoạn văn ngắn gọn.",
+          "quality_assessment": "Độ chính xác và độ tin cậy của summary là cao. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng hoặc không thể tìm thấy ở văn bản gốc nên cần thêm thông tin để hoàn thiện.",
           "issues_found": [
-            "Thông tin chi tiết bị mất trong quá trình tóm tắt"
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
           ],
-          "summary": "Bước thực thi đã hoàn thành việc chia sentences nhưng thiếu một số thông tin chi tiết từ văn bản gốc. Output đạt chất lượng tốt, chỉ bao gồm các câu đơn và chưa tổng hợp lại."
+          "summary": "Output tóm tắt thành công hai đoạn văn của văn bản gốc. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng nên cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -777,22 +1011,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:17.382428",
+      "timestamp": "2026-03-30T05:07:31.556573",
       "step_name": "Execution-Observation Agent._call_llm_json",
       "agent_name": "Execution-Observation Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=675",
+      "input_summary": "raw_len=738",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số thông tin chi tiết.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, nó chỉ bao gồm các câu đơn và chưa tổng hợp lại thành đoạn văn ngắn gọn.",
+          "quality_assessment": "Độ chính xác và độ tin cậy của summary là cao. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng hoặc không thể tìm thấy ở văn bản gốc nên cần thêm thông tin để hoàn thiện.",
           "issues_found": [
-            "Thông tin chi tiết bị mất trong quá trình tóm tắt"
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
           ],
-          "summary": "Bước thực thi đã hoàn thành việc chia sentences nhưng thiếu một số thông tin chi tiết từ văn bản gốc. Output đạt chất lượng tốt, chỉ bao gồm các câu đơn và chưa tổng hợp lại."
+          "summary": "Output tóm tắt thành công hai đoạn văn của văn bản gốc. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng nên cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -800,22 +1034,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:17.382428",
+      "timestamp": "2026-03-30T05:07:31.556573",
       "step_name": "execution_observation_agent.run",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=split_sentences",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số thông tin chi tiết.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, nó chỉ bao gồm các câu đơn và chưa tổng hợp lại thành đoạn văn ngắn gọn.",
+          "quality_assessment": "Độ chính xác và độ tin cậy của summary là cao. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng hoặc không thể tìm thấy ở văn bản gốc nên cần thêm thông tin để hoàn thiện.",
           "issues_found": [
-            "Thông tin chi tiết bị mất trong quá trình tóm tắt"
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
           ],
-          "summary": "Bước thực thi đã hoàn thành việc chia sentences nhưng thiếu một số thông tin chi tiết từ văn bản gốc. Output đạt chất lượng tốt, chỉ bao gồm các câu đơn và chưa tổng hợp lại."
+          "summary": "Output tóm tắt thành công hai đoạn văn của văn bản gốc. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng nên cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -823,22 +1057,22 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:17.382428",
-      "step_name": "exec_step1_observation",
+      "timestamp": "2026-03-30T05:07:31.556573",
+      "step_name": "exec_step2_observation",
       "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, action=split_sentences",
+      "input_summary": "step_id=step_2, action=chunk_summarize",
       "output_data": {
         "execution_observation": {
-          "step_id": "step_1",
-          "action": "split_sentences",
-          "factual_accuracy": "Output tóm tắt không chứa bất kỳ fact nào từ văn bản gốc, có thể thiếu một số thông tin chi tiết.",
+          "step_id": "step_2",
+          "action": "chunk_summarize",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
           "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tuy nhiên, nó chỉ bao gồm các câu đơn và chưa tổng hợp lại thành đoạn văn ngắn gọn.",
+          "quality_assessment": "Độ chính xác và độ tin cậy của summary là cao. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng hoặc không thể tìm thấy ở văn bản gốc nên cần thêm thông tin để hoàn thiện.",
           "issues_found": [
-            "Thông tin chi tiết bị mất trong quá trình tóm tắt"
+            "Nếu có, ghi CHÍNH XÁC lỗi sai hoặc cụ thể tên/chi tiết bị thiếu"
           ],
-          "summary": "Bước thực thi đã hoàn thành việc chia sentences nhưng thiếu một số thông tin chi tiết từ văn bản gốc. Output đạt chất lượng tốt, chỉ bao gồm các câu đơn và chưa tổng hợp lại."
+          "summary": "Output tóm tắt thành công hai đoạn văn của văn bản gốc. Tuy nhiên, một số chi tiết nhỏ như tên quán được gọi lạ chưa rõ ràng nên cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -846,29 +1080,29 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.479851",
+      "timestamp": "2026-03-30T05:07:39.478679",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.\",\n    \"reasoning\": \"Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.479851",
+      "timestamp": "2026-03-30T05:07:39.479788",
       "step_name": "Execution-Reflection Agent._call_llm",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"split_sentences\",\n    \"factual_accuracy\": \"Output tóm tắt không chứa bất kỳ fact nào từ ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại n",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.\",\n    \"reasoning\": \"Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.479851",
+      "timestamp": "2026-03-30T05:07:39.479788",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -880,8 +1114,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -889,11 +1123,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.479851",
+      "timestamp": "2026-03-30T05:07:39.479788",
       "step_name": "Execution-Reflection Agent._call_llm_json",
       "agent_name": "Execution-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=450",
+      "input_summary": "raw_len=560",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -901,8 +1135,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -910,11 +1144,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.479851",
+      "timestamp": "2026-03-30T05:07:39.479788",
       "step_name": "execution_reflection_agent.run",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step=1/6",
+      "input_summary": "step=2/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -922,8 +1156,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -931,11 +1165,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.479851",
-      "step_name": "exec_step1_reflection",
+      "timestamp": "2026-03-30T05:07:39.479788",
+      "step_name": "exec_step2_reflection",
       "agent_name": "Execution-Reflection Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, step=1/6",
+      "input_summary": "step_id=step_2, step=2/6",
       "output_data": {
         "execution_reflection": {
           "factual_consistency": 0.9,
@@ -943,8 +1177,8 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đạt chất lượng tốt với độ nhất quán fact cao và bao quát đủ thông tin nhưng vẫn còn thiếu một số chi tiết từ văn bản gốc nên tiếp tục bước sau."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán được gọi lạ, hoàn thiện summary.",
+          "reasoning": "Lý do quyết định là chất lượng tốt (factual consistency = 0.9 > 0.8) nhưng vẫn còn một số chi tiết nhỏ chưa đầy đủ và cần thêm thông tin để hoàn thiện."
         }
       },
       "output_type": "dict",
@@ -952,391 +1186,915 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.481852",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
+      "timestamp": "2026-03-30T05:07:56.226065",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Chè 'phân gà' từ Quảng Đông du nhập Việt Nam, món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín. Được gọi là 'thối', 'phân'. Món đặc trưng người Hoa gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.481852",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
+      "timestamp": "2026-03-30T05:07:56.226065",
+      "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=1",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 115–115 từ\n        - G",
+      "output_data": "Chè 'phân gà' từ Quảng Đông du nhập Việt Nam, món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín. Được gọi là 'thối', 'phân'. Món đặc trưng người Hoa gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.482850",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.482850",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=2",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.482850",
-      "step_name": "execution_agent.run.step_2",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt từng chunk bằng LLM'",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.482850",
-      "step_name": "exec_step2_Tóm tắt từng chunk bằng LLM",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, attempt=3",
-      "output_data": {
-        "step_id": "step_2",
-        "action": "chunk_summarize",
-        "status": "failed",
-        "error": "No chunks available. Run chunking step first."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.483850",
+      "timestamp": "2026-03-30T05:07:56.234306",
       "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một'",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một summary lớn'",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Chè 'phân gà' từ Quảng Đông du nhập Việt Nam, món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín. Được gọi là 'thối', 'phân'. Món đặc trưng người Hoa gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 131,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.483850",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một",
+      "timestamp": "2026-03-30T05:07:56.234306",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một summary lớn",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, attempt=1",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Chè 'phân gà' từ Quảng Đông du nhập Việt Nam, món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín. Được gọi là 'thối', 'phân'. Món đặc trưng người Hoa gốc Quảng Đông vào tết Hàn thực nhưng chỉ phổ biến trong cộng đồng người Hoa. Quán trên vỉa hè đường Trịnh Đình Thảo nổi tiếng nhờ tên gọi lạ, mở bán 20 năm cạnh chùa Phật bà Quan Âm. Chè nấu thanh nhiệt giữ nóng thường xuyên, khách có thể điều chỉnh độ ngọt theo khẩu vị. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 131,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.483850",
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Chè 'phân gà' từ Quảng Đông ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số chi tiết thiếu như tên quán và giá bán.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Độ chính xác về thông tin là tương đối tốt nhưng còn thiếu một số chi tiết cụ thể từ văn bản gốc, đặc biệt là tên quán và giá cả.\",\n    \"issues_found\": [\"Tên quán 'Quán trên vỉa hè đường Trịnh Đình Thảo' bị thiếu trong output\", \"Giá bán chè mỗi lần hơn 500 phần tương đương 10 kg bột không được đề cập\"],\n    \"summary\": \"Bước thực thi đã hoàn thành, tuy nhiên còn một số chi tiết từ văn bản gốc chưa được tóm tắt đầy đủ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Chè 'phân gà' từ Quảng Đông du nhập Việt Nam, món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín. Được gọi là 'thối', 'phâ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số chi tiết thiếu như tên quán và giá bán.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Độ chính xác về thông tin là tương đối tốt nhưng còn thiếu một số chi tiết cụ thể từ văn bản gốc, đặc biệt là tên quán và giá cả.\",\n    \"issues_found\": [\"Tên quán 'Quán trên vỉa hè đường Trịnh Đình Thảo' bị thiếu trong output\", \"Giá bán chè mỗi lần hơn 500 phần tương đương 10 kg bột không được đề cập\"],\n    \"summary\": \"Bước thực thi đã hoàn thành, tuy nhiên còn một số chi tiết từ văn bản gốc chưa được tóm tắt đầy đủ.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số ",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số chi tiết thiếu như tên quán và giá bán.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác về thông tin là tương đối tốt nhưng còn thiếu một số chi tiết cụ thể từ văn bản gốc, đặc biệt là tên quán và giá cả.",
+          "issues_found": [
+            "Tên quán 'Quán trên vỉa hè đường Trịnh Đình Thảo' bị thiếu trong output",
+            "Giá bán chè mỗi lần hơn 500 phần tương đương 10 kg bột không được đề cập"
+          ],
+          "summary": "Bước thực thi đã hoàn thành, tuy nhiên còn một số chi tiết từ văn bản gốc chưa được tóm tắt đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=737",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số chi tiết thiếu như tên quán và giá bán.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác về thông tin là tương đối tốt nhưng còn thiếu một số chi tiết cụ thể từ văn bản gốc, đặc biệt là tên quán và giá cả.",
+          "issues_found": [
+            "Tên quán 'Quán trên vỉa hè đường Trịnh Đình Thảo' bị thiếu trong output",
+            "Giá bán chè mỗi lần hơn 500 phần tương đương 10 kg bột không được đề cập"
+          ],
+          "summary": "Bước thực thi đã hoàn thành, tuy nhiên còn một số chi tiết từ văn bản gốc chưa được tóm tắt đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, action=merge",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số chi tiết thiếu như tên quán và giá bán.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác về thông tin là tương đối tốt nhưng còn thiếu một số chi tiết cụ thể từ văn bản gốc, đặc biệt là tên quán và giá cả.",
+          "issues_found": [
+            "Tên quán 'Quán trên vỉa hè đường Trịnh Đình Thảo' bị thiếu trong output",
+            "Giá bán chè mỗi lần hơn 500 phần tương đương 10 kg bột không được đề cập"
+          ],
+          "summary": "Bước thực thi đã hoàn thành, tuy nhiên còn một số chi tiết từ văn bản gốc chưa được tóm tắt đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:13.895987",
+      "step_name": "exec_step3_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, action=merge",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc. Có một số chi tiết thiếu như tên quán và giá bán.",
+          "completion_status": "complete",
+          "quality_assessment": "Độ chính xác về thông tin là tương đối tốt nhưng còn thiếu một số chi tiết cụ thể từ văn bản gốc, đặc biệt là tên quán và giá cả.",
+          "issues_found": [
+            "Tên quán 'Quán trên vỉa hè đường Trịnh Đình Thảo' bị thiếu trong output",
+            "Giá bán chè mỗi lần hơn 500 phần tương đương 10 kg bột không được đề cập"
+          ],
+          "summary": "Bước thực thi đã hoàn thành, tuy nhiên còn một số chi tiết từ văn bản gốc chưa được tóm tắt đầy đủ."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.8,\n    \"coverage_completeness\": 0.75,\n    \"redundancy_score\": 0.2,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.8,\n    \"coverage_completeness\": 0.75,\n    \"redundancy_score\": 0.2,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.8,\n    \"coverage_completeness\": 0.75,\n    \"redundancy_score\": 0.2,\n    \"length_compliance\": false,\n    \"decision\": \"retry\",\n    \"feed",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=669",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:23.007521",
+      "step_name": "exec_step3_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung tên quán, giá bán chè mỗi lần hơn 500 phần tương đương với 10 kg bột. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng tốt chưa đạt tiêu chuẩn (factual consistency < 0.8 và coverage completeness < 0.7). Độ chính xác về thông tin thấp và còn thiếu một số chi tiết cụ thể từ văn bản gốc."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:38.893832",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:38.893832",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 115–115 từ\n        - G",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:38.898831",
       "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một'",
+      "input_summary": "step_id=step_3, step_name='Gộp các bản tóm tắt lại thành một summary lớn'",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 109,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.483850",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một",
+      "timestamp": "2026-03-30T05:08:38.898831",
+      "step_name": "exec_step3_Gộp các bản tóm tắt lại thành một summary lớn",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, attempt=2",
       "output_data": {
         "step_id": "step_3",
         "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "merged_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 109,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.483850",
-      "step_name": "execution_agent.run.step_3",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một'",
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Chè 'phân gà' từ Quảng Đông,",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác về thông tin được yêu cầu.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đư",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác về thông tin được yêu cầu.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"com",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác về thông tin được yêu cầu.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.483850",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, attempt=3",
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=510",
       "output_data": {
-        "step_id": "step_3",
-        "action": "merge",
-        "status": "failed",
-        "error": "No chunk summaries available."
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác về thông tin được yêu cầu.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.484849",
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, action=merge",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác về thông tin được yêu cầu.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:08:53.227056",
+      "step_name": "exec_step3_observation",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, action=merge",
+      "output_data": {
+        "execution_observation": {
+          "step_id": "step_3",
+          "action": "merge",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác về thông tin được yêu cầu.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung đã có trong văn bản gốc mà không thêm bất kỳ fact mới nào."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.\",\n    \"reasoning\": \"Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.\",\n    \"reasoning\": \"Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.",
+          "reasoning": "Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=684",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.",
+          "reasoning": "Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.",
+          "reasoning": "Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:01.623487",
+      "step_name": "exec_step3_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step=3/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt (factual consistency = 0.9). Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết từ nguồn khác để đảm bảo factual accuracy.",
+          "reasoning": "Lý do quyết định là vì output chỉ tóm tắt lại nội dung đã có trong văn bản gốc mà chưa đạt chất lượng tốt về mức độ nhất quán với fact. Cần bổ sung thêm thông tin chi tiết từ nguồn khác."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:16.451853",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:16.451853",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 115–115 từ\n        - G",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:16.456580",
       "step_name": "execution_agent.run.step_4",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tóm tắt gộp'",
+      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho summary lớn'",
       "output_data": {
         "step_id": "step_4",
         "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "refined_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 108,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.484849",
-      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tóm tắt gộp",
+      "timestamp": "2026-03-30T05:09:16.456580",
+      "step_name": "exec_step4_Tinh chỉnh phong cách cho summary lớn",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_4, attempt=1",
       "output_data": {
         "step_id": "step_4",
         "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "refined_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 108,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.485352",
-      "step_name": "execution_agent.run.step_4",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tóm tắt gộp'",
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Chè 'phân gà' từ Quảng Đôn",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt chính xác và đầy đủ các thông tin cần thiết từ văn bản gốc.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tóm tắt hoàn thành đúng yêu cầu, không có lỗi hoặc thiếu sót đáng kể.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt chính xác và đầy đủ các thông tin cần thiết từ văn bản gốc.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi tóm tắt hoàn thành đúng yêu cầu, không có lỗi hoặc thiếu sót đáng kể.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"co",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác và đầy đủ các thông tin cần thiết từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đúng yêu cầu, không có lỗi hoặc thiếu sót đáng kể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.485352",
-      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tóm tắt gộp",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, attempt=2",
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=488",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác và đầy đủ các thông tin cần thiết từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đúng yêu cầu, không có lỗi hoặc thiếu sót đáng kể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.485352",
-      "step_name": "execution_agent.run.step_4",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho bản tóm tắt gộp'",
+      "input_summary": "step_id=step_4, action=refine",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác và đầy đủ các thông tin cần thiết từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đúng yêu cầu, không có lỗi hoặc thiếu sót đáng kể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.485352",
-      "step_name": "exec_step4_Tinh chỉnh phong cách cho bản tóm tắt gộp",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T05:09:30.537296",
+      "step_name": "exec_step4_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, attempt=3",
+      "input_summary": "step_id=step_4, action=refine",
       "output_data": {
-        "step_id": "step_4",
-        "action": "refine",
-        "status": "failed",
-        "error": "No merged summary available."
+        "execution_observation": {
+          "step_id": "step_4",
+          "action": "refine",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác và đầy đủ các thông tin cần thiết từ văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi tóm tắt hoàn thành đúng yêu cầu, không có lỗi hoặc thiếu sót đáng kể."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.486355",
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=640",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:09:38.574646",
+      "step_name": "exec_step4_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step=4/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, cần bổ sung thông tin chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ tóm tắt nội dung đã có trong văn bản gốc mà không đưa ra thêm fact mới, nên cần bổ sung thông tin chi tiết."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:00.731583",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nChè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập Việt Nam.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Danh y Triệu Học Mẫn thời nhà Thanh viết trong bản thảo 'Cương mục thập di', mùi của món ăn bắt nguồn từ mùi lá mơ được ví như phân gà, nên món được gọi chè 'thối' hay 'phân'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Lá mơ thuộc loại cây thân leo dễ sống, thường mọc ở ven đường, bờ ruộng, có mùi nồng và được dùng làm vị thuốc.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Nhi Trương, 27 tuổi, người gốc Hoa tại quận 5, cho biết chè 'phân gà' là món ăn đặc trưng của người Hoa Phòng Thành, gốc Quảng Đông vào tết Hàn thực.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 10\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"'Chè này không phổ biến trong cộng đồng người Hoa nên không phải ai cũng biết', Nhi nói.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Quán trên vỉa hè đường Trịnh Đình Thảo, quận Tân Phú, một trong số rất ít nơi bán chè 'phân gà' lại nổi tiếng và được khách b…",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:00.731583",
+      "step_name": "Execution Agent._call_llm",
+      "agent_name": "Execution Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nChè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Kh",
+      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập Việt Nam.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Danh y Triệu Học Mẫn thời nhà Thanh viết trong bản thảo 'Cương mục thập di', mùi của món ăn bắt nguồn từ mùi lá mơ được ví như phân gà, nên món được gọi chè 'thối' hay 'phân'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Lá mơ thuộc loại cây thân leo dễ sống, thường mọc ở ven đường, bờ ruộng, có mùi nồng và được dùng làm vị thuốc.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Nhi Trương, 27 tuổi, người gốc Hoa tại quận 5, cho biết chè 'phân gà' là món ăn đặc trưng của người Hoa Phòng Thành, gốc Quảng Đông vào tết Hàn thực.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 10\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"'Chè này không phổ biến trong cộng đồng người Hoa nên không phải ai cũng biết', Nhi nói.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Quán trên vỉa hè đường Trịnh Đình Thảo, quận Tân Phú, một trong số rất ít nơi bán chè 'phân gà' lại nổi tiếng và được khách b…",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:00.732372",
+      "step_name": "Execution Agent._call_llm_json",
+      "agent_name": "Execution Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=7164",
+      "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập Việt Nam.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Danh y Triệu Học Mẫn thời nhà Thanh viết trong bản thảo 'Cương mục thập di', mùi của món ăn bắt nguồn từ mùi lá mơ được ví như phân gà, nên món được gọi chè 'thối' hay 'phân'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Lá mơ thuộc loại cây thân leo dễ sống, thường mọc ở ven đường, bờ ruộng, có mùi nồng và được dùng làm vị thuốc.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Nhi Trương, 27 tuổi, người gốc Hoa tại quận 5, cho biết chè 'phân gà' là món ăn đặc trưng của người Hoa Phòng Thành, gốc Quảng Đông vào tết Hàn thực.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 10\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"'Chè này không phổ biến trong cộng đồng người Hoa nên không phải ai cũng biết', Nhi nói.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Quán trên vỉa hè đường Trịnh Đình Thảo, quận Tân Phú, một trong số rất ít nơi bán chè 'phân gà' lại nổi tiếng và được khách b…",
+        "_parse_error": true
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "timestamp": "2026-03-30T05:12:00.732372",
       "step_name": "execution_agent.run.step_5",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
+      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)'",
       "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập Việt Nam.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Danh y Triệu Học Mẫn thời nhà Thanh viết trong bản thảo 'Cương mục thập di', mùi của món ăn bắt nguồn từ mùi lá mơ được ví như phân gà, nên món được gọi chè 'thối' hay 'phân'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Lá mơ thuộc loại cây thân leo dễ sống, thường mọc ở ven đường, bờ ruộng, có mùi nồng và được dùng làm vị thuốc.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Nhi Trương, 27 tuổi, người gốc Hoa tại quận 5, cho biết chè 'phân gà' là món ăn đặc trưng của người Hoa Phòng Thành, gốc Quảng Đông vào tết Hàn thực.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 10\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"'Chè này không phổ biến trong cộng đồng người Hoa nên không phải ai cũng biết', Nhi nói.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Quán trên vỉa hè đường Trịnh Đình Thảo, quận Tân Phú, một trong số rất ít nơi bán chè 'phân gà' lại nổi tiếng và được khách b…",
+        "_parse_error": true,
         "step_id": "step_5",
         "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.486355",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
+      "timestamp": "2026-03-30T05:12:00.732372",
+      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_5, attempt=1",
       "output_data": {
+        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Chè 'phân gà' có nguồn gốc từ Quảng Đông, Trung Quốc, theo người Hoa du nhập Việt Nam.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 2,\n          \"source_text\": \"Món được làm từ bột gạo nhào lá mơ, cắt thành sợi luộc chín, khi ăn chan nước đường gừng.\"\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Danh y Triệu Học Mẫn thời nhà Thanh viết trong bản thảo 'Cương mục thập di', mùi của món ăn bắt nguồn từ mùi lá mơ được ví như phân gà, nên món được gọi chè 'thối' hay 'phân'.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Lá mơ thuộc loại cây thân leo dễ sống, thường mọc ở ven đường, bờ ruộng, có mùi nồng và được dùng làm vị thuốc.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 4\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Nhi Trương, 27 tuổi, người gốc Hoa tại quận 5, cho biết chè 'phân gà' là món ăn đặc trưng của người Hoa Phòng Thành, gốc Quảng Đông vào tết Hàn thực.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 10\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"'Chè này không phổ biến trong cộng đồng người Hoa nên không phải ai cũng biết', Nhi nói.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 12\n        }\n      ],\n      \"confidence\": 0.95\n    },\n    {\n      \"claim_text\": \"Quán trên vỉa hè đường Trịnh Đình Thảo, quận Tân Phú, một trong số rất ít nơi bán chè 'phân gà' lại nổi tiếng và được khách b…",
+        "_parse_error": true,
         "step_id": "step_5",
         "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.487358",
-      "step_name": "execution_agent.run.step_5",
+      "timestamp": "2026-03-30T05:12:12.661914",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:12.661914",
+      "step_name": "Execution Agent._call_llm",
       "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
+      "phase": "agent_llm_call",
+      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 115–115 từ\n        - G",
+      "output_data": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá.",
+      "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.487358",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, attempt=2",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.488358",
-      "step_name": "execution_agent.run.step_5",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề vs văn bản gốc'",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.488358",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề vs văn bản gốc",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, attempt=3",
-      "output_data": {
-        "step_id": "step_5",
-        "action": "verify",
-        "status": "failed",
-        "error": "No summary available for verification."
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T01:03:39.488861",
+      "timestamp": "2026-03-30T05:12:12.665878",
       "step_name": "execution_agent.run.step_6",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -1344,15 +2102,16 @@
       "output_data": {
         "step_id": "step_6",
         "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "edited_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 101,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.488861",
+      "timestamp": "2026-03-30T05:12:12.665878",
       "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
       "agent_name": "Execution Agent",
       "phase": "execution",
@@ -1360,93 +2119,302 @@
       "output_data": {
         "step_id": "step_6",
         "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "edited_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá.",
+        "word_count": 101,
+        "status": "completed"
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.488861",
-      "step_name": "execution_agent.run.step_6",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Chè 'phân gà' từ Quảng Đông, ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác so với văn bản gốc.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung của văn bản gốc mà không thêm bất kỳ thông tin mới nào.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "step_name": "Execution-Observation Agent._call_llm",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đườ",
+      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác so với văn bản gốc.\",\n    \"issues_found\": [],\n    \"summary\": \"Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung của văn bản gốc mà không thêm bất kỳ thông tin mới nào.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.\",\n    \"comp",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác so với văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung của văn bản gốc mà không thêm bất kỳ thông tin mới nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.488861",
-      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_6, attempt=2",
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "step_name": "Execution-Observation Agent._call_llm_json",
+      "agent_name": "Execution-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=499",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác so với văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung của văn bản gốc mà không thêm bất kỳ thông tin mới nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.489863",
-      "step_name": "execution_agent.run.step_6",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "step_name": "execution_observation_agent.run",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
+      "input_summary": "step_id=step_6, action=edit",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác so với văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung của văn bản gốc mà không thêm bất kỳ thông tin mới nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.489863",
-      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
-      "agent_name": "Execution Agent",
+      "timestamp": "2026-03-30T05:12:26.820714",
+      "step_name": "exec_step6_observation",
+      "agent_name": "Execution-Observation Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, attempt=3",
+      "input_summary": "step_id=step_6, action=edit",
       "output_data": {
-        "step_id": "step_6",
-        "action": "edit",
-        "status": "failed",
-        "error": "No summary available for editing."
+        "execution_observation": {
+          "step_id": "step_6",
+          "action": "edit",
+          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt lại nội dung đã có trong văn bản gốc.",
+          "completion_status": "complete",
+          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn và chính xác so với văn bản gốc.",
+          "issues_found": [],
+          "summary": "Bước thực thi này hoàn thành đầy đủ, tóm tắt đúng nội dung của văn bản gốc mà không thêm bất kỳ thông tin mới nào."
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T01:03:39.491456",
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "step_name": "llm_generate",
+      "agent_name": "LLMManager",
+      "phase": "llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n   ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "step_name": "Execution-Reflection Agent._call_llm",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_llm_call",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt lại nội dung đã ",
+      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.\",\n    \"reasoning\": \"Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục.\"\n  }\n}\n```",
+      "output_type": "str",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "step_name": "Execution-Reflection Agent._call_llm_json",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=689",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "step_name": "execution_reflection_agent.run",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:35.337095",
+      "step_name": "exec_step6_reflection",
+      "agent_name": "Execution-Reflection Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_6, step=6/6",
+      "output_data": {
+        "execution_reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Không có lỗi trong 'issues_found'. Tuy nhiên, quality_assessment đánh giá rằng cần tóm tắt ngắn gọn hơn và chính xác hơn so với văn bản gốc. Ghi rõ Execution Agent cần bổ sung thêm thông tin chi tiết về các điểm quan trọng.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt nhưng chỉ là một tóm tắt, không có sự thay đổi đáng kể và vẫn chưa bao phủ đầy đủ nội dung. Tuy nhiên đây là bước cuối cùng nên tiếp tục."
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T05:12:35.345409",
       "step_name": "workflow_complete",
       "agent_name": "Manager Agent",
       "phase": "workflow",
       "input_summary": "",
       "output_data": {
-        "summary": "",
+        "summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá.",
         "style": "news_brief",
-        "word_count": 0,
+        "word_count": 101,
         "trace": [
           {
             "agent": "execution",
             "action": "split_sentences",
             "step_id": "step_1",
             "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+            "reflection_scores": {
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "chunk_summarize",
+            "step_id": "step_2",
+            "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "merge",
+            "step_id": "step_3",
+            "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+            "reflection_scores": {
+              "factual_consistency": 0.8,
+              "coverage_completeness": 0.75
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "merge",
+            "step_id": "step_3",
+            "evidence": "Step 3: Gộp các bản tóm tắt lại thành một summary lớn",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "refine",
+            "step_id": "step_4",
+            "evidence": "Step 4: Tinh chỉnh phong cách cho summary lớn",
+            "reflection_scores": {
+              "factual_consistency": 0.9,
+              "coverage_completeness": 0.85
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "verify",
+            "step_id": "step_5",
+            "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+            "reflection_scores": {
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
+            }
+          },
+          {
+            "agent": "execution",
+            "action": "edit",
+            "step_id": "step_6",
+            "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
             "reflection_scores": {
               "factual_consistency": 0.9,
               "coverage_completeness": 0.85
@@ -1456,9 +2424,9 @@
         "verification_report": null,
         "intermediate_outputs": {
           "outline": null,
-          "draft_summary": null,
+          "draft_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được gọi là 'thối', 'phân'. Khâu trộn lá mơ và bột theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan, thích hợp ăn nóng kết hợp gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16. 000 đồng/đơn vị. Quán còn bán chè bắp và cháo bắp đồng giá.",
           "verification": null,
-          "edited_summary": null
+          "edited_summary": "Chè 'phân gà' từ Quảng Đông, Trung Quốc du nhập Việt Nam. Món ăn làm từ bột gạo nhào lá mơ cắt thành sợi luộc chín, chan nước đường gừng. Được trộn theo tỷ lệ để vị không bị đắng, mùi thơm dịu được chú trọng. Chè tốt cho đường ruột giảm đau bụng, đầy hơi và thải độc gan; thích hợp ăn nóng kết hợp với gừng làm ấm cơ thể. Khách chủ yếu là khách quen gọi món không cần thực đơn, bán trên vỉa hè hẹp nên nhiều người chọn mua về. Mỗi lần hơn 500 phần tương đương 10 kg bột giá 16.000 đồng/đơn vị; quán còn bán chè bắp và cháo bắp đồng giá."
         }
       },
       "output_type": "dict",

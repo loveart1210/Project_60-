@@ -1,21 +1,21 @@
 {
-  "summary": "",
+  "summary": "Người du khách tìm kiếm thời trang cao cấp tại Orchard Road có thể được khuyến mại tới 70%. Tanglin Mall hoặc House of Anli là lựa chọn lý tưởng cho chuyến đi cùng gia đình, với hàng nghìn mặt hàng tiêu dùng và sản phẩm dành cho mẹ bé. Singapore hoàn thuế đến 7%, chú trọng trải nghiệm khách hàng và bảo hành đồ hiệu tại nhiều thương hiệu quốc tế và địa phương.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 52,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "chunk_summarize",
       "step_id": "step_2",
       "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
@@ -25,9 +25,9 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn ngắn gọn",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -35,9 +35,19 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách đoạn văn tóm tắt",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine và chỉnh sửa phong cách đoạn văn tóm tắt",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -45,9 +55,19 @@
     },
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -57,8 +77,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Mustafa nổi tiếng với sản phẩm tiêu dùng giá rẻ, còn Ion Orchard và Scotts Square thu hút khách hàng nhờ các hãng thời trang cao cấp khuyến mại 70%. Tanglin Mall hoặc House of Anli ideal cho chuyến đi cùng gia đình. Singapore hoàn thuế tới 7%, chú trọng trải nghiệm khách hàng và là điểm đến lý tưởng bảo hành đồ hiệu, mua hàng miễn thuế. Du lịch văn học kinh điển tại Books Actually và Huggs-Epigram Coffee Bookshop.",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Người du khách tìm kiếm thời trang cao cấp tại Orchard Road có thể được khuyến mại tới 70%. Tanglin Mall hoặc House of Anli là lựa chọn lý tưởng cho chuyến đi cùng gia đình, với hàng nghìn mặt hàng tiêu dùng và sản phẩm dành cho mẹ bé. Singapore hoàn thuế đến 7%, chú trọng trải nghiệm khách hàng và bảo hành đồ hiệu tại nhiều thương hiệu quốc tế và địa phương."
   }
 }

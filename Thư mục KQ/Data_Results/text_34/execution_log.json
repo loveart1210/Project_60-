@@ -3,66 +3,42 @@
     "step_id": "step_1",
     "status": "completed",
     "output_summary": "chunking",
-    "timestamp": "2026-03-27T23:20:14.002897"
+    "timestamp": "2026-03-30T04:24:19.650411"
   },
   {
     "step_id": "step_2",
     "status": "completed",
-    "output_summary": "chunking",
-    "timestamp": "2026-03-27T23:21:24.471729"
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-30T04:24:31.969953"
   },
   {
     "step_id": "step_3",
     "status": "completed",
-    "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-27T23:23:07.756148"
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T04:25:03.357924"
   },
   {
     "step_id": "step_3",
     "status": "completed",
-    "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-27T23:24:52.817655"
-  },
-  {
-    "step_id": "step_3",
-    "status": "completed",
-    "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-27T23:26:37.888303"
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T04:25:34.495446"
   },
   {
     "step_id": "step_4",
     "status": "completed",
-    "output_summary": "merge",
-    "timestamp": "2026-03-27T23:28:10.730017"
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T04:26:04.155564"
   },
   {
     "step_id": "step_5",
     "status": "completed",
-    "output_summary": "refine",
-    "timestamp": "2026-03-27T23:29:41.567850"
+    "output_summary": "verify",
+    "timestamp": "2026-03-30T04:26:36.479153"
   },
   {
     "step_id": "step_6",
     "status": "completed",
-    "output_summary": "verify",
-    "timestamp": "2026-03-27T23:31:32.495763"
-  },
-  {
-    "step_id": "step_7",
-    "status": "completed",
     "output_summary": "edit",
-    "timestamp": "2026-03-27T23:32:57.592628"
-  },
-  {
-    "step_id": "step_7",
-    "status": "completed",
-    "output_summary": "edit",
-    "timestamp": "2026-03-27T23:34:22.333198"
-  },
-  {
-    "step_id": "step_7",
-    "status": "completed",
-    "output_summary": "edit",
-    "timestamp": "2026-03-27T23:35:46.693852"
+    "timestamp": "2026-03-30T04:26:45.290054"
   }
 ]

@@ -4,35 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng thành chunks thông qua sent_tokenize.",
-          "tool": "word_tokenize(sent_tokenize)",
-          "expected_output": "Danh sách chuỗi từ (sentences) và danh sách chunks"
+          "name": "Chunking văn bản",
+          "description": "Nhóm các câu thành chunks dựa trên ý chính và ngữ cảnh.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt thông tin.",
-          "tool": "summarize_chunk(sent_tokenize)",
-          "expected_output": "Danh sách bản tóm tắt của từng chunk"
+          "description": "Gửi mỗi chunk đến hệ thống LLM để tóm tắt.",
+          "tool": "summarize_chunk",
+          "expected_output": "Bản tóm tắt của mỗi chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp các bản tóm tắt lại thành một đoạn văn",
-          "description": "Tổng hợp tất cả bản tóm tắt từ bước 2 để tạo ra một đoạn văn tổng quan.",
-          "tool": "merge_summaries(sent_tokenize)",
-          "expected_output": "Bản tóm tắt toàn bộ văn bản"
+          "name": "Gộp các bản tóm tắt lại thành một bản tổng thể",
+          "description": "Tổng hợp tất cả các đoạn tóm tắt từ từng chunk để tạo ra bản tóm tắt toàn bộ.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt cuối cùng"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách và ngữ cảnh của bản tóm tắt",
-          "description": "Refine_summary để đảm bảo rằng bản tóm tắt có phong cách phù hợp với news_brief, đồng thời giữ nguyên thông tin chính.",
-          "tool": "refine_summary(sent_tokenize)",
-          "expected_output": "Bản tóm tắt hoàn thiện"
+          "name": "Tinh chỉnh phong cách và ngữ cảnh của bản tổng thể",
+          "description": "Refine summary để đảm bảo rằng nó giữ được thông tin chính mà không thay đổi entity, đồng thời cải thiện độ rõ ràng.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng đã được refinement"
         }
       ],
       "total_steps": 4,
-      "notes": "Lưu ý rằng độ dài tổng thể của bản tóm tắt không vượt quá 250 từ và giữ nguyên khoảng 80% thông tin chính so với văn bản gốc."
+      "notes": "Giữ nguyên độ dài tối đa là 250 từ và không vượt quá 20% của input văn bản."
     }
   }
 }

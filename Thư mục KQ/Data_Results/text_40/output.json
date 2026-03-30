@@ -1,24 +1,190 @@
 {
-  "summary": "",
+  "summary": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 28,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng hợp",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 1,
+          "source_text": "[1] Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia."
+        },
+        {
+          "sentence_id": 2,
+          "source_text": "[2] Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000."
+        },
+        {
+          "sentence_id": 3,
+          "source_text": "[3] Sau 8 năm, đến tháng 12/2008 thì hoàn thành."
+        },
+        {
+          "sentence_id": 4,
+          "source_text": "[4] Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ)."
+        },
+        {
+          "sentence_id": 5,
+          "source_text": "[5] Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+        },
+        {
+          "sentence_id": 6,
+          "source_text": "[6] Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu."
+        },
+        {
+          "sentence_id": 7,
+          "source_text": "[7] Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma."
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "[8] Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ."
+        },
+        {
+          "sentence_id": 10,
+          "source_text": "[10] Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển."
+        },
+        {
+          "sentence_id": 11,
+          "source_text": "[11] Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+        },
+        {
+          "sentence_id": 12,
+          "source_text": "[12] Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng."
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
-    "verification": null,
-    "edited_summary": null
+    "draft_summary": "Đức Phật Thích Ca Mâu Ni được tạc từ nguyên khối ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4. Khách du lịch trải nghiệm cưỡi mây và tham quan không gian Phật giáo tại đây. Cầu mới thông xe giúp rút ngắn thời gian di chuyển TP HCM - miền Tây, nơi mát mẻ với nhiều cây xanh và cánh đồng dưới chân núi.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "[1] Với những tín đồ Phật giáo, bức tượng Phật ngọc hòa bình thế giới được biết đến là tín vật thuộc sở hữu của vợ chồng ông Ian Green và bà Judy Green người Australia."
+          },
+          {
+            "sentence_id": 2,
+            "source_text": "[2] Tượng được các nghệ nhân Thái Lan chạm khắc từ ngọc bích nguyên khối 18 tấn, phát hiện tại Canada vào năm 2000."
+          },
+          {
+            "sentence_id": 3,
+            "source_text": "[3] Sau 8 năm, đến tháng 12/2008 thì hoàn thành."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "[4] Đây là pho tượng Phật ngọc lớn nhất thế giới được tạc theo khuôn tượng đức Phật Thích Ca Mâu Ni trong bảo tháp Đại giác ngộ tại Bồ Đề Đạo Tràng (Ấn Độ)."
+          },
+          {
+            "sentence_id": 5,
+            "source_text": "[5] Tại Việt Nam, năm 2018 Khu du lịch Văn hóa Tâm linh Bà Chúa Xứ - Cáp treo Núi Sam thỉnh và an vị một bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 6,
+            "source_text": "[6] Theo ban quản lý di tích, việc làm này nhằm mục đích cho bà con và tăng ni Phật tử không có điều kiện hành hương sang bồ đề đạo tràng Ấn Độ để chiêm bái tượng Phật nguyên mẫu."
+          },
+          {
+            "sentence_id": 7,
+            "source_text": "[7] Tượng Phật Ngọc trên đỉnh núi Sam cạnh nhà ga cáp treo được chế tác bởi các nghệ nhân lành nghề vùng biên giới Thái Lan – Myanma."
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "[8] Tượng cũng được tạc theo khuôn mẫu của tượng Phật Thích Ca Mâu Ni bên trong bảo tháp Đại Giác Ngộ ở Bồ Đề Đạo Tràng, Ấn Độ."
+          },
+          {
+            "sentence_id": 10,
+            "source_text": "[10] Sau khi hoàn thành, pho tượng được đội ngũ tăng đoàn Thái Lan ấn chứng cùng sự gieo duyên an vị của các thiền sư trên đỉnh tuyết sơn Hymalaya và vận chuyển về Việt Nam bằng đường biển."
+          },
+          {
+            "sentence_id": 11,
+            "source_text": "[11] Dịp lễ 30/4 này, du khách có thể cùng gia đình về An Giang, ghé thăm Châu Đốc, đến Núi Sam thăm viếng các danh thắng như Miếu Bà Chúa xứ, Sơn lăng Thoại Ngọc Hầu, chùa Tây An, chùa Hang và chiêm bái bức tượng 'song sinh' với tượng Phật ngọc hòa bình thế giới."
+          },
+          {
+            "sentence_id": 12,
+            "source_text": "[12] Nơi đây bốn mùa gió thoảng, nhiều cây xanh, bên dưới là cánh đồng."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Đức Phật Thích Ca Mâu Ni được tạc từ ngọc bích 18 tấn tại Canada năm 2000, an vị ở Bà Chúa Xứ - Cáp treo Núi Sam (An Giang). Du khách có thể chiêm bái vào dịp lễ 30/4."
   }
 }

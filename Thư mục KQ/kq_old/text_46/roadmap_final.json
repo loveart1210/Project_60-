@@ -1,0 +1,43 @@
+{
+  "roadmap": {
+    "tasks": [
+      {
+        "step_id": "step_1",
+        "name": "Grouping sentences into chunks",
+        "description": "Tách văn bản thành các đoạn (chunks) phù hợp với thông tin cần tóm tắt.",
+        "tool": "chunk_text",
+        "expected_output": "Danh sách các chunk đã nhóm"
+      },
+      {
+        "step_id": "step_2",
+        "name": "Summarizing each chunk using LLM",
+        "description": "Tạo bản tóm tắt cho từng đoạn (chunk) thông qua hệ thống AI.",
+        "tool": "summarize_chunk",
+        "expected_output": "Danh sách các bản tóm tắt đã tạo"
+      },
+      {
+        "step_id": "step_3",
+        "name": "Merging summaries into one summary",
+        "description": "Gộp tất cả các bản tóm tắt thành một bản tổng hợp.",
+        "tool": "merge_summaries",
+        "expected_output": "Bản tóm tắt tổng thể"
+      },
+      {
+        "step_id": "step_4",
+        "name": "Refining summary to improve readability and style",
+        "description": "Tinh chỉnh văn phong và ngữ cảnh của bản tóm tắt để phù hợp với định dạng news_brief.",
+        "tool": "refine_summary",
+        "expected_output": "Bản tổng kết đã được tinh chỉnh"
+      },
+      {
+        "step_id": "step_5",
+        "name": "Verification of claims against original text",
+        "description": "Kiểm tra lại các tuyên bố trong bản tóm tắt với văn bản gốc để đảm bảo không thay đổi thông tin chính.",
+        "tool": "verify_claim",
+        "expected_output": "Bản tổng kết đã được kiểm chứng"
+      }
+    ],
+    "total_steps": 5,
+    "notes": "Ghi chú: Có thể cần thêm bước tùy thuộc vào độ phức tạp của văn bản và yêu cầu cụ thể."
+  }
+}

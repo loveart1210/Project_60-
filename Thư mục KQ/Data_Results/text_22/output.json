@@ -1,13 +1,63 @@
 {
-  "summary": "",
+  "summary": "Hàng nghìn người tham gia diễu hành quy mô lớn tại Putrajaya trong lễ kỷ niệm Quốc khánh Malaysia Madani, với nhiều hoạt động như ẩm thực đa dạng và triển lãm nghệ thuật tạo không khí sôi nổi.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 27,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Xác định chunks chính",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành summary tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách bản summary tổng thể",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Kiểm chứng (verification)",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -17,8 +67,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Diễu hành Merdeka quy mô lớn diễn ra tại Putrajaya, Malaysia trong lễ kỷ niệm Quốc khánh với chủ đề 'Malaysia Madani: Jiwa Merdeka', nêu cao lòng tự hào dân tộc và đoàn kết nhân dân. Du khách tham gia các hoạt động như ẩm thực đa dạng, hòa nhạc, triển lãm tại nhiều địa điểm khác nhau trong ngày lễ đặc biệt này.",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Hàng nghìn người tham gia diễu hành quy mô lớn tại Putrajaya trong lễ kỷ niệm Quốc khánh Malaysia Madani, với nhiều hoạt động như ẩm thực đa dạng và triển lãm nghệ thuật tạo không khí sôi nổi."
   }
 }

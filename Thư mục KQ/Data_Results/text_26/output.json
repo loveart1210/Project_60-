@@ -1,53 +1,33 @@
 {
-  "summary": "Fleur de Lys Hotel, 4 sao tại Quy Nhon, Bình Định, có phòng rộng với nhiều tiện ích; tuyển dụng nhân viên chất lượng.",
+  "summary": "Fleur de Lys Hotel, khách sạn 4 sao tại Bình Định với phòng rộng hướng biển và dịch vụ đa dạng. Nhân viên chuyên nghiệp, nhiệt tình mang đến trải nghiệm chất lượng nghỉ dưỡng.",
   "style": "news_brief",
-  "word_count": 17,
+  "word_count": 24,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunk_summarize",
-      "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
       }
     },
     {
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp tất cả các bản summary lại thành một bản tổng hợp",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -57,40 +37,20 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng hợp tóm tắt",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng hợp tóm tắt",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng hợp tóm tắt",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng bản tóm tắt bằng verify_claim",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -107,27 +67,19 @@
   "verification_report": [
     {
       "claim_id": 1,
-      "claim_text": "Fleur de Lys Hotel Quy Nhon, 4 sao trung tâm Bình Định, phòng rộng tiện ích đa dạng",
+      "claim_text": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn.",
       "status": "pass",
       "evidence": [
         {
           "sentence_id": 3,
           "source_text": "Tọa lạc ngay tuyến đường trung tâm, gần trục đường biển Xuân Diệu, Fleur de Lys Hotel Quy Nhon là một trong những điểm đến lý tưởng cho cả gia đình."
-        },
-        {
-          "sentence_id": 4,
-          "source_text": "ngoài chất lượng phòng ốc, dịch vụ chuẩn 4 sao, khách sạn còn mang đến đa dạng dịch vụ giải trí, thư giãn, ẩm thực, đáp ứng nhu cầu nghỉ dưỡng trọn vẹn cho gia đình đa thế hệ."
-        },
-        {
-          "sentence_id": 5,
-          "source_text": "Là một trong những khách sạn chuẩn 4 sao quốc tế tại Quy Nhơn, Fleur de Lys Hotel có kiến trúc hiện đại, tối gian nhưng vẫn đảm bảo yếu tố sang trọng."
         }
       ],
-      "confidence": 0.9
+      "confidence": 0.95
     },
     {
       "claim_id": 2,
-      "claim_text": "tuyển dụng nhân viên chất lượng cho gia đình",
+      "claim_text": "Cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
       "status": "pass",
       "evidence": [
         {
@@ -140,31 +92,23 @@
   ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Fleur de Lys Hotel Quy Nhon, 4 sao trung tâm Bình Định, phòng rộng tiện ích đa dạng; tuyển dụng nhân viên chất lượng cho gia đình.",
+    "draft_summary": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn. Cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
     "verification": [
       {
         "claim_id": 1,
-        "claim_text": "Fleur de Lys Hotel Quy Nhon, 4 sao trung tâm Bình Định, phòng rộng tiện ích đa dạng",
+        "claim_text": "Fleur de Lys Hotel Quy Nhon, khách sạn 4 sao tại trung tâm Bình Định với phòng rộng rãi hướng biển và đa dạng dịch vụ giải trí, thư giãn.",
         "status": "pass",
         "evidence": [
           {
             "sentence_id": 3,
             "source_text": "Tọa lạc ngay tuyến đường trung tâm, gần trục đường biển Xuân Diệu, Fleur de Lys Hotel Quy Nhon là một trong những điểm đến lý tưởng cho cả gia đình."
-          },
-          {
-            "sentence_id": 4,
-            "source_text": "ngoài chất lượng phòng ốc, dịch vụ chuẩn 4 sao, khách sạn còn mang đến đa dạng dịch vụ giải trí, thư giãn, ẩm thực, đáp ứng nhu cầu nghỉ dưỡng trọn vẹn cho gia đình đa thế hệ."
-          },
-          {
-            "sentence_id": 5,
-            "source_text": "Là một trong những khách sạn chuẩn 4 sao quốc tế tại Quy Nhơn, Fleur de Lys Hotel có kiến trúc hiện đại, tối gian nhưng vẫn đảm bảo yếu tố sang trọng."
           }
         ],
-        "confidence": 0.9
+        "confidence": 0.95
       },
       {
         "claim_id": 2,
-        "claim_text": "tuyển dụng nhân viên chất lượng cho gia đình",
+        "claim_text": "Cam kết mang đến trải nghiệm nghỉ dưỡng chất lượng với đội ngũ nhân viên chuyên nghiệp, nhiệt tình.",
         "status": "pass",
         "evidence": [
           {
@@ -175,6 +119,6 @@
         "confidence": 0.95
       }
     ],
-    "edited_summary": "Fleur de Lys Hotel, 4 sao tại Quy Nhon, Bình Định, có phòng rộng với nhiều tiện ích; tuyển dụng nhân viên chất lượng."
+    "edited_summary": "Fleur de Lys Hotel, khách sạn 4 sao tại Bình Định với phòng rộng hướng biển và dịch vụ đa dạng. Nhân viên chuyên nghiệp, nhiệt tình mang đến trải nghiệm chất lượng nghỉ dưỡng."
   }
 }

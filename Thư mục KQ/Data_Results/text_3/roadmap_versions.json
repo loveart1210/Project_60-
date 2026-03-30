@@ -4,42 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung các câu, tạo ra 3-5 chunks phù hợp.",
-          "tool": null,
-          "expected_output": "Một danh sách gồm 3-5 chunks"
+          "name": "Group sentences into chunks",
+          "description": "Tách văn bản gốc thành các đoạn (chunks) phù hợp với thông tin đầu vào.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk đã nhóm"
         },
         {
           "step_id": "step_2",
-          "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã tạo. Mỗi bản tóm tắt cần có độ dài khoảng từ 40 đến 60 từ.",
+          "name": "Summarize each chunk using LLM",
+          "description": "Tóm tắt từng đoạn (chunk) bằng cách sử dụng hệ thống ngôn ngữ lớn.",
           "tool": "summarize_chunk",
-          "expected_output": "Một danh sách gồm các bản tóm tắt, mỗi bản từ 40-60 từ"
+          "expected_output": "Bản tóm tắt của mỗi chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp nhiều bản tóm tắt lại thành một bản tổng hợp",
-          "description": "Dùng merge_summaries để gộp các bản tóm tắt đã tạo. Kết quả nên có độ dài khoảng 150-250 từ.",
+          "name": "Merge summaries into a single summary",
+          "description": "Gộp các bản tóm tắt thành một bản tổng kết.",
           "tool": "merge_summaries",
-          "expected_output": "Một bản tóm tắt tổng hợp, từ 150 đến 250 từ"
+          "expected_output": "Bản tóm tắt cuối cùng"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh câu từ cho bản tổng hợp",
-          "description": "Dùng refine_summary để tinh chỉnh các đoạn văn đã tạo. Đảm bảo rằng thông tin chính không thay đổi.",
+          "name": "Refine the final summary to improve readability and style",
+          "description": "Tinh chỉnh bản tổng kết để cải thiện độ rõ ràng và phong cách.",
           "tool": "refine_summary",
-          "expected_output": "Một bản tóm tắt cuối cùng, khoảng 150-250 từ"
-        },
-        {
-          "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc (không cần thực hiện)",
-          "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong bản tổng hợp có đúng với văn bản gốc không. Nếu không, chỉnh sửa lại.",
-          "tool": null,
-          "expected_output": "Thông báo về việc đã hoặc chưa chỉnh sửa"
+          "expected_output": "Bản tóm tắt cuối cùng đã được tinh chỉnh"
         }
       ],
-      "total_steps": 5,
-      "notes": "Ghi chú thêm: Đảm bảo rằng mỗi bước đều được thực hiện một cách rõ ràng và chính xác."
+      "total_steps": 4,
+      "notes": "Giữ nguyên thông tin đầu vào về độ dài văn bản, phong cách và ràng buộc output."
     }
   }
 }

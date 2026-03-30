@@ -2,112 +2,37 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T23:39:22.437559"
+    "output_summary": "chunking",
+    "timestamp": "2026-03-30T04:27:48.716333"
   },
   {
     "step_id": "step_2",
-    "status": "failed",
-    "output_summary": "No chunks available. Run chunking step first.",
-    "timestamp": "2026-03-27T23:40:30.353176",
-    "error": "No chunks available. Run chunking step first."
-  },
-  {
-    "step_id": "step_2",
-    "status": "failed",
-    "output_summary": "No chunks available. Run chunking step first.",
-    "timestamp": "2026-03-27T23:40:30.354175",
-    "error": "No chunks available. Run chunking step first."
-  },
-  {
-    "step_id": "step_2",
-    "status": "failed",
-    "output_summary": "No chunks available. Run chunking step first.",
-    "timestamp": "2026-03-27T23:40:30.354175",
-    "error": "No chunks available. Run chunking step first."
+    "status": "completed",
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-30T04:28:00.605059"
   },
   {
     "step_id": "step_3",
-    "status": "failed",
-    "output_summary": "No chunk summaries available.",
-    "timestamp": "2026-03-27T23:40:30.354175",
-    "error": "No chunk summaries available."
-  },
-  {
-    "step_id": "step_3",
-    "status": "failed",
-    "output_summary": "No chunk summaries available.",
-    "timestamp": "2026-03-27T23:40:30.355175",
-    "error": "No chunk summaries available."
-  },
-  {
-    "step_id": "step_3",
-    "status": "failed",
-    "output_summary": "No chunk summaries available.",
-    "timestamp": "2026-03-27T23:40:30.355175",
-    "error": "No chunk summaries available."
+    "status": "completed",
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T04:28:32.983063"
   },
   {
     "step_id": "step_4",
-    "status": "failed",
-    "output_summary": "No merged summary available.",
-    "timestamp": "2026-03-27T23:40:30.356174",
-    "error": "No merged summary available."
-  },
-  {
-    "step_id": "step_4",
-    "status": "failed",
-    "output_summary": "No merged summary available.",
-    "timestamp": "2026-03-27T23:40:30.357174",
-    "error": "No merged summary available."
-  },
-  {
-    "step_id": "step_4",
-    "status": "failed",
-    "output_summary": "No merged summary available.",
-    "timestamp": "2026-03-27T23:40:30.357174",
-    "error": "No merged summary available."
+    "status": "completed",
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T04:29:06.571747"
   },
   {
     "step_id": "step_5",
-    "status": "failed",
-    "output_summary": "No summary available for verification.",
-    "timestamp": "2026-03-27T23:40:30.358174",
-    "error": "No summary available for verification."
-  },
-  {
-    "step_id": "step_5",
-    "status": "failed",
-    "output_summary": "No summary available for verification.",
-    "timestamp": "2026-03-27T23:40:30.359174",
-    "error": "No summary available for verification."
-  },
-  {
-    "step_id": "step_5",
-    "status": "failed",
-    "output_summary": "No summary available for verification.",
-    "timestamp": "2026-03-27T23:40:30.359174",
-    "error": "No summary available for verification."
+    "status": "completed",
+    "output_summary": "verify",
+    "timestamp": "2026-03-30T04:32:01.693654"
   },
   {
     "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T23:40:30.360175",
-    "error": "No summary available for editing."
-  },
-  {
-    "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T23:40:30.361174",
-    "error": "No summary available for editing."
-  },
-  {
-    "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T23:40:30.361174",
-    "error": "No summary available for editing."
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-30T04:32:09.440386"
   }
 ]

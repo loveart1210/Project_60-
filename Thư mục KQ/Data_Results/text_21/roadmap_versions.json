@@ -4,35 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Grouping Sentences into Chunks",
-          "description": "Tách văn bản gốc thành các đoạn (chunks) thông qua chunk_text.",
+          "name": "Chia văn bản thành chunks",
+          "description": "Tách văn bản gốc thành các chunk phù hợp với thông tin cần tóm tắt.",
           "tool": "chunk_text",
-          "expected_output": "Danh sách chunks từ văn bản"
+          "expected_output": "Danh sách các chunk đã chia"
         },
         {
           "step_id": "step_2",
-          "name": "Summarizing Each Chunk with LLM",
-          "description": "Tóm tắt từng đoạn (chunk) bằng cách sử dụng summarzie_chunk.",
+          "name": "Tóm tắt từng chunk bằng LLM",
+          "description": "Gọi API của LLM để tóm tắt mỗi chunk.",
           "tool": "summarize_chunk",
-          "expected_output": "Mỗi bản tóm tắt của một chunk"
+          "expected_output": "Danh sách các bản tóm tắt đã được tạo"
         },
         {
           "step_id": "step_3",
-          "name": "Combining Summaries into a Single Summary",
-          "description": "Gộp các bản tóm tắt lại thành một bản tổng kết bằng cách sử dụng merge_summaries.",
+          "name": "Gộp nhiều bản tóm tắt lại thành một",
+          "description": "Tổng hợp tất cả các đoạn tóm tắt để tạo ra bản tổng kết.",
           "tool": "merge_summaries",
-          "expected_output": "Bản tóm tắt toàn bộ của văn bản"
+          "expected_output": "Bản tóm tắt đã được gộp"
         },
         {
           "step_id": "step_4",
-          "name": "Refining the Summary for Clarity and Style",
-          "description": "Tinh chỉnh câu từ cho bản tổng kết bằng cách sử dụng refine_summary.",
+          "name": "Tinh chỉnh phong cách cho bản tổng kết",
+          "description": "Refine và điều chỉnh văn phong của đoạn tóm tắt để phù hợp với yêu cầu.",
           "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt cuối cùng của văn bản"
+          "expected_output": "Bản tóm tắt đã được refinement"
         }
       ],
       "total_steps": 4,
-      "notes": "Đảm bảo kiểm chứng mệnh đề trong quá trình refinement để đảm bảo tính chính xác."
+      "notes": "Đảm bảo độ dài kết quả nằm trong khoảng từ 150 đến 250 từ, không vượt quá 20% độ dài văn bản gốc."
     }
   }
 }

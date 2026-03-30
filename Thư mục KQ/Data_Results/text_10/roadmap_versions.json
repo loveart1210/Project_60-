@@ -4,35 +4,35 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm chunk",
-          "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm chúng lại với sent_tokenize để tạo chunks.",
-          "tool": "word_tokenize, sent_tokenize",
-          "expected_output": "Danh sách các chuỗi (chunks) từ văn bản"
+          "name": "Xác định chunks chính",
+          "description": "Nhóm văn bản gốc thành các chunk có ý nghĩa lớn.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Đưa mỗi chunk vào summarize_chunk để tóm tắt thông tin một cách abstractive nhưng fact-grounded.",
+          "description": "Sử dụng LLM để tóm tắt mỗi chunk đã nhóm.",
           "tool": "summarize_chunk",
-          "expected_output": "Mỗi bản tóm tắt của chunks"
+          "expected_output": "Mỗi bản tóm tắt của một chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp các bản tóm tắt lại thành một bản tổng kết",
-          "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ từng chunk trở thành một bản văn ngắn gọn.",
+          "name": "Gộp các bản tóm tắt lại thành summary tổng thể",
+          "description": "Tổng hợp tất cả các bản tóm tắt để tạo ra một summary cuối cùng.",
           "tool": "merge_summaries",
-          "expected_output": "Bản tổng hợp của toàn bộ chunks đã được tóm tắt"
+          "expected_output": "Summary chi tiết"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho bản tổng kết",
-          "description": "Dùng refine_summary để thay đổi ngữ cảnh và phong cách viết, đảm bảo phù hợp với tiêu chuẩn news_brief.",
+          "name": "Refine summary cho phù hợp với phong cách news_brief",
+          "description": "Tinh chỉnh văn bản để phù hợp hơn với phong cách tóm tắt news_brief.",
           "tool": "refine_summary",
-          "expected_output": "Bản tóm tắt đã được refinement"
+          "expected_output": "Summary cuối cùng"
         }
       ],
       "total_steps": 4,
-      "notes": "Giữ nguyên độ dài tối đa là 20% so với văn bản gốc, đảm bảo thông tin chính không bị mất và vẫn giữ phong cách news_brief."
+      "notes": "Bước kiểm chứng (verify_claim) không cần thiết vì roadmap này tập trung vào việc tạo ra summary chính xác và ngắn gọn."
     }
   }
 }

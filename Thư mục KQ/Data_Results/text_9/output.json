@@ -1,16 +1,16 @@
 {
-  "summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% do mùa lá vàng đẹp và chương trình ưu đãi từ KTO Việt Nam, giảm giá tour tháng 10-12, voucher một triệu đồng mỗi khách hàng.",
+  "summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, nhờ famtour và ưu đãi từ tháng 10 đến tháng 12 của KTO Hàn Quốc.",
   "style": "news_brief",
-  "word_count": 28,
+  "word_count": 25,
   "trace": [
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "split_sentences",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -29,25 +29,15 @@
       "step_id": "step_3",
       "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
       "reflection_scores": {
         "factual_consistency": 0.8,
         "coverage_completeness": 0.75
@@ -57,17 +47,17 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
       }
     },
     {
       "agent": "execution",
-      "action": "verify",
-      "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng (verification)",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh câu từ cho bản tóm tắt gộp",
       "reflection_scores": {
         "factual_consistency": 0.8,
         "coverage_completeness": 0.75
@@ -77,20 +67,10 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng (verification)",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
-      "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng (verification)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -107,24 +87,170 @@
   "verification_report": [
     {
       "claim_id": 1,
-      "claim_text": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình ưu đãi từ KTO Việt Nam gồm xe Vinfast, cư dân Vinhomes và nhân viên Vingroup giảm giá tour du lịch tháng 10-12, voucher trị giá một triệu đồng mỗi khách hàng.",
-      "status": "fail",
-      "evidence": [],
-      "confidence": 0.8
+      "claim_text": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 1,
+          "source_text": "Theo KTO Việt Nam, 8 tháng năm nay, Hàn Quốc đón 389.000 lượt khách Việt, tăng 27% so với cùng kỳ năm 2023."
+        },
+        {
+          "sentence_id": 4,
+          "source_text": "Số lượng khách Việt Nam đến Hàn Quốc dự kiến tăng mạnh hơn bởi đất nước này đang bước vào mùa lá vàng đẹp nhất năm."
+        }
+      ],
+      "confidence": 1.0
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "KTO Hàn Quốc xúc tiến du lịch mới và tổ chức famtour, góp phần phát triển nhiều tuyến điểm cho hành trình tại Việt Nam trong mùa cuối năm.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 5,
+          "source_text": "Cụ thể, trong năm nay, KTO Việt Nam xúc tiến các chương trình quảng bá, phát triển sản phẩm du lịch Hàn Quốc phù hợp với nhu cầu du khách Việt."
+        },
+        {
+          "sentence_id": 8,
+          "source_text": "Bên cạnh đó, nhằm mang đến những trải nghiệm chân thực và đậm chất bản địa, KTO tổ chức nhiều famtour."
+        }
+      ],
+      "confidence": 1.0
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "KTO triển khai chiến dịch ưu đãi từ tháng 10 đến tháng 12 với giá tour giảm và voucher lên tới 5 triệu đồng, giúp tăng lượng du khách đến Hàn Quốc.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 14,
+          "source_text": "Hồi tháng 5, KTO Việt Nam ký kết thỏa thuận hợp tác cùng Tập đoàn Vingroup, nhằm thúc đẩy hơn nữa sự giao lưu, trao đổi du lịch giữa hai nước."
+        },
+        {
+          "sentence_id": 10,
+          "source_text": "Nổi bật là famtour trải nghiệm Esports cùng các KOL hàng đầu làng thể thao điện tử như: SofM, reviewer Duy Thẩm, Hải Triều, streamer Hà Tiều Phu, BLV Esports nổi tiếng Văn Tùng, Hoàng Luân, kết hợp Box Esports."
+        },
+        {
+          "sentence_id": 15,
+          "source_text": "Nắm bắt nhu cầu du lịch Hàn Quốc tăng cao trong mùa cuối năm của du khách Việt, KTO Việt Nam tiếp tục đẩy mạnh các chương trình ưu đãi đặc biệt.",
+          "additional_evidence": [
+            {
+              "sentence_id": 9,
+              "source_text": "Làn sóng văn hóa Hallyu cũng được lồng ghép vào sản phẩm du lịch, khi hàng loạt tên tuổi lớn đến Việt Nam trong khuôn khổ sự kiện Korea Travel Festa, tổ chức tháng 5 vừa qua."
+            },
+            {
+              "sentence_id": 16,
+              "source_text": "Mới nhất, KTO Việt Nam có mặt tại Hội chợ Du lịch Quốc tế (ITE) TP HCM, mang theo không gian đặc trưng Hàn Quốc cùng nhiều trải nghiệm mới mẻ, độc đáo."
+            }
+          ]
+        },
+        {
+          "sentence_id": 17,
+          "source_text": "Thành viên Vingroup sẽ nhận được mức giá ưu đãi từ các công ty du lịch và KTO Việt Nam.",
+          "additional_evidence": [
+            {
+              "sentence_id": 9,
+              "source_text": "Làn sóng văn hóa Hallyu cũng được lồng ghép vào sản phẩm du lịch, khi hàng loạt tên tuổi lớn đến Việt Nam trong khuôn khổ sự kiện Korea Travel Festa, tổ chức tháng 5 vừa qua."
+            },
+            {
+              "sentence_id": 16,
+              "source_text": "Mới nhất, KTO Việt Nam có mặt tại Hội chợ Du lịch Quốc tế (ITE) TP HCM, mang theo không gian đặc trưng Hàn Quốc cùng nhiều trải nghiệm mới mẻ, độc đáo."
+            }
+          ]
+        },
+        {
+          "sentence_id": 18,
+          "source_text": "Thanh Thư"
+        }
+      ],
+      "confidence": 0.95
     }
   ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình ưu đãi từ Vintizen, gồm xe Vinfast, cư dân Vinhomes và nhân viên Vingroup, giảm giá tour du lịch từ tháng 10 đến tháng 12. Đồng thời nhận voucher trị giá một triệu đồng mỗi khách hàng, mua tối đa 5 tour để tổng cộng voucher lên tới 5 triệu từ KTO Việt Nam trong khoảng thời gian 1-10/10.",
+    "draft_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm. KTO Hàn Quốc xúc tiến du lịch mới và tổ chức famtour, góp phần phát triển nhiều tuyến điểm cho hành trình tại Việt Nam trong mùa cuối năm. Đồng thời, KTO triển khai chiến dịch ưu đãi từ tháng 10 đến tháng 12 với giá tour giảm và voucher lên tới 5 triệu đồng, giúp tăng lượng du khách đến Hàn Quốc.",
     "verification": [
       {
         "claim_id": 1,
-        "claim_text": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình ưu đãi từ KTO Việt Nam gồm xe Vinfast, cư dân Vinhomes và nhân viên Vingroup giảm giá tour du lịch tháng 10-12, voucher trị giá một triệu đồng mỗi khách hàng.",
-        "status": "fail",
-        "evidence": [],
-        "confidence": 0.8
+        "claim_text": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "source_text": "Theo KTO Việt Nam, 8 tháng năm nay, Hàn Quốc đón 389.000 lượt khách Việt, tăng 27% so với cùng kỳ năm 2023."
+          },
+          {
+            "sentence_id": 4,
+            "source_text": "Số lượng khách Việt Nam đến Hàn Quốc dự kiến tăng mạnh hơn bởi đất nước này đang bước vào mùa lá vàng đẹp nhất năm."
+          }
+        ],
+        "confidence": 1.0
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "KTO Hàn Quốc xúc tiến du lịch mới và tổ chức famtour, góp phần phát triển nhiều tuyến điểm cho hành trình tại Việt Nam trong mùa cuối năm.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "source_text": "Cụ thể, trong năm nay, KTO Việt Nam xúc tiến các chương trình quảng bá, phát triển sản phẩm du lịch Hàn Quốc phù hợp với nhu cầu du khách Việt."
+          },
+          {
+            "sentence_id": 8,
+            "source_text": "Bên cạnh đó, nhằm mang đến những trải nghiệm chân thực và đậm chất bản địa, KTO tổ chức nhiều famtour."
+          }
+        ],
+        "confidence": 1.0
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "KTO triển khai chiến dịch ưu đãi từ tháng 10 đến tháng 12 với giá tour giảm và voucher lên tới 5 triệu đồng, giúp tăng lượng du khách đến Hàn Quốc.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "Hồi tháng 5, KTO Việt Nam ký kết thỏa thuận hợp tác cùng Tập đoàn Vingroup, nhằm thúc đẩy hơn nữa sự giao lưu, trao đổi du lịch giữa hai nước."
+          },
+          {
+            "sentence_id": 10,
+            "source_text": "Nổi bật là famtour trải nghiệm Esports cùng các KOL hàng đầu làng thể thao điện tử như: SofM, reviewer Duy Thẩm, Hải Triều, streamer Hà Tiều Phu, BLV Esports nổi tiếng Văn Tùng, Hoàng Luân, kết hợp Box Esports."
+          },
+          {
+            "sentence_id": 15,
+            "source_text": "Nắm bắt nhu cầu du lịch Hàn Quốc tăng cao trong mùa cuối năm của du khách Việt, KTO Việt Nam tiếp tục đẩy mạnh các chương trình ưu đãi đặc biệt.",
+            "additional_evidence": [
+              {
+                "sentence_id": 9,
+                "source_text": "Làn sóng văn hóa Hallyu cũng được lồng ghép vào sản phẩm du lịch, khi hàng loạt tên tuổi lớn đến Việt Nam trong khuôn khổ sự kiện Korea Travel Festa, tổ chức tháng 5 vừa qua."
+              },
+              {
+                "sentence_id": 16,
+                "source_text": "Mới nhất, KTO Việt Nam có mặt tại Hội chợ Du lịch Quốc tế (ITE) TP HCM, mang theo không gian đặc trưng Hàn Quốc cùng nhiều trải nghiệm mới mẻ, độc đáo."
+              }
+            ]
+          },
+          {
+            "sentence_id": 17,
+            "source_text": "Thành viên Vingroup sẽ nhận được mức giá ưu đãi từ các công ty du lịch và KTO Việt Nam.",
+            "additional_evidence": [
+              {
+                "sentence_id": 9,
+                "source_text": "Làn sóng văn hóa Hallyu cũng được lồng ghép vào sản phẩm du lịch, khi hàng loạt tên tuổi lớn đến Việt Nam trong khuôn khổ sự kiện Korea Travel Festa, tổ chức tháng 5 vừa qua."
+              },
+              {
+                "sentence_id": 16,
+                "source_text": "Mới nhất, KTO Việt Nam có mặt tại Hội chợ Du lịch Quốc tế (ITE) TP HCM, mang theo không gian đặc trưng Hàn Quốc cùng nhiều trải nghiệm mới mẻ, độc đáo."
+              }
+            ]
+          },
+          {
+            "sentence_id": 18,
+            "source_text": "Thanh Thư"
+          }
+        ],
+        "confidence": 0.95
       }
     ],
-    "edited_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% do mùa lá vàng đẹp và chương trình ưu đãi từ KTO Việt Nam, giảm giá tour tháng 10-12, voucher một triệu đồng mỗi khách hàng."
+    "edited_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, nhờ famtour và ưu đãi từ tháng 10 đến tháng 12 của KTO Hàn Quốc."
   }
 }

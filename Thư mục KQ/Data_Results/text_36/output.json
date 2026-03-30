@@ -1,23 +1,23 @@
 {
-  "summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
+  "summary": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái.",
   "style": "news_brief",
-  "word_count": 48,
+  "word_count": 18,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Group Sentences into Chunks",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
       "step_id": "step_2",
-      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "evidence": "Step 2: Summarize Each Chunk with LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -27,7 +27,27 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt thành một bản tổng thể",
+      "evidence": "Step 3: Merge Summaries into One Summary",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Merge Summaries into One Summary",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Merge Summaries into One Summary",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -37,40 +57,20 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng thể",
+      "evidence": "Step 4: Refine Summary for Clarity and Style",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng thể",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "refine",
-      "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách cho tổng thể",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
+      "evidence": "Step 5: Verify Claims Against Original Text",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -87,96 +87,50 @@
   "verification_report": [
     {
       "claim_id": 1,
-      "claim_text": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan.",
+      "claim_text": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, với Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái.",
       "status": "pass",
       "evidence": [
         {
-          "sentence_id": 4,
-          "source_text": "Hội chợ cũng là nơi quy tụ nhiều công ty chuyên về du lịch sự kiện trên khắp thế giới đến giao lưu và tìm kiếm cơ hội thúc đẩy. Theo đại diện Vidotour, Imex Frankfurt 2024 đón 2.\n900 đơn vị triển lãm từ 150 quốc gia và vùng lãnh thổ, thu hút hơn 3.\n000 người mua đến từ 84 quốc gia và gần 12.\n000 khách tham quan."
-        }
-      ],
-      "confidence": 0.9
-    },
-    {
-      "claim_id": 2,
-      "claim_text": "Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu.",
-      "status": "pass",
-      "evidence": [
-        {
-          "sentence_id": 7,
-          "source_text": "Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá..."
-        }
-      ],
-      "confidence": 0.9
-    },
-    {
-      "claim_id": 3,
-      "claim_text": "Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
-      "status": "pass",
-      "evidence": [
+          "sentence_id": 5,
+          "source_text": "Thu hút hơn 3.000 người mua đến từ 84 quốc gia và gần 12.000 khách tham quan."
+        },
         {
           "sentence_id": 9,
-          "source_text": "Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá... Vidotour tham gia cùng Sở Du Lịch TP HCM lần này cũng mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...)"
+          "source_text": "Mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...)"
+        },
+        {
+          "sentence_id": 13,
+          "source_text": "Lần thứ 2 Vidotour đồng hành cùng Sở Du Lịch TP HCM tham dự hội chợ du lịch về MICE, IMEX."
         }
       ],
-      "confidence": 0.9
-    },
-    {
-      "claim_id": 4,
-      "claim_text": "Lần đầu hai bên hợp tác là IMEX Mỹ, diễn ra tháng 10/2023 tại Las Vegas, Mỹ.",
-      "status": "fail",
-      "evidence": [],
-      "confidence": 0.8
+      "confidence": 0.95
     }
   ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
+    "draft_summary": "TP HCM thu hút hơn 3.000 người mua từ khắp thế giới tại IMEX Frankfurt, với Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm 2023.",
     "verification": [
       {
         "claim_id": 1,
-        "claim_text": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan.",
+        "claim_text": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, với Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái.",
         "status": "pass",
         "evidence": [
           {
-            "sentence_id": 4,
-            "source_text": "Hội chợ cũng là nơi quy tụ nhiều công ty chuyên về du lịch sự kiện trên khắp thế giới đến giao lưu và tìm kiếm cơ hội thúc đẩy. Theo đại diện Vidotour, Imex Frankfurt 2024 đón 2.\n900 đơn vị triển lãm từ 150 quốc gia và vùng lãnh thổ, thu hút hơn 3.\n000 người mua đến từ 84 quốc gia và gần 12.\n000 khách tham quan."
-          }
-        ],
-        "confidence": 0.9
-      },
-      {
-        "claim_id": 2,
-        "claim_text": "Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu.",
-        "status": "pass",
-        "evidence": [
-          {
-            "sentence_id": 7,
-            "source_text": "Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá..."
-          }
-        ],
-        "confidence": 0.9
-      },
-      {
-        "claim_id": 3,
-        "claim_text": "Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững.",
-        "status": "pass",
-        "evidence": [
+            "sentence_id": 5,
+            "source_text": "Thu hút hơn 3.000 người mua đến từ 84 quốc gia và gần 12.000 khách tham quan."
+          },
           {
             "sentence_id": 9,
-            "source_text": "Trong đó, gian hàng của Sở Du lịch TP HCM diễn ra nhiều hoạt động thúc đẩy hình ảnh điểm đến TP HCM như: chương trình khuyến mại, gói du lịch kích cầu, bốc thăm trúng thưởng cho các khách hàng ghé thăm, hoạt động dân gian nặn tò he, trang trí nón lá... Vidotour tham gia cùng Sở Du Lịch TP HCM lần này cũng mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...)"
+            "source_text": "Mang đến các chương trình, sản phẩm du lịch chuyên về hội nghị: gói du lịch hội nghị bao gồm phòng ở và phòng họp, chương trình du lịch sức khỏe (wellness), du lịch kết hợp thể thao (giải golf và VnExpress Marathon...)"
+          },
+          {
+            "sentence_id": 13,
+            "source_text": "Lần thứ 2 Vidotour đồng hành cùng Sở Du Lịch TP HCM tham dự hội chợ du lịch về MICE, IMEX."
           }
         ],
-        "confidence": 0.9
-      },
-      {
-        "claim_id": 4,
-        "claim_text": "Lần đầu hai bên hợp tác là IMEX Mỹ, diễn ra tháng 10/2023 tại Las Vegas, Mỹ.",
-        "status": "fail",
-        "evidence": [],
-        "confidence": 0.8
+        "confidence": 0.95
       }
     ],
-    "edited_summary": "Vidotour tham dự Imex Frankfurt 2024 với hơn 1.500 gian hàng, thu hút gần 3.000 người mua và 12.000 khách tham quan. Gian hàng TP HCM tổ chức khuyến mại, gói du lịch kích cầu, trang trí nón lá và visa châu Âu. Vidotour cung cấp dịch vụ hội nghị và wellness với kinh nghiệm hơn 34 năm chuyển đổi xanh và sản phẩm bền vững."
+    "edited_summary": "TP HCM thu hút 3.000 người mua quốc tế tại IMEX Frankfurt, Vidotour tham gia lần thứ hai sau sự kiện Mỹ năm ngoái."
   }
 }

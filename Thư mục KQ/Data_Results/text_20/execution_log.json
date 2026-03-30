@@ -2,49 +2,49 @@
   {
     "step_id": "step_1",
     "status": "completed",
-    "output_summary": "chunking",
-    "timestamp": "2026-03-27T20:50:09.413001"
+    "output_summary": "split_sentences",
+    "timestamp": "2026-03-30T03:15:38.106098"
   },
   {
     "step_id": "step_2",
     "status": "completed",
     "output_summary": "chunk_summarize",
-    "timestamp": "2026-03-27T20:52:01.500806"
+    "timestamp": "2026-03-30T03:15:56.216756"
   },
   {
     "step_id": "step_3",
     "status": "completed",
     "output_summary": "merge",
-    "timestamp": "2026-03-27T20:53:33.596878"
+    "timestamp": "2026-03-30T03:16:31.950170"
+  },
+  {
+    "step_id": "step_3",
+    "status": "completed",
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T03:17:04.495073"
+  },
+  {
+    "step_id": "step_3",
+    "status": "completed",
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T03:17:44.502968"
   },
   {
     "step_id": "step_4",
     "status": "completed",
     "output_summary": "refine",
-    "timestamp": "2026-03-27T20:55:14.374587"
-  },
-  {
-    "step_id": "step_4",
-    "status": "completed",
-    "output_summary": "refine",
-    "timestamp": "2026-03-27T20:56:59.785399"
-  },
-  {
-    "step_id": "step_4",
-    "status": "completed",
-    "output_summary": "refine",
-    "timestamp": "2026-03-27T20:58:45.113920"
+    "timestamp": "2026-03-30T03:18:21.111175"
   },
   {
     "step_id": "step_5",
     "status": "completed",
     "output_summary": "verify",
-    "timestamp": "2026-03-27T21:01:09.952215"
+    "timestamp": "2026-03-30T03:18:56.490644"
   },
   {
     "step_id": "step_6",
     "status": "completed",
     "output_summary": "edit",
-    "timestamp": "2026-03-27T21:02:49.543949"
+    "timestamp": "2026-03-30T03:19:06.918736"
   }
 ]

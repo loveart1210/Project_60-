@@ -4,42 +4,42 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Nhóm các chunk phù hợp với thông tin chính.",
-          "tool": null,
-          "expected_output": "Một list chứa nhiều chunks"
+          "name": "Xác định các chunk chính trong văn bản",
+          "description": "Tách văn bản thành nhiều chunks thông qua sent_tokenize và chunk_text, xác định những đoạn chứa thông tin quan trọng về tour du lịch NhatbanAZ.",
+          "tool": "sent_tokenize, chunk_text",
+          "expected_output": "Một danh sách các chunk chính của văn bản"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk. Sử dụng abstractive nhưng fact-grounded.",
+          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk đã xác định trước đó, đảm bảo giữ được thông tin quan trọng và không thay đổi entity.",
           "tool": "summarize_chunk",
-          "expected_output": "Một bản tóm tắt của từng chunk"
+          "expected_output": "Một bản tóm tắt ngắn gọn của từng chunk"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp các bản tóm tắt lại thành một bản tổng hợp",
-          "description": "Dùng merge_summaries để gộp tất cả bản tóm tắt từ bước 2. Sử dụng abstractive nhưng fact-grounded.",
+          "name": "Gộp các bản tóm tắt lại thành một summary tổng thể",
+          "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt đã được tạo ra từ step 2, đảm bảo rằng thông tin quan trọng không bị mất và vẫn giữ phong cách abstractive-grounded.",
           "tool": "merge_summaries",
-          "expected_output": "Một bản tổng hợp của văn bản gốc"
+          "expected_output": "Một summary tổng thể ngắn gọn nhưng đầy đủ thông tin"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho bản tóm tắt gộp",
-          "description": "Dùng refine_summary để tinh chỉnh câu từ và ngữ cảnh cho bản tóm tắt gộp. Sử dụng abstractive nhưng fact-grounded.",
+          "name": "Tinh chỉnh câu từ cho summary tổng thể",
+          "description": "Dùng refine_summary để tinh chỉnh văn bản đã merge, đảm bảo rằng nó vẫn abstractive-grounded và giữ phong cách news_brief.",
           "tool": "refine_summary",
-          "expected_output": "Một bản tổng hợp đã được tinh chỉnh phong cách"
+          "expected_output": "Một summary tổng thể ngắn gọn nhưng đầy đủ thông tin với phong cách phù hợp"
         },
         {
           "step_id": "step_5",
-          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
-          "description": "Dùng verify_claim để kiểm tra xem thông tin trong bản tổng hợp mới có chính xác với văn bản gốc hay không. Nếu cần, chỉnh sửa lại.",
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc (verify_claim)",
+          "description": "Dùng verify_claim để kiểm tra xem summary tổng thể đã giữ đúng các thông tin quan trọng của văn bản gốc, không thay đổi entity và vẫn abstractive-grounded.",
           "tool": "verify_claim",
-          "expected_output": "Một bản tóm tắt đã được kiểm chứng"
+          "expected_output": "Một báo cáo về việc summary tổng thể đã được kiểm chứng"
         }
       ],
       "total_steps": 5,
-      "notes": "Lưu ý: Có thể có một số bước phụ hoặc điều chỉnh tùy thuộc vào kết quả của từng bước."
+      "notes": "Ghi chú thêm nếu cần thiết."
     }
   }
 }

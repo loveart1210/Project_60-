@@ -1,23 +1,43 @@
 {
-  "summary": "Hoa ngà và nâu, Lotte Sài Gòn ra mắt BST 'Lý ngư hóa long' gồm hộp Deluxe 1.45 triệu đồng và Premium 1.75 triệu đồng; mỗi hộp có 4 bánh vị khác nhau với nước hồng sâm Hàn Quốc và giấy nhẹ bảo vệ môi trường. Lotte kỳ vọng phiên bản năm nay mang ý nghĩa tết trung thu cho khách, tăng giá trị quà Tết đoàn viên.",
+  "summary": "Hộp bánh trung thu Lý ngư hóa long của Lotte Sài Gòn gồm 4 loại nhân khác nhau và thức uống hồng sâm Hàn Quốc, được gói bằng chất liệu giấy nhẹ bảo vệ môi trường. Hộp bánh giới hạn số lượng nhằm tăng giá trị quà tặng dịp Tết đoàn viên.",
   "style": "news_brief",
-  "word_count": 52,
+  "word_count": 37,
   "trace": [
     {
       "agent": "execution",
-      "action": "chunking",
+      "action": "split_sentences",
       "step_id": "step_1",
-      "evidence": "Step 1: Grouping sentences into chunks",
+      "evidence": "Step 1: Xác định các chunk chính",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
       "step_id": "step_2",
-      "evidence": "Step 2: Summarizing each chunk using LLM",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.85,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -27,7 +47,7 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Merging summaries into one summary",
+      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một đoạn văn tổng quát",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -37,7 +57,7 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Refining summary to improve readability and style",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng kết",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -47,10 +67,10 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Verification of claims against original text",
+      "evidence": "Step 5: Kiểm chứng (verification)",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -64,11 +84,125 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Lotte Sài Gòn ra mắt hộp bánh trung thu Lý ngư hóa long với hai phiên bản màu trắng ngà và nâu, gồm 4 loại nhân khác nhau và thức uống hồng sâm Hàn Quốc.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 6,
+          "source_text": "BST 'Lý ngư hóa long' gồm hai lựa chọn hộp màu trắng ngà - Deluxe và màu nâu - Premium."
+        },
+        {
+          "sentence_id": 7,
+          "source_text": "Each box includes four flavors with different ingredients."
+        },
+        {
+          "sentence_id": 10,
+          "source_text": "This year, Lotte Sài Gòn introduces a range of fillings including: three-layered filling made from lotus seeds and macadamia nuts; mixed seafood in oyster sauce flavor; mixed chicken stewed with Chinese herbs flavored black pepper style Sichuan cuisine; egg white salt-flavored."
+        },
+        {
+          "sentence_id": 12,
+          "source_text": "'This is a traditional drink that has high nutritional value from the country of kimchi.'"
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "Khách sạn sử dụng chất liệu giấy nhẹ bảo vệ môi trường, gửi gắm lời chúc thành công cho người thân.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 15,
+          "source_text": "'This year, Lotte Sài Gòn also uses lightweight paper for the box to protect the environment.'"
+        },
+        {
+          "sentence_id": 20,
+          "source_text": "That is why this product only produces a limited quantity of boxes in order to increase the value of gifts during Spring Festival reunion."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "Hộp bánh giới hạn số lượng nhằm tăng giá trị quà tặng dịp Tết đoàn viên.",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 16,
+          "source_text": "'This is to show the commitment of sustainability and responsibility towards society.'"
+        },
+        {
+          "sentence_id": 19,
+          "source_text": "That is why this product only produces a limited quantity, in order to increase the value of gifts during Spring Festival reunion."
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Hoa ngà và nâu, Lotte Sài Gòn ra mắt BST 'Lý ngư hóa long' gồm hộp Deluxe 1.45 triệu đồng và Premium 1.75 triệu đồng, mỗi hộp có 4 bánh vị khác nhau; điểm nhấn là nước hồng sâm Hàn Quốc và giấy nhẹ bảo vệ môi trường. Lotte kỳ vọng phiên bản năm 2024 mang ý nghĩa tết trung thu cho khách, tăng giá trị quà Tết đoàn viên.",
-    "verification": null,
-    "edited_summary": "Hoa ngà và nâu, Lotte Sài Gòn ra mắt BST 'Lý ngư hóa long' gồm hộp Deluxe 1.45 triệu đồng và Premium 1.75 triệu đồng; mỗi hộp có 4 bánh vị khác nhau với nước hồng sâm Hàn Quốc và giấy nhẹ bảo vệ môi trường. Lotte kỳ vọng phiên bản năm nay mang ý nghĩa tết trung thu cho khách, tăng giá trị quà Tết đoàn viên."
+    "draft_summary": "Lotte Sài Gòn ra mắt hộp bánh trung thu Lý ngư hóa long với hai phiên bản màu trắng ngà và nâu, gồm 4 loại nhân khác nhau và thức uống hồng sâm Hàn Quốc. Khách sạn sử dụng chất liệu giấy nhẹ bảo vệ môi trường, gửi gắm lời chúc thành công cho người thân. Hộp bánh giới hạn số lượng nhằm tăng giá trị quà tặng dịp Tết đoàn viên.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Lotte Sài Gòn ra mắt hộp bánh trung thu Lý ngư hóa long với hai phiên bản màu trắng ngà và nâu, gồm 4 loại nhân khác nhau và thức uống hồng sâm Hàn Quốc.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "source_text": "BST 'Lý ngư hóa long' gồm hai lựa chọn hộp màu trắng ngà - Deluxe và màu nâu - Premium."
+          },
+          {
+            "sentence_id": 7,
+            "source_text": "Each box includes four flavors with different ingredients."
+          },
+          {
+            "sentence_id": 10,
+            "source_text": "This year, Lotte Sài Gòn introduces a range of fillings including: three-layered filling made from lotus seeds and macadamia nuts; mixed seafood in oyster sauce flavor; mixed chicken stewed with Chinese herbs flavored black pepper style Sichuan cuisine; egg white salt-flavored."
+          },
+          {
+            "sentence_id": 12,
+            "source_text": "'This is a traditional drink that has high nutritional value from the country of kimchi.'"
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "Khách sạn sử dụng chất liệu giấy nhẹ bảo vệ môi trường, gửi gắm lời chúc thành công cho người thân.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 15,
+            "source_text": "'This year, Lotte Sài Gòn also uses lightweight paper for the box to protect the environment.'"
+          },
+          {
+            "sentence_id": 20,
+            "source_text": "That is why this product only produces a limited quantity of boxes in order to increase the value of gifts during Spring Festival reunion."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "Hộp bánh giới hạn số lượng nhằm tăng giá trị quà tặng dịp Tết đoàn viên.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 16,
+            "source_text": "'This is to show the commitment of sustainability and responsibility towards society.'"
+          },
+          {
+            "sentence_id": 19,
+            "source_text": "That is why this product only produces a limited quantity, in order to increase the value of gifts during Spring Festival reunion."
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Hộp bánh trung thu Lý ngư hóa long của Lotte Sài Gòn gồm 4 loại nhân khác nhau và thức uống hồng sâm Hàn Quốc, được gói bằng chất liệu giấy nhẹ bảo vệ môi trường. Hộp bánh giới hạn số lượng nhằm tăng giá trị quà tặng dịp Tết đoàn viên."
   }
 }

@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Group chunks and summarize each chunk",
+          "description": "Group sentences into chunks, then use a language model to generate summaries for each chunk.",
+          "tool": "chunk_text, summarize_chunk",
+          "expected_output": "Một số đoạn tóm tắt ngắn gọn và chính xác từ văn bản gốc."
+        },
+        {
+          "step_id": "step_2",
+          "name": "Merge the summarized chunks into a full summary",
+          "description": "Combine all summaries from step 1 to form one comprehensive and coherent news brief.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản tóm tắt ngắn gọn và chính xác của văn bản gốc, phù hợp với yêu cầu độ dài từ 150-250 từ."
+        },
+        {
+          "step_id": "step_3",
+          "name": "Refine the merged summary for style and accuracy",
+          "description": "Tinh chỉnh ngữ cảnh và phong cách của bản tóm tắt đã được gộp để phù hợp với yêu cầu.",
+          "tool": "refine_summary",
+          "expected_output": "Một bản tóm tắt ngắn gọn, chính xác và có phong cách phù hợp."
+        },
+        {
+          "step_id": "step_4",
+          "name": "Verify the claims in the summary against the original text",
+          "description": "Kiểm tra lại các tuyên bố trong bản tóm tắt để đảm bảo chúng không thay đổi thông tin thực sự và đúng với văn bản gốc.",
+          "tool": "verify_claim",
+          "expected_output": "Bản tóm tắt đã được kiểm chứng, chính xác và phù hợp."
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Ghi chú thêm về việc đảm bảo độ dài của bản tóm tắt nằm trong khoảng từ 150-250 từ"
+    }
+  }
+}

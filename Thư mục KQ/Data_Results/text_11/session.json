@@ -1,5 +1,5 @@
 {
-  "session_id": "46c228ef",
+  "session_id": "38bd21ab",
   "current_phase": "execution",
   "iteration_count": 1,
   "roadmap_version": "v1",
@@ -7,12 +7,12 @@
   "confidence_score": 0.85,
   "style": "news_brief",
   "input_word_count": 698,
-  "created_at": "2026-03-27T19:09:13.807789",
+  "created_at": "2026-03-30T02:23:50.575358",
   "history": [
     {
       "agent": "planner",
       "action": "create_roadmap",
-      "timestamp": "2026-03-27T19:10:24.899542",
+      "timestamp": "2026-03-30T02:24:20.360753",
       "result_summary": "Roadmap v1 created",
       "details": {
         "version": "v1"
@@ -21,13 +21,13 @@
     {
       "agent": "planner_observation",
       "action": "analyze_roadmap",
-      "timestamp": "2026-03-27T19:11:11.080399",
+      "timestamp": "2026-03-30T02:24:50.984192",
       "result_summary": "Observation for v1 complete"
     },
     {
       "agent": "planner_reflection",
       "action": "evaluate_roadmap",
-      "timestamp": "2026-03-27T19:11:32.394015",
+      "timestamp": "2026-03-30T02:24:59.280648",
       "result_summary": "Decision: finalize (confidence: 0.85)",
       "details": {
         "reflection": {
@@ -37,113 +37,32 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và cụ thể, chi tiết. Tuy nhiên, nó thiếu bước xử lý nội dung về bảo tàng gốm Bát Tràng."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T19:11:32.397521",
-      "result_summary": "Step 1 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T19:12:30.558463",
-      "result_summary": "Observation for step 1 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:12:57.193140",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.3,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng' - lời nói của chị Tuyết không có dấu quotation; một số câu được lặp lại.",
-          "reasoning": "Bước thực thi tách câu đạt mức độ tốt về factual consistency và coverage completeness nhưng redundancy score cao cùng với vấn đề length compliance (lack of quotation marks and repetition) nên cần thử lại."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T19:12:57.196140",
-      "result_summary": "Step 1 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T19:13:55.756776",
-      "result_summary": "Observation for step 1 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:14:22.320375",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.3,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng' - lời nói của chị Tuyết không có dấu quotation; một số câu được lặp lại.",
-          "reasoning": "Bước thực thi tách câu đạt mức độ tốt về factual consistency và coverage completeness nhưng redundancy score cao cùng với vấn đề length compliance (lack of quotation marks and repetition) nên cần thử lại."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "split_sentences",
-      "timestamp": "2026-03-27T19:14:22.323376",
-      "result_summary": "Step 1 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T19:15:19.751793",
-      "result_summary": "Observation for step 1 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:15:46.212024",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.3,
-          "length_compliance": false,
-          "decision": "retry",
-          "feedback": "'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng' - lời nói của chị Tuyết không có dấu quotation; một số câu được lặp lại.",
-          "reasoning": "Bước thực thi tách câu đạt mức độ tốt về factual consistency và coverage completeness nhưng redundancy score cao cùng với vấn đề length compliance (lack of quotation marks and repetition) nên cần thử lại."
+          "reasoning": "Roadmap bao gồm các bước chính cần thiết và đã sử dụng verify_claim để kiểm chứng thông tin cuối cùng, cho phép hạn chế rủi ro hallucination. Tuy nhiên, roadmap thiếu hai bước quan trọng là verify_claim và xử lý nội dung về bảo tàng gốm Bát Trang."
         }
       }
     },
     {
       "agent": "execution",
       "action": "chunking",
-      "timestamp": "2026-03-27T19:15:46.241091",
+      "timestamp": "2026-03-30T02:24:59.308687",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-30T02:25:19.329495",
       "result_summary": "Step 2 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T19:16:39.262756",
+      "timestamp": "2026-03-30T02:25:40.484934",
       "result_summary": "Observation for step 2 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:17:02.716072",
+      "timestamp": "2026-03-30T02:25:50.164299",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -152,27 +71,27 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về việc dọn dẹp nhà cửa sau ngập nước.",
-          "reasoning": "Bước hiện tại đã hoàn thành với độ chính xác và đầy đủ đạt yêu cầu (factual consistency: 0.9), tuy nhiên vẫn còn một số vấn đề nhỏ như redundancy score thấp hơn mong đợi."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Bước thực thi đã tóm tắt thành công hai đoạn văn với tiêu chuẩn news_brief và độ chính xác là chấp nhậnable nhưng có một số chi tiết nhỏ bị thiếu hoặc không hoàn toàn phù hợp. Đây là bước cuối cùng nên tiếp tục tiến trình."
         }
       }
     },
     {
       "agent": "execution",
-      "action": "chunk_summarize",
-      "timestamp": "2026-03-27T19:17:53.845244",
+      "action": "merge",
+      "timestamp": "2026-03-30T02:26:04.441103",
       "result_summary": "Step 3 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T19:18:36.447484",
+      "timestamp": "2026-03-30T02:26:18.203472",
       "result_summary": "Observation for step 3 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:18:56.359232",
+      "timestamp": "2026-03-30T02:26:26.524221",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -181,114 +100,27 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bước thực thi đã hoàn thành với chất lượng tốt và đây là bước cuối cùng nên tiếp tục tiến trình."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-27T19:19:26.019667",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T19:20:05.482311",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:20:29.840780",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về cửa hàng của chị Lan và bảo tàng Bát Tràng.",
-          "reasoning": "Bản tóm tắt đạt chất lượng tốt nhưng có một số chi tiết nhỏ bị lược bỏ như việc cửa hàng sẵn sàng đón khách và bảo tàng mở cửa từ 2018. Đây là bước cuối cùng nên cần hoàn thiện các điểm này."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-27T19:20:59.401330",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T19:21:38.662296",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:22:03.274388",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về cửa hàng của chị Lan và bảo tàng Bát Tràng.",
-          "reasoning": "Bản tóm tắt đạt chất lượng tốt nhưng có một số chi tiết nhỏ bị lược bỏ như việc cửa hàng sẵn sàng đón khách và bảo tàng mở cửa từ 2018. Đây là bước cuối cùng nên cần hoàn thiện các điểm này."
-        }
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "timestamp": "2026-03-27T19:22:33.403861",
-      "result_summary": "Step 4 completed"
-    },
-    {
-      "agent": "execution_observation",
-      "action": "analyze_step",
-      "timestamp": "2026-03-27T19:23:13.989013",
-      "result_summary": "Observation for step 4 complete"
-    },
-    {
-      "agent": "execution_reflection",
-      "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:23:39.920438",
-      "result_summary": "Decision: retry",
-      "details": {
-        "reflection": {
-          "factual_consistency": 0.8,
-          "coverage_completeness": 0.75,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "retry",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về cửa hàng của chị Lan và bảo tàng Bát Tràng.",
-          "reasoning": "Bản tóm tắt đạt chất lượng tốt nhưng có một số chi tiết nhỏ bị lược bỏ như việc cửa hàng sẵn sàng đón khách và bảo tàng mở cửa từ 2018. Đây là bước cuối cùng nên cần hoàn thiện các điểm này."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng không hoàn thiện về độ bao quát và cần thêm chi tiết từ 'issues_found' và 'quality_assessment'. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt với tóm tắt ngắn gọn chính xác các điểm quan trọng, nhưng vẫn còn vấn đề về độ bao quát (coverage completeness) và cần bổ sung chi tiết từ 'issues_found' và 'quality_assessment'."
         }
       }
     },
     {
       "agent": "execution",
       "action": "refine",
-      "timestamp": "2026-03-27T19:24:19.648710",
-      "result_summary": "Step 5 completed"
+      "timestamp": "2026-03-30T02:26:44.026682",
+      "result_summary": "Step 4 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T19:24:55.152713",
-      "result_summary": "Observation for step 5 complete"
+      "timestamp": "2026-03-30T02:26:58.068517",
+      "result_summary": "Observation for step 4 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:25:15.912982",
+      "timestamp": "2026-03-30T02:27:05.560568",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -297,27 +129,62 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Bản tóm tắt đạt chất lượng tốt và bao quát đầy đủ thông tin từ văn bản gốc nhưng có độ dài hợp lý nên tiếp tục bước kế."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Output đạt chất lượng tốt nhưng chỉ tóm tắt lại thông tin đã có trong văn bản gốc, không chứa fact mới. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Output đạt chất lượng tốt với độ chính xác cao và giữ nguyên thông tin từ văn bản gốc nhưng chưa tạo ra bất kỳ sự kiện mới nào."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-30T02:27:28.500472",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-30T02:27:38.542235",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-30T02:28:05.919387",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-30T02:28:16.358689",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định là chất lượng chưa đạt yêu cầu (factual < 0.8 hoặc coverage < 0.7) và có vấn đề nghiêm trọng trong 'issues_found'. Cần cải thiện thông tin về các chủ hàng chưa mở lại vì ngập nhà."
         }
       }
     },
     {
       "agent": "execution",
       "action": "edit",
-      "timestamp": "2026-03-27T19:25:41.053018",
+      "timestamp": "2026-03-30T02:28:27.824097",
       "result_summary": "Step 6 completed"
     },
     {
       "agent": "execution_observation",
       "action": "analyze_step",
-      "timestamp": "2026-03-27T19:26:20.488400",
+      "timestamp": "2026-03-30T02:28:50.743048",
       "result_summary": "Observation for step 6 complete"
     },
     {
       "agent": "execution_reflection",
       "action": "evaluate_step",
-      "timestamp": "2026-03-27T19:26:43.797883",
+      "timestamp": "2026-03-30T02:29:00.085790",
       "result_summary": "Decision: next_step",
       "details": {
         "reflection": {
@@ -326,145 +193,19 @@
           "redundancy_score": 0.1,
           "length_compliance": true,
           "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về thời điểm mở cửa của Bảo tàng Bát Tràng.",
-          "reasoning": "Bước hiện tại đã hoàn thành tốt với mức độ nhất quán fact và bao quát cao. Tuy nhiên, có một số thông tin chưa đầy đủ nên tiếp tục để cập nhật."
+          "feedback": "[VÔ CÙNG QUAN TRỌNG] Tổng hợp chi tiết các lỗi từ 'issues_found' và 'quality_assessment'. Ghi rõ Execution Agent cần bổ sung gì, sửa gì. Tuyệt đối không copy lại câu mẫu này.",
+          "reasoning": "Lý do quyết định dựa trên observation: Chất lượng tốt (factual consistency ≥ 0.8 và coverage completeness ≥ 0.7) nhưng vẫn có một số chi tiết nhỏ chưa chính xác hoặc thiếu, nên tiếp tục thực hiện bước."
         }
       }
     },
     {
       "agent": "manager",
       "action": "workflow_complete",
-      "timestamp": "2026-03-27T19:26:43.802403",
+      "timestamp": "2026-03-30T02:29:00.090301",
       "result_summary": "Hoàn thành toàn bộ workflow"
     }
   ],
   "data_store": {
-    "sentences": [
-      {
-        "sentence_id": 1,
-        "text": "Bên lề đường khu vực Chiêm Mai, nơi có nhiều xưởng làm gốm, các mặt hàng bị ngâm nước vẫn còn bùn đất bám lại."
-      },
-      {
-        "sentence_id": 2,
-        "text": "Những sản phẩm còn sử dụng được người dân mang ra phơi nắng."
-      },
-      {
-        "sentence_id": 3,
-        "text": "Bên lề đường khu vực Chiêm Mai, nơi có nhiều xưởng làm gốm, các mặt hàng bị ngâm nước vẫn còn bùn đất bám lại."
-      },
-      {
-        "sentence_id": 4,
-        "text": "Những sản phẩm còn sử dụng được người dân mang ra phơi nắng."
-      },
-      {
-        "sentence_id": 5,
-        "text": "Trong chợ gốm, nhiều cửa hàng quây bạt, chưa mở cửa lại."
-      },
-      {
-        "sentence_id": 6,
-        "text": "'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng', chị Tuyết, chủ một cửa hàng, nói."
-      },
-      {
-        "sentence_id": 7,
-        "text": "Trong chợ gốm, nhiều cửa hàng quây bạt, chưa mở cửa lại."
-      },
-      {
-        "sentence_id": 8,
-        "text": "'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng', chị Tuyết, chủ một cửa hàng, nói."
-      },
-      {
-        "sentence_id": 9,
-        "text": "Chị Lan, chủ một cửa hàng trong chợ, cho biết nhà chị không bị thiệt hại nặng nên dọn hàng ra sớm để đón khách."
-      },
-      {
-        "sentence_id": 10,
-        "text": "'Ngày thường ít khách lui tới nhưng đông vào dịp cuối tuần', chị Lan nói."
-      },
-      {
-        "sentence_id": 11,
-        "text": "Chị Lan, chủ một cửa hàng trong chợ, cho biết nhà chị không bị thiệt hại nặng nên dọn hàng ra sớm để đón khách."
-      },
-      {
-        "sentence_id": 12,
-        "text": "'Ngày thường ít khách lui tới nhưng đông vào dịp cuối tuần', chị Lan nói."
-      },
-      {
-        "sentence_id": 13,
-        "text": "Cửa hàng nặn gốm của chị Lan đã sẵn sàng đón khách hàng đến trải nghiệm."
-      },
-      {
-        "sentence_id": 14,
-        "text": "Cửa hàng nặn gốm của chị Lan đã sẵn sàng đón khách hàng đến trải nghiệm."
-      },
-      {
-        "sentence_id": 15,
-        "text": "Các gian hàng mở lại với lác đác du khách tới tham quan, mua sắm - trái với khung cảnh tấp nập mỗi dịp lễ, Tết khi mặt hàng gốm sứ được nhiều người tìm mua."
-      },
-      {
-        "sentence_id": 16,
-        "text": "Các gian hàng mở lại với lác đác du khách tới tham quan, mua sắm - trái với khung cảnh tấp nập mỗi dịp lễ, Tết khi mặt hàng gốm sứ được nhiều người tìm mua."
-      },
-      {
-        "sentence_id": 17,
-        "text": "Bảo tàng gốm Bát Tràng nằm gần ngoài đê, trước khi vào làng gốm, cũng đã mở cửa sẵn sàng đón khách."
-      },
-      {
-        "sentence_id": 18,
-        "text": "Bảo tàng được xây dựng từ năm 2018 với kinh phí 150 tỷ đồng, là 'trung tâm tinh hoa làng nghề Việt'."
-      },
-      {
-        "sentence_id": 19,
-        "text": "Bảo tàng gốm Bát Tràng nằm gần ngoài đê, trước khi vào làng gốm, cũng đã mở cửa sẵn sàng đón khách."
-      },
-      {
-        "sentence_id": 20,
-        "text": "Bảo tàng được xây dựng từ năm 2018 với kinh phí 150 tỷ đồng, là 'trung tâm tinh hoa làng nghề Việt'."
-      },
-      {
-        "sentence_id": 21,
-        "text": "Bên trong bảo tàng có thiết kế độc đáo, nhiều tầng với các chuyên đề khác nhau về lịch sử hình thành, phát triển cũng như các loại hình gốm tại Bát Tràng."
-      },
-      {
-        "sentence_id": 22,
-        "text": "'Đến làng gốm để có trải nghiệm thú vị, thay đổi không khí và tìm hiểu về gốm truyền thống', Phạm Hoàng Hiệu, Thanh Xuân, Hà Nội, cho biết khi đến đây sau những ngày phải ở nhà vì mưa lụt."
-      },
-      {
-        "sentence_id": 23,
-        "text": "Bên trong bảo tàng có thiết kế độc đáo, nhiều tầng với các chuyên đề khác nhau về lịch sử hình thành, phát triển cũng như các loại hình gốm tại Bát Tràng."
-      },
-      {
-        "sentence_id": 24,
-        "text": "'Đến làng gốm để có trải nghiệm thú vị, thay đổi không khí và tìm hiểu về gốm truyền thống', Phạm Hoàng Hiệu, Thanh Xuân, Hà Nội, cho biết khi đến đây sau những ngày phải ở nhà vì mưa lụt."
-      },
-      {
-        "sentence_id": 25,
-        "text": "Đình làng Bát Tràng hơn 300 tuổi không bị ảnh hưởng sau trận lụt."
-      },
-      {
-        "sentence_id": 26,
-        "text": "Đình được coi là 'báu vật đi cùng năm tháng' ở làng, hiện lưu giữ hơn 50 đạo sắc phong."
-      },
-      {
-        "sentence_id": 27,
-        "text": "Đình Bát Tràng được Bộ Văn hóa Thể thao và Du lịch cấp bằng Di tích văn hóa kiến trúc nghệ thuật năm 2005."
-      },
-      {
-        "sentence_id": 28,
-        "text": "Đình làng Bát Tràng hơn 300 tuổi không bị ảnh hưởng sau trận lụt."
-      },
-      {
-        "sentence_id": 29,
-        "text": "Đình được coi là 'báu vật đi cùng năm tháng' ở làng, hiện lưu giữ hơn 50 đạo sắc phong."
-      },
-      {
-        "sentence_id": 30,
-        "text": "Đình Bát Tràng được Bộ Văn hóa Thể thao và Du lịch cấp bằng Di tích văn hóa kiến trúc nghệ thuật năm 2005."
-      },
-      {
-        "sentence_id": 31,
-        "text": "Hoàng Giang"
-      }
-    ],
     "chunks": [
       {
         "chunk_id": 1,
@@ -534,8 +275,8 @@
           16,
           17
         ],
-        "summary": "Các mặt hàng gốm ở Chiêm Mai vẫn còn bùn đất, người dân phơi nắng. Nhiều cửa hàng chợ gốm chưa mở lại do phải dọn nhà cửa bị ngập trước đó; một số đã sẵn sàng đón khách. Bảo tàng gốm Bát Tràng cũng mở cửa đón khách, trái với cảnh tấp nập mỗi dịp lễ Tết khi mặt hàng này được nhiều người tìm mua.",
-        "word_count": 53
+        "summary": "Các mặt hàng gốm ở Chiêm Mai vẫn còn bùn đất, người dân phơi nắng sản phẩm dùng được. Nhiều cửa hàng chợ gốm chưa mở lại vì dọn nhà cửa bị ngập trước đó; một số chủ hàng đã sẵn sàng đón khách vào cuối tuần. Khung cảnh chợ gốm hiện tại ít du khách so với lễ Tết khi mặt hàng này được nhiều người tìm mua, Bảo tàng gốm Bát Tràng cũng mở cửa đón khách.",
+        "word_count": 62
       },
       {
         "chunk_id": 2,
@@ -555,13 +296,55 @@
           30,
           31
         ],
-        "summary": "Bảo tàng gốm Bát Tràng, xây dựng từ 2018 với kinh phí 150 tỷ đồng, là trung tâm trưng bày về làng nghề Việt. Bảo tàng có thiết kế độc đáo nhiều tầng với chuyên đề lịch sử và các loại hình gốm tại Bát Tràng. Du khách đến trải nghiệm thú vị thay đổi không khí tìm hiểu về gốm truyền thống. Đình Bát Tràng 300 tuổi vẫn tồn tại sau lụt, lưu giữ đạo sắc phong hơn 50 đạo và được cấp bằng Di tích năm 2005.",
-        "word_count": 62
+        "summary": "Bảo tàng gốm Bát Tràng, xây dựng từ 2018 với kinh phí 150 tỷ đồng và có thiết kế độc đáo đa tầng về lịch sử và các loại hình gốm tại làng. Đình làng hơn 300 tuổi không bị ảnh hưởng sau trận lụt, hiện lưu giữ đạo sắc phong và được cấp bằng Di tích văn hóa năm 2005.",
+        "word_count": 45
       }
     ],
-    "merged_summary": "Các mặt hàng gốm ở Chiêm Mai vẫn còn bùn đất, người dân phơi nắng. Bảo tàng gốm Bát Tràng mở cửa đón khách sau khi hoàn thành từ 2018 với kinh phí 150 tỷ đồng và thiết kế độc đáo nhiều tầng chuyên về lịch sử làng nghề Việt, gồm các loại hình gốm tại Bát Tràng. Đình Bát Tràng 300 tuổi vẫn tồn tại sau lụt, lưu giữ đạo sắc phong hơn 50 đạo và được cấp bằng Di tích năm 2005.",
-    "refined_summary": "Các mặt hàng gốm ở Chiêm Mai vẫn còn bùn đất, người dân phơi nắng. Bảo tàng gốm Bát Tràng mở cửa đón khách sau khi hoàn thành từ 2018 với kinh phí 150 tỷ đồng và thiết kế độc đáo nhiều tầng chuyên về lịch sử làng nghề Việt. Đình Bát Tràng 300 tuổi vẫn tồn tại sau lụt, lưu giữ đạo sắc phong hơn 50 đạo và được cấp bằng Di tích năm 2005.",
-    "edited_summary": "Các mặt hàng gốm Chiêm Mai vẫn còn bùn đất, người dân phơi nắng. Bảo tàng Bát Tràng mở cửa sau 2018 với kinh phí 150 tỷ đồng và thiết kế độc đáo nhiều tầng chuyên về lịch sử làng nghề Việt. Đình Bát Tràng 300 tuổi lưu giữ đạo sắc phong hơn 50 đạo, được cấp bằng Di tích năm 2005 sau lụt."
+    "merged_summary": "Các mặt hàng gốm ở Chiêm Mai vẫn còn bùn đất, người dân phơi nắng sản phẩm dùng được. Nhiều cửa hàng chợ gốm chưa mở lại vì dọn nhà cửa bị ngập trước đó; một số chủ hàng đã sẵn sàng đón khách vào cuối tuần. Bảo tàng gốm Bát Tràng, xây dựng từ 2018 với kinh phí 150 tỷ đồng và có thiết kế độc đáo đa tầng về lịch sử và các loại hình gốm tại làng, hiện lưu giữ đạo sắc phong và được cấp bằng Di tích văn hóa năm 2005. Khung cảnh chợ gốm ít du khách so với lễ Tết khi mặt hàng này được nhiều người tìm mua.",
+    "refined_summary": "Người dân phơi nắng các mặt hàng gốm còn bùn đất ở Chiêm Mai. Nhiều cửa hàng chợ gốm chưa mở lại do dọn nhà bị ngập, nhưng một số chủ đã sẵn sàng đón khách cuối tuần. Bảo tàng gốm Bát Tràng tại làng nghề Việt được xây dựng từ 2018 với kinh phí 150 tỷ đồng và thiết kế độc đáo về lịch sử và các loại hình gốm sứ, hiện lưu giữ đạo sắc phong và đã cấp bằng Di tích văn hóa năm 2005.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Người dân phơi nắng các mặt hàng gốm còn bùn đất ở Chiêm Mai.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 3
+          },
+          {
+            "sentence_id": 5
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Một số cửa hàng chợ gốm chưa mở lại do dọn nhà bị ngập, nhưng một số chủ đã sẵn sàng đón khách cuối tuần.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 6
+          },
+          {
+            "sentence_id": 10
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_text": "Bảo tàng gốm Bát Tràng tại làng nghề Việt được xây dựng từ 2018 với kinh phí 150 tỷ đồng và thiết kế độc đáo về lịch sử và các loại hình gốm sứ, hiện lưu giữ đạo sắc phong và đã cấp bằng Di tích văn hóa năm 2005.",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 18
+          },
+          {
+            "sentence_id": 30
+          }
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "edited_summary": "Người dân Chiêm Mai phơi nắng hàng gốm còn bùn đất. Nhiều cửa hàng chợ gốm chưa mở lại vì dọn nhà bị ngập, nhưng một số chủ đã sẵn sàng đón khách cuối tuần. Bảo tàng gốm Bát Tràng được xây dựng từ 2018 với kinh phí 150 tỷ đồng và thiết kế độc đáo về lịch sử và các loại hình gốm sứ, hiện lưu giữ đạo sắc phong và cấp bằng Di tích văn hóa năm 2005."
   },
   "stats": {
     "planner_loop": 0,
@@ -573,5 +356,5 @@
     "chunks": 0
   },
   "input_text": "Bên lề đường khu vực Chiêm Mai, nơi có nhiều xưởng làm gốm, các mặt hàng bị ngâm nước vẫn còn bùn đất bám lại. Những sản phẩm còn sử dụng được người dân mang ra phơi nắng. Bên lề đường khu vực Chiêm Mai, nơi có nhiều xưởng làm gốm, các mặt hàng bị ngâm nước vẫn còn bùn đất bám lại. Những sản phẩm còn sử dụng được người dân mang ra phơi nắng. Trong chợ gốm, nhiều cửa hàng quây bạt, chưa mở cửa lại. 'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng', chị Tuyết, chủ một cửa hàng, nói. Trong chợ gốm, nhiều cửa hàng quây bạt, chưa mở cửa lại. 'Nhiều chủ hàng chưa mở lại do phải dọn dẹp nhà cửa bị ngập trước đó, chưa có thời gian dọn cửa hàng', chị Tuyết, chủ một cửa hàng, nói. Chị Lan, chủ một cửa hàng trong chợ, cho biết nhà chị không bị thiệt hại nặng nên dọn hàng ra sớm để đón khách. 'Ngày thường ít khách lui tới nhưng đông vào dịp cuối tuần', chị Lan nói. Chị Lan, chủ một cửa hàng trong chợ, cho biết nhà chị không bị thiệt hại nặng nên dọn hàng ra sớm để đón khách. 'Ngày thường ít khách lui tới nhưng đông vào dịp cuối tuần', chị Lan nói. Cửa hàng nặn gốm của chị Lan đã sẵn sàng đón khách hàng đến trải nghiệm. Cửa hàng nặn gốm của chị Lan đã sẵn sàng đón khách hàng đến trải nghiệm. Các gian hàng mở lại với lác đác du khách tới tham quan, mua sắm - trái với khung cảnh tấp nập mỗi dịp lễ, Tết khi mặt hàng gốm sứ được nhiều người tìm mua. Các gian hàng mở lại với lác đác du khách tới tham quan, mua sắm - trái với khung cảnh tấp nập mỗi dịp lễ, Tết khi mặt hàng gốm sứ được nhiều người tìm mua. Bảo tàng gốm Bát Tràng nằm gần ngoài đê, trước khi vào làng gốm, cũng đã mở cửa sẵn sàng đón khách. Bảo tàng được xây dựng từ năm 2018 với kinh phí 150 tỷ đồng, là 'trung tâm tinh hoa làng nghề Việt'. Bảo tàng gốm Bát Tràng nằm gần ngoài đê, trước khi vào làng gốm, cũng đã mở cửa sẵn sàng đón khách. Bảo tàng được xây dựng từ năm 2018 với kinh phí 150 tỷ đồng, là 'trung tâm tinh hoa làng nghề Việt'. Bên trong bảo tàng có thiết kế độc đáo, nhiều tầng với các chuyên đề khác nhau về lịch sử hình thành, phát triển cũng như các loại hình gốm tại Bát Tràng. 'Đến làng gốm để có trải nghiệm thú vị, thay đổi không khí và tìm hiểu về gốm truyền thống', Phạm Hoàng Hiệu, Thanh Xuân, Hà Nội, cho biết khi đến đây sau những ngày phải ở nhà vì mưa lụt. Bên trong bảo tàng có thiết kế độc đáo, nhiều tầng với các chuyên đề khác nhau về lịch sử hình thành, phát triển cũng như các loại hình gốm tại Bát Tràng. 'Đến làng gốm để có trải nghiệm thú vị, thay đổi không khí và tìm hiểu về gốm truyền thống', Phạm Hoàng Hiệu, Thanh Xuân, Hà Nội, cho biết khi đến đây sau những ngày phải ở nhà vì mưa lụt. Đình làng Bát Tràng hơn 300 tuổi không bị ảnh hưởng sau trận lụt. Đình được coi là 'báu vật đi cùng năm tháng' ở làng, hiện lưu giữ hơn 50 đạo sắc phong. Đình Bát Tràng được Bộ Văn hóa Thể thao và Du lịch cấp bằng Di tích văn hóa kiến trúc nghệ thuật năm 2005. Đình làng Bát Tràng hơn 300 tuổi không bị ảnh hưởng sau trận lụt. Đình được coi là 'báu vật đi cùng năm tháng' ở làng, hiện lưu giữ hơn 50 đạo sắc phong. Đình Bát Tràng được Bộ Văn hóa Thể thao và Du lịch cấp bằng Di tích văn hóa kiến trúc nghệ thuật năm 2005. Hoàng Giang",
-  "last_updated": "2026-03-27T19:25:41.049513"
+  "last_updated": "2026-03-30T02:28:27.822427"
 }

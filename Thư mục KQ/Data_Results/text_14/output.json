@@ -1,36 +1,16 @@
 {
-  "summary": "Đông Dương lối kiến trúc và món ăn truyền thống tạo ấn tượng tốt cho 4.500 du khách Ấn Độ đến Grand Mercure Hanoi ngày 28/8, thu hút bởi cảnh quan đẹp, văn hóa đa dạng và lịch sử sâu lắng của Việt Nam.",
+  "summary": "Hanoi chào đón 4.500 du khách Ấn Độ với kiến trúc Đông Dương và văn hóa truyền thống, thu hút nhờ cảnh quan đẹp, đa dạng văn hóa và lịch sử sâu sắc của Việt Nam.",
   "style": "news_brief",
-  "word_count": 29,
+  "word_count": 22,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
-      "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -39,45 +19,45 @@
       "step_id": "step_2",
       "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
       }
     },
     {
       "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "merge",
-      "step_id": "step_3",
-      "evidence": "Step 3: Gộp các bản tóm tắt lại thành một bản tổng thể",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
+      "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Tinh chỉnh phong cách và kiểm chứng thông tin",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng kết",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -89,8 +69,8 @@
       "step_id": "step_5",
       "evidence": "Step 5: Kiểm chứng (verification)",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -107,50 +87,114 @@
   "verification_report": [
     {
       "claim_id": 1,
-      "claim_text": "Việt Nam với cảnh quan đẹp, văn hóa đa dạng và lịch sử sâu lắng thu hút 4.500 du khách Ấn Độ đến Grand Mercure Hanoi vào ngày 28/8",
+      "claim_text": "Hanoi đón 4.500 du khách Ấn Độ",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 12,
+          "source_text": "'From August 27 to September 3, Vietnam welcomed 4.\n500 Indian tourists from a large pharmaceutical company'"
+        }
+      ],
+      "confidence": 0.98
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "du khách Ấn Độ sang Việt Nam",
       "status": "pass",
       "evidence": [
         {
           "sentence_id": 13,
-          "source_text": "'Dự kiến, họ sẽ chia thành các nhóm nhỏ tới Hà Nội - Ninh Bình - Hạ Long và sử dụng các dịch vụ lưu trú, ăn uống tại các khách sạn 5 sao trên địa bàn thủ đô.'"
-        },
-        {
-          "sentence_id": 14,
-          "source_text": "'Dự kiến, họ sẽ chia thành các nhóm nhỏ tới Hà Nội - Ninh Bình - Hạ Long và sử dụng các dịch vụ lưu trú, ăn uống tại các khách sạn 5 sao trên địa bàn thủ đô.'"
-        },
-        {
-          "sentence_id": 20,
-          "source_text": "'Việt Nam sở hữu những cảnh quan đẹp, nền văn hóa đa dạng và chiều sâu lịch sử.'"
+          "source_text": "'From August 27 to September 3, Vietnam welcomed\n4.\n500 Indian tourists from a large pharmaceutical company'"
         }
       ],
-      "confidence": 1.0
+      "confidence": 0.98
+    },
+    {
+      "claim_id": 3,
+      "claim_text": "Việt Nam hấp dẫn nhờ cảnh quan đẹp",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 21,
+          "source_text": "'Competitive service prices make Vietnam a\nideal destination for Indian tourists'"
+        }
+      ],
+      "confidence": 0.97
+    },
+    {
+      "claim_id": 4,
+      "claim_text": "văn hóa đa dạng và lịch sử sâu lắng",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 21,
+          "source_text": "'Competitive service prices make Vietnam a\nideal destination for Indian tourists'"
+        },
+        {
+          "sentence_id": 15,
+          "source_text": "India is one of the top ten international tourist markets in Vietnam."
+        }
+      ],
+      "confidence": 0.96
     }
   ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Việt Nam với cảnh quan đẹp, văn hóa đa dạng và lịch sử sâu lắng thu hút 4.500 du khách Ấn Độ đến Grand Mercure Hanoi vào ngày 28/8; lối kiến trúc Đông Dương và món ăn truyền thống góp phần tạo ấn tượng tốt đẹp.",
+    "draft_summary": "Hanoi đón 4.500 du khách Ấn Độ với lối kiến trúc Đông Dương và món ăn truyền thống; Việt Nam hấp dẫn nhờ cảnh quan đẹp, văn hóa đa dạng và lịch sử sâu lắng.",
     "verification": [
       {
         "claim_id": 1,
-        "claim_text": "Việt Nam với cảnh quan đẹp, văn hóa đa dạng và lịch sử sâu lắng thu hút 4.500 du khách Ấn Độ đến Grand Mercure Hanoi vào ngày 28/8",
+        "claim_text": "Hanoi đón 4.500 du khách Ấn Độ",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 12,
+            "source_text": "'From August 27 to September 3, Vietnam welcomed 4.\n500 Indian tourists from a large pharmaceutical company'"
+          }
+        ],
+        "confidence": 0.98
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "du khách Ấn Độ sang Việt Nam",
         "status": "pass",
         "evidence": [
           {
             "sentence_id": 13,
-            "source_text": "'Dự kiến, họ sẽ chia thành các nhóm nhỏ tới Hà Nội - Ninh Bình - Hạ Long và sử dụng các dịch vụ lưu trú, ăn uống tại các khách sạn 5 sao trên địa bàn thủ đô.'"
-          },
-          {
-            "sentence_id": 14,
-            "source_text": "'Dự kiến, họ sẽ chia thành các nhóm nhỏ tới Hà Nội - Ninh Bình - Hạ Long và sử dụng các dịch vụ lưu trú, ăn uống tại các khách sạn 5 sao trên địa bàn thủ đô.'"
-          },
-          {
-            "sentence_id": 20,
-            "source_text": "'Việt Nam sở hữu những cảnh quan đẹp, nền văn hóa đa dạng và chiều sâu lịch sử.'"
+            "source_text": "'From August 27 to September 3, Vietnam welcomed\n4.\n500 Indian tourists from a large pharmaceutical company'"
           }
         ],
-        "confidence": 1.0
+        "confidence": 0.98
+      },
+      {
+        "claim_id": 3,
+        "claim_text": "Việt Nam hấp dẫn nhờ cảnh quan đẹp",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 21,
+            "source_text": "'Competitive service prices make Vietnam a\nideal destination for Indian tourists'"
+          }
+        ],
+        "confidence": 0.97
+      },
+      {
+        "claim_id": 4,
+        "claim_text": "văn hóa đa dạng và lịch sử sâu lắng",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 21,
+            "source_text": "'Competitive service prices make Vietnam a\nideal destination for Indian tourists'"
+          },
+          {
+            "sentence_id": 15,
+            "source_text": "India is one of the top ten international tourist markets in Vietnam."
+          }
+        ],
+        "confidence": 0.96
       }
     ],
-    "edited_summary": "Đông Dương lối kiến trúc và món ăn truyền thống tạo ấn tượng tốt cho 4.500 du khách Ấn Độ đến Grand Mercure Hanoi ngày 28/8, thu hút bởi cảnh quan đẹp, văn hóa đa dạng và lịch sử sâu lắng của Việt Nam."
+    "edited_summary": "Hanoi chào đón 4.500 du khách Ấn Độ với kiến trúc Đông Dương và văn hóa truyền thống, thu hút nhờ cảnh quan đẹp, đa dạng văn hóa và lịch sử sâu sắc của Việt Nam."
   }
 }

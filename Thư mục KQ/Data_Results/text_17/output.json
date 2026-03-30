@@ -1,13 +1,63 @@
 {
-  "summary": "",
+  "summary": "Malaysia nổi tiếng với Kuala Lumpur và George Town di sản thế giới, Langkawi bãi biển hoang sơ, Cameron Highlands khí hậu mát mẻ cho trekking. Nasi Lemak và hủ tiếu Char Kway Teow là hai món ăn hấp dẫn du khách, Roti Canai của cộng đồng người Ấn cũng được yêu thích với hương vị thơm ngon giòn tan.",
   "style": "news_brief",
-  "word_count": 0,
+  "word_count": 40,
   "trace": [
     {
       "agent": "execution",
-      "action": "split_sentences",
+      "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Tách văn bản thành câu và nhóm chunk",
+      "evidence": "Step 1: Group Sentences into Chunks",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Summarize Each Chunk with LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Merge Summaries into a Single Summary",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Refine the Summary to Improve Style and Clarity",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "step_id": "step_5",
+      "evidence": "Step 5: Verify Claims Against Original Text to Ensure Accuracy and Integrity",
+      "reflection_scores": {
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "step_id": "step_6",
+      "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -17,8 +67,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": null,
+    "draft_summary": "Malaysia, với Kuala Lumpur nổi tiếng bởi tháp đôi Petronas và George Town di sản thế giới tại Penang, Langkawi bãi biển hoang sơ cùng Cameron Highlands khí hậu mát mẻ thích hợp cho trekking. Nasi Lemak và hủ tiếu Char Kway Teow là hai món ăn hấp dẫn du khách Malaysia, trong đó Roti Canai của cộng đồng người Ấn cũng được yêu thích với hương vị thơm ngon giòn tan.",
     "verification": null,
-    "edited_summary": null
+    "edited_summary": "Malaysia nổi tiếng với Kuala Lumpur và George Town di sản thế giới, Langkawi bãi biển hoang sơ, Cameron Highlands khí hậu mát mẻ cho trekking. Nasi Lemak và hủ tiếu Char Kway Teow là hai món ăn hấp dẫn du khách, Roti Canai của cộng đồng người Ấn cũng được yêu thích với hương vị thơm ngon giòn tan."
   }
 }

@@ -1,77 +1,70 @@
 {
-  "generated_at": "2026-03-28T00:08:23.389875",
-  "total_entries": 115,
+  "generated_at": "2026-03-30T04:37:07.221611",
+  "total_entries": 45,
   "none_count": 0,
   "logs": [
     {
-      "timestamp": "2026-03-27T23:56:32.588613",
+      "timestamp": "2026-03-30T04:36:42.167280",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 491 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, khôn",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.\",\n        \"tool\": null,\n        \"expected_output\": \"Mảng chứa danh sách các chunk\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt mỗi chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Mảng chứa danh sách các bản tóm tắt\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một summary lớn\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Summary lớn\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho summary lớn\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Summary đã refinement\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề của summary lớn so với văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Summary đã refinement và được verification\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping chunks and summarizing them\",\n        \"description\": \"Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.\",\n        \"tool\": \"chunk_text, summarize_chunk\",\n        \"expected_output\": \"A list of summarized chunks\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Merging the summaries\",\n        \"description\": \"Use merge_summaries function on all generated summaries to create a single comprehensive summary.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"A final summarized text\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Refining the summary\",\n        \"description\": \"Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"A refined summarized text\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Verification process\",\n        \"description\": \"Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"A confirmation that the summary is accurate\"\n      }\n    ],\n    \"total_steps\": 4,\n    \"notes\": \"Ensure each step follows closely after previous steps to build a coherent roadmap.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:56:32.588613",
+      "timestamp": "2026-03-30T04:36:42.167280",
       "step_name": "Planner Agent._call_llm",
       "agent_name": "Planner Agent",
       "phase": "agent_llm_call",
       "input_summary": "### Nhiệm vụ\nXây dựng một roadmap chi tiết để tóm tắt văn bản tiếng Việt bên dưới.\n\n### Thông tin đầu vào\n- Độ dài văn bản: 491 từ\n- Phong cách tóm tắt: news_brief\n- Ràng buộc output: 150–250 từ, không quá 20% độ dài input\n- Chế độ: abstractive nhưng fact-grounded (cho phép diễn giải lại nhưng KHÔNG",
-      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.\",\n        \"tool\": null,\n        \"expected_output\": \"Mảng chứa danh sách các chunk\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Tóm tắt mỗi chunk bằng LLM\",\n        \"description\": \"Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.\",\n        \"tool\": \"summarize_chunk\",\n        \"expected_output\": \"Mảng chứa danh sách các bản tóm tắt\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Gộp nhiều bản tóm tắt lại thành một summary lớn\",\n        \"description\": \"Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"Summary lớn\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Tinh chỉnh phong cách cho summary lớn\",\n        \"description\": \"Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"Summary đã refinement\"\n      },\n      {\n        \"step_id\": \"step_5\",\n        \"name\": \"Kiểm chứng mệnh đề của summary lớn so với văn bản gốc\",\n        \"description\": \"Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"Summary đã refinement và được verification\"\n      }\n    ],\n    \"total_steps\": 5,\n    \"notes\": \"Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap.\"\n  }\n}\n```",
+      "output_data": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping chunks and summarizing them\",\n        \"description\": \"Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.\",\n        \"tool\": \"chunk_text, summarize_chunk\",\n        \"expected_output\": \"A list of summarized chunks\"\n      },\n      {\n        \"step_id\": \"step_2\",\n        \"name\": \"Merging the summaries\",\n        \"description\": \"Use merge_summaries function on all generated summaries to create a single comprehensive summary.\",\n        \"tool\": \"merge_summaries\",\n        \"expected_output\": \"A final summarized text\"\n      },\n      {\n        \"step_id\": \"step_3\",\n        \"name\": \"Refining the summary\",\n        \"description\": \"Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.\",\n        \"tool\": \"refine_summary\",\n        \"expected_output\": \"A refined summarized text\"\n      },\n      {\n        \"step_id\": \"step_4\",\n        \"name\": \"Verification process\",\n        \"description\": \"Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.\",\n        \"tool\": \"verify_claim\",\n        \"expected_output\": \"A confirmation that the summary is accurate\"\n      }\n    ],\n    \"total_steps\": 4,\n    \"notes\": \"Ensure each step follows closely after previous steps to build a coherent roadmap.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:56:32.588613",
+      "timestamp": "2026-03-30T04:36:42.167280",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để tách từ tiếng ",
+      "input_summary": "```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping chunks and summarizing them\",\n        \"description\": \"Use chunk_text to group sentences into logi",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
-              "tool": null,
-              "expected_output": "Mảng chứa danh sách các chunk"
+              "name": "Grouping chunks and summarizing them",
+              "description": "Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.",
+              "tool": "chunk_text, summarize_chunk",
+              "expected_output": "A list of summarized chunks"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt mỗi chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.",
-              "tool": "summarize_chunk",
-              "expected_output": "Mảng chứa danh sách các bản tóm tắt"
+              "name": "Merging the summaries",
+              "description": "Use merge_summaries function on all generated summaries to create a single comprehensive summary.",
+              "tool": "merge_summaries",
+              "expected_output": "A final summarized text"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn",
-              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.",
-              "tool": "merge_summaries",
-              "expected_output": "Summary lớn"
+              "name": "Refining the summary",
+              "description": "Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.",
+              "tool": "refine_summary",
+              "expected_output": "A refined summarized text"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho summary lớn",
-              "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.",
-              "tool": "refine_summary",
-              "expected_output": "Summary đã refinement"
-            },
-            {
-              "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.",
+              "name": "Verification process",
+              "description": "Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.",
               "tool": "verify_claim",
-              "expected_output": "Summary đã refinement và được verification"
+              "expected_output": "A confirmation that the summary is accurate"
             }
           ],
-          "total_steps": 5,
-          "notes": "Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap."
+          "total_steps": 4,
+          "notes": "Ensure each step follows closely after previous steps to build a coherent roadmap."
         }
       },
       "output_type": "dict",
@@ -79,52 +72,45 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:56:32.588613",
+      "timestamp": "2026-03-30T04:36:42.167280",
       "step_name": "Planner Agent._call_llm_json",
       "agent_name": "Planner Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=1930",
+      "input_summary": "raw_len=1476",
       "output_data": {
         "roadmap": {
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
-              "tool": null,
-              "expected_output": "Mảng chứa danh sách các chunk"
+              "name": "Grouping chunks and summarizing them",
+              "description": "Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.",
+              "tool": "chunk_text, summarize_chunk",
+              "expected_output": "A list of summarized chunks"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt mỗi chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.",
-              "tool": "summarize_chunk",
-              "expected_output": "Mảng chứa danh sách các bản tóm tắt"
+              "name": "Merging the summaries",
+              "description": "Use merge_summaries function on all generated summaries to create a single comprehensive summary.",
+              "tool": "merge_summaries",
+              "expected_output": "A final summarized text"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn",
-              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.",
-              "tool": "merge_summaries",
-              "expected_output": "Summary lớn"
+              "name": "Refining the summary",
+              "description": "Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.",
+              "tool": "refine_summary",
+              "expected_output": "A refined summarized text"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho summary lớn",
-              "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.",
-              "tool": "refine_summary",
-              "expected_output": "Summary đã refinement"
-            },
-            {
-              "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.",
+              "name": "Verification process",
+              "description": "Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.",
               "tool": "verify_claim",
-              "expected_output": "Summary đã refinement và được verification"
+              "expected_output": "A confirmation that the summary is accurate"
             }
           ],
-          "total_steps": 5,
-          "notes": "Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap."
+          "total_steps": 4,
+          "notes": "Ensure each step follows closely after previous steps to build a coherent roadmap."
         }
       },
       "output_type": "dict",
@@ -132,7 +118,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:56:32.588613",
+      "timestamp": "2026-03-30T04:36:42.167280",
       "step_name": "planner_agent.run",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -142,42 +128,35 @@
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
-              "tool": null,
-              "expected_output": "Mảng chứa danh sách các chunk"
+              "name": "Grouping chunks and summarizing them",
+              "description": "Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.",
+              "tool": "chunk_text, summarize_chunk",
+              "expected_output": "A list of summarized chunks"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt mỗi chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.",
-              "tool": "summarize_chunk",
-              "expected_output": "Mảng chứa danh sách các bản tóm tắt"
+              "name": "Merging the summaries",
+              "description": "Use merge_summaries function on all generated summaries to create a single comprehensive summary.",
+              "tool": "merge_summaries",
+              "expected_output": "A final summarized text"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn",
-              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.",
-              "tool": "merge_summaries",
-              "expected_output": "Summary lớn"
+              "name": "Refining the summary",
+              "description": "Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.",
+              "tool": "refine_summary",
+              "expected_output": "A refined summarized text"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho summary lớn",
-              "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.",
-              "tool": "refine_summary",
-              "expected_output": "Summary đã refinement"
-            },
-            {
-              "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.",
+              "name": "Verification process",
+              "description": "Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.",
               "tool": "verify_claim",
-              "expected_output": "Summary đã refinement và được verification"
+              "expected_output": "A confirmation that the summary is accurate"
             }
           ],
-          "total_steps": 5,
-          "notes": "Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap."
+          "total_steps": 4,
+          "notes": "Ensure each step follows closely after previous steps to build a coherent roadmap."
         }
       },
       "output_type": "dict",
@@ -185,7 +164,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:56:32.588613",
+      "timestamp": "2026-03-30T04:36:42.167280",
       "step_name": "planning_iter1_planner",
       "agent_name": "Planner Agent",
       "phase": "planning",
@@ -195,42 +174,35 @@
           "tasks": [
             {
               "step_id": "step_1",
-              "name": "Tách văn bản thành câu và nhóm thành chunks",
-              "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
-              "tool": null,
-              "expected_output": "Mảng chứa danh sách các chunk"
+              "name": "Grouping chunks and summarizing them",
+              "description": "Use chunk_text to group sentences into logical chunks, then use summarize_chunk to generate summaries for each chunk.",
+              "tool": "chunk_text, summarize_chunk",
+              "expected_output": "A list of summarized chunks"
             },
             {
               "step_id": "step_2",
-              "name": "Tóm tắt mỗi chunk bằng LLM",
-              "description": "Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng 10-30 từ.",
-              "tool": "summarize_chunk",
-              "expected_output": "Mảng chứa danh sách các bản tóm tắt"
+              "name": "Merging the summaries",
+              "description": "Use merge_summaries function on all generated summaries to create a single comprehensive summary.",
+              "tool": "merge_summaries",
+              "expected_output": "A final summarized text"
             },
             {
               "step_id": "step_3",
-              "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn",
-              "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng 150-250 từ.",
-              "tool": "merge_summaries",
-              "expected_output": "Summary lớn"
+              "name": "Refining the summary",
+              "description": "Use refine_summary function to polish and improve readability of the merged summary, ensuring it is fact-grounded.",
+              "tool": "refine_summary",
+              "expected_output": "A refined summarized text"
             },
             {
               "step_id": "step_4",
-              "name": "Tinh chỉnh phong cách cho summary lớn",
-              "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo summary giữ được thông tin chính và phù hợp với phong cách news_brief.",
-              "tool": "refine_summary",
-              "expected_output": "Summary đã refinement"
-            },
-            {
-              "step_id": "step_5",
-              "name": "Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-              "description": "Dùng verify_claim để kiểm tra xem thông tin chính trong summary có đúng với nội dung văn bản gốc hay không. Nếu cần, chỉnh sửa lại.",
+              "name": "Verification process",
+              "description": "Use verify_claim function to check if the final summary aligns with the original text and contains all relevant facts.",
               "tool": "verify_claim",
-              "expected_output": "Summary đã refinement và được verification"
+              "expected_output": "A confirmation that the summary is accurate"
             }
           ],
-          "total_steps": 5,
-          "notes": "Ghi chú thêm: Có thể yêu cầu người dùng kiểm tra summary cuối cùng trước khi hoàn thành roadmap."
+          "total_steps": 4,
+          "notes": "Ensure each step follows closely after previous steps to build a coherent roadmap."
         }
       },
       "output_type": "dict",
@@ -238,93 +210,167 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:27.120171",
+      "timestamp": "2026-03-30T04:36:58.687099",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
       "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"n",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được ý chính của văn bản gốc, từ việc tách văn bản thành chunks đến tạo summary và kiểm chứng thông tin. Tuy nhiên, roadmap không đề cập tới nghiên cứu về lợi ích của du lịch gia đình hay xu hướng trải nghiệm nổi bật.\",\n    \"specificity_analysis\": \"Các bước trong roadmap chi tiết nhưng thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ. Các step_id và expected_output cũng không rõ ràng đủ để thực thi.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunks đã được tạo, chứ không đưa ra thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách hợp lý để tách văn bản thành chunks. Tuy nhiên, chunk_text chưa được đề cập trong roadmap.\",\n    \"missing_steps\": [\"Xác định chính sách quyền hạn nghỉ linh hoạt\", \"Cách tạo summary lớn từ các bản tóm tắt nhỏ\"],\n    \"strengths\": [\"",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap thiếu bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.\",\n    \"specificity_analysis\": \"Các bước trong roadmap cụ thể và chi tiết. Bước 1 liên quan đến phân tích văn bản gốc thành các đoạn hợp lý; bước 2 về việc kết nối các đoạn này lại với nhau; bước 3 tập trung vào cải thiện chất lượng của tổng thể summary; bước 4 kiểm tra chính xácness của summary.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination trong roadmap vì tất cả các step đều liên quan đến việc xử lý văn bản gốc và không tạo ra thông tin giả mạo. Tuy nhiên, cần thêm một bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng được tool như chunk_text để phân đoạn văn bản gốc và merge_summaries để tổng hợp các summary trở thành summary cuối cùng. Bước refine_summary sử dụng kỹ thuật polish and improve readability, nhưng cần thêm một bước kiểm tra chính xácness của summary bằng verify_claim.\",\n    \"missing_steps\": [\"đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club\"],\n    \"strengths\": [\n      \"Roadmap chi tiết và cụ thể\",\n      \"Tận dụng được tool phù hợp\"\n    ],\n    \"weaknesses\": [\n      \"Thiếu bước đánh giá hiệu quả của gói hội viên Luxury Vacation Club\",\n      \"Không có step kiểm tra chính xácness summary cuối cùng\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:27.120171",
+      "timestamp": "2026-03-30T04:36:58.687099",
       "step_name": "Planner-Observation Agent._call_llm",
       "agent_name": "Planner-Observation Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Tách văn bản thành câu và nhóm thành chunks\",\n        \"description\": \"Dùng word_tokenize để t",
-      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được ý chính của văn bản gốc, từ việc tách văn bản thành chunks đến tạo summary và kiểm chứng thông tin. Tuy nhiên, roadmap không đề cập tới nghiên cứu về lợi ích của du lịch gia đình hay xu hướng trải nghiệm nổi bật.\",\n    \"specificity_analysis\": \"Các bước trong roadmap chi tiết nhưng thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ. Các step_id và expected_output cũng không rõ ràng đủ để thực thi.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunks đã được tạo, chứ không đưa ra thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách hợp lý để tách văn bản thành chunks. Tuy nhiên, chunk_text chưa được đề cập trong roadmap.\",\n    \"missing_steps\": [\"Xác định chính sách quyền hạn nghỉ linh hoạt\", \"Cách tạo summary lớn từ các bản tóm tắt nhỏ\"],\n    \"strengths\": [\"",
+      "input_summary": "### Nhiệm vụ\nPhân tích roadmap tóm tắt bên dưới và đánh giá chất lượng so với văn bản gốc.\n\n### Roadmap hiện tại\n```json\n{\n  \"roadmap\": {\n    \"tasks\": [\n      {\n        \"step_id\": \"step_1\",\n        \"name\": \"Grouping chunks and summarizing them\",\n        \"description\": \"Use chunk_text to group senten",
+      "output_data": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap thiếu bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.\",\n    \"specificity_analysis\": \"Các bước trong roadmap cụ thể và chi tiết. Bước 1 liên quan đến phân tích văn bản gốc thành các đoạn hợp lý; bước 2 về việc kết nối các đoạn này lại với nhau; bước 3 tập trung vào cải thiện chất lượng của tổng thể summary; bước 4 kiểm tra chính xácness của summary.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination trong roadmap vì tất cả các step đều liên quan đến việc xử lý văn bản gốc và không tạo ra thông tin giả mạo. Tuy nhiên, cần thêm một bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng được tool như chunk_text để phân đoạn văn bản gốc và merge_summaries để tổng hợp các summary trở thành summary cuối cùng. Bước refine_summary sử dụng kỹ thuật polish and improve readability, nhưng cần thêm một bước kiểm tra chính xácness của summary bằng verify_claim.\",\n    \"missing_steps\": [\"đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club\"],\n    \"strengths\": [\n      \"Roadmap chi tiết và cụ thể\",\n      \"Tận dụng được tool phù hợp\"\n    ],\n    \"weaknesses\": [\n      \"Thiếu bước đánh giá hiệu quả của gói hội viên Luxury Vacation Club\",\n      \"Không có step kiểm tra chính xácness summary cuối cùng\"\n    ]\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:27.120171",
-      "step_name": "Planner-Observation Agent._call_llm_json",
-      "agent_name": "Planner-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=1058",
+      "timestamp": "2026-03-30T04:36:58.687099",
+      "step_name": "parse_json_from_text",
+      "agent_name": "LLMManager",
+      "phase": "json_parse",
+      "input_summary": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap t",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được ý chính của văn bản gốc, từ việc tách văn bản thành chunks đến tạo summary và kiểm chứng thông tin. Tuy nhiên, roadmap không đề cập tới nghiên cứu về lợi ích của du lịch gia đình hay xu hướng trải nghiệm nổi bật.\",\n    \"specificity_analysis\": \"Các bước trong roadmap chi tiết nhưng thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ. Các step_id và expected_output cũng không rõ ràng đủ để thực thi.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunks đã được tạo, chứ không đưa ra thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách hợp lý để tách văn bản thành chunks. Tuy nhiên, chunk_text chưa được đề cập trong roadmap.\",\n    \"missing_steps\": [\"Xác định chính sách quyền hạn nghỉ linh hoạt\", \"Cách tạo summary lớn từ các bản tóm tắt nhỏ\"],\n    \"strengths\": [\"",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap thiếu bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "specificity_analysis": "Các bước trong roadmap cụ thể và chi tiết. Bước 1 liên quan đến phân tích văn bản gốc thành các đoạn hợp lý; bước 2 về việc kết nối các đoạn này lại với nhau; bước 3 tập trung vào cải thiện chất lượng của tổng thể summary; bước 4 kiểm tra chính xácness của summary.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination trong roadmap vì tất cả các step đều liên quan đến việc xử lý văn bản gốc và không tạo ra thông tin giả mạo. Tuy nhiên, cần thêm một bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "tool_utilization_analysis": "Roadmap tận dụng được tool như chunk_text để phân đoạn văn bản gốc và merge_summaries để tổng hợp các summary trở thành summary cuối cùng. Bước refine_summary sử dụng kỹ thuật polish and improve readability, nhưng cần thêm một bước kiểm tra chính xácness của summary bằng verify_claim.",
+          "missing_steps": [
+            "đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và cụ thể",
+            "Tận dụng được tool phù hợp"
+          ],
+          "weaknesses": [
+            "Thiếu bước đánh giá hiệu quả của gói hội viên Luxury Vacation Club",
+            "Không có step kiểm tra chính xácness summary cuối cùng"
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
-      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+      "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:27.120171",
+      "timestamp": "2026-03-30T04:36:58.687099",
+      "step_name": "Planner-Observation Agent._call_llm_json",
+      "agent_name": "Planner-Observation Agent",
+      "phase": "agent_json_parse",
+      "input_summary": "raw_len=1524",
+      "output_data": {
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap thiếu bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "specificity_analysis": "Các bước trong roadmap cụ thể và chi tiết. Bước 1 liên quan đến phân tích văn bản gốc thành các đoạn hợp lý; bước 2 về việc kết nối các đoạn này lại với nhau; bước 3 tập trung vào cải thiện chất lượng của tổng thể summary; bước 4 kiểm tra chính xácness của summary.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination trong roadmap vì tất cả các step đều liên quan đến việc xử lý văn bản gốc và không tạo ra thông tin giả mạo. Tuy nhiên, cần thêm một bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "tool_utilization_analysis": "Roadmap tận dụng được tool như chunk_text để phân đoạn văn bản gốc và merge_summaries để tổng hợp các summary trở thành summary cuối cùng. Bước refine_summary sử dụng kỹ thuật polish and improve readability, nhưng cần thêm một bước kiểm tra chính xácness của summary bằng verify_claim.",
+          "missing_steps": [
+            "đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và cụ thể",
+            "Tận dụng được tool phù hợp"
+          ],
+          "weaknesses": [
+            "Thiếu bước đánh giá hiệu quả của gói hội viên Luxury Vacation Club",
+            "Không có step kiểm tra chính xácness summary cuối cùng"
+          ]
+        }
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:36:58.687099",
       "step_name": "planner_observation_agent.run",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_type=dict",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được ý chính của văn bản gốc, từ việc tách văn bản thành chunks đến tạo summary và kiểm chứng thông tin. Tuy nhiên, roadmap không đề cập tới nghiên cứu về lợi ích của du lịch gia đình hay xu hướng trải nghiệm nổi bật.\",\n    \"specificity_analysis\": \"Các bước trong roadmap chi tiết nhưng thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ. Các step_id và expected_output cũng không rõ ràng đủ để thực thi.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunks đã được tạo, chứ không đưa ra thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách hợp lý để tách văn bản thành chunks. Tuy nhiên, chunk_text chưa được đề cập trong roadmap.\",\n    \"missing_steps\": [\"Xác định chính sách quyền hạn nghỉ linh hoạt\", \"Cách tạo summary lớn từ các bản tóm tắt nhỏ\"],\n    \"strengths\": [\"",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap thiếu bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "specificity_analysis": "Các bước trong roadmap cụ thể và chi tiết. Bước 1 liên quan đến phân tích văn bản gốc thành các đoạn hợp lý; bước 2 về việc kết nối các đoạn này lại với nhau; bước 3 tập trung vào cải thiện chất lượng của tổng thể summary; bước 4 kiểm tra chính xácness của summary.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination trong roadmap vì tất cả các step đều liên quan đến việc xử lý văn bản gốc và không tạo ra thông tin giả mạo. Tuy nhiên, cần thêm một bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "tool_utilization_analysis": "Roadmap tận dụng được tool như chunk_text để phân đoạn văn bản gốc và merge_summaries để tổng hợp các summary trở thành summary cuối cùng. Bước refine_summary sử dụng kỹ thuật polish and improve readability, nhưng cần thêm một bước kiểm tra chính xácness của summary bằng verify_claim.",
+          "missing_steps": [
+            "đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và cụ thể",
+            "Tận dụng được tool phù hợp"
+          ],
+          "weaknesses": [
+            "Thiếu bước đánh giá hiệu quả của gói hội viên Luxury Vacation Club",
+            "Không có step kiểm tra chính xácness summary cuối cùng"
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:27.120171",
+      "timestamp": "2026-03-30T04:36:58.687099",
       "step_name": "planning_iter1_observation",
       "agent_name": "Planner-Observation Agent",
       "phase": "planning",
       "input_summary": "roadmap_keys=['roadmap']",
       "output_data": {
-        "raw_response": "```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap bao quát được ý chính của văn bản gốc, từ việc tách văn bản thành chunks đến tạo summary và kiểm chứng thông tin. Tuy nhiên, roadmap không đề cập tới nghiên cứu về lợi ích của du lịch gia đình hay xu hướng trải nghiệm nổi bật.\",\n    \"specificity_analysis\": \"Các bước trong roadmap chi tiết nhưng thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ. Các step_id và expected_output cũng không rõ ràng đủ để thực thi.\",\n    \"hallucination_risk_analysis\": \"Không có rủi ro hallucination vì roadmap chỉ đề cập đến việc tạo summary dựa trên chunks đã được tạo, chứ không đưa ra thông tin giả mạo nào.\",\n    \"tool_utilization_analysis\": \"Roadmap tận dụng các tool như word_tokenize và sent_tokenize một cách hợp lý để tách văn bản thành chunks. Tuy nhiên, chunk_text chưa được đề cập trong roadmap.\",\n    \"missing_steps\": [\"Xác định chính sách quyền hạn nghỉ linh hoạt\", \"Cách tạo summary lớn từ các bản tóm tắt nhỏ\"],\n    \"strengths\": [\"",
-        "_parse_error": true
+        "observation": {
+          "coverage_analysis": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và xu hướng. Tuy nhiên, roadmap thiếu bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "specificity_analysis": "Các bước trong roadmap cụ thể và chi tiết. Bước 1 liên quan đến phân tích văn bản gốc thành các đoạn hợp lý; bước 2 về việc kết nối các đoạn này lại với nhau; bước 3 tập trung vào cải thiện chất lượng của tổng thể summary; bước 4 kiểm tra chính xácness của summary.",
+          "hallucination_risk_analysis": "Không có rủi ro hallucination trong roadmap vì tất cả các step đều liên quan đến việc xử lý văn bản gốc và không tạo ra thông tin giả mạo. Tuy nhiên, cần thêm một bước đánh giá hiệu quả thực tế của gói hội viên Luxury Vacation Club.",
+          "tool_utilization_analysis": "Roadmap tận dụng được tool như chunk_text để phân đoạn văn bản gốc và merge_summaries để tổng hợp các summary trở thành summary cuối cùng. Bước refine_summary sử dụng kỹ thuật polish and improve readability, nhưng cần thêm một bước kiểm tra chính xácness của summary bằng verify_claim.",
+          "missing_steps": [
+            "đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club"
+          ],
+          "strengths": [
+            "Roadmap chi tiết và cụ thể",
+            "Tận dụng được tool phù hợp"
+          ],
+          "weaknesses": [
+            "Thiếu bước đánh giá hiệu quả của gói hội viên Luxury Vacation Club",
+            "Không có step kiểm tra chính xácness summary cuối cùng"
+          ]
+        }
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.704162",
+      "timestamp": "2026-03-30T04:37:04.568393",
       "step_name": "llm_generate",
       "agent_name": "LLMManager",
       "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"observation\\\": {\\n    \\\"",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát được ý chính của văn bản gốc với coverage score đạt 85%, specificity score đạt 75%. Không có rủi ro hallucination và roadmap tận dụng các tool một cách hợp lý. Tuy nhiên, còn thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể, chi tiết. Tuy nhiên, roadmap thiếu đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club, cần thêm một bước kiểm tra chính xácness summary cuối cùng.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.704162",
+      "timestamp": "2026-03-30T04:37:04.568393",
       "step_name": "Planner-Reflection Agent._call_llm",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"observation\\\": {\\n    \\\"coverage_analysis\\\": \\\"Roadmap bao quát được ý chính của văn bản gốc, từ việc tách văn bản thành chu",
-      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap bao quát được ý chính của văn bản gốc với coverage score đạt 85%, specificity score đạt 75%. Không có rủi ro hallucination và roadmap tận dụng các tool một cách hợp lý. Tuy nhiên, còn thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ.\"\n  }\n}\n```",
+      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Observation Agent, hãy đánh giá roadmap và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"observation\": {\n    \"coverage_analysis\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc, từ việc giải thích về nhu cầu du lịch gia đình đến lợi ích và",
+      "output_data": "```json\n{\n  \"reflection\": {\n    \"coverage_score\": 0.85,\n    \"specificity_score\": 0.75,\n    \"hallucination_risk\": \"low\",\n    \"tool_utilization\": \"adequate\",\n    \"decision\": \"finalize\",\n    \"revision_instructions\": \"\",\n    \"reasoning\": \"Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể, chi tiết. Tuy nhiên, roadmap thiếu đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club, cần thêm một bước kiểm tra chính xácness summary cuối cùng.\"\n  }\n}\n```",
       "output_type": "str",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.704162",
+      "timestamp": "2026-03-30T04:37:04.568393",
       "step_name": "parse_json_from_text",
       "agent_name": "LLMManager",
       "phase": "json_parse",
@@ -337,7 +383,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát được ý chính của văn bản gốc với coverage score đạt 85%, specificity score đạt 75%. Không có rủi ro hallucination và roadmap tận dụng các tool một cách hợp lý. Tuy nhiên, còn thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể, chi tiết. Tuy nhiên, roadmap thiếu đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club, cần thêm một bước kiểm tra chính xácness summary cuối cùng."
         }
       },
       "output_type": "dict",
@@ -345,11 +391,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.704162",
+      "timestamp": "2026-03-30T04:37:04.568393",
       "step_name": "Planner-Reflection Agent._call_llm_json",
       "agent_name": "Planner-Reflection Agent",
       "phase": "agent_json_parse",
-      "input_summary": "raw_len=554",
+      "input_summary": "raw_len=473",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -358,7 +404,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát được ý chính của văn bản gốc với coverage score đạt 85%, specificity score đạt 75%. Không có rủi ro hallucination và roadmap tận dụng các tool một cách hợp lý. Tuy nhiên, còn thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể, chi tiết. Tuy nhiên, roadmap thiếu đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club, cần thêm một bước kiểm tra chính xácness summary cuối cùng."
         }
       },
       "output_type": "dict",
@@ -366,7 +412,7 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.704162",
+      "timestamp": "2026-03-30T04:37:04.568393",
       "step_name": "planner_reflection_agent.run",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
@@ -379,7 +425,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát được ý chính của văn bản gốc với coverage score đạt 85%, specificity score đạt 75%. Không có rủi ro hallucination và roadmap tận dụng các tool một cách hợp lý. Tuy nhiên, còn thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể, chi tiết. Tuy nhiên, roadmap thiếu đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club, cần thêm một bước kiểm tra chính xácness summary cuối cùng."
         }
       },
       "output_type": "dict",
@@ -387,11 +433,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.704162",
+      "timestamp": "2026-03-30T04:37:04.568393",
       "step_name": "planning_iter1_reflection",
       "agent_name": "Planner-Reflection Agent",
       "phase": "planning",
-      "input_summary": "observation_keys=['raw_response', '_parse_error']",
+      "input_summary": "observation_keys=['observation']",
       "output_data": {
         "reflection": {
           "coverage_score": 0.85,
@@ -400,7 +446,7 @@
           "tool_utilization": "adequate",
           "decision": "finalize",
           "revision_instructions": "",
-          "reasoning": "Roadmap bao quát được ý chính của văn bản gốc với coverage score đạt 85%, specificity score đạt 75%. Không có rủi ro hallucination và roadmap tận dụng các tool một cách hợp lý. Tuy nhiên, còn thiếu một số bước như xác định chính sách quyền hạn nghỉ linh hoạt hoặc cách tạo summary lớn từ các bản tóm tắt nhỏ."
+          "reasoning": "Roadmap đã bao quát hầu hết ý chính của văn bản gốc và các bước cụ thể, chi tiết. Tuy nhiên, roadmap thiếu đánh giá hiệu quả thực tế gói hội viên Luxury Vacation Club, cần thêm một bước kiểm tra chính xácness summary cuối cùng."
         }
       },
       "output_type": "dict",
@@ -408,11 +454,11 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.747048",
+      "timestamp": "2026-03-30T04:37:04.595225",
       "step_name": "execution_agent.run.step_1",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_1, step_name='Tách văn bản thành câu và nhóm thành chunks'",
+      "input_summary": "step_id=step_1, step_name='Grouping chunks and summarizing them'",
       "output_data": {
         "step_id": "step_1",
         "action": "chunking",
@@ -469,8 +515,8 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:57:52.747048",
-      "step_name": "exec_step1_Tách văn bản thành câu và nhóm thành chunks",
+      "timestamp": "2026-03-30T04:37:04.595225",
+      "step_name": "exec_step1_Grouping chunks and summarizing them",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_1, attempt=1",
@@ -530,1783 +576,417 @@
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:58:39.563631",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n     ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạn văn.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Quality assessment: Output đạt chất lượng tốt, tách các phần văn bản thành chunks hợp lý và giữ được thông tin quan trọng của từng đoạn.\",\n    \"issues_found\": [],\n    \"summary\": \"Output phân tích chính xác nội dung gốc bằng cách chia nhỏ văn bản thành nhiều chunk phù hợp. Không có lỗi hoặc vấn đề phát hiện.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:39.563631",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_1\",\n  \"action\": \"chunking\",\n  \"chunks\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,\n        7,\n    ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạn văn.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Quality assessment: Output đạt chất lượng tốt, tách các phần văn bản thành chunks hợp lý và giữ được thông tin quan trọng của từng đoạn.\",\n    \"issues_found\": [],\n    \"summary\": \"Output phân tích chính xác nội dung gốc bằng cách chia nhỏ văn bản thành nhiều chunk phù hợp. Không có lỗi hoặc vấn đề phát hiện.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:39.563631",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạ",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Quality assessment: Output đạt chất lượng tốt, tách các phần văn bản thành chunks hợp lý và giữ được thông tin quan trọng của từng đoạn.",
-          "issues_found": [],
-          "summary": "Output phân tích chính xác nội dung gốc bằng cách chia nhỏ văn bản thành nhiều chunk phù hợp. Không có lỗi hoặc vấn đề phát hiện."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:39.563631",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=592",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Quality assessment: Output đạt chất lượng tốt, tách các phần văn bản thành chunks hợp lý và giữ được thông tin quan trọng của từng đoạn.",
-          "issues_found": [],
-          "summary": "Output phân tích chính xác nội dung gốc bằng cách chia nhỏ văn bản thành nhiều chunk phù hợp. Không có lỗi hoặc vấn đề phát hiện."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:39.563631",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_1, action=chunking",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Quality assessment: Output đạt chất lượng tốt, tách các phần văn bản thành chunks hợp lý và giữ được thông tin quan trọng của từng đoạn.",
-          "issues_found": [],
-          "summary": "Output phân tích chính xác nội dung gốc bằng cách chia nhỏ văn bản thành nhiều chunk phù hợp. Không có lỗi hoặc vấn đề phát hiện."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:39.563631",
-      "step_name": "exec_step1_observation",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_1, action=chunking",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_1",
-          "action": "chunking",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc. Tóm tắt chính xác nội dung đã có trong đoạn văn.",
-          "completion_status": "complete",
-          "quality_assessment": "Quality assessment: Output đạt chất lượng tốt, tách các phần văn bản thành chunks hợp lý và giữ được thông tin quan trọng của từng đoạn.",
-          "issues_found": [],
-          "summary": "Output phân tích chính xác nội dung gốc bằng cách chia nhỏ văn bản thành nhiều chunk phù hợp. Không có lỗi hoặc vấn đề phát hiện."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:59.746029",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát nội dung đầy đủ, nhưng đây không phải là bước cuối cùng nên tiếp tục thực thi.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:59.746029",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_1\",\n    \"action\": \"chunking\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc. Tóm tắt c",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát nội dung đầy đủ, nhưng đây không phải là bước cuối cùng nên tiếp tục thực thi.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:59.746029",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát nội dung đầy đủ, nhưng đây không phải là bước cuối cùng nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:59.746029",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=396",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát nội dung đầy đủ, nhưng đây không phải là bước cuối cùng nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:59.746029",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step=1/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát nội dung đầy đủ, nhưng đây không phải là bước cuối cùng nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:58:59.746029",
-      "step_name": "exec_step1_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_1, step=1/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát nội dung đầy đủ, nhưng đây không phải là bước cuối cùng nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:59:38.457737",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
-      "output_data": "Nhiều gia đình ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/ năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu của Đại học Massachusetts Amherst chỉ ra lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khảo sát Booking.com năm 2022 cho thấy nhiều khách du lịch mong muốn đi nghỉ với gia đình.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:59:38.457737",
-      "step_name": "Execution Agent._call_llm",
-      "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 49 từ\n        -",
-      "output_data": "Nhiều gia đình ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/ năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu của Đại học Massachusetts Amherst chỉ ra lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khảo sát Booking.com năm 2022 cho thấy nhiều khách du lịch mong muốn đi nghỉ với gia đình.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:59:53.443621",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
-      "output_data": "63% người được khảo sát chọn du lịch cùng gia đình, trong khi 17% khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm. Người dân châu Á- Thái Bình Dương ưu tiên trải nghiệm hơn chi phí và đi chậm, lâu hơn với những chuyến đi cá nhân hóa chuyên biệt. Luxury Vacation Club tổ chức các chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:59:53.443621",
-      "step_name": "Execution Agent._call_llm",
-      "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: khoảng 49 từ\n        -",
-      "output_data": "63% người được khảo sát chọn du lịch cùng gia đình, trong khi 17% khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm. Người dân châu Á- Thái Bình Dương ưu tiên trải nghiệm hơn chi phí và đi chậm, lâu hơn với những chuyến đi cá nhân hóa chuyên biệt. Luxury Vacation Club tổ chức các chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-27T23:59:53.447128",
+      "timestamp": "2026-03-30T04:37:07.210417",
       "step_name": "execution_agent.run.step_2",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_2, step_name='Tóm tắt mỗi chunk bằng LLM'",
+      "input_summary": "step_id=step_2, step_name='Merging the summaries'",
       "output_data": {
         "step_id": "step_2",
-        "action": "chunk_summarize",
-        "chunk_summaries": [
-          {
-            "chunk_id": 1,
-            "sentence_ids": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16
-            ],
-            "summary": "Nhiều gia đình ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/ năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu của Đại học Massachusetts Amherst chỉ ra lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khảo sát Booking.com năm 2022 cho thấy nhiều khách du lịch mong muốn đi nghỉ với gia đình.",
-            "word_count": 112
-          },
-          {
-            "chunk_id": 2,
-            "sentence_ids": [
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29
-            ],
-            "summary": "63% người được khảo sát chọn du lịch cùng gia đình, trong khi 17% khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm. Người dân châu Á- Thái Bình Dương ưu tiên trải nghiệm hơn chi phí và đi chậm, lâu hơn với những chuyến đi cá nhân hóa chuyên biệt. Luxury Vacation Club tổ chức các chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-            "word_count": 56
-          }
-        ],
-        "total_chunks": 2,
-        "status": "completed"
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-27T23:59:53.447128",
-      "step_name": "exec_step2_Tóm tắt mỗi chunk bằng LLM",
+      "timestamp": "2026-03-30T04:37:07.210417",
+      "step_name": "exec_step2_Merging the summaries",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_2, attempt=1",
       "output_data": {
         "step_id": "step_2",
-        "action": "chunk_summarize",
-        "chunk_summaries": [
-          {
-            "chunk_id": 1,
-            "sentence_ids": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16
-            ],
-            "summary": "Nhiều gia đình ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/ năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu của Đại học Massachusetts Amherst chỉ ra lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khảo sát Booking.com năm 2022 cho thấy nhiều khách du lịch mong muốn đi nghỉ với gia đình.",
-            "word_count": 112
-          },
-          {
-            "chunk_id": 2,
-            "sentence_ids": [
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29
-            ],
-            "summary": "63% người được khảo sát chọn du lịch cùng gia đình, trong khi 17% khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm. Người dân châu Á- Thái Bình Dương ưu tiên trải nghiệm hơn chi phí và đi chậm, lâu hơn với những chuyến đi cá nhân hóa chuyên biệt. Luxury Vacation Club tổ chức các chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-            "word_count": 56
-          }
-        ],
-        "total_chunks": 2,
-        "status": "completed"
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:00:38.300442",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chu",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ hai đoạn text được yêu cầu. Tuy nhiên, một số chi tiết như thời gian lưu trú (8 ngày/ năm) không hoàn toàn trùng khớp với văn bản gốc.\",\n    \"issues_found\": [\"Chiều dài của chuyến đi chưa phù hợp với thông tin trong văn bản gốc\"],\n    \"summary\": \"Output chính xác và đầy đủ hai đoạn text được yêu cầu, nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:00:38.300755",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_2\",\n  \"action\": \"chunk_summarize\",\n  \"chunk_summaries\": [\n    {\n      \"chunk_id\": 1,\n      \"sentence_ids\": [\n        1,\n        2,\n        3,\n        4,\n        5,\n        6,",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ hai đoạn text được yêu cầu. Tuy nhiên, một số chi tiết như thời gian lưu trú (8 ngày/ năm) không hoàn toàn trùng khớp với văn bản gốc.\",\n    \"issues_found\": [\"Chiều dài của chuyến đi chưa phù hợp với thông tin trong văn bản gốc\"],\n    \"summary\": \"Output chính xác và đầy đủ hai đoạn text được yêu cầu, nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:00:38.300755",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc.\",\n    \"completion_status\": \"",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ hai đoạn text được yêu cầu. Tuy nhiên, một số chi tiết như thời gian lưu trú (8 ngày/ năm) không hoàn toàn trùng khớp với văn bản gốc.",
-          "issues_found": [
-            "Chiều dài của chuyến đi chưa phù hợp với thông tin trong văn bản gốc"
-          ],
-          "summary": "Output chính xác và đầy đủ hai đoạn text được yêu cầu, nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:00:38.300755",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=664",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ hai đoạn text được yêu cầu. Tuy nhiên, một số chi tiết như thời gian lưu trú (8 ngày/ năm) không hoàn toàn trùng khớp với văn bản gốc.",
-          "issues_found": [
-            "Chiều dài của chuyến đi chưa phù hợp với thông tin trong văn bản gốc"
-          ],
-          "summary": "Output chính xác và đầy đủ hai đoạn text được yêu cầu, nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:00:38.300755",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, action=chunk_summarize",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ hai đoạn text được yêu cầu. Tuy nhiên, một số chi tiết như thời gian lưu trú (8 ngày/ năm) không hoàn toàn trùng khớp với văn bản gốc.",
-          "issues_found": [
-            "Chiều dài của chuyến đi chưa phù hợp với thông tin trong văn bản gốc"
-          ],
-          "summary": "Output chính xác và đầy đủ hai đoạn text được yêu cầu, nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:00:38.300755",
-      "step_name": "exec_step2_observation",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, action=chunk_summarize",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_2",
-          "action": "chunk_summarize",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt, tóm tắt chính xác và đầy đủ hai đoạn text được yêu cầu. Tuy nhiên, một số chi tiết như thời gian lưu trú (8 ngày/ năm) không hoàn toàn trùng khớp với văn bản gốc.",
-          "issues_found": [
-            "Chiều dài của chuyến đi chưa phù hợp với thông tin trong văn bản gốc"
-          ],
-          "summary": "Output chính xác và đầy đủ hai đoạn text được yêu cầu, nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:01.233506",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết thời gian lưu trú.\",\n    \"reasoning\": \"Output đạt chất lượng tốt và đầy đủ hai đoạn text được yêu cầu nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc (chiều dài của chuyến đi chưa phù hợp). Đây là bước cuối cùng nên tiếp tục.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:01.233506",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_2\",\n    \"action\": \"chunk_summarize\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết thời gian lưu trú.\",\n    \"reasoning\": \"Output đạt chất lượng tốt và đầy đủ hai đoạn text được yêu cầu nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc (chiều dài của chuyến đi chưa phù hợp). Đây là bước cuối cùng nên tiếp tục.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:01.233506",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết thời gian lưu trú.",
-          "reasoning": "Output đạt chất lượng tốt và đầy đủ hai đoạn text được yêu cầu nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc (chiều dài của chuyến đi chưa phù hợp). Đây là bước cuối cùng nên tiếp tục."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:01.233506",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=513",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết thời gian lưu trú.",
-          "reasoning": "Output đạt chất lượng tốt và đầy đủ hai đoạn text được yêu cầu nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc (chiều dài của chuyến đi chưa phù hợp). Đây là bước cuối cùng nên tiếp tục."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:01.233506",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step=2/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết thời gian lưu trú.",
-          "reasoning": "Output đạt chất lượng tốt và đầy đủ hai đoạn text được yêu cầu nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc (chiều dài của chuyến đi chưa phù hợp). Đây là bước cuối cùng nên tiếp tục."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:01.233506",
-      "step_name": "exec_step2_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_2, step=2/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết thời gian lưu trú.",
-          "reasoning": "Output đạt chất lượng tốt và đầy đủ hai đoạn text được yêu cầu nhưng có một số chi tiết nhỏ khác nhau so với văn bản gốc (chiều dài của chuyến đi chưa phù hợp). Đây là bước cuối cùng nên tiếp tục."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:37.642165",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
-      "output_data": "Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình. Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:01:37.642165",
-      "step_name": "Execution Agent._call_llm",
+      "timestamp": "2026-03-30T04:37:07.211416",
+      "step_name": "execution_agent.run.step_2",
       "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 98–98 từ\n        - Giữ",
-      "output_data": "Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình. Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Merging the summaries'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:01:37.648675",
+      "timestamp": "2026-03-30T04:37:07.212413",
+      "step_name": "exec_step2_Merging the summaries",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=2",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.213413",
+      "step_name": "execution_agent.run.step_2",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, step_name='Merging the summaries'",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.213413",
+      "step_name": "exec_step2_Merging the summaries",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_2, attempt=3",
+      "output_data": {
+        "step_id": "step_2",
+        "action": "merge",
+        "status": "failed",
+        "error": "No chunk summaries available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.213413",
       "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_3, step_name='Gộp nhiều bản tóm tắt lại thành một summary lớn'",
+      "input_summary": "step_id=step_3, step_name='Refining the summary'",
       "output_data": {
         "step_id": "step_3",
-        "action": "merge",
-        "merged_summary": "Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình. Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-        "word_count": 120,
-        "status": "completed"
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:01:37.648675",
-      "step_name": "exec_step3_Gộp nhiều bản tóm tắt lại thành một summary lớn",
+      "timestamp": "2026-03-30T04:37:07.214412",
+      "step_name": "exec_step3_Refining the summary",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_3, attempt=1",
       "output_data": {
         "step_id": "step_3",
-        "action": "merge",
-        "merged_summary": "Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình. Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-        "word_count": 120,
-        "status": "completed"
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:02:17.823059",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Khách hàng ngại du lịch dài ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt giữ được chủ đề chính và thông tin quan trọng từ văn bản gốc nhưng có thể cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.\",\n    \"issues_found\": [\"Không đưa ra cụ thể hơn về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst\"],\n    \"summary\": \"Output đã tóm tắt chính xác và đầy đủ nội dung từ văn bản gốc, giữ được chủ đề quan trọng nhưng có thể cần thêm chi tiết cho phần kết luận.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:17.823059",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_3\",\n  \"action\": \"merge\",\n  \"merged_summary\": \"Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt giữ được chủ đề chính và thông tin quan trọng từ văn bản gốc nhưng có thể cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.\",\n    \"issues_found\": [\"Không đưa ra cụ thể hơn về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst\"],\n    \"summary\": \"Output đã tóm tắt chính xác và đầy đủ nội dung từ văn bản gốc, giữ được chủ đề quan trọng nhưng có thể cần thêm chi tiết cho phần kết luận.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:17.823059",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.\",\n    \"complet",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được chủ đề chính và thông tin quan trọng từ văn bản gốc nhưng có thể cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "issues_found": [
-            "Không đưa ra cụ thể hơn về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ nội dung từ văn bản gốc, giữ được chủ đề quan trọng nhưng có thể cần thêm chi tiết cho phần kết luận."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:17.823059",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=753",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được chủ đề chính và thông tin quan trọng từ văn bản gốc nhưng có thể cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "issues_found": [
-            "Không đưa ra cụ thể hơn về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ nội dung từ văn bản gốc, giữ được chủ đề quan trọng nhưng có thể cần thêm chi tiết cho phần kết luận."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:17.823059",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, action=merge",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được chủ đề chính và thông tin quan trọng từ văn bản gốc nhưng có thể cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "issues_found": [
-            "Không đưa ra cụ thể hơn về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ nội dung từ văn bản gốc, giữ được chủ đề quan trọng nhưng có thể cần thêm chi tiết cho phần kết luận."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:17.823059",
-      "step_name": "exec_step3_observation",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, action=merge",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_3",
-          "action": "merge",
-          "factual_accuracy": "Output không chứa fact mới, chỉ tóm tắt nội dung đã có trong văn bản gốc.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt giữ được chủ đề chính và thông tin quan trọng từ văn bản gốc nhưng có thể cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "issues_found": [
-            "Không đưa ra cụ thể hơn về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ nội dung từ văn bản gốc, giữ được chủ đề quan trọng nhưng có thể cần thêm chi tiết cho phần kết luận."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:42.050236",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số chi tiết cần thiết trong phần kết luận. Đây là bước cuối cùng, nên tiếp tục thực thi.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:42.050236",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_3\",\n    \"action\": \"merge\",\n    \"factual_accuracy\": \"Output không chứa fact mới, chỉ tóm tắt nội dung đã có ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số chi tiết cần thiết trong phần kết luận. Đây là bước cuối cùng, nên tiếp tục thực thi.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:42.050236",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số chi tiết cần thiết trong phần kết luận. Đây là bước cuối cùng, nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:42.050236",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=556",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số chi tiết cần thiết trong phần kết luận. Đây là bước cuối cùng, nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:42.050236",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step=3/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số chi tiết cần thiết trong phần kết luận. Đây là bước cuối cùng, nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:02:42.050236",
-      "step_name": "exec_step3_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_3, step=3/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần thêm chi tiết về lợi ích của du lịch gia đình theo nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát cao nhưng còn thiếu một số chi tiết cần thiết trong phần kết luận. Đây là bước cuối cùng, nên tiếp tục thực thi."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:03:26.627638",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
-      "output_data": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du khách cũng tăng khả năng thích ứng xã hội và trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:03:26.627638",
-      "step_name": "Execution Agent._call_llm",
+      "timestamp": "2026-03-30T04:37:07.214412",
+      "step_name": "execution_agent.run.step_3",
       "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 98–98 từ\n        - Giữ",
-      "output_data": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du khách cũng tăng khả năng thích ứng xã hội và trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Refining the summary'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:03:26.637193",
+      "timestamp": "2026-03-30T04:37:07.214412",
+      "step_name": "exec_step3_Refining the summary",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=2",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.215413",
+      "step_name": "execution_agent.run.step_3",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, step_name='Refining the summary'",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.215413",
+      "step_name": "exec_step3_Refining the summary",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_3, attempt=3",
+      "output_data": {
+        "step_id": "step_3",
+        "action": "refine",
+        "status": "failed",
+        "error": "No merged summary available."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.215413",
       "step_name": "execution_agent.run.step_4",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_4, step_name='Tinh chỉnh phong cách cho summary lớn'",
+      "input_summary": "step_id=step_4, step_name='Verification process'",
       "output_data": {
         "step_id": "step_4",
-        "action": "refine",
-        "refined_summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du khách cũng tăng khả năng thích ứng xã hội và trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-        "word_count": 107,
-        "status": "completed"
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:03:26.637193",
-      "step_name": "exec_step4_Tinh chỉnh phong cách cho summary lớn",
+      "timestamp": "2026-03-30T04:37:07.215413",
+      "step_name": "exec_step4_Verification process",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_4, attempt=1",
       "output_data": {
         "step_id": "step_4",
-        "action": "refine",
-        "refined_summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du khách cũng tăng khả năng thích ứng xã hội và trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-        "word_count": 107,
-        "status": "completed"
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:04:08.024807",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Luxury Vacation Club thiết",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.\",\n    \"issues_found\": [],\n    \"summary\": \"Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:08.025806",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_4\",\n  \"action\": \"refine\",\n  \"refined_summary\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống ngh",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.\",\n    \"issues_found\": [],\n    \"summary\": \"Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:08.025806",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.\",\n    \"comp",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.",
-          "issues_found": [],
-          "summary": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:08.025806",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=825",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.",
-          "issues_found": [],
-          "summary": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:08.025806",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, action=refine",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.",
-          "issues_found": [],
-          "summary": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:08.025806",
-      "step_name": "exec_step4_observation",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, action=refine",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_4",
-          "action": "refine",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và bổ sung chi tiết.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm.",
-          "issues_found": [],
-          "summary": "Output đạt chất lượng tốt. Tóm tắt chính xác về gói hội viên 10 năm của Luxury Vacation Club cho khách du lịch gia đình với các đặc điểm như trải nghiệm tại hệ thống nghỉ dưỡng, quyền linh hoạt thời gian và điểm đến, tư vấn lên lịch trình và quà tặng đi kèm."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:28.780701",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Output đạt chất lượng tốt và bao quát đầy đủ thông tin về gói hội viên Luxury Vacation Club, nhưng không có vấn đề cần sửa chữa.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:28.780701",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_4\",\n    \"action\": \"refine\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"\",\n    \"reasoning\": \"Output đạt chất lượng tốt và bao quát đầy đủ thông tin về gói hội viên Luxury Vacation Club, nhưng không có vấn đề cần sửa chữa.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:28.780701",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Output đạt chất lượng tốt và bao quát đầy đủ thông tin về gói hội viên Luxury Vacation Club, nhưng không có vấn đề cần sửa chữa."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:28.781701",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=371",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Output đạt chất lượng tốt và bao quát đầy đủ thông tin về gói hội viên Luxury Vacation Club, nhưng không có vấn đề cần sửa chữa."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:28.781701",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step=4/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Output đạt chất lượng tốt và bao quát đầy đủ thông tin về gói hội viên Luxury Vacation Club, nhưng không có vấn đề cần sửa chữa."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:04:28.781701",
-      "step_name": "exec_step4_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_4, step=4/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "",
-          "reasoning": "Output đạt chất lượng tốt và bao quát đầy đủ thông tin về gói hội viên Luxury Vacation Club, nhưng không có vấn đề cần sửa chữa."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:05:38.359300",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nLuxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch ",
-      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Hiểu được nỗi trăn trở này, Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Khi tham gia, khách hàng được trải nghiệm những chuyến đi chất lượng, tại hệ thống nghỉ dưỡng 5 sao liên kết với thời gian lưu trú 8 ngày 7 đêm mỗi năm.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Khách hàng có thể sử dụng quyền nghỉ linh hoạt cả về thời gian và điểm đến.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Nghiên cứu của Đại học Massachusetts Amherst năm 2016 chỉ ra hai lợi ích chủ yếu của du lịch gia đình: tạo sự kết nối gia đình mạnh mẽ hơn và những kỷ niệm trọn đời; duy trì cải thiện chất lượng các mối quan hệ, củng cố hôn nhân và tăng chất lượng cuộc sống.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:05:38.359300",
-      "step_name": "Execution Agent._call_llm",
+      "timestamp": "2026-03-30T04:37:07.216412",
+      "step_name": "execution_agent.run.step_4",
       "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nKiểm chứng từng mệnh đề (claim) trong bản tóm tắt bằng cách đối chiếu với văn bản gốc.\n\n### Bản tóm tắt cần kiểm chứng\nLuxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày",
-      "output_data": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Hiểu được nỗi trăn trở này, Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Khi tham gia, khách hàng được trải nghiệm những chuyến đi chất lượng, tại hệ thống nghỉ dưỡng 5 sao liên kết với thời gian lưu trú 8 ngày 7 đêm mỗi năm.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Khách hàng có thể sử dụng quyền nghỉ linh hoạt cả về thời gian và điểm đến.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Nghiên cứu của Đại học Massachusetts Amherst năm 2016 chỉ ra hai lợi ích chủ yếu của du lịch gia đình: tạo sự kết nối gia đình mạnh mẽ hơn và những kỷ niệm trọn đời; duy trì cải thiện chất lượng các mối quan hệ, củng cố hôn nhân và tăng chất lượng cuộc sống.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status",
-      "output_type": "str",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Verification process'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:05:38.359300",
-      "step_name": "Execution Agent._call_llm_json",
+      "timestamp": "2026-03-30T04:37:07.216412",
+      "step_name": "exec_step4_Verification process",
       "agent_name": "Execution Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=1871",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=2",
       "output_data": {
-        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Hiểu được nỗi trăn trở này, Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Khi tham gia, khách hàng được trải nghiệm những chuyến đi chất lượng, tại hệ thống nghỉ dưỡng 5 sao liên kết với thời gian lưu trú 8 ngày 7 đêm mỗi năm.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Khách hàng có thể sử dụng quyền nghỉ linh hoạt cả về thời gian và điểm đến.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Nghiên cứu của Đại học Massachusetts Amherst năm 2016 chỉ ra hai lợi ích chủ yếu của du lịch gia đình: tạo sự kết nối gia đình mạnh mẽ hơn và những kỷ niệm trọn đời; duy trì cải thiện chất lượng các mối quan hệ, củng cố hôn nhân và tăng chất lượng cuộc sống.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status",
-        "_parse_error": true
+        "step_id": "step_4",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
       },
       "output_type": "dict",
       "is_none": false,
-      "error": "JSON parse failed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+      "error": null
     },
     {
-      "timestamp": "2026-03-28T00:05:38.359300",
+      "timestamp": "2026-03-30T04:37:07.216412",
+      "step_name": "execution_agent.run.step_4",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, step_name='Verification process'",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.216412",
+      "step_name": "exec_step4_Verification process",
+      "agent_name": "Execution Agent",
+      "phase": "execution",
+      "input_summary": "step_id=step_4, attempt=3",
+      "output_data": {
+        "step_id": "step_4",
+        "action": "verify",
+        "status": "failed",
+        "error": "No summary available for verification."
+      },
+      "output_type": "dict",
+      "is_none": false,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-30T04:37:07.217417",
       "step_name": "execution_agent.run.step_5",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_5, step_name='Kiểm chứng mệnh đề của summary lớn so với văn bản gốc'",
+      "input_summary": "step_id=step_5, step_name='Hiệu chỉnh phong cách (editing)'",
       "output_data": {
-        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Hiểu được nỗi trăn trở này, Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Khi tham gia, khách hàng được trải nghiệm những chuyến đi chất lượng, tại hệ thống nghỉ dưỡng 5 sao liên kết với thời gian lưu trú 8 ngày 7 đêm mỗi năm.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Khách hàng có thể sử dụng quyền nghỉ linh hoạt cả về thời gian và điểm đến.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Nghiên cứu của Đại học Massachusetts Amherst năm 2016 chỉ ra hai lợi ích chủ yếu của du lịch gia đình: tạo sự kết nối gia đình mạnh mẽ hơn và những kỷ niệm trọn đời; duy trì cải thiện chất lượng các mối quan hệ, củng cố hôn nhân và tăng chất lượng cuộc sống.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status",
-        "_parse_error": true,
         "step_id": "step_5",
-        "action": "verify",
-        "status": "completed"
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:05:38.359300",
-      "step_name": "exec_step5_Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
+      "timestamp": "2026-03-30T04:37:07.217417",
+      "step_name": "exec_step5_Hiệu chỉnh phong cách (editing)",
       "agent_name": "Execution Agent",
       "phase": "execution",
       "input_summary": "step_id=step_5, attempt=1",
       "output_data": {
-        "raw_response": "```json\n{\n  \"verification_report\": [\n    {\n      \"claim_id\": 1,\n      \"claim_text\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 3,\n          \"source_text\": \"Hiểu được nỗi trăn trở này, Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình.\"\n        },\n        {\n          \"sentence_id\": 4,\n          \"source_text\": \"Khi tham gia, khách hàng được trải nghiệm những chuyến đi chất lượng, tại hệ thống nghỉ dưỡng 5 sao liên kết với thời gian lưu trú 8 ngày 7 đêm mỗi năm.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 2,\n      \"claim_text\": \"Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status\": \"pass\",\n      \"evidence\": [\n        {\n          \"sentence_id\": 5,\n          \"source_text\": \"Khách hàng có thể sử dụng quyền nghỉ linh hoạt cả về thời gian và điểm đến.\"\n        },\n        {\n          \"sentence_id\": 8,\n          \"source_text\": \"Nghiên cứu của Đại học Massachusetts Amherst năm 2016 chỉ ra hai lợi ích chủ yếu của du lịch gia đình: tạo sự kết nối gia đình mạnh mẽ hơn và những kỷ niệm trọn đời; duy trì cải thiện chất lượng các mối quan hệ, củng cố hôn nhân và tăng chất lượng cuộc sống.\"\n        }\n      ],\n      \"confidence\": 0.9\n    },\n    {\n      \"claim_id\": 3,\n      \"claim_text\": \"Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ.\",\n      \"status",
-        "_parse_error": true,
         "step_id": "step_5",
-        "action": "verify",
-        "status": "completed"
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:25.622324",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"verification_report\\\": [\\n    {\\n      \\\"claim_id\\\": 1,\\n ",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Đánh giá chi tiết: Output chính xác về nội dung nhưng thiếu một số điểm như việc chứng minh bằng cụ thể hơn các lợi ích của du lịch gia đình, cũng như không hoàn thiện toàn bộ thông tin từ văn bản gốc. Tuy nhiên, tổng thể vẫn đạt chất lượng tốt.\",\n    \"issues_found\": [\"Thiếu chi tiết về nghiên cứu Đại học Massachusetts Amherst\"],\n    \"summary\": \"Output đã tóm tắt chính xác và đầy đủ các thông tin từ văn bản gốc nhưng thiếu một số điểm cần thiết.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:25.622324",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"raw_response\": \"```json\\n{\\n  \\\"verification_report\\\": [\\n    {\\n      \\\"claim_id\\\": 1,\\n      \\\"claim_text\\\": \\\"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình,",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Đánh giá chi tiết: Output chính xác về nội dung nhưng thiếu một số điểm như việc chứng minh bằng cụ thể hơn các lợi ích của du lịch gia đình, cũng như không hoàn thiện toàn bộ thông tin từ văn bản gốc. Tuy nhiên, tổng thể vẫn đạt chất lượng tốt.\",\n    \"issues_found\": [\"Thiếu chi tiết về nghiên cứu Đại học Massachusetts Amherst\"],\n    \"summary\": \"Output đã tóm tắt chính xác và đầy đủ các thông tin từ văn bản gốc nhưng thiếu một số điểm cần thiết.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:25.623324",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có tron",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_5",
-          "action": "verify",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
-          "completion_status": "complete",
-          "quality_assessment": "Đánh giá chi tiết: Output chính xác về nội dung nhưng thiếu một số điểm như việc chứng minh bằng cụ thể hơn các lợi ích của du lịch gia đình, cũng như không hoàn thiện toàn bộ thông tin từ văn bản gốc. Tuy nhiên, tổng thể vẫn đạt chất lượng tốt.",
-          "issues_found": [
-            "Thiếu chi tiết về nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ các thông tin từ văn bản gốc nhưng thiếu một số điểm cần thiết."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:25.623324",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=737",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_5",
-          "action": "verify",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
-          "completion_status": "complete",
-          "quality_assessment": "Đánh giá chi tiết: Output chính xác về nội dung nhưng thiếu một số điểm như việc chứng minh bằng cụ thể hơn các lợi ích của du lịch gia đình, cũng như không hoàn thiện toàn bộ thông tin từ văn bản gốc. Tuy nhiên, tổng thể vẫn đạt chất lượng tốt.",
-          "issues_found": [
-            "Thiếu chi tiết về nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ các thông tin từ văn bản gốc nhưng thiếu một số điểm cần thiết."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:25.623324",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, action=verify",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_5",
-          "action": "verify",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
-          "completion_status": "complete",
-          "quality_assessment": "Đánh giá chi tiết: Output chính xác về nội dung nhưng thiếu một số điểm như việc chứng minh bằng cụ thể hơn các lợi ích của du lịch gia đình, cũng như không hoàn thiện toàn bộ thông tin từ văn bản gốc. Tuy nhiên, tổng thể vẫn đạt chất lượng tốt.",
-          "issues_found": [
-            "Thiếu chi tiết về nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ các thông tin từ văn bản gốc nhưng thiếu một số điểm cần thiết."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:25.623324",
-      "step_name": "exec_step5_observation",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, action=verify",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_5",
-          "action": "verify",
-          "factual_accuracy": "Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt và xác nhận thông tin đã có trong văn bản.",
-          "completion_status": "complete",
-          "quality_assessment": "Đánh giá chi tiết: Output chính xác về nội dung nhưng thiếu một số điểm như việc chứng minh bằng cụ thể hơn các lợi ích của du lịch gia đình, cũng như không hoàn thiện toàn bộ thông tin từ văn bản gốc. Tuy nhiên, tổng thể vẫn đạt chất lượng tốt.",
-          "issues_found": [
-            "Thiếu chi tiết về nghiên cứu Đại học Massachusetts Amherst"
-          ],
-          "summary": "Output đã tóm tắt chính xác và đầy đủ các thông tin từ văn bản gốc nhưng thiếu một số điểm cần thiết."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:48.071043",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về nghiên cứu Đại học Massachusetts Amherst.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần đầy đủ nhưng thiếu một số thông tin cụ thể từ văn bản gốc.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:48.071043",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_5\",\n    \"action\": \"verify\",\n    \"factual_accuracy\": \"Output không chứa fact mới từ văn bản gốc, chỉ tóm tắt",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về nghiên cứu Đại học Massachusetts Amherst.\",\n    \"reasoning\": \"Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần đầy đủ nhưng thiếu một số thông tin cụ thể từ văn bản gốc.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:48.071043",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần đầy đủ nhưng thiếu một số thông tin cụ thể từ văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:48.071043",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=471",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần đầy đủ nhưng thiếu một số thông tin cụ thể từ văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:48.071043",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step=5/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần đầy đủ nhưng thiếu một số thông tin cụ thể từ văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:06:48.071043",
-      "step_name": "exec_step5_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_5, step=5/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa chi tiết về nghiên cứu Đại học Massachusetts Amherst.",
-          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán và bao quát gần đầy đủ nhưng thiếu một số thông tin cụ thể từ văn bản gốc."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:07:19.577671",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU",
-      "output_data": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:07:19.577671",
-      "step_name": "Execution Agent._call_llm",
-      "agent_name": "Execution Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "Bạn là một hệ thống tóm tắt văn bản tiếng Việt chuyên nghiệp, có nhiệm vụ tạo ra bản tóm tắt chính xác, súc tích và có cấu trúc rõ ràng dựa trên các tiêu chí bắt buộc dưới đây.\n\n        ===== MỤC TIÊU =====\n        Tạo bản tóm tắt cho văn bản đầu vào sao cho:\n        - Độ dài: 98–98 từ\n        - Giữ",
-      "output_data": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:07:19.584683",
-      "step_name": "execution_agent.run.step_6",
-      "agent_name": "Execution Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_6, step_name='Hiệu chỉnh phong cách (editing)'",
-      "output_data": {
-        "step_id": "step_6",
         "action": "edit",
-        "edited_summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-        "word_count": 97,
-        "status": "completed"
+        "status": "failed",
+        "error": "No summary available for editing."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:07:19.584683",
-      "step_name": "exec_step6_Hiệu chỉnh phong cách (editing)",
+      "timestamp": "2026-03-30T04:37:07.217417",
+      "step_name": "execution_agent.run.step_5",
       "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, attempt=1",
+      "input_summary": "step_id=step_5, step_name='Hiệu chỉnh phong cách (editing)'",
       "output_data": {
-        "step_id": "step_6",
+        "step_id": "step_5",
         "action": "edit",
-        "edited_summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
-        "word_count": 97,
-        "status": "completed"
+        "status": "failed",
+        "error": "No summary available for editing."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:08:00.986553",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Luxury Vacation Club thiết kế",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được nội dung chính của đoạn văn bản gốc với ít sai lệch về ngữ nghĩa.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt gói hội viên 10 năm cho khách du lịch gia đình, Luxury Vacation Club thiết kế trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:00.986553",
-      "step_name": "Execution-Observation Agent._call_llm",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nPhân tích output của bước thực thi tóm tắt sau đây.\n\n### Output của Execution Agent\n```json\n{\n  \"step_id\": \"step_6\",\n  \"action\": \"edit\",\n  \"edited_summary\": \"Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ d",
-      "output_data": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.\",\n    \"completion_status\": \"complete\",\n    \"quality_assessment\": \"Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được nội dung chính của đoạn văn bản gốc với ít sai lệch về ngữ nghĩa.\",\n    \"issues_found\": [],\n    \"summary\": \"Output tóm tắt gói hội viên 10 năm cho khách du lịch gia đình, Luxury Vacation Club thiết kế trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:00.986553",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.\",\n    ",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_6",
-          "action": "edit",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được nội dung chính của đoạn văn bản gốc với ít sai lệch về ngữ nghĩa.",
-          "issues_found": [],
-          "summary": "Output tóm tắt gói hội viên 10 năm cho khách du lịch gia đình, Luxury Vacation Club thiết kế trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:00.986553",
-      "step_name": "Execution-Observation Agent._call_llm_json",
-      "agent_name": "Execution-Observation Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=833",
-      "output_data": {
-        "execution_observation": {
-          "step_id": "step_6",
-          "action": "edit",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được nội dung chính của đoạn văn bản gốc với ít sai lệch về ngữ nghĩa.",
-          "issues_found": [],
-          "summary": "Output tóm tắt gói hội viên 10 năm cho khách du lịch gia đình, Luxury Vacation Club thiết kế trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:00.986553",
-      "step_name": "execution_observation_agent.run",
-      "agent_name": "Execution-Observation Agent",
+      "timestamp": "2026-03-30T04:37:07.217417",
+      "step_name": "exec_step5_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, action=edit",
+      "input_summary": "step_id=step_5, attempt=2",
       "output_data": {
-        "execution_observation": {
-          "step_id": "step_6",
-          "action": "edit",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được nội dung chính của đoạn văn bản gốc với ít sai lệch về ngữ nghĩa.",
-          "issues_found": [],
-          "summary": "Output tóm tắt gói hội viên 10 năm cho khách du lịch gia đình, Luxury Vacation Club thiết kế trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình."
-        }
+        "step_id": "step_5",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:08:00.986553",
-      "step_name": "exec_step6_observation",
-      "agent_name": "Execution-Observation Agent",
+      "timestamp": "2026-03-30T04:37:07.220587",
+      "step_name": "execution_agent.run.step_5",
+      "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step_id=step_6, action=edit",
+      "input_summary": "step_id=step_5, step_name='Hiệu chỉnh phong cách (editing)'",
       "output_data": {
-        "execution_observation": {
-          "step_id": "step_6",
-          "action": "edit",
-          "factual_accuracy": "Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tóm tắt thông tin và ý kiến.",
-          "completion_status": "complete",
-          "quality_assessment": "Output đạt chất lượng tốt. Tóm tắt ngắn gọn nhưng vẫn giữ được nội dung chính của đoạn văn bản gốc với ít sai lệch về ngữ nghĩa.",
-          "issues_found": [],
-          "summary": "Output tóm tắt gói hội viên 10 năm cho khách du lịch gia đình, Luxury Vacation Club thiết kế trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình."
-        }
+        "step_id": "step_5",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:08:23.381861",
-      "step_name": "llm_generate",
-      "agent_name": "LLMManager",
-      "phase": "llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n   ",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc nhưng vẫn giữ được tóm tắt ngắn gọn.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:23.381861",
-      "step_name": "Execution-Reflection Agent._call_llm",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_llm_call",
-      "input_summary": "### Nhiệm vụ\nDựa trên phân tích của Execution-Observation Agent, hãy đánh giá và ra quyết định.\n\n### Phân tích của Observation Agent\n```json\n{\n  \"execution_observation\": {\n    \"step_id\": \"step_6\",\n    \"action\": \"edit\",\n    \"factual_accuracy\": \"Output không chứa bất kỳ fact nào từ văn bản gốc, chỉ tó",
-      "output_data": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"feedback\": \"Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.\",\n    \"reasoning\": \"Chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc nhưng vẫn giữ được tóm tắt ngắn gọn.\"\n  }\n}\n```",
-      "output_type": "str",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:23.381861",
-      "step_name": "parse_json_from_text",
-      "agent_name": "LLMManager",
-      "phase": "json_parse",
-      "input_summary": "```json\n{\n  \"execution_reflection\": {\n    \"factual_consistency\": 0.9,\n    \"coverage_completeness\": 0.85,\n    \"redundancy_score\": 0.1,\n    \"length_compliance\": true,\n    \"decision\": \"next_step\",\n    \"f",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc nhưng vẫn giữ được tóm tắt ngắn gọn."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:23.381861",
-      "step_name": "Execution-Reflection Agent._call_llm_json",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "agent_json_parse",
-      "input_summary": "raw_len=413",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc nhưng vẫn giữ được tóm tắt ngắn gọn."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:23.381861",
-      "step_name": "execution_reflection_agent.run",
-      "agent_name": "Execution-Reflection Agent",
+      "timestamp": "2026-03-30T04:37:07.220587",
+      "step_name": "exec_step5_Hiệu chỉnh phong cách (editing)",
+      "agent_name": "Execution Agent",
       "phase": "execution",
-      "input_summary": "step=6/6",
+      "input_summary": "step_id=step_5, attempt=3",
       "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc nhưng vẫn giữ được tóm tắt ngắn gọn."
-        }
+        "step_id": "step_5",
+        "action": "edit",
+        "status": "failed",
+        "error": "No summary available for editing."
       },
       "output_type": "dict",
       "is_none": false,
       "error": null
     },
     {
-      "timestamp": "2026-03-28T00:08:23.381861",
-      "step_name": "exec_step6_reflection",
-      "agent_name": "Execution-Reflection Agent",
-      "phase": "execution",
-      "input_summary": "step_id=step_6, step=6/6",
-      "output_data": {
-        "execution_reflection": {
-          "factual_consistency": 0.9,
-          "coverage_completeness": 0.85,
-          "redundancy_score": 0.1,
-          "length_compliance": true,
-          "decision": "next_step",
-          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
-          "reasoning": "Chất lượng tốt với mức độ nhất quán cao và bao quát đầy đủ thông tin từ văn bản gốc nhưng vẫn giữ được tóm tắt ngắn gọn."
-        }
-      },
-      "output_type": "dict",
-      "is_none": false,
-      "error": null
-    },
-    {
-      "timestamp": "2026-03-28T00:08:23.389875",
+      "timestamp": "2026-03-30T04:37:07.221611",
       "step_name": "workflow_complete",
       "agent_name": "Manager Agent",
       "phase": "workflow",
       "input_summary": "",
       "output_data": {
-        "summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
+        "summary": "",
         "style": "news_brief",
-        "word_count": 97,
+        "word_count": 0,
         "trace": [
           {
             "agent": "execution",
             "action": "chunking",
             "step_id": "step_1",
-            "evidence": "Step 1: Tách văn bản thành câu và nhóm thành chunks",
+            "evidence": "Step 1: Grouping chunks and summarizing them",
             "reflection_scores": {
-              "factual_consistency": 0.9,
-              "coverage_completeness": 0.85
-            }
-          },
-          {
-            "agent": "execution",
-            "action": "chunk_summarize",
-            "step_id": "step_2",
-            "evidence": "Step 2: Tóm tắt mỗi chunk bằng LLM",
-            "reflection_scores": {
-              "factual_consistency": 0.9,
-              "coverage_completeness": 0.85
-            }
-          },
-          {
-            "agent": "execution",
-            "action": "merge",
-            "step_id": "step_3",
-            "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một summary lớn",
-            "reflection_scores": {
-              "factual_consistency": 0.9,
-              "coverage_completeness": 0.85
-            }
-          },
-          {
-            "agent": "execution",
-            "action": "refine",
-            "step_id": "step_4",
-            "evidence": "Step 4: Tinh chỉnh phong cách cho summary lớn",
-            "reflection_scores": {
-              "factual_consistency": 0.9,
-              "coverage_completeness": 0.85
-            }
-          },
-          {
-            "agent": "execution",
-            "action": "verify",
-            "step_id": "step_5",
-            "evidence": "Step 5: Kiểm chứng mệnh đề của summary lớn so với văn bản gốc",
-            "reflection_scores": {
-              "factual_consistency": 0.9,
-              "coverage_completeness": 0.85
-            }
-          },
-          {
-            "agent": "execution",
-            "action": "edit",
-            "step_id": "step_6",
-            "evidence": "Step 6: Hiệu chỉnh phong cách (editing)",
-            "reflection_scores": {
-              "factual_consistency": 0.9,
-              "coverage_completeness": 0.85
+              "factual_consistency": 1.0,
+              "coverage_completeness": 1.0
             }
           }
         ],
         "verification_report": null,
         "intermediate_outputs": {
           "outline": null,
-          "draft_summary": "Khách hàng ngại du lịch dài ngày đa thế hệ vì khác biệt tuổi tác và sở thích. Luxury Vacation Club giải quyết bằng gói hội viên 10 năm, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy lợi ích của du lịch gia đình là tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Du lịch cũng giúp trẻ em tăng khả năng thích ứng xã hội, trải nghiệm văn hóa mới. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình. Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế.",
+          "draft_summary": null,
           "verification": null,
-          "edited_summary": "Luxury Vacation Club thiết kế gói hội viên 10 năm cho khách du lịch gia đình, cung cấp trải nghiệm chất lượng tại hệ thống nghỉ dưỡng 5 sao với thời gian lưu trú 8 ngày/năm. Khách hàng có quyền linh hoạt về thời gian và điểm đến, được tư vấn lên lịch trình và nhận quà tặng như dịch vụ đi kèm: du thuyền, lặn san hô... Nghiên cứu cho thấy du lịch gia đình tạo sự kết nối mạnh mẽ hơn giữa các thành viên trong gia đình và duy trì cải thiện chất lượng mối quan hệ. Khách Việt sẵn sàng chi hơn nửa ngân sách cho trải nghiệm cùng gia đình, Luxury Vacation Club tổ chức chuyến cao cấp tại Đà Nẵng, Nha Trang... mang tính cá nhân hóa cao cho khách quốc tế."
+          "edited_summary": null
         }
       },
       "output_type": "dict",

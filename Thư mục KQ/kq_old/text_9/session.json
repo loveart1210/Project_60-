@@ -1,0 +1,434 @@
+{
+  "session_id": "eb880053",
+  "current_phase": "execution",
+  "iteration_count": 1,
+  "roadmap_version": "v1",
+  "last_decision": "finalize",
+  "confidence_score": 0.85,
+  "style": "news_brief",
+  "input_word_count": 589,
+  "created_at": "2026-03-27T18:47:38.749842",
+  "history": [
+    {
+      "agent": "planner",
+      "action": "create_roadmap",
+      "timestamp": "2026-03-27T18:48:33.957363",
+      "result_summary": "Roadmap v1 created",
+      "details": {
+        "version": "v1"
+      }
+    },
+    {
+      "agent": "planner_observation",
+      "action": "analyze_roadmap",
+      "timestamp": "2026-03-27T18:49:29.734838",
+      "result_summary": "Observation for v1 complete"
+    },
+    {
+      "agent": "planner_reflection",
+      "action": "evaluate_roadmap",
+      "timestamp": "2026-03-27T18:49:54.508728",
+      "result_summary": "Decision: finalize (confidence: 0.85)",
+      "details": {
+        "reflection": {
+          "coverage_score": 0.85,
+          "specificity_score": 0.75,
+          "hallucination_risk": "low",
+          "tool_utilization": "adequate",
+          "decision": "finalize",
+          "revision_instructions": "",
+          "reasoning": "Roadmap bao quát được các điểm chính và tận dụng tool phù hợp, chỉ thiếu chi tiết về cách xử lý nội dung cụ thể của từng sản phẩm du lịch mới. Tuy nhiên, mức độ cụ thể còn hạn chế do không rõ ràng về merge_summaries và refine_summary."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunking",
+      "timestamp": "2026-03-27T18:49:54.533287",
+      "result_summary": "Step 1 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:50:44.907639",
+      "result_summary": "Observation for step 1 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:51:09.369186",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi phân chia (chunking) đã hoàn thành đầy đủ và chính xác với mức độ nhất quán cao so với văn bản gốc nhưng có một số đoạn text bị cắt bớt ở cuối chunk 1 do phong cách tóm tắt. Đây là bước không phải là bước cuối cùng nên quyết định tiếp tục thực thi."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "timestamp": "2026-03-27T18:51:50.816380",
+      "result_summary": "Step 2 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:52:30.393111",
+      "result_summary": "Observation for step 2 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:52:51.575762",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước thực thi đã hoàn thành tốt với chất lượng output đạt chuẩn và bao quát được nội dung chính của từng đoạn văn. Đây là bước cuối cùng nên tiếp tục tiến trình."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T18:53:19.508812",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:53:57.965571",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:54:20.564535",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích cần thêm chi tiết về các sản phẩm du lịch và famtour trong output.",
+          "reasoning": "Bước hiện tại có chất lượng tốt nhưng vẫn còn thiếu chi tiết, đặc biệt là đối với các sản phẩm du lịch mới. Điều này ảnh hưởng đến độ bao quát của thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T18:54:48.482747",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:55:27.191223",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:55:49.751617",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích cần thêm chi tiết về các sản phẩm du lịch và famtour trong output.",
+          "reasoning": "Bước hiện tại có chất lượng tốt nhưng vẫn còn thiếu chi tiết, đặc biệt là đối với các sản phẩm du lịch mới. Điều này ảnh hưởng đến độ bao quát của thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "timestamp": "2026-03-27T18:56:17.603212",
+      "result_summary": "Step 3 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:56:56.380873",
+      "result_summary": "Observation for step 3 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:57:18.750333",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích cần thêm chi tiết về các sản phẩm du lịch và famtour trong output.",
+          "reasoning": "Bước hiện tại có chất lượng tốt nhưng vẫn còn thiếu chi tiết, đặc biệt là đối với các sản phẩm du lịch mới. Điều này ảnh hưởng đến độ bao quát của thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "timestamp": "2026-03-27T18:57:54.212678",
+      "result_summary": "Step 4 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T18:58:33.428528",
+      "result_summary": "Observation for step 4 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T18:58:56.989451",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa gì.",
+          "reasoning": "Bước hiện tại đạt chất lượng tốt với mức độ nhất quán fact cao và bao quát thông tin chính đầy đủ. Tuy nhiên, có thể tóm tắt thêm về các chương trình ưu đãi cụ thể để tăng độ sâu hơn."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-27T18:59:33.982109",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T19:00:18.191536",
+      "result_summary": "Observation for step 5 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T19:00:43.942670",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn: Cần thêm thông tin về tăng trưởng khách du lịch và mùa lá vàng đẹp nhất của Hàn Quốc.",
+          "reasoning": "Bước hiện tại chỉ ra rằng output thiếu một số chi tiết quan trọng từ văn bản gốc, đặc biệt là trong việc mô tả các chương trình ưu đãi và thông tin về mùa lá vàng đẹp nhất năm. Độ dài compliance không đạt yêu cầu do thiếu đủ thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-27T19:01:20.610132",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T19:02:04.796578",
+      "result_summary": "Observation for step 5 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T19:02:30.636184",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn: Cần thêm thông tin về tăng trưởng khách du lịch và mùa lá vàng đẹp nhất của Hàn Quốc.",
+          "reasoning": "Bước hiện tại chỉ ra rằng output thiếu một số chi tiết quan trọng từ văn bản gốc, đặc biệt là trong việc mô tả các chương trình ưu đãi và thông tin về mùa lá vàng đẹp nhất năm. Độ dài compliance không đạt yêu cầu do thiếu đủ thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "verify",
+      "timestamp": "2026-03-27T19:03:06.971187",
+      "result_summary": "Step 5 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T19:03:51.381633",
+      "result_summary": "Observation for step 5 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T19:04:17.511710",
+      "result_summary": "Decision: retry",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.8,
+          "coverage_completeness": 0.75,
+          "redundancy_score": 0.2,
+          "length_compliance": false,
+          "decision": "retry",
+          "feedback": "Giải thích ngắn gọn: Cần thêm thông tin về tăng trưởng khách du lịch và mùa lá vàng đẹp nhất của Hàn Quốc.",
+          "reasoning": "Bước hiện tại chỉ ra rằng output thiếu một số chi tiết quan trọng từ văn bản gốc, đặc biệt là trong việc mô tả các chương trình ưu đãi và thông tin về mùa lá vàng đẹp nhất năm. Độ dài compliance không đạt yêu cầu do thiếu đủ thông tin."
+        }
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "edit",
+      "timestamp": "2026-03-27T19:04:41.438068",
+      "result_summary": "Step 6 completed"
+    },
+    {
+      "agent": "execution_observation",
+      "action": "analyze_step",
+      "timestamp": "2026-03-27T19:05:19.777640",
+      "result_summary": "Observation for step 6 complete"
+    },
+    {
+      "agent": "execution_reflection",
+      "action": "evaluate_step",
+      "timestamp": "2026-03-27T19:05:41.981609",
+      "result_summary": "Decision: next_step",
+      "details": {
+        "reflection": {
+          "factual_consistency": 0.9,
+          "coverage_completeness": 0.85,
+          "redundancy_score": 0.1,
+          "length_compliance": true,
+          "decision": "next_step",
+          "feedback": "Giải thích ngắn gọn. Nếu retry, chỉ rõ cần sửa thông tin về mùa lá vàng đẹp nhất năm.",
+          "reasoning": "Bước thực thi đạt chất lượng tốt với mức độ trùng lặp thấp và bao quát đủ nội dung chính từ văn bản gốc."
+        }
+      }
+    },
+    {
+      "agent": "manager",
+      "action": "workflow_complete",
+      "timestamp": "2026-03-27T19:05:41.985625",
+      "result_summary": "Hoàn thành toàn bộ workflow"
+    }
+  ],
+  "data_store": {
+    "chunks": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "text": "Theo KTO Việt Nam, 8 tháng năm nay, Hàn Quốc đón 389. 000 lượt khách Việt, tăng 27% so với cùng kỳ năm 2023. Số lượng khách Việt Nam đến Hàn Quốc dự kiến tăng mạnh hơn bởi đất nước này đang bước vào mùa lá vàng đẹp nhất năm. Đại diện KTO khẳng định, Việt Nam là thị trường quan trọng với ngành du lịch Hàn Quốc với nhiều sự kiện tổ chức thành công. Cụ thể, trong năm nay, KTO Việt Nam xúc tiến các chương trình quảng bá, phát triển sản phẩm du lịch Hàn Quốc phù hợp với nhu cầu du khách Việt. Kết quả, nhiều sản phẩm du lịch mới được ra mắt thị trường trong nước như: tour du lịch Hàn Quốc kết hợp giải chạy Marathon tại Gyeongju và Jeju, tour trải nghiệm Esports, tour lễ hội đèn lồng truyền thống Yeondeunghoe hay tour đạp xe đạp đường dài khám phá Hàn Quốc... Chương trình Năm du lịch Hàn Quốc 2023-2024 (Visit Korea Year 2023-2024) do Tổng cục du lịch Hàn Quốc (KTO) triển khai cũng mang đến những hoạt động mới mẻ, quảng bá du lịch Hàn Quốc đến cộng đồng quốc tế. Bên cạnh đó, nhằm mang đến những trải nghiệm chân thực và đậm chất bản địa, KTO tổ chức nhiều famtour. Nổi bật là famtour trải nghiệm Esports cùng các KOL hàng đầu làng thể thao điện tử như: SofM, reviewer Duy Thẩm, Hải Triều, streamer Hà Tiều Phu, BLV Esports nổi tiếng Văn Tùng, Hoàng Luân, kết hợp Box Esports. Làn sóng văn hóa Hallyu cũng được lồng ghép vào sản phẩm du lịch, khi hàng loạt tên tuổi lớn đến Việt Nam trong khuôn khổ sự kiện Korea Travel Festa, tổ chức tháng 5 vừa qua. Mới nhất, KTO Việt Nam có mặt tại Hội chợ Du lịch Quốc tế (ITE) TP HCM, mang theo không gian đặc trưng Hàn Quốc cùng nhiều trải nghiệm mới mẻ, độc đáo. Nắm bắt nhu cầu du lịch Hàn Quốc tăng cao trong mùa cuối năm của du khách Việt, KTO Việt Nam tiếp tục đẩy mạnh các chương trình ưu đãi đặc biệt. Cùng các đối tác, công ty du lịch hàng đầu Việt Nam, KTO góp phần phát triển nhiều tuyến điểm mới trong hành trình du lịch Hàn Quốc, mang đến đa dạng lựa chọn và nhiều trải nghiệm cho khách hàng. Hồi tháng 5, KTO Việt Nam ký kết thỏa thuận hợp tác cùng Tập đoàn Vingroup, nhằm thúc đẩy hơn nữa sự giao lưu, trao đổi du lịch giữa hai nước.",
+        "word_count": 300
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "text": "Theo đó, KTO triển khai chiến dịch hỗ trợ dành riêng cho khách hàng thuộc hệ sinh thái Vingroup khi mua tour du lịch Hàn Quốc từ tháng 10 đến tháng 12 Cụ thể, chủ sở hữu xe Vinfast, cư dân Vinhomes, nhân viên Vingroup) và hội viên Vinclub (gọi chung là Vintizen) sẽ nhận được mức giá ưu đãi đặc biệt từ các công ty du lịch và KTO Việt Nam. Bên cạnh mức giá ưu đãi từ các công ty du lịch, Vintizen có cơ hội áp dụng đồng thời voucher trị giá một triệu đồng mỗi khách hàng, mua tối đa 5 tour du lịch Hàn Quốc để nhận voucher lên đến 5 triệu đồng từ KTO Việt Nam, trong thời gian 1-10/10. Ngoài thời gian trên, du khách mua tour tại các đối tác du lịch sẽ nhận được nhiều phần quà Hàn Quốc từ KTO Việt Nam. Thanh Thư",
+        "word_count": 116
+      }
+    ],
+    "chunk_summaries": [
+      {
+        "chunk_id": 1,
+        "sentence_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình quảng bá du lịch Hàn Quốc tại thị trường này.",
+        "word_count": 28
+      },
+      {
+        "chunk_id": 2,
+        "sentence_ids": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "summary": "Vintizen, gồm chủ sở hữu xe Vinfast, cư dân Vinhomes và nhân viên Vingroup, sẽ được hưởng ưu đãi giá tour du lịch Hàn Quốc từ tháng 10 đến tháng 12 với mức giảm đặc biệt. Đồng thời, họ còn có cơ hội nhận voucher trị giá một triệu đồng mỗi khách hàng, mua tối đa 5 tour để tổng cộng voucher lên tới 5 triệu từ KTO Việt Nam trong khoảng thời gian 1-10/10.",
+        "word_count": 60
+      }
+    ],
+    "merged_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình ưu đãi từ Vintizen, gồm xe Vinfast, cư dân Vinhomes và nhân viên Vingroup, giảm giá tour du lịch từ tháng 10 đến tháng 12. Đồng thời nhận voucher trị giá một triệu đồng mỗi khách hàng, mua tối đa 5 tour để tổng cộng voucher lên tới 5 triệu từ KTO Việt Nam trong khoảng thời gian 1-10/10.",
+    "refined_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình ưu đãi từ KTO Việt Nam gồm xe Vinfast, cư dân Vinhomes và nhân viên Vingroup giảm giá tour du lịch tháng 10-12, voucher trị giá một triệu đồng mỗi khách hàng.",
+    "verification_report": [
+      {
+        "claim_id": 1,
+        "claim_text": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% so với cùng kỳ, chủ yếu do mùa lá vàng đẹp nhất năm và chương trình ưu đãi từ KTO Việt Nam gồm xe Vinfast, cư dân Vinhomes và nhân viên Vingroup giảm giá tour du lịch tháng 10-12, voucher trị giá một triệu đồng mỗi khách hàng.",
+        "status": "fail",
+        "evidence": [],
+        "confidence": 0.8
+      }
+    ],
+    "edited_summary": "Hàn Quốc đón 389.000 lượt khách Việt Nam tăng 27% do mùa lá vàng đẹp và chương trình ưu đãi từ KTO Việt Nam, giảm giá tour tháng 10-12, voucher một triệu đồng mỗi khách hàng."
+  },
+  "stats": {
+    "planner_loop": 0,
+    "planner_observation_loop": 0,
+    "planner_reflection_loop": 0,
+    "execution_loop": 0,
+    "execution_observation_loop": 0,
+    "execution_reflection_loop": 0,
+    "chunks": 0
+  },
+  "input_text": "Theo KTO Việt Nam, 8 tháng năm nay, Hàn Quốc đón 389.000 lượt khách Việt, tăng 27% so với cùng kỳ năm 2023. Số lượng khách Việt Nam đến Hàn Quốc dự kiến tăng mạnh hơn bởi đất nước này đang bước vào mùa lá vàng đẹp nhất năm. Đại diện KTO khẳng định, Việt Nam là thị trường quan trọng với ngành du lịch Hàn Quốc với nhiều sự kiện tổ chức thành công. Cụ thể, trong năm nay, KTO Việt Nam xúc tiến các chương trình quảng bá, phát triển sản phẩm du lịch Hàn Quốc phù hợp với nhu cầu du khách Việt. Kết quả, nhiều sản phẩm du lịch mới được ra mắt thị trường trong nước như: tour du lịch Hàn Quốc kết hợp giải chạy Marathon tại Gyeongju và Jeju, tour trải nghiệm Esports, tour lễ hội đèn lồng truyền thống Yeondeunghoe hay tour đạp xe đạp đường dài khám phá Hàn Quốc... Chương trình Năm du lịch Hàn Quốc 2023-2024 (Visit Korea Year 2023-2024) do Tổng cục du lịch Hàn Quốc (KTO) triển khai cũng mang đến những hoạt động mới mẻ, quảng bá du lịch Hàn Quốc đến cộng đồng quốc tế. Bên cạnh đó, nhằm mang đến những trải nghiệm chân thực và đậm chất bản địa, KTO tổ chức nhiều famtour. Nổi bật là famtour trải nghiệm Esports cùng các KOL hàng đầu làng thể thao điện tử như: SofM, reviewer Duy Thẩm, Hải Triều, streamer Hà Tiều Phu, BLV Esports nổi tiếng Văn Tùng, Hoàng Luân, kết hợp Box Esports. Làn sóng văn hóa Hallyu cũng được lồng ghép vào sản phẩm du lịch, khi hàng loạt tên tuổi lớn đến Việt Nam trong khuôn khổ sự kiện Korea Travel Festa, tổ chức tháng 5 vừa qua. Mới nhất, KTO Việt Nam có mặt tại Hội chợ Du lịch Quốc tế (ITE) TP HCM, mang theo không gian đặc trưng Hàn Quốc cùng nhiều trải nghiệm mới mẻ, độc đáo. Nắm bắt nhu cầu du lịch Hàn Quốc tăng cao trong mùa cuối năm của du khách Việt, KTO Việt Nam tiếp tục đẩy mạnh các chương trình ưu đãi đặc biệt. Cùng các đối tác, công ty du lịch hàng đầu Việt Nam, KTO góp phần phát triển nhiều tuyến điểm mới trong hành trình du lịch Hàn Quốc, mang đến đa dạng lựa chọn và nhiều trải nghiệm cho khách hàng. Hồi tháng 5, KTO Việt Nam ký kết thỏa thuận hợp tác cùng Tập đoàn Vingroup, nhằm thúc đẩy hơn nữa sự giao lưu, trao đổi du lịch giữa hai nước. Theo đó, KTO triển khai chiến dịch hỗ trợ dành riêng cho khách hàng thuộc hệ sinh thái Vingroup khi mua tour du lịch Hàn Quốc từ tháng 10 đến tháng 12 Cụ thể, chủ sở hữu xe Vinfast, cư dân Vinhomes, nhân viên Vingroup) và hội viên Vinclub (gọi chung là Vintizen) sẽ nhận được mức giá ưu đãi đặc biệt từ các công ty du lịch và KTO Việt Nam. Bên cạnh mức giá ưu đãi từ các công ty du lịch, Vintizen có cơ hội áp dụng đồng thời voucher trị giá một triệu đồng mỗi khách hàng, mua tối đa 5 tour du lịch Hàn Quốc để nhận voucher lên đến 5 triệu đồng từ KTO Việt Nam, trong thời gian 1-10/10. Ngoài thời gian trên, du khách mua tour tại các đối tác du lịch sẽ nhận được nhiều phần quà Hàn Quốc từ KTO Việt Nam. Thanh Thư",
+  "last_updated": "2026-03-27T19:04:41.435454"
+}

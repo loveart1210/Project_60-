@@ -1,0 +1,38 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách các đoạn văn thành câu. Dựa trên nội dung của từng câu, tạo ra 3-5 chunks phù hợp.",
+          "tool": "word_tokenize, sent_tokenize, chunk_text",
+          "expected_output": "Mảng chứa danh sách các chunks"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt mỗi chunk bằng LLM",
+          "description": "Dùng summarize_chunk để tóm tắt từng chunk đã tạo. Mỗi bản tóm tắt nên ngắn gọn, khoảng từ 50-70.",
+          "tool": "summarize_chunk",
+          "expected_output": "Mảng chứa danh sách các bản tóm tắt"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp nhiều bản tóm tắt lại thành một summary lớn",
+          "description": "Dùng merge_summaries để gộp tất cả các bản tóm tắt từ bước 2. Kết quả nên là một đoạn văn ngắn gọn, khoảng từ 150-250 từ.",
+          "tool": "merge_summaries",
+          "expected_output": "Một bản summary lớn"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách cho summary lớn",
+          "description": "Dùng refine_summary để tinh chỉnh lại đoạn văn vừa được tạo. Phù hợp với phong cách news_brief.",
+          "tool": "refine_summary",
+          "expected_output": "Một bản summary cuối cùng"
+        }
+      ],
+      "total_steps": 4,
+      "notes": "Lưu ý kiểm chứng mệnh đề của summary lớn bằng verify_claim để đảm bảo không thay đổi thông tin chính."
+    }
+  }
+}

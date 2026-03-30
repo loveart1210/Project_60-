@@ -1,23 +1,23 @@
 {
-  "summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng.",
+  "summary": "Brazil thương hiệu Au Lac IN Dining tái cấu trúc kiến trúc và dịch vụ giữ nét đặc trưng ẩm thực Nam Mỹ, ra đời năm 2003 phục vụ hơn 16 loại thịt và hải sản tẩm ướp độc quyền từ Nam Mỹ với buffet, a-la-carte và BBQ Platter tại vị trí trung tâm Nguyễn Huệ-Pasteur mang phong cách lễ hội Sài Gòn.",
   "style": "news_brief",
-  "word_count": 42,
+  "word_count": 40,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Grouping sentences into chunks",
+      "evidence": "Step 1: Chunking văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
       "action": "chunk_summarize",
       "step_id": "step_2",
-      "evidence": "Step 2: Summarize each chunk with LLM",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -27,7 +27,17 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Merge summaries into one summary",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.9,
+        "coverage_completeness": 0.85
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -37,7 +47,17 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Refine the summary to improve readability and style",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "refine",
+      "step_id": "step_4",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tóm tắt gộp",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -47,10 +67,10 @@
       "agent": "execution",
       "action": "verify",
       "step_id": "step_5",
-      "evidence": "Step 5: Verify the claims in summary against original text",
+      "evidence": "Step 5: Kiểm chứng mệnh đề vs văn bản gốc",
       "reflection_scores": {
-        "factual_consistency": 0.9,
-        "coverage_completeness": 0.85
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -67,8 +87,8 @@
   "verification_report": null,
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ. Ra đời năm 2003 với buffet, a-la-carte, set menu... Thưởng thức 16 loại thịt nướng độc quyền tại trung tâm Nguyễn Huệ-Pasteur, tạo không khí lễ hội sôi động như ở rừng nhiệt đới.",
+    "draft_summary": "Au Lac Do Brazil, thương hiệu Churrasco IN Dining tái cấu trúc kiến trúc và dịch vụ, giữ nét đặc trưng ẩm thực Nam Mỹ. Nhà hàng ra đời năm 2003 phục vụ hơn 16 loại thịt và hải sản tẩm ướp độc quyền từ Nam Mỹ với đa dạng hình thức như buffet, a-la-carte và BBQ Platter tại vị trí trung tâm Nguyễn Huệ-Pasteur mang phong cách lễ hội Sài Gòn.",
     "verification": null,
-    "edited_summary": "Brazil thương hiệu Churrasco tái cấu trúc toàn diện từ kiến trúc đến hương vị và dịch vụ, ra đời năm 2003 với đa dạng hình thức phục vụ như buffet, à-la-carte, set menu. Nhà hàng hiện phục vụ 16 loại thịt nướng độc quyền theo công thức Nam Mỹ tẩm ướp và nướng trực tiếp trên than hồng."
+    "edited_summary": "Brazil thương hiệu Au Lac IN Dining tái cấu trúc kiến trúc và dịch vụ giữ nét đặc trưng ẩm thực Nam Mỹ, ra đời năm 2003 phục vụ hơn 16 loại thịt và hải sản tẩm ướp độc quyền từ Nam Mỹ với buffet, a-la-carte và BBQ Platter tại vị trí trung tâm Nguyễn Huệ-Pasteur mang phong cách lễ hội Sài Gòn."
   }
 }

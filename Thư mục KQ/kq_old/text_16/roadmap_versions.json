@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "roadmap": {
+      "tasks": [
+        {
+          "step_id": "step_1",
+          "name": "Tách văn bản thành câu và nhóm thành chunks",
+          "description": "Tách văn bản gốc tiếng Việt thành các câu bằng word_tokenize, sau đó nhóm những câu liên quan vào một chunk.",
+          "tool": "word_tokenize, chunk_text",
+          "expected_output": "Danh sách chuỗi của từng chunk"
+        },
+        {
+          "step_id": "step_2",
+          "name": "Tóm tắt mỗi chunk bằng LLM",
+          "description": "Đưa từng chunk vào summarize_chunk để tóm tắt thông tin chính.",
+          "tool": "summarize_chunk",
+          "expected_output": "Danh sách bản tóm tắt của từng chunk"
+        },
+        {
+          "step_id": "step_3",
+          "name": "Gộp các bản tóm tắt lại thành một summary tổng thể",
+          "description": "Tổng hợp tất cả những đoạn tóm tắt từ mỗi chunk để tạo ra một bản tóm tắt toàn bộ văn bản.",
+          "tool": "merge_summaries",
+          "expected_output": "Bản tóm tắt cuối cùng của văn bản"
+        },
+        {
+          "step_id": "step_4",
+          "name": "Tinh chỉnh phong cách và độ dài summary tổng thể",
+          "description": "Refine_summary để đảm bảo rằng summary mới có độ dài phù hợp, đồng thời giữ nguyên thông tin chính.",
+          "tool": "refine_summary",
+          "expected_output": "Bản tóm tắt cuối cùng đã được refinement"
+        },
+        {
+          "step_id": "step_5",
+          "name": "Kiểm chứng mệnh đề của summary với văn bản gốc",
+          "description": "Verify_claim để đảm bảo rằng thông tin chính trong summary vẫn đúng và không thay đổi entity.",
+          "tool": "verify_claim",
+          "expected_output": "Bản tóm tắt đã được verify"
+        }
+      ],
+      "total_steps": 5,
+      "notes": "Ghi chú thêm về roadmap nếu cần."
+    }
+  }
+}

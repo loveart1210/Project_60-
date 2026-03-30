@@ -3,63 +3,36 @@
     "step_id": "step_1",
     "status": "completed",
     "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:32:51.305485"
-  },
-  {
-    "step_id": "step_1",
-    "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:34:06.911228"
-  },
-  {
-    "step_id": "step_1",
-    "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:35:22.265012"
+    "timestamp": "2026-03-30T03:52:14.323542"
   },
   {
     "step_id": "step_2",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:36:37.936899"
+    "output_summary": "chunk_summarize",
+    "timestamp": "2026-03-30T03:52:28.744254"
   },
   {
     "step_id": "step_3",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:37:45.137863"
+    "output_summary": "merge",
+    "timestamp": "2026-03-30T03:53:04.185437"
   },
   {
     "step_id": "step_4",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:38:53.225842"
+    "output_summary": "refine",
+    "timestamp": "2026-03-30T03:53:43.841731"
   },
   {
     "step_id": "step_5",
     "status": "completed",
-    "output_summary": "split_sentences",
-    "timestamp": "2026-03-27T22:40:00.484725"
+    "output_summary": "verify",
+    "timestamp": "2026-03-30T03:56:25.080778"
   },
   {
     "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T22:41:08.348190",
-    "error": "No summary available for editing."
-  },
-  {
-    "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T22:41:08.348190",
-    "error": "No summary available for editing."
-  },
-  {
-    "step_id": "step_6",
-    "status": "failed",
-    "output_summary": "No summary available for editing.",
-    "timestamp": "2026-03-27T22:41:08.348190",
-    "error": "No summary available for editing."
+    "status": "completed",
+    "output_summary": "edit",
+    "timestamp": "2026-03-30T03:56:34.523590"
   }
 ]

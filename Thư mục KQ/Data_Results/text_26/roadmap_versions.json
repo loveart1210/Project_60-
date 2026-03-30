@@ -4,42 +4,42 @@
       "tasks": [
         {
           "step_id": "step_1",
-          "name": "Tách văn bản thành câu và nhóm thành chunks",
-          "description": "Dùng word_tokenize để tách từ tiếng Việt, sau đó dùng sent_tokenize để tách câu. Dựa trên nội dung, chia các chunk phù hợp.",
-          "tool": null,
-          "expected_output": "Một danh sách chứa nhiều đoạn văn được phân chia thành chunks hợp lý"
+          "name": "Chunking văn bản gốc",
+          "description": "Nhóm các câu thành chunks dựa trên ngữ nghĩa và cấu trúc.",
+          "tool": "chunk_text",
+          "expected_output": "Danh sách các chunk"
         },
         {
           "step_id": "step_2",
           "name": "Tóm tắt từng chunk bằng LLM",
-          "description": "Dùng summarize_chunk để tóm tắt mỗi chunk. Kết quả sẽ là các bản summary ngắn gọn.",
+          "description": "Gọi API để tóm tắt mỗi chunk thông qua mô hình lớn.",
           "tool": "summarize_chunk",
-          "expected_output": "Một danh sách chứa nhiều đoạn văn được tóm tắt"
+          "expected_output": "Mỗi bản tóm tắt của các chunks"
         },
         {
           "step_id": "step_3",
-          "name": "Gộp tất cả các bản summary lại thành một bản tổng hợp",
-          "description": "Dùng merge_summaries để gộp các bản summary đã tạo ra. Kết quả sẽ là một bài tóm tắt toàn bộ văn bản.",
+          "name": "Gộp nhiều bản tóm tắt lại thành một",
+          "description": "Tổng hợp tất cả những đoạn văn đã được tóm tắt để tạo ra bản tổng kết.",
           "tool": "merge_summaries",
-          "expected_output": "Một đoạn văn ngắn gọn và thông tin đầy đủ về Fleur de Lys Hotel Quy Nhon"
+          "expected_output": "Bản tóm tắt toàn bộ"
         },
         {
           "step_id": "step_4",
-          "name": "Tinh chỉnh phong cách cho tổng hợp tóm tắt",
-          "description": "Dùng refine_summary để tinh chỉnh câu từ, đảm bảo văn bản vẫn giữ nguyên thông tin nhưng có thể diễn giải lại.",
+          "name": "Tinh chỉnh câu từ cho bản tóm tắt gộp",
+          "description": "Refine và điều chỉnh ngữ cảnh của đoạn văn đã tổng hợp.",
           "tool": "refine_summary",
-          "expected_output": "Một đoạn văn ngắn gọn và thông tin đầy đủ về Fleur de Lys Hotel Quy Nhon với phong cách news_brief"
+          "expected_output": "Bản tóm tắt hoàn thiện"
         },
         {
           "step_id": "step_5",
-          "name": "Kiểm chứng bản tóm tắt bằng verify_claim",
-          "description": "Dùng verify_claim để kiểm tra xem thông tin trong đoạn văn tổng hợp có chính xác không so với văn bản gốc.",
+          "name": "Kiểm chứng mệnh đề vs văn bản gốc",
+          "description": "Verify các thông tin chính trong đoạn văn tổng kết với văn bản ban đầu.",
           "tool": "verify_claim",
-          "expected_output": "Một báo cáo về độ chính xác của đoạn văn đã tổng kết"
+          "expected_output": "Danh sách các câu được kiểm chứng"
         }
       ],
       "total_steps": 5,
-      "notes": "Đảm bảo mỗi bước đều được thực hiện một cách cẩn thận để đảm bảo chất lượng cuối cùng."
+      "notes": "Bắt buộc output không quá 20% độ dài input, nên tối đa khoảng 67 từ."
     }
   }
 }

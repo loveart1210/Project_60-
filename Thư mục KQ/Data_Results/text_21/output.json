@@ -1,33 +1,23 @@
 {
-  "summary": "Thủ đô Tokyo tái hiện Sherlock Holmes và Jack the Ripper trong Công viên Immersive Fort Tokyo. Kobe, Hyogo: Thủy cung Suma có hồ cá heo đầu tiên tại Nhật Bản. Shizuoka: Ngắm núi Phú Sĩ với tầm nhìn đẹp; trải nghiệm ryokan truyền thống, geisha địa phương hoặc du lịch nông nghiệp Wasabi.",
+  "summary": "Núi Phú Sĩ và công viên Immersive Fort Tokyo ở Shizuoka, cùng thủy cung Kobe Suma thu hút khách quốc tế; tỉnh Shizuoka với cảnh núi thay đổi theo mùa hấp dẫn du lịch nghỉ dưỡng.",
   "style": "news_brief",
-  "word_count": 38,
+  "word_count": 26,
   "trace": [
     {
       "agent": "execution",
       "action": "chunking",
       "step_id": "step_1",
-      "evidence": "Step 1: Grouping Sentences into Chunks",
+      "evidence": "Step 1: Chia văn bản thành chunks",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
       "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_1",
-      "evidence": "Step 1: Grouping Sentences into Chunks",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "chunking",
-      "step_id": "step_1",
-      "evidence": "Step 1: Grouping Sentences into Chunks",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.8,
         "coverage_completeness": 0.75
@@ -37,7 +27,17 @@
       "agent": "execution",
       "action": "chunk_summarize",
       "step_id": "step_2",
-      "evidence": "Step 2: Summarizing Each Chunk with LLM",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "chunk_summarize",
+      "step_id": "step_2",
+      "evidence": "Step 2: Tóm tắt từng chunk bằng LLM",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -47,7 +47,27 @@
       "agent": "execution",
       "action": "merge",
       "step_id": "step_3",
-      "evidence": "Step 3: Combining Summaries into a Single Summary",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
+      "reflection_scores": {
+        "factual_consistency": 0.8,
+        "coverage_completeness": 0.75
+      }
+    },
+    {
+      "agent": "execution",
+      "action": "merge",
+      "step_id": "step_3",
+      "evidence": "Step 3: Gộp nhiều bản tóm tắt lại thành một",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -57,7 +77,7 @@
       "agent": "execution",
       "action": "refine",
       "step_id": "step_4",
-      "evidence": "Step 4: Refining the Summary for Clarity and Style",
+      "evidence": "Step 4: Tinh chỉnh phong cách cho bản tổng kết",
       "reflection_scores": {
         "factual_consistency": 0.9,
         "coverage_completeness": 0.85
@@ -69,28 +89,8 @@
       "step_id": "step_5",
       "evidence": "Step 5: Kiểm chứng (verification)",
       "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
-      "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng (verification)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
-      }
-    },
-    {
-      "agent": "execution",
-      "action": "verify",
-      "step_id": "step_5",
-      "evidence": "Step 5: Kiểm chứng (verification)",
-      "reflection_scores": {
-        "factual_consistency": 0.8,
-        "coverage_completeness": 0.75
+        "factual_consistency": 1.0,
+        "coverage_completeness": 1.0
       }
     },
     {
@@ -104,11 +104,77 @@
       }
     }
   ],
-  "verification_report": null,
+  "verification_report": [
+    {
+      "claim_id": 1,
+      "claim_text": "Núi Phú Sĩ và công viên Immersive Fort Tokyo ở Shizuoka, cùng thủy cung Kobe Suma thu hút khách quốc tế",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 9,
+          "source_text": "Thủy cung Kobe Suma Thủy cung Kobe Suma nằm ở thành phố Kobe thuộc tỉnh Hyogo."
+        },
+        {
+          "sentence_id": 13,
+          "source_text": "Ngắm núi Phú Sĩ tại tỉnh Shizuoka Núi Phú Sĩ là biểu tượng của Nhật Bản với vẻ đẹp hùng vĩ."
+        }
+      ],
+      "confidence": 0.95
+    },
+    {
+      "claim_id": 2,
+      "claim_text": "tỉnh Shizuoka với tầm nhìn núi thay đổi theo mùa hấp dẫn du lịch nghỉ dưỡng truyền thống",
+      "status": "pass",
+      "evidence": [
+        {
+          "sentence_id": 14,
+          "source_text": "Sự thay đổi thiên nhiên theo mùa tạo nên khung cảnh đỉnh núi phủ vào những tháng lạnh hoặc sườn núi đá vào những tháng có thời tiết ấm áp."
+        },
+        {
+          "sentence_id": 15,
+          "source_text": "Tỉnh Shizuoka, nằm ở miền Trung, là nơi có tầm nhìn đẹp để ngắm trọn ngọn núi."
+        }
+      ],
+      "confidence": 0.9
+    }
+  ],
   "intermediate_outputs": {
     "outline": null,
-    "draft_summary": "Nội dung Tokyo: Công viên giải trí Immersive Fort Tokyo tái hiện Sherlock Holmes và Jack the Ripper. Thủy cung Kobe Suma ở Osaka có hồ cá heo đầu tiên tại Nhật Bản.\n\nShizuoka, miền Trung: Tầm nhìn núi Phú Sĩ thay đổi theo mùa; ryokan truyền thống, trải nghiệm geisha địa phương hoặc du lịch nông nghiệp Wasabi.",
-    "verification": null,
-    "edited_summary": "Thủ đô Tokyo tái hiện Sherlock Holmes và Jack the Ripper trong Công viên Immersive Fort Tokyo. Kobe, Hyogo: Thủy cung Suma có hồ cá heo đầu tiên tại Nhật Bản. Shizuoka: Ngắm núi Phú Sĩ với tầm nhìn đẹp; trải nghiệm ryokan truyền thống, geisha địa phương hoặc du lịch nông nghiệp Wasabi."
+    "draft_summary": "Núi Phú Sĩ và công viên Immersive Fort Tokyo ở Shizuoka, cùng thủy cung Kobe Suma thu hút khách quốc tế; tỉnh Shizuoka với tầm nhìn núi thay đổi theo mùa hấp dẫn du lịch nghỉ dưỡng truyền thống.",
+    "verification": [
+      {
+        "claim_id": 1,
+        "claim_text": "Núi Phú Sĩ và công viên Immersive Fort Tokyo ở Shizuoka, cùng thủy cung Kobe Suma thu hút khách quốc tế",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 9,
+            "source_text": "Thủy cung Kobe Suma Thủy cung Kobe Suma nằm ở thành phố Kobe thuộc tỉnh Hyogo."
+          },
+          {
+            "sentence_id": 13,
+            "source_text": "Ngắm núi Phú Sĩ tại tỉnh Shizuoka Núi Phú Sĩ là biểu tượng của Nhật Bản với vẻ đẹp hùng vĩ."
+          }
+        ],
+        "confidence": 0.95
+      },
+      {
+        "claim_id": 2,
+        "claim_text": "tỉnh Shizuoka với tầm nhìn núi thay đổi theo mùa hấp dẫn du lịch nghỉ dưỡng truyền thống",
+        "status": "pass",
+        "evidence": [
+          {
+            "sentence_id": 14,
+            "source_text": "Sự thay đổi thiên nhiên theo mùa tạo nên khung cảnh đỉnh núi phủ vào những tháng lạnh hoặc sườn núi đá vào những tháng có thời tiết ấm áp."
+          },
+          {
+            "sentence_id": 15,
+            "source_text": "Tỉnh Shizuoka, nằm ở miền Trung, là nơi có tầm nhìn đẹp để ngắm trọn ngọn núi."
+          }
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "edited_summary": "Núi Phú Sĩ và công viên Immersive Fort Tokyo ở Shizuoka, cùng thủy cung Kobe Suma thu hút khách quốc tế; tỉnh Shizuoka với cảnh núi thay đổi theo mùa hấp dẫn du lịch nghỉ dưỡng."
   }
 }
